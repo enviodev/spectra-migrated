@@ -33,7 +33,7 @@ export const getERC20Data = createEffect(
   },
   async ({ input }) => {
     try {
-      const rpcUrl = process.env[`RPC_URL_${input.chainId}`] || process.env.RPC_URL;
+      const rpcUrl = process.env[`ENVIO_RPC_URL_${input.chainId}`] || process.env.RPC_URL;
       if (!rpcUrl) {
         console.warn(`No RPC URL found for chain ${input.chainId}`);
         // Return default values on error

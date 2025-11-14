@@ -29,7 +29,7 @@ export const getCurveFactory = createEffect(
   async ({ input }) => {
     try {
       // Get RPC URL from environment (should be set per chain)
-      const rpcUrl = process.env[`RPC_URL_${input.chainId}`] || process.env.RPC_URL;
+      const rpcUrl = process.env[`ENVIO_RPC_URL_${input.chainId}`] || process.env.RPC_URL;
       if (!rpcUrl) {
         console.warn(`No RPC URL found for chain ${input.chainId}`);
         return ZERO_ADDRESS;

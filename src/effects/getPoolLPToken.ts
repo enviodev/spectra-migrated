@@ -32,7 +32,7 @@ export const getPoolLPToken = createEffect(
         return input.poolAddress;
       }
 
-      const rpcUrl = process.env[`RPC_URL_${input.chainId}`] || process.env.RPC_URL;
+      const rpcUrl = process.env[`ENVIO_RPC_URL_${input.chainId}`] || process.env.RPC_URL;
       if (!rpcUrl) {
         console.warn(`No RPC URL found for chain ${input.chainId}`);
         return ZERO_ADDRESS;
