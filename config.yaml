@@ -1,0 +1,566 @@
+# yaml-language-server: $schema=./node_modules/envio/evm.schema.json
+name: spectra-indexer
+
+contracts:
+  - name: Registry
+    handler: src/EventHandlers.ts
+    events:
+      - event: FactoryChange(address indexed previousFactory, address indexed newFactory)
+
+  - name: MetavaultsRegistry
+    handler: src/EventHandlers.ts
+    events:
+      - event: MetavaultRegistered(address indexed metavault)
+      - event: MetavaultUnregistered(address indexed metavault)
+      - event: ChainRegistered(address indexed metavault, uint256 indexed chainId, address indexed remoteMetavaultAddress)
+      - event: ChainUnregistered(address indexed metavault, uint256 indexed chainId, address indexed remoteMetavaultAddress)
+      - event: MarketRegistered(address indexed metavault, address indexed market)
+      - event: MarketUnregistered(address indexed metavault, address indexed market)
+
+  - name: SpectraWrapper
+    handler: src/EventHandlers.ts
+    events:
+      - event: AuthorityUpdated(address authority)
+
+  - name: Metavault
+    handler: src/EventHandlers.ts
+    events:
+      - event: MetaVaultWrapperInitialized(address indexed owner, address indexed infraVault, address indexed wrapper)
+      - event: DepositRequest(address indexed controller, address indexed owner, uint256 indexed requestId, address sender, uint256 assets)
+      - event: DecreaseDepositRequest(uint256 indexed epochId, address indexed owner, uint256 indexed previousRequestedAssets, uint256 newRequestedAssets)
+      - event: RedeemRequest(address indexed controller, address indexed owner, uint256 indexed requestId, address sender, uint256 shares)
+      - event: DecreaseRedeemRequest(uint256 indexed epochId, address indexed owner, uint256 indexed previousRequestedShares, uint256 newRequestedShares)
+      - event: Deposit(address indexed sender, address indexed owner, uint256 assets, uint256 shares)
+      - event: Withdraw(address indexed sender, address indexed receiver, address indexed owner, uint256 assets, uint256 shares)
+
+  - name: LimitOrderEngine
+    handler: src/EventHandlers.ts
+    events:
+      - event: OrderFilled(bytes32 orderHash, uint256 actualMaking)
+      - event: OrderCanceled(address maker, bytes32 orderHash)
+      - event: NonceIncreased(address indexed maker, uint256 oldNonce, uint256 newNonce)
+      - event: AuthorityUpdated(address authority)
+      - event: FeeRecipientUpdated(address indexed newFeeRecipient)
+      - event: RouterUpdated(address indexed newRouter)
+      - event: Paused(address account)
+      - event: Unpaused(address account)
+
+  - name: AccessManager
+    handler: src/EventHandlers.ts
+    events:
+      - event: RoleGranted(uint64 indexed roleId, address indexed account, uint32 delay, uint48 since, bool newMember)
+        field_selection:
+          transaction_fields:
+            - hash
+      - event: RoleRevoked(uint64 indexed roleId, address indexed account)
+        field_selection:
+          transaction_fields:
+            - hash
+      - event: RoleAdminChanged(uint64 indexed roleId, uint64 indexed admin)
+        field_selection:
+          transaction_fields:
+            - hash
+      - event: RoleGuardianChanged(uint64 indexed roleId, uint64 indexed guardian)
+        field_selection:
+          transaction_fields:
+            - hash
+      - event: RoleGrantDelayChanged(uint64 indexed roleId, uint32 delay, uint48 since)
+        field_selection:
+          transaction_fields:
+            - hash
+      - event: TargetAdminDelayUpdated(address indexed target, uint32 delay, uint48 since)
+        field_selection:
+          transaction_fields:
+            - hash
+      - event: TargetClosed(address indexed target, bool closed)
+        field_selection:
+          transaction_fields:
+            - hash
+      - event: TargetFunctionRoleUpdated(address indexed target, bytes4 selector, uint64 indexed roleId)
+        field_selection:
+          transaction_fields:
+            - hash
+      - event: OperationScheduled(bytes32 indexed operationId, uint32 indexed nonce, uint48 schedule, address caller, address target, bytes data)
+        field_selection:
+          transaction_fields:
+            - hash
+      - event: OperationExecuted(bytes32 indexed operationId, uint32 indexed nonce)
+        field_selection:
+          transaction_fields:
+            - hash
+      - event: OperationCanceled(bytes32 indexed operationId, uint32 indexed nonce)
+        field_selection:
+          transaction_fields:
+            - hash
+      - event: RoleLabel(uint64 indexed roleId, string label)
+        field_selection:
+          transaction_fields:
+            - hash
+
+  - name: Factory
+    handler: src/EventHandlers.ts
+    events:
+      - event: PTDeployed(address indexed pt, address indexed poolCreator)
+      - event: CurvePoolDeployed(address indexed poolAddress, address indexed ibt, address indexed pt)
+      - event: RegistryChange(address indexed previousRegistry, address indexed newRegistry)
+      - event: CurveFactoryChange(address indexed previousFactory, address indexed newFactory)
+
+  - name: ERC20
+    handler: src/EventHandlers.ts
+    events:
+      - event: Transfer(address indexed from, address indexed to, uint256 value)
+        field_selection:
+          transaction_fields:
+            - hash
+            - gasPrice
+          block_fields:
+            - gasUsed
+
+  - name: IBT
+    handler: src/EventHandlers.ts
+    events:
+      - event: Transfer(address indexed from, address indexed to, uint256 value)
+
+  - name: PrincipalToken
+    handler: src/EventHandlers.ts
+    events:
+      - event: Paused(address account)
+      - event: Unpaused(address account)
+      - event: FeeClaimed(address indexed user, uint256 indexed redeemedIbts, uint256 indexed receivedAssets)
+      - event: YieldClaimed(address indexed owner, address indexed receiver, uint256 indexed yieldInIBT)
+      - event: YieldUpdated(address indexed user, uint256 indexed amount)
+      - event: Transfer(address indexed from, address indexed to, uint256 value)
+      - event: Mint(address indexed from, address indexed to, uint256 amount)
+        field_selection:
+          transaction_fields:
+            - hash
+            - gasPrice
+          block_fields:
+            - gasUsed
+      - event: Redeem(address indexed from, address indexed to, uint256 amount)
+        field_selection:
+          transaction_fields:
+            - hash
+            - gasPrice
+          block_fields:
+            - gasUsed
+
+  - name: CurvePool
+    handler: src/EventHandlers.ts
+    events:
+      # AddLiquidity
+      - event: AddLiquidity(address indexed provider, uint256[2] token_amounts, uint256 fee, uint256 token_supply)
+        field_selection:
+          transaction_fields:
+            - hash
+            - from
+            - gasPrice
+          block_fields:
+            - gasUsed
+      - event: AddLiquidity(address indexed provider, uint256[2] token_amounts, uint256 fee, uint256 token_supply, uint256 packed_price_scale)
+        name: AddLiquidityNG
+        field_selection:
+          transaction_fields:
+            - hash
+            - from
+            - gasPrice
+          block_fields:
+            - gasUsed
+      - event: AddLiquidity(address indexed provider, uint256[] token_amounts, uint256[] fees, uint256 invariant, uint256 token_supply)
+        name: AddLiquiditySNG
+        field_selection:
+          transaction_fields:
+            - hash
+            - from
+            - gasPrice
+          block_fields:
+            - gasUsed
+      # RemoveLiquidity
+      - event: RemoveLiquidity(address indexed provider, uint256[2] token_amounts, uint256 token_supply)
+        field_selection:
+          transaction_fields:
+            - hash
+            - from
+            - gasPrice
+          block_fields:
+            - gasUsed
+      - event: RemoveLiquidity(address indexed provider, uint256[] token_amounts, uint256[] fees, uint256 token_supply)
+        name: RemoveLiquiditySNG
+        field_selection:
+          transaction_fields:
+            - hash
+            - gasPrice
+          block_fields:
+            - gasUsed
+      # RemoveLiquidityOne
+      - event: RemoveLiquidityOne(address indexed provider, uint256 token_amount, uint256 coin_index, uint256 coin_amount)
+        field_selection:
+          transaction_fields:
+            - hash
+            - from
+            - gasPrice
+          block_fields:
+            - gasUsed
+      - event: RemoveLiquidityOne(address indexed provider, uint256 token_amount, uint256 coin_index, uint256 coin_amount, uint256 approx_fee, uint256 packed_price_scale)
+        name: RemoveLiquidityOneNG
+        field_selection:
+          transaction_fields:
+            - hash
+            - from
+            - gasPrice
+          block_fields:
+            - gasUsed
+      - event: RemoveLiquidityOne(address indexed provider, int128 token_id, uint256 token_amount, uint256 coin_amount, uint256 token_supply)
+        name: RemoveLiquidityOneSNG
+        field_selection:
+          transaction_fields:
+            - hash
+            - gasPrice
+          block_fields:
+            - gasUsed
+      # RemoveLiquidityImbalance
+      - event: RemoveLiquidityImbalance(address indexed provider, uint256[] token_amounts, uint256[] fees, uint256 invariant, uint256 token_supply)
+        name: RemoveLiquidityImbalanceSNG
+        field_selection:
+          transaction_fields:
+            - hash
+            - from
+            - gasPrice
+          block_fields:
+            - gasUsed
+      # TokenExchange
+      - event: TokenExchange(address indexed buyer, uint256 sold_id, uint256 tokens_sold, uint256 bought_id, uint256 tokens_bought)
+        field_selection:
+          transaction_fields:
+            - hash
+            - from
+            - gasPrice
+          block_fields:
+            - gasUsed
+      - event: TokenExchange(address indexed buyer, uint256 sold_id, uint256 tokens_sold, uint256 bought_id, uint256 tokens_bought, uint256 fee, uint256 packed_price_scale)
+        name: TokenExchangeNG
+        field_selection:
+          transaction_fields:
+            - hash
+            - from
+            - gasPrice
+          block_fields:
+            - gasUsed
+      - event: TokenExchange(address indexed buyer, int128 sold_id, uint256 tokens_sold, int128 bought_id, uint256 tokens_bought)
+        name: TokenExchangeSNG
+        field_selection:
+          transaction_fields:
+            - hash
+            - from
+            - gasPrice
+          block_fields:
+            - gasUsed
+      # ClaimAdminFee
+      - event: ClaimAdminFee(address indexed admin, uint256 tokens)
+      - event: ClaimAdminFee(address indexed admin, uint256[2] tokens)
+        name: ClaimAdminFeeNG
+      # NewParameters
+      - event: CommitNewParameters(uint256 indexed deadline, uint256 admin_fee, uint256 mid_fee, uint256 out_fee, uint256 fee_gamma, uint256 allowed_extra_profit, uint256 adjustment_step, uint256 ma_half_time)
+      - event: NewParameters(uint256 admin_fee, uint256 mid_fee, uint256 out_fee, uint256 fee_gamma, uint256 allowed_extra_profit, uint256 adjustment_step, uint256 ma_half_time)
+        name: NewParameters
+      - event: NewParameters(uint256 mid_fee, uint256 out_fee, uint256 fee_gamma, uint256 allowed_extra_profit, uint256 adjustment_step, uint256 ma_time)
+        name: NewParametersNG
+
+  - name: NonceManager
+    handler: src/EventHandlers.ts
+    events:
+      - event: NonceIncreased(address indexed maker, uint256 oldNonce, uint256 newNonce)
+
+  - name: MetavaultWrapper
+    handler: src/EventHandlers.ts
+    events:
+      - event: DepositRequest(address indexed controller, address indexed owner, uint256 indexed requestId, address sender, uint256 assets)
+      - event: DecreaseDepositRequest(uint256 indexed epochId, address indexed owner, uint256 indexed previousRequestedAssets, uint256 newRequestedAssets)
+      - event: RedeemRequest(address indexed controller, address indexed owner, uint256 indexed requestId, address sender, uint256 shares)
+      - event: DecreaseRedeemRequest(uint256 indexed epochId, address indexed owner, uint256 indexed previousRequestedShares, uint256 newRequestedShares)
+      - event: Deposit(address indexed sender, address indexed owner, uint256 assets, uint256 shares)
+      - event: Withdraw(address indexed sender, address indexed receiver, address indexed owner, uint256 assets, uint256 shares)
+      - event: Transfer(address indexed from, address indexed to, uint256 value)
+        field_selection:
+          transaction_fields:
+            - hash
+            - gasPrice
+          block_fields:
+            - gasUsed
+
+  - name: AmphorAsyncVault
+    handler: src/EventHandlers.ts
+    events:
+      - event: EpochStart(uint256 indexed timestamp, uint256 lastSavedBalance, uint256 totalShares)
+
+networks:
+  # Mainnet
+  - id: 1
+    start_block: 19727256
+    contracts:
+      - name: Registry
+        address: 0x4973b53b300d64ab72147EFF8C9d962f6b1dA02e
+      - name: AccessManager
+        address: 0x7EA3097E2AF59eA705398544e0f58EdDb7bd1852
+      # Factory is registered dynamically via Registry.FactoryChange.contractRegister
+      # No need to list it here with fixed address - it will be registered when FactoryChange event occurs
+      - name: Factory
+      - name: PrincipalToken
+      # ERC20 is registered dynamically via contractRegister calls (PT, YT, LP, wrappers)
+      - name: ERC20
+      - name: IBT
+      - name: CurvePool
+      - name: Metavault
+      # # SpectraWrapper is registered dynamically via SpectraWrapper.AuthorityUpdated.contractRegister
+      # # No need to list it here with fixed address - it will be registered when AuthorityUpdated event occurs
+      - name: SpectraWrapper
+      - name: MetavaultWrapper
+      - name: AmphorAsyncVault
+
+  # # Sepolia
+  # - id: 11155111
+  #   start_block: 5609300
+  #   contracts:
+  #     - name: Registry
+  #       address: "0xa2E793Bac100975c8cf84B2Bb72d8c9a26f03bAB"
+  #     # Factory is registered dynamically via Registry.FactoryChange.contractRegister
+  #     - name: Factory
+  #     - name: PrincipalToken
+  #     # ERC20 is registered dynamically via contractRegister calls (PT, YT, LP, wrappers)
+  #     - name: ERC20
+  #     - name: IBT
+  #     - name: CurvePool
+  #     - name: CurvePoolNG
+  #     - name: CurvePoolSNG
+  #     - name: Metavault
+  #     - name: SpectraWrapper
+  #     - name: MetavaultWrapper
+  #     - name: AmphorAsyncVault
+
+  # Arbitrum
+  - id: 42161
+    start_block: 204418891
+    contracts:
+      - name: Registry
+        address: 0x786Da12e9836a9ff9b7d92e8bac1C849e2ACe378
+      - name: AccessManager
+        address: 0x4973b53b300d64ab72147EFF8C9d962f6b1dA02e
+      - name: MetavaultsRegistry
+        address: 0x2154A519D08Bfd3F6E0303Fd3AC0511c58424bbE
+      - name: Factory
+      - name: PrincipalToken
+      # ERC20 is registered dynamically via contractRegister calls (PT, YT, LP, wrappers)
+      - name: ERC20
+      - name: IBT
+      - name: CurvePool
+      # # - name: CurvePoolNG
+      # # - name: CurvePoolSNG
+      - name: Metavault
+      # # SpectraWrapper is registered dynamically via SpectraWrapper.AuthorityUpdated.contractRegister
+      - name: SpectraWrapper
+      - name: MetavaultWrapper
+      - name: AmphorAsyncVault
+
+  # Base
+  - id: 8453
+    start_block: 16537641
+    contracts:
+      - name: Registry
+        address: 0x786Da12e9836a9ff9b7d92e8bac1C849e2ACe378
+      - name: AccessManager
+        address: 0x4973b53b300d64ab72147EFF8C9d962f6b1dA02e
+      - name: MetavaultsRegistry
+        address: 0x07766e55057e34A35b32Ce8425e0395eA2dBbf39
+      - name: Factory
+      - name: PrincipalToken
+      - name: ERC20
+      - name: IBT
+      - name: CurvePool
+      - name: Metavault
+      - name: SpectraWrapper
+      - name: MetavaultWrapper
+      - name: AmphorAsyncVault
+
+  # Optimism
+  - id: 10
+    start_block: 122130500
+    contracts:
+      - name: Registry
+        address: 0x0458c078fCf527DA293Ec9e813a0DcAF9F949EB1
+      - name: AccessManager
+        address: 0x786Da12e9836a9ff9b7d92e8bac1C849e2ACe378
+      - name: Factory
+      - name: PrincipalToken
+      - name: ERC20
+      - name: IBT
+      - name: CurvePool
+      - name: Metavault
+      - name: SpectraWrapper
+      - name: MetavaultWrapper
+      - name: AmphorAsyncVault
+
+  # Avalanche
+  - id: 43114
+    start_block: 62814000
+    contracts:
+      - name: Registry
+        address: 0x786Da12e9836a9ff9b7d92e8bac1C849e2ACe378
+      - name: AccessManager
+        address: 0x4973b53b300d64ab72147EFF8C9d962f6b1dA02e
+      - name: Factory
+      - name: PrincipalToken
+      - name: ERC20
+      - name: IBT
+      - name: CurvePool
+      - name: Metavault
+      - name: SpectraWrapper
+      - name: MetavaultWrapper
+      - name: AmphorAsyncVault
+
+  # BSC
+  - id: 56
+    start_block: 50411000
+    contracts:
+      - name: Registry
+        address: 0x786Da12e9836a9ff9b7d92e8bac1C849e2ACe378
+      - name: AccessManager
+        address: 0x4973b53b300d64ab72147EFF8C9d962f6b1dA02e
+      - name: Factory
+      - name: PrincipalToken
+      - name: ERC20
+      - name: IBT
+      - name: CurvePool
+      - name: Metavault
+      - name: SpectraWrapper
+      - name: MetavaultWrapper
+      - name: AmphorAsyncVault
+
+  # Sonic
+  - id: 146
+    start_block: 1856000
+    contracts:
+      - name: Registry
+        address: 0xcb671f588c85E1403ecB9B4f6dA0dff0d1e9D3FB
+      - name: AccessManager
+        address: 0x8f2cE1f5B4811b97b3AD3c8721F0A4676002c3B8
+      - name: Factory
+      - name: PrincipalToken
+      - name: ERC20
+      - name: IBT
+      - name: CurvePool
+      - name: Metavault
+      - name: SpectraWrapper
+      - name: MetavaultWrapper
+      - name: AmphorAsyncVault
+
+  # # Hemi
+  # - id: 43111
+  #   rpc_config:
+  #     url: https://rpc.hemi.network/rpc
+  #   start_block: 1289400
+  #   contracts:
+  #     - name: Registry
+  #       address: 0x786Da12e9836a9ff9b7d92e8bac1C849e2ACe378
+  #     - name: AccessManager
+  #       address: 0x4973b53b300d64ab72147EFF8C9d962f6b1dA02e
+  #     - name: Factory
+  #     - name: PrincipalToken
+  #     - name: ERC20
+  #     - name: IBT
+  #     - name: CurvePool
+  #     - name: Metavault
+  #     - name: SpectraWrapper
+  #     - name: MetavaultWrapper
+  #     - name: AmphorAsyncVault
+
+  # HyperEVM
+  # - id: 999
+  #   start_block: 6375000
+  #   contracts:
+  #     - name: Registry
+  #       address: 0xba4f8ef69d6d5cb48efb9149bf33ea43d6b66ccd
+  #     - name: AccessManager
+  #       address: 0x071350a9ee4d153c272fc75ea9557372eb6ce0a0
+  #     - name: Factory
+  #     - name: PrincipalToken
+  #     - name: ERC20
+  #     - name: IBT
+  #     - name: CurvePool
+  #     - name: Metavault
+  #     - name: SpectraWrapper
+  #     - name: MetavaultWrapper
+  #     - name: AmphorAsyncVault
+
+  #   # # Katana
+  # - id: 747474
+  #   rpc_config:
+  #     # TODO: Verify this RPC endpoint from ChainList: https://chainlist.org/?testnets=true
+  #     # Search for chain ID 747474 and use the actual RPC URL listed there
+  #     url: https://katana-mainnet.public.blastapi.io  # VERIFY: Get actual RPC from ChainList
+  #   start_block: 4715200
+  #   contracts:
+  #     - name: Registry
+  #       address: "0x09176eacaa413cc0722aa5ad716820e8f19682b7"
+  #     - name: AccessManager
+  #       address: "0x5291af3124a7be15f4c1a3fe22548e7ba8c16653"
+  #     - name: SpectraWrapper
+  #       address: "0xb77f1a8cb126d8567f226f990f84e2f698cc30f8"
+  #     - name: Factory
+  #     - name: PrincipalToken
+  #     - name: ERC20
+  #     - name: IBT
+  #     - name: CurvePool
+  #     - name: CurvePoolNG
+  #     - name: CurvePoolSNG
+  #     - name: Metavault
+  #     - name: SpectraWrapper
+  #     - name: MetavaultWrapper
+  #     - name: AmphorAsyncVault
+
+  #   # # Flare
+  # - id: 14
+  #   start_block: 46466732
+  #   contracts:
+  #     - name: Registry
+  #       address: "0x3da466f5be8024405a366538ed7949b4ce9f015d"
+  #     - name: AccessManager
+  #       address: "0xe644cfe77df63d08d4fb52c2508c9784e8baa3d7"
+  #     - name: SpectraWrapper
+  #       address: "0x5390d7c6b8139ae9d255ed9e7ae6274e18032abe"
+  #     - name: Factory
+  #     - name: PrincipalToken
+  #     - name: ERC20
+  #     - name: IBT
+  #     - name: CurvePool
+  #     - name: CurvePoolNG
+  #     - name: CurvePoolSNG
+  #     - name: Metavault
+  #     - name: SpectraWrapper
+  #     - name: MetavaultWrapper
+  #     - name: AmphorAsyncVault
+
+  #   # # Goerli
+  # - id: 5
+  #   rpc_config:
+  #     # TODO: Verify this RPC endpoint from ChainList: https://chainlist.org/?testnets=true
+  #     # Search for chain ID 5 (Goerli) and use the actual RPC URL listed there
+  #     url: https://rpc.ankr.com/eth_goerli  # VERIFY: Get actual RPC from ChainList
+  #   start_block: 8849329
+  #   contracts:
+  #     - name: Registry
+  #       address: "0xd06873A2ce9bF0884FDDE4ecDBA9d953468D7C86"
+  #     - name: Factory
+  #     - name: PrincipalToken
+  #     - name: ERC20
+  #     - name: IBT
+  #     - name: CurvePool
+  #     - name: CurvePoolNG
+  #     - name: CurvePoolSNG
+  #     - name: Metavault
+  #     - name: SpectraWrapper
+  #     - name: MetavaultWrapper
+  #     - name: AmphorAsyncVault
+
+unordered_multichain_mode: true
+preload_handlers: true
+address_format: lowercase

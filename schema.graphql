@@ -1,0 +1,682 @@
+####################
+# Init
+####################
+
+# Minimal entities for dynamic contract registration
+# These don't store data - they just enable contract tracking
+type ERC20 {
+  id: ID! # Contract address
+}
+
+type IBT {
+  id: ID! # Contract address
+}
+
+####################
+# Enums
+####################
+
+enum AssetType {
+  UNDERLYING
+  IBT
+  PT
+  YT
+  FYT
+  LP
+  MV_SHARES
+  MV_REQUEST_DEPOSIT
+  MV_REQUEST_REDEEM
+  YIELD
+  CLAIMED_YIELD
+  WRAPPER
+  UNKNOWN
+}
+
+enum TransactionType {
+  FUTURE_VAULT_DEPOSIT
+  FUTURE_VAULT_WITHDRAW
+  AMM_ADD_LIQUIDITY
+  AMM_REMOVE_LIQUIDITY
+  # if only one coin has been withdrawn
+  AMM_REMOVE_LIQUIDITY_ONE
+  AMM_EXCHANGE
+  LP_VAULT_UNDERLYING_DEPOSIT
+  LP_VAULT_IBT_DEPOSIT
+  LP_VAULT_WITHDRAW
+  LP_VAULT_REDEEM
+}
+
+enum AMM {
+  CURVE
+  UNISWAP_V3
+  UNKNOWN
+}
+
+enum PriceSource {
+  CHAINLINK
+  REDSTONE
+}
+
+enum FutureState {
+  ACTIVE
+  PAUSED
+  EXPIRED
+}
+
+####################
+# High level detail entities
+####################
+
+"Platform entity to define IBT/FutureVault platform" # possibility to add new platforms without subgraph update)
+type Platform {
+  id: ID!
+  createdAtTimestamp: BigInt!
+  name: String!
+  infoUrl: String!
+}
+
+"FYTTokenDetails entity to define token details in case it is a FYT token"
+type FYTTokenDetails {
+  id: ID!
+  createdAtTimestamp: BigInt!
+  expirationAtTimestamp: BigInt!
+
+  generatedYield: BigDecimal
+  generatedYieldValue: BigDecimal
+}
+
+"LPTokenDetails entity to define token details in case it is a LP token"
+type LPTokenDetails {
+  id: ID!
+  createdAtTimestamp: BigInt!
+
+  totalSupply: BigInt!
+
+  tokens: [Asset!]! @derivedFrom(field: "lpTokenDetails")
+}
+
+"ValueInTime entity to connect a value with time for history purpose"
+type ValueInTime {
+  id: ID!
+  timestamp: BigInt!
+  value: BigInt!
+}
+
+####################
+# Factory
+####################
+
+type Factory {
+  id: ID!
+  address: String!
+  createdAtTimestamp: BigInt!
+
+  oldFactory: String
+  oldRegistry: String
+  registry: String
+  curveFactory: String
+
+  deployedFutures: [Future!]! @derivedFrom(field: "factory")
+  deployedPools: [Pool!]! @derivedFrom(field: "factory")
+}
+
+####################
+# Assets and prices
+####################
+
+"Asset entity to index all kind of details of an asset stored in the subgraph"
+type Asset {
+  id: ID!
+  chainId: Int!
+  address: String!
+  createdAtTimestamp: BigInt!
+  name: String!
+  symbol: String!
+  decimals: Int!
+  price: AssetPrice
+  assetType: AssetType!
+
+  "on of the price feeds"
+  chainlinkPriceFeed: ChainlinkAggregatorProxy
+
+  "for PT/YT/LP/YIELD assets"
+  futureVault: Future
+
+  "in the case the asset is an IBT we create relation between this IBT and its underlying asset"
+  underlying: Asset
+  "in case the asset is a CLAIMED_YIELD we create relation between this CLAIMED_YIELD and its native IBT"
+  ibt: Asset
+  fytTokenDetails: FYTTokenDetails
+  lpTokenDetails: LPTokenDetails
+  "in case the AssetType is IBT we give the IBT Rates"
+  lastIBTRate: BigDecimal
+  "IBT to underlying asset as returned by convertToAssets(UNIT). The number is in underlying asset decimals"
+  convertToAssetsUnit: BigInt
+  lastUpdateTimestamp: BigInt
+}
+
+"AssetPrice entity to assign a price of a token to an Asset entity and its price source"
+type AssetPrice {
+  id: ID!
+  createdAtTimestamp: BigInt!
+  value: BigDecimal!
+  source: PriceSource
+  asset: Asset!
+}
+
+"AssetAmount entity to assign an amount of token (in a transaction for instance) to its dollar value and exact asset"
+type AssetAmount {
+  id: ID!
+  createdAtTimestamp: BigInt!
+  amount: BigInt!
+  asset: Asset!
+  transactionIn: Transaction
+  transactionOut: Transaction
+}
+
+"AccountAsset entity to assign and update account's assets balances"
+type AccountAsset {
+  id: ID!
+  createdAtTimestamp: BigInt!
+  balance: BigInt!
+
+  "relation to the asset details"
+  asset: Asset!
+
+  "relation to the account details"
+  account: Account!
+
+  "if lp position"
+  pool: Pool
+
+  "YT position"
+  principalToken: Future
+  "if YT position generating yield or current yield > 0"
+  generatedYield: Boolean
+  epochId: BigInt
+  #    fytTokenDetails: FYTTokenDetails
+}
+
+"ChainlinkAggregatorProxy entity to save information about Chainlink aggregator, mapper should use to fetch the price of an asset"
+type ChainlinkAggregatorProxy {
+  id: ID!
+  "aggregator address"
+  aggregator: String!
+  asset: Asset!
+}
+
+####################
+# Futures
+####################
+
+"Future entity to index all the future's stats as well as its transactions, managers and other relations"
+type Future {
+  id: ID!
+  chainId: Int!
+  address: String!
+  createdAtTimestamp: BigInt!
+  createdAtBlock: BigInt!
+  expirationAtTimestamp: BigInt!
+  symbol: String!
+  name: String!
+
+  factory: Factory
+
+  unclaimedFees: BigInt!
+  "sum of the collected fees"
+  totalCollectedFees: BigInt!
+  "list of all the claims with the details"
+  feeClaims: [FeeClaim!]! @derivedFrom(field: "future")
+
+  "sum of the assets (IBTs) allocated into future"
+  totalAssets: BigInt!
+
+  state: FutureState!
+  underlyingAsset: Asset!
+  ibtAsset: Asset!
+
+  pools: [Pool!]! @derivedFrom(field: "futureVault")
+
+  transactions: [Transaction!]! @derivedFrom(field: "futureInTransaction")
+  futureDailyStats: [FutureDailyStats!]! @derivedFrom(field: "future")
+
+  "YT asset with balance > 0 or current yield > 0"
+  yieldGenerators: [AccountAsset!]! @derivedFrom(field: "principalToken")
+  ytAsset: Asset!
+}
+
+"FeeClaim entity to list claims triggered on an future by a account"
+type FeeClaim {
+  id: ID!
+  createdAtTimestamp: BigInt!
+  amount: BigInt!
+  ibtAmount: BigInt!
+  ptAmount: BigInt!
+
+  "claimant of the fee"
+  feeCollector: Account!
+  "future that collector claimed the fee from"
+  future: Future
+  "pool that collector claimed the fees from"
+  pool: Pool
+}
+
+"The daily data of the future vault"
+type FutureDailyStats {
+  id: ID! # future address and timestamp rounded to current day by dividing by 86400
+  future: Future! # future address
+  date: Int! # future address and timestamp rounded to current day by dividing by 86400
+  dailyDeposits: BigInt! # total deposits in the day (the unit is a count of transactions)
+  dailyWithdrawals: BigInt! # total withdrawals in the day (the unit is a count of transactions)
+  dailySwaps: BigInt! # total swaps in the day in the AMM (the unit is a count of transactions)
+  dailyAddLiquidity: BigInt! # total add liquidity in the day in the AMM (the unit is a count of transactions)
+  dailyRemoveLiquidity: BigInt! # total remove liquidity in the day in the AMM (the unit is a count of transactions)
+  dailyUpdates: BigInt! # total updates of the FutureDailyStats. This is used to compute the IBT rate as an incremental average (the unit is a count of transactions)
+  ibtRateMA: BigInt! # The average rate of the IBT token for the day
+  lastIBTRate: BigInt! # The last rate of the IBT token for the day
+  lastPTRate: BigInt! # The last rate of the PT token for the day
+  realizedAPR7D: BigDecimal! # The realized APR (in % i.e: realizedAPR7D = 1 <==> APR = 100%) of the IBT token over the last 7 days
+  realizedAPR30D: BigDecimal! # The realized APR of the IBT token over the last 30 days
+  realizedAPR90D: BigDecimal! # The realized APR of the IBT token over the last 90 days
+}
+
+"The daily/hourly data of the pool"
+type PoolStats {
+  id: ID! # pool address and timestamp rounded to current day or hour by dividing by 86400 or 3600
+  pool: Pool! # pool address
+  timestamp: Int! # future address and timestamp rounded to current day by dividing by 86400
+  span: Int! # length of the time period (e.g. 3600 for hourly, 86400 for daily)
+  deposits: BigInt! # total deposits per data point (the unit is a count of transactions)
+  withdrawals: BigInt! # total deposits per data point (the unit is a count of transactions)
+  buys: BigInt! # total buys per data point (the unit is a count of transactions)
+  sells: BigInt! # total sells per data point (the unit is a count of transactions)
+  depositVolume: BigInt! # total value (in underlying) of deposits per data point
+  withdrawVolume: BigInt! # total value (in underlying) of withdrawals per data point
+  buyVolume: BigInt! # total value (in underlying) of buys per data point
+  sellVolume: BigInt! # total value (in underlying) of sells per data point
+  feeUnderlying: BigInt! # total fees (in underlying) collected per data point
+  feeRatio: BigInt! # total fees (in underlying) divided by total liquidity
+  createdAtTimestamp: BigInt! # timestamp of the data point creation
+  lastUpdatedAtTimestamp: BigInt! # timestamp of the last update of the data point
+  lastUpdatedAtBlock: BigInt! # block of the last update of the data point
+  spotPrice: BigInt!
+  ptRate: BigInt!
+  ibtRate: BigInt!
+  baseAPY: BigDecimal!
+  exponentAPY: BigDecimal!
+  ibtToPt: BigInt!
+  ptToIbt: BigInt!
+}
+
+####################
+# Account
+####################
+
+type Account {
+  id: ID!
+  address: String!
+  createdAtTimestamp: BigInt!
+
+  transactions: [Transaction!]! @derivedFrom(field: "userInTransaction")
+  portfolio: [AccountAsset!]! @derivedFrom(field: "account")
+}
+
+####################
+# Transaction
+####################
+
+"Transaction entity for all kind of the transactions"
+type Transaction {
+  id: ID!
+  address: String!
+  createdAtTimestamp: BigInt!
+  block: BigInt!
+
+  gas: BigInt!
+  gasPrice: BigInt!
+
+  fee: BigInt
+  adminFee: BigInt
+
+  transactionType: TransactionType!
+
+  "if there is any future on any side of the transaction to be able to list this future's transactions"
+  futureInTransaction: Future
+  "if there is any user on any side of the transaction to be able to list this user's transactions"
+  userInTransaction: Account
+  "if there is any pool on any side of the transaction to be able to list this pool's transactions"
+  poolInTransaction: Pool
+
+  "in case if more than one token was sent"
+  amountsIn: [AssetAmount!]! @derivedFrom(field: "transactionIn")
+  "in case if more than one token was received"
+  amountsOut: [AssetAmount!]! @derivedFrom(field: "transactionOut")
+
+  valueUnderlying: BigInt!
+  feeUnderlying: BigInt!
+  feeRatio: BigInt # fee divided by total liquidity (to calculate fee APY)
+  ibtRate: BigInt # IBT rate at the time of the transaction
+  ptRate: BigInt # PT rate at the time of the transaction
+}
+
+####################
+# AMM
+####################
+
+enum PoolType {
+  CURVE
+  CURVE_NG
+  CURVE_SNG
+  UNKNOWN
+}
+
+type Pool {
+  id: ID!
+  address: String!
+  createdAtTimestamp: BigInt!
+
+  poolType: PoolType!
+
+  "pool fees details"
+  feeRate: BigInt!
+  totalFees: BigInt!
+  totalFeeRatio: BigInt!
+  adminFeeRate: BigInt!
+  totalAdminFees: BigInt!
+  totalClaimedAdminFees: BigInt!
+  feeClaims: [FeeClaim!]! @derivedFrom(field: "pool")
+  futureAdminFeeRate: BigInt!
+  futureAdminFeeDeadline: BigInt!
+  initialVirtualPrice: BigInt!
+
+  factory: Factory
+  futureVault: Future
+  metavault: Metavault
+
+  liquidityToken: Asset!
+  ibtAsset: AssetAmount!
+  ptAsset: AssetAmount!
+
+  ibtAdminBalance: BigInt!
+  ptAdminBalance: BigInt!
+
+  transactionCount: Int!
+  transactions: [Transaction!]! @derivedFrom(field: "poolInTransaction")
+
+  lpTotalSupply: BigInt!
+  liquidityPositions: [AccountAsset!]! @derivedFrom(field: "pool")
+
+  spotPrice: BigInt!
+  stats: [PoolStats!]! @derivedFrom(field: "pool")
+}
+
+type Transfer {
+  id: ID!
+  address: String!
+  createdAtTimestamp: BigInt!
+  block: BigInt!
+  logIndex: BigInt!
+  transactionLogIndex: BigInt!
+
+  gasLimit: BigInt!
+  gasPrice: BigInt!
+
+  from: Account!
+  to: Account!
+
+  amountOut: AssetAmount!
+}
+
+####################
+# Wrapper entities
+####################
+
+type SpectraWrapper {
+  id: ID!
+  address: String!
+  createdAtTimestamp: BigInt!
+
+  # Wrapper token details
+  name: String!
+  symbol: String!
+  decimals: Int!
+
+  # Vault share details
+  vaultShare: String!
+  vaultShareName: String!
+  vaultShareSymbol: String!
+  vaultShareDecimals: Int!
+
+  # Underlying asset details
+  asset: String!
+  assetName: String!
+  assetSymbol: String!
+  assetDecimals: Int!
+}
+
+####################
+# Limit Order entities
+####################
+
+type UserNonce {
+  id: ID! # nonce-{user-address}
+  user: String! # The address of the user
+  latestNonce: BigInt! # The latest nonce observed from NonceIncreased
+  updatedAt: BigInt! # Timestamp of the last NonceIncreased event
+  updatedAtBlock: BigInt! # Block Number of the last NonceIncreased event
+}
+
+type OnChainOrderStatus {
+  id: ID! # The order hash (bytes32 → hex string)
+  orderHash: String! # The raw order hash
+  totalFilled: BigInt! # Accumulated actualMaking from OrderFilled
+  cancelled: Boolean! # True if OrderCanceled was emitted
+  updatedAt: BigInt! @index # Timestamp of the last update (OrderFilled or OrderCanceled) - (TODO: check indexed for time-based queries)
+  updatedAtBlock: BigInt! @index # Block number of the last update (OrderFilled or OrderCanceled) -(TODO: check indexed for block-based queries)
+}
+
+####################
+# Access Manager entities
+####################
+
+# RoleAttribution tracks currently active roles for each address-role pair
+# On RoleRevoked, the attribution is removed (but the event entity is preserved)
+type RoleAttribution {
+  id: ID! # Format: address-roleId
+  address: String! # The address that has the role
+  roleId: BigInt! # The role ID
+  since: BigInt! # When the role becomes effective
+  currentDelay: BigInt! # Current delay for this role
+  pendingDelay: BigInt! # Pending delay change
+  effect: BigInt! # When pending delay takes effect
+  grantedAt: BigInt! # When this role was granted
+  updatedAt: BigInt! # Last update timestamp
+}
+
+# Event entities for Access Manager events
+type RoleGranted {
+  id: ID! # Format: txHash-logIndex
+  roleId: BigInt! # The role that was granted
+  account: String! # The account that received the role
+  delay: BigInt! # The delay for this role grant
+  since: BigInt! # When the role becomes effective
+  newMember: Boolean! # Whether this is a new member for this role
+  timestamp: BigInt! # Block timestamp
+  blockNumber: BigInt! # Block number
+  transactionHash: String! # Transaction hash
+  logIndex: BigInt! # Log index within the transaction
+}
+
+type RoleRevoked {
+  id: ID! # Format: txHash-logIndex
+  roleId: BigInt! # The role that was revoked
+  account: String! # The account that lost the role
+  delay: BigInt! # The delay for this role revocation
+  since: BigInt! # When the revocation becomes effective
+  timestamp: BigInt! # Block timestamp
+  blockNumber: BigInt! # Block number
+  transactionHash: String! # Transaction hash
+  logIndex: BigInt! # Log index within the transaction
+}
+
+type RoleAdminChanged {
+  id: ID! # Format: txHash-logIndex
+  roleId: BigInt! # The role whose admin changed
+  admin: BigInt! # The new admin role ID
+  timestamp: BigInt! # Block timestamp
+  blockNumber: BigInt! # Block number
+  transactionHash: String! # Transaction hash
+  logIndex: BigInt! # Log index within the transaction
+}
+
+type RoleGuardianChanged {
+  id: ID! # Format: txHash-logIndex
+  roleId: BigInt! # The role whose guardian changed
+  guardian: BigInt! # The new guardian role ID
+  timestamp: BigInt! # Block timestamp
+  blockNumber: BigInt! # Block number
+  transactionHash: String! # Transaction hash
+  logIndex: BigInt! # Log index within the transaction
+}
+
+type RoleGrantDelayChanged {
+  id: ID! # Format: txHash-logIndex
+  roleId: BigInt! # The role whose grant delay changed
+  delay: BigInt! # The new delay value
+  since: BigInt! # When the delay change becomes effective
+  timestamp: BigInt! # Block timestamp
+  blockNumber: BigInt! # Block number
+  transactionHash: String! # Transaction hash
+  logIndex: BigInt! # Log index within the transaction
+}
+
+type TargetAdminDelayUpdated {
+  id: ID! # Format: txHash-logIndex
+  target: String! # The target contract address
+  delay: BigInt! # The new admin delay
+  since: BigInt! # When the delay change becomes effective
+  timestamp: BigInt! # Block timestamp
+  blockNumber: BigInt! # Block number
+  transactionHash: String! # Transaction hash
+  logIndex: BigInt! # Log index within the transaction
+}
+
+type TargetClosed {
+  id: ID! # Format: txHash-logIndex
+  target: String! # The target contract address
+  closed: Boolean! # Whether the target is closed
+  timestamp: BigInt! # Block timestamp
+  blockNumber: BigInt! # Block number
+  transactionHash: String! # Transaction hash
+  logIndex: BigInt! # Log index within the transaction
+}
+
+type TargetFunctionRoleUpdated {
+  id: ID! # Format: txHash-logIndex
+  target: String! # The target contract address
+  selector: String! # The function selector
+  roleId: BigInt! # The role ID required for this function
+  timestamp: BigInt! # Block timestamp
+  blockNumber: BigInt! # Block number
+  transactionHash: String! # Transaction hash
+  logIndex: BigInt! # Log index within the transaction
+}
+
+type OperationScheduled {
+  id: ID! # Format: txHash-logIndex
+  operationId: String! # The operation ID
+  nonce: BigInt! # The nonce for this operation
+  schedule: BigInt! # When the operation is scheduled to execute
+  caller: String! # The address that scheduled the operation
+  target: String! # The target contract address
+  data: String! # The call data
+  timestamp: BigInt! # Block timestamp
+  blockNumber: BigInt! # Block number
+  transactionHash: String! # Transaction hash
+  logIndex: BigInt! # Log index within the transaction
+}
+
+type OperationExecuted {
+  id: ID! # Format: txHash-logIndex
+  operationId: String! # The operation ID
+  nonce: BigInt! # The nonce for this operation
+  timestamp: BigInt! # Block timestamp
+  blockNumber: BigInt! # Block number
+  transactionHash: String! # Transaction hash
+  logIndex: BigInt! # Log index within the transaction
+}
+
+type OperationCanceled {
+  id: ID! # Format: txHash-logIndex
+  operationId: String! # The operation ID
+  nonce: BigInt! # The nonce for this operation
+  timestamp: BigInt! # Block timestamp
+  blockNumber: BigInt! # Block number
+  transactionHash: String! # Transaction hash
+  logIndex: BigInt! # Log index within the transaction
+}
+
+type RoleLabel {
+  id: ID! # Format: txHash-logIndex
+  roleId: BigInt! # The role ID
+  label: String! # The human-readable label for the role
+  timestamp: BigInt! # Block timestamp
+  blockNumber: BigInt! # Block number
+  transactionHash: String! # Transaction hash
+  logIndex: BigInt! # Log index within the transaction
+}
+
+####################
+# Metavault Entitites
+####################
+
+type RemoteMetavault {
+  id: ID!
+  chainId: Int!
+  remoteMetavaultAddress: String!
+  metavault: Metavault
+}
+
+type MetavaultEpoch {
+  id: ID!
+  timestamp: BigInt!
+  blockNumber: BigInt!
+  rate: BigInt!
+  assets: BigInt!
+  metavault: Metavault!
+}
+
+enum InfravaultType {
+  AMPHOR_ASYNC_VAULT
+  UNKNOWN
+}
+
+type Infravault {
+  id: ID!
+  address: String!
+  metavault: Metavault!
+  infravaultType: InfravaultType!
+}
+
+# Metavault Entity - Some fields can be null depending on the metavault type, e.g. remote metavaults do not hold vault state, only positions
+type Metavault {
+  # Metavault Static details
+  id: ID!
+  createdAtBlock: BigInt!
+  createdAtTimestamp: BigInt!
+  wrapperAddress: String # The wrapper address [empty if remote]
+  address: String! # The SAFE owner of the wrapper
+  safeAddress: String! # The SAFE owner of the wrapper
+  # Metavault State
+  infravault: Infravault # The infra vault address underneath the wrapper [empty if remote]
+  markets: [Pool!]! @derivedFrom(field: "metavault")
+  isMetavaultRegistered: Boolean! # Is the metavault registered to the metavault registry
+  chains: [RemoteMetavault!]! @derivedFrom(field: "metavault")
+  epochs: [MetavaultEpoch!]! @derivedFrom(field: "metavault") # [empty if remote]
+  account: Account # [empty if remote]
+  # Metavault Underlying details
+  name: String # [empty if remote]
+  symbol: String # [empty if remote]
+  decimals: Int # [empty if remote]
+  underlying: Asset # The underlying asset address [empty if remote]
+}
