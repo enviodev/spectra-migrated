@@ -1,0 +1,391 @@
+[
+    {
+        "type": "constructor",
+        "inputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "authority",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "bridgeAsset",
+        "inputs": [
+            {
+                "name": "tokenIn",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "amount",
+                "type": "uint256",
+                "internalType": "uint256"
+            },
+            {
+                "name": "dstChainId",
+                "type": "uint32",
+                "internalType": "uint32"
+            },
+            {
+                "name": "dstSafe",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "bridge",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "tokenOut",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "params",
+                "type": "bytes",
+                "internalType": "bytes"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "bridgeAssetCctp",
+        "inputs": [
+            {
+                "name": "token",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "amount",
+                "type": "uint256",
+                "internalType": "uint256"
+            },
+            {
+                "name": "dstChainId",
+                "type": "uint32",
+                "internalType": "uint32"
+            },
+            {
+                "name": "dstSafe",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "bridge",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "tokenOut",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "dstDomain",
+                "type": "uint32",
+                "internalType": "uint32"
+            },
+            {
+                "name": "maxFee",
+                "type": "uint256",
+                "internalType": "uint256"
+            },
+            {
+                "name": "minFinalityThreshold",
+                "type": "uint32",
+                "internalType": "uint32"
+            },
+            {
+                "name": "destinationCaller",
+                "type": "bytes32",
+                "internalType": "bytes32"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "chainIdToDomain",
+        "inputs": [
+            {
+                "name": "",
+                "type": "uint32",
+                "internalType": "uint32"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "",
+                "type": "uint32",
+                "internalType": "uint32"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "initialize",
+        "inputs": [
+            {
+                "name": "initialAuthority",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "_registry",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "isConsumingScheduledOp",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "bytes4",
+                "internalType": "bytes4"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "registry",
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "stateMutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "setAuthority",
+        "inputs": [
+            {
+                "name": "newAuthority",
+                "type": "address",
+                "internalType": "address"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "function",
+        "name": "setChainDomain",
+        "inputs": [
+            {
+                "name": "chainId",
+                "type": "uint32",
+                "internalType": "uint32"
+            },
+            {
+                "name": "domain",
+                "type": "uint32",
+                "internalType": "uint32"
+            }
+        ],
+        "outputs": [],
+        "stateMutability": "nonpayable"
+    },
+    {
+        "type": "event",
+        "name": "AuthorityUpdated",
+        "inputs": [
+            {
+                "name": "authority",
+                "type": "address",
+                "indexed": false,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "BridgeInitiated",
+        "inputs": [
+            {
+                "name": "safe",
+                "type": "address",
+                "indexed": true,
+                "internalType": "address"
+            },
+            {
+                "name": "tokenIn",
+                "type": "address",
+                "indexed": true,
+                "internalType": "address"
+            },
+            {
+                "name": "amount",
+                "type": "uint256",
+                "indexed": false,
+                "internalType": "uint256"
+            },
+            {
+                "name": "dstChainId",
+                "type": "uint32",
+                "indexed": true,
+                "internalType": "uint32"
+            },
+            {
+                "name": "dstSafe",
+                "type": "address",
+                "indexed": false,
+                "internalType": "address"
+            },
+            {
+                "name": "bridge",
+                "type": "string",
+                "indexed": false,
+                "internalType": "string"
+            },
+            {
+                "name": "tokenOut",
+                "type": "address",
+                "indexed": false,
+                "internalType": "address"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "event",
+        "name": "Initialized",
+        "inputs": [
+            {
+                "name": "version",
+                "type": "uint64",
+                "indexed": false,
+                "internalType": "uint64"
+            }
+        ],
+        "anonymous": false
+    },
+    {
+        "type": "error",
+        "name": "AccessManagedInvalidAuthority",
+        "inputs": [
+            {
+                "name": "authority",
+                "type": "address",
+                "internalType": "address"
+            }
+        ]
+    },
+    {
+        "type": "error",
+        "name": "AccessManagedRequiredDelay",
+        "inputs": [
+            {
+                "name": "caller",
+                "type": "address",
+                "internalType": "address"
+            },
+            {
+                "name": "delay",
+                "type": "uint32",
+                "internalType": "uint32"
+            }
+        ]
+    },
+    {
+        "type": "error",
+        "name": "AccessManagedUnauthorized",
+        "inputs": [
+            {
+                "name": "caller",
+                "type": "address",
+                "internalType": "address"
+            }
+        ]
+    },
+    {
+        "type": "error",
+        "name": "AddressEmptyCode",
+        "inputs": [
+            {
+                "name": "target",
+                "type": "address",
+                "internalType": "address"
+            }
+        ]
+    },
+    {
+        "type": "error",
+        "name": "AddressInsufficientBalance",
+        "inputs": [
+            {
+                "name": "account",
+                "type": "address",
+                "internalType": "address"
+            }
+        ]
+    },
+    {
+        "type": "error",
+        "name": "FailedInnerCall",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "InvalidDomain",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "InvalidInitialization",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "NotInitializing",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "SafeERC20FailedOperation",
+        "inputs": [
+            {
+                "name": "token",
+                "type": "address",
+                "internalType": "address"
+            }
+        ]
+    },
+    {
+        "type": "error",
+        "name": "ZeroAddress",
+        "inputs": []
+    },
+    {
+        "type": "error",
+        "name": "ZeroAmount",
+        "inputs": []
+    }
+]
