@@ -3,7 +3,6 @@
 import { Transaction_t } from "generated/src/db/Entities.gen";
 import { ZERO_ADDRESS, ZERO_BI } from "../constants";
 import { getAccount } from "./Account";
-import { generateTransactionId } from "../utils/idGenerators";
 
 interface CreateTransactionParams {
   id: string;

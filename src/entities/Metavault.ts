@@ -285,3 +285,80 @@ export async function createMetavaultEpoch(
   
   return epoch;
 }
+
+/**
+ * Generate ID for MetavaultBridgePath entity
+ * Reference: spectra-subgraph/src/entities/Metavault.ts getMetavaultBridgePathId
+ */
+export function getMetavaultBridgePathId(
+  metavaultAddress: string,
+  tokenIn: string,
+  tokenOut: string,
+  dstChainId: number,
+  bridgeAddress: string,
+  chainId: number
+): string {
+  // Prefix with chainId for multichain support
+  return `${chainId}-${metavaultAddress}-${tokenIn}-${tokenOut}-${dstChainId}-${bridgeAddress}`;
+}
+
+/**
+ * Create MetavaultBridgePath entity
+ * Reference: spectra-subgraph/src/entities/Metavault.ts createMetavaultBridgePath
+ */
+export async function createMetavaultBridgePath(
+  metavaultAddress: string,
+  tokenIn: string,
+  tokenOut: string,
+  dstChainId: number,
+  bridgeAddress: string,
+  chainId: number,
+  timestamp: bigint,
+  blockNumber: number,
+  context: any
+): Promise<any> {
+  const metavaultId = `${chainId}-${metavaultAddress}`;
+  
+  // Get or create Asset entities for tokenIn and tokenOut
+  // Reference: new subgraph calls getAsset with AssetType.UNDERLYING
+  const tokenInAsset = await getAsset(
+    tokenIn,
+    timestamp,
+    "UNDERLYING",
+    null,
+    chainId,
+    blockNumber,
+    context
+  );
+  const tokenOutAsset = await getAsset(
+    tokenOut,
+    timestamp,
+    "UNDERLYING",
+    null,
+    chainId,
+    blockNumber,
+    context
+  );
+  
+  const bridgePathId = getMetavaultBridgePathId(
+    metavaultAddress,
+    tokenIn,
+    tokenOut,
+    dstChainId,
+    bridgeAddress,
+    chainId
+  );
+  
+  const bridgePath = {
+    id: bridgePathId,
+    metavault_id: metavaultId,
+    tokenIn_id: tokenInAsset.id,
+    tokenOut_id: tokenOutAsset.id,
+    dstChainId: dstChainId,
+    bridgeAddress: bridgeAddress,
+  };
+  
+  context.MetavaultBridgePath.set(bridgePath);
+  
+  return bridgePath;
+}
