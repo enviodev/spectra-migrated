@@ -228,7 +228,9 @@ async function tokenExchange(
     }
     
     const ibt = isBuyPt ? tokens_sold : tokens_bought;
-    const ptInIbt = (isBuyPt ? tokens_bought : tokens_sold) * CURVE_UNIT / spotPrice;
+    // Match subgraph: ptInIbt = ptAmount * spotPrice / CURVE_UNIT
+    const ptInIbt =
+      ((isBuyPt ? tokens_bought : tokens_sold) * spotPrice) / CURVE_UNIT;
     valueUnderlying = ((ibt + ptInIbt) * ibtRate) / ibtDecimalsMultiplier / BigInt(2);
     
     feeUnderlying = getLpFeeUnderlying(
@@ -286,6 +288,7 @@ async function tokenExchange(
       futureInTransaction: ZERO_ADDRESS,
       userInTransaction: account.address,
       poolInTransaction: event.srcAddress,
+      metavaultInTransaction: ZERO_ADDRESS,
       amountsIn: [amountIn.id],
       amountsOut: [amountOut.id],
       valueUnderlying: valueUnderlying,
@@ -302,6 +305,9 @@ async function tokenExchange(
       },
       ibtRate: ibtRate,
       ptRate: ptRate,
+      metavaultEpochId: ZERO_BI,
+      metavaultShares: ZERO_BI,
+      metavaultAssets: ZERO_BI,
     },
     event.chainId,
     context
@@ -334,34 +340,18 @@ async function tokenExchange(
   
   context.Pool.set(updatedPool);
   
-  // Update AssetAmount entities
-  if (soldId === ZERO_BI) {
-    // Sold IBT
-    context.AssetAmount.set({
-      ...poolIBTAssetAmount,
-      amount: poolIBTAssetAmount.amount - tokens_sold,
-    });
-  } else {
-    // Sold PT
-    context.AssetAmount.set({
-      ...poolPTAssetAmount,
-      amount: poolPTAssetAmount.amount - tokens_sold,
-    });
-  }
+  // Update AssetAmount entities to match subgraph behavior:
+  // poolAssetInAmount.amount += tokens_sold
+  // poolAssetOutAmount.amount -= tokens_bought
+  context.AssetAmount.set({
+    ...poolAssetInAmount,
+    amount: poolAssetInAmount.amount + tokens_sold,
+  });
   
-  if (boughtId === ZERO_BI) {
-    // Bought IBT
-    context.AssetAmount.set({
-      ...poolIBTAssetAmount,
-      amount: poolIBTAssetAmount.amount + tokens_bought,
-    });
-  } else {
-    // Bought PT
-    context.AssetAmount.set({
-      ...poolPTAssetAmount,
-      amount: poolPTAssetAmount.amount + tokens_bought,
-    });
-  }
+  context.AssetAmount.set({
+    ...poolAssetOutAmount,
+    amount: poolAssetOutAmount.amount - tokens_bought,
+  });
   
   // Update FutureDailyStats if pool has future vault
   if (pool.futureVault_id) {

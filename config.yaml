@@ -412,9 +412,9 @@ networks:
       - name: AccessManager
         address: 0x4973b53b300d64ab72147EFF8C9d962f6b1dA02e
       - name: MetavaultsRegistry
-        address: 0x07766e55057e34A35b32Ce8425e0395eA2dBbf39
+      address: 0xa2c9da26c1982cacaf01c5c691e0cf0aeb031ac1
       - name: BridgeInterfaceCCTP
-        address: 0x220b826343e37c8d7146a0b347e0e22436770c75
+      address: 0x301583fcac76a3662a4290919544732d10bf05f5
       - name: Factory
       - name: PrincipalToken
       - name: ERC20
@@ -503,6 +503,26 @@ networks:
       - name: SpectraWrapper
       - name: MetavaultWrapper
       - name: AmphorAsyncVault
+
+  # Monad
+  - id: 143
+    start_block: 37910111
+    contracts:
+      - name: Registry
+        address: 0x838e863044337c2083f89c2d1a0678685d7592f4
+      - name: AccessManager
+        address: 0x03e2ec137c6ab82978d52edb7b504ad2deb13f96
+      - name: Factory
+      - name: PrincipalToken
+      - name: ERC20
+      - name: CurvePool
+      - name: Metavault
+      - name: SpectraWrapper
+      - name: MetavaultWrapper
+      - name: AmphorAsyncVault
+      # GnosisSafe and GnosisSafeModule are registered dynamically (templates)
+      - name: GnosisSafe
+      - name: GnosisSafeModule
 
   # # Hemi
   # - id: 43111
