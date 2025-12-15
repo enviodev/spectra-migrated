@@ -16,7 +16,7 @@ ERC20.Transfer.handler(async ({ event, context }) => {
   const eventTimestamp = BigInt(event.block.timestamp);
 
   // Use transaction hash from event (requires field_selection in config.yaml)
-  const txHash = (event.transaction as any).hash?.toLowerCase() || `${event.block.number}-${event.logIndex}`;
+  const txHash = event.transaction.hash.toLowerCase();
 
   // Generate Transfer ID
   const transferId = `${event.chainId}-${generateTransferId(
@@ -280,7 +280,7 @@ MetavaultWrapper.Transfer.handler(async ({ event, context }) => {
   const eventTimestamp = BigInt(event.block.timestamp);
 
   // Use transaction hash from event (requires field_selection in config.yaml)
-  const txHash = (event.transaction as any).hash?.toLowerCase() || `${event.block.number}-${event.logIndex}`;
+  const txHash = event.transaction.hash.toLowerCase();
 
   // Generate Transfer ID
   const transferId = `${event.chainId}-${generateTransferId(

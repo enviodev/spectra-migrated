@@ -412,9 +412,9 @@ networks:
       - name: AccessManager
         address: 0x4973b53b300d64ab72147EFF8C9d962f6b1dA02e
       - name: MetavaultsRegistry
-      address: 0xa2c9da26c1982cacaf01c5c691e0cf0aeb031ac1
+        address: 0xa2c9da26c1982cacaf01c5c691e0cf0aeb031ac1
       - name: BridgeInterfaceCCTP
-      address: 0x301583fcac76a3662a4290919544732d10bf05f5
+        address: 0x301583fcac76a3662a4290919544732d10bf05f5
       - name: Factory
       - name: PrincipalToken
       - name: ERC20
@@ -507,6 +507,8 @@ networks:
   # Monad
   - id: 143
     start_block: 37910111
+    rpc_config: 
+      url: https://monad.hypersync.xyz
     contracts:
       - name: Registry
         address: 0x838e863044337c2083f89c2d1a0678685d7592f4

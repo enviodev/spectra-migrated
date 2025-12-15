@@ -212,7 +212,7 @@ Factory.CurvePoolDeployed.handler(async ({ event, context }) => {
     ZERO_ADDRESS;
 
   // Use transaction hash from event (requires field_selection in config.yaml)
-  const txHash = (event.transaction as any).hash?.toLowerCase();
+  const txHash = event.transaction.hash.toLowerCase();
 
   // Create Pool entity using createPool helper
   await createPool(
