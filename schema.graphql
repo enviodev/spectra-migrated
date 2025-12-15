@@ -8,10 +8,6 @@ type ERC20 {
   id: ID! # Contract address
 }
 
-type IBT {
-  id: ID! # Contract address
-}
-
 ####################
 # Enums
 ####################
@@ -637,6 +633,15 @@ type RemoteMetavault {
   metavault: Metavault
 }
 
+type MetavaultBridgePath {
+  id: ID!
+  metavault: Metavault!
+  tokenIn: Asset!
+  tokenOut: Asset!
+  dstChainId: Int!
+  bridgeAddress: String!
+}
+
 type MetavaultEpoch {
   id: ID!
   timestamp: BigInt!
@@ -672,6 +677,7 @@ type Metavault {
   markets: [Pool!]! @derivedFrom(field: "metavault")
   isMetavaultRegistered: Boolean! # Is the metavault registered to the metavault registry
   chains: [RemoteMetavault!]! @derivedFrom(field: "metavault")
+  bridgePaths: [MetavaultBridgePath!]! @derivedFrom(field: "metavault")
   epochs: [MetavaultEpoch!]! @derivedFrom(field: "metavault") # [empty if remote]
   account: Account # [empty if remote]
   # Metavault Underlying details
@@ -679,4 +685,63 @@ type Metavault {
   symbol: String # [empty if remote]
   decimals: Int # [empty if remote]
   underlying: Asset # The underlying asset address [empty if remote]
+}
+
+type MetavaultBridgeInitiated {
+  id: ID!
+  operator: String! # The operator that added the timelocked transaction
+  safe: String! # The safe address
+  tokenIn: String! # The token in address
+  amount: BigInt! # The amount of tokens to bridge
+  tokenInDecimals: Int! # The decimals of the token in
+  tokenInSymbol: String! # The symbol of the token in
+  tokenInName: String! # The name of the token in
+  dstChainId: Int! # The destination chain id
+  dstSafe: String! # The destination safe address
+  bridge: String! # The bridge name
+  bridgeType: String! # The bridge type
+  tokenOut: String! # The token out address
+  metavault: Metavault! # The metavault that initiated the bridge
+  timestamp: BigInt! # The timestamp of the event
+  blockNumber: BigInt! # The block number of the event
+  transactionHash: String! # The transaction hash of the event
+  logIndex: BigInt! # The log index of the event
+}
+
+type MetavaultModule {
+  id: ID!
+  address: String! # the address of the module
+  metavault: Metavault! # The metavault the module is binded to
+}
+
+type TimelockedTransactionAdded {
+  id: ID!
+  operator: String! # The operator that added the timelocked transaction
+  metavault: Metavault! # The metavault that initiated the bridge
+  queueNonce: BigInt! # The nonce for the queue
+  timelockedTransactionHash: String! # The hash of the timelocked transaction
+  to: String! # The address to call
+  value: BigInt! # The value to send
+  data: String! # The data to send
+  operation: Int! # The operation type
+  nonce: BigInt! # The nonce for this operation
+  timestamp: BigInt! # The timestamp of the event
+  blockNumber: BigInt! # The block number of the event
+  transactionHash: String! # The transaction hash of the event
+  logIndex: BigInt! # The log index of the event
+  delayModule: String! # Address of the delay module
+}
+
+type MetavaultTransaction {
+  id: ID!
+  metavault: Metavault! # The metavault that initiated the transaction
+  to: String! # The address to call
+  value: BigInt! # The value to send
+  data: String! # The data to send
+  operation: Int! # The operation type
+  metavaultModule: MetavaultModule # The module that initiated the transaction
+  timestamp: BigInt! # The timestamp of the event
+  blockNumber: BigInt! # The block number of the event
+  transactionHash: String! # The transaction hash of the event
+  logIndex: BigInt! # The log index of the event
 }
