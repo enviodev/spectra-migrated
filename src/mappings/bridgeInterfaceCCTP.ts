@@ -29,7 +29,7 @@ BridgeInterfaceCCTP.BridgeInitiated.handler(async ({ event, context }) => {
   // ID with chain prefix for multichain safety
   const id = `${event.chainId}-${event.transaction.hash}-${event.logIndex}`;
   const metavaultId = `${event.chainId}-${event.params.safe}`;
-  const operator = (event.transaction as { from?: string }).from ?? String(event.params.safe);
+  const operator = String(event.transaction.from);
 
   const metavaultBridgeInitiated = {
     id,
