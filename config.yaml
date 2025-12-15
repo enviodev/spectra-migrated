@@ -16,6 +16,8 @@ contracts:
       - event: ChainUnregistered(address indexed metavault, uint256 indexed chainId, address indexed remoteMetavaultAddress)
       - event: MarketRegistered(address indexed metavault, address indexed market)
       - event: MarketUnregistered(address indexed metavault, address indexed market)
+      - event: BridgePathAllowed(address indexed metavault, address indexed tokenIn, address tokenOut, uint32 indexed dstChainId, address bridge)
+      - event: BridgePathRemoved(address indexed metavault, address indexed tokenIn, address tokenOut, uint32 indexed dstChainId, address bridge)
 
   - name: SpectraWrapper
     handler: src/EventHandlers.ts
@@ -97,6 +99,43 @@ contracts:
           transaction_fields:
             - hash
 
+  - name: BridgeInterfaceCCTP
+    handler: src/EventHandlers.ts
+    events:
+      - event: BridgeInitiated(address indexed safe, address indexed tokenIn, uint256 amount, uint32 indexed dstChainId, address dstSafe, string bridge, address tokenOut)
+        field_selection:
+          transaction_fields:
+            - hash
+
+  - name: GnosisSafe
+    handler: src/EventHandlers.ts
+    events:
+      - event: EnabledModule(address indexed module)
+        field_selection:
+          transaction_fields:
+            - hash
+      - event: EnabledModule(address module)
+        name: EnabledModuleNonIndexed
+        field_selection:
+          transaction_fields:
+            - hash
+      - event: SafeModuleTransaction(address module, address to, uint256 value, bytes data, uint8 operation)
+        field_selection:
+          transaction_fields:
+            - hash
+      - event: SafeMultiSigTransaction(address to, uint256 value, bytes data, uint8 operation, uint256 safeTxGas, uint256 baseGas, uint256 gasPrice, address gasToken, address refundReceiver, bytes signatures, bytes additionalInfo)
+        field_selection:
+          transaction_fields:
+            - hash
+
+  - name: GnosisSafeModule
+    handler: src/EventHandlers.ts
+    events:
+      - event: TransactionAdded(uint256 indexed queueNonce, bytes32 indexed txHash, address to, uint256 value, bytes data, uint8 operation)
+        field_selection:
+          transaction_fields:
+            - hash
+
   - name: Factory
     handler: src/EventHandlers.ts
     events:
@@ -115,11 +154,6 @@ contracts:
             - gasPrice
           block_fields:
             - gasUsed
-
-  - name: IBT
-    handler: src/EventHandlers.ts
-    events:
-      - event: Transfer(address indexed from, address indexed to, uint256 value)
 
   - name: PrincipalToken
     handler: src/EventHandlers.ts
@@ -308,7 +342,6 @@ networks:
       - name: PrincipalToken
       # ERC20 is registered dynamically via contractRegister calls (PT, YT, LP, wrappers)
       - name: ERC20
-      - name: IBT
       - name: CurvePool
       - name: Metavault
       # # SpectraWrapper is registered dynamically via SpectraWrapper.AuthorityUpdated.contractRegister
@@ -316,6 +349,9 @@ networks:
       - name: SpectraWrapper
       - name: MetavaultWrapper
       - name: AmphorAsyncVault
+      # GnosisSafe and GnosisSafeModule are registered dynamically (templates)
+      - name: GnosisSafe
+      - name: GnosisSafeModule
 
   # # Sepolia
   # - id: 11155111
@@ -347,11 +383,12 @@ networks:
         address: 0x4973b53b300d64ab72147EFF8C9d962f6b1dA02e
       - name: MetavaultsRegistry
         address: 0x2154A519D08Bfd3F6E0303Fd3AC0511c58424bbE
+      - name: BridgeInterfaceCCTP
+        address: 0x0C95de2C03A4Bd4eFaeAE697d7Ff897A1bb3992f
       - name: Factory
       - name: PrincipalToken
       # ERC20 is registered dynamically via contractRegister calls (PT, YT, LP, wrappers)
       - name: ERC20
-      - name: IBT
       - name: CurvePool
       # # - name: CurvePoolNG
       # # - name: CurvePoolSNG
@@ -360,6 +397,9 @@ networks:
       - name: SpectraWrapper
       - name: MetavaultWrapper
       - name: AmphorAsyncVault
+      # GnosisSafe and GnosisSafeModule are registered dynamically (templates)
+      - name: GnosisSafe
+      - name: GnosisSafeModule
 
   # Base
   - id: 8453
@@ -371,15 +411,19 @@ networks:
         address: 0x4973b53b300d64ab72147EFF8C9d962f6b1dA02e
       - name: MetavaultsRegistry
         address: 0x07766e55057e34A35b32Ce8425e0395eA2dBbf39
+      - name: BridgeInterfaceCCTP
+        address: 0x220b826343e37c8d7146a0b347e0e22436770c75
       - name: Factory
       - name: PrincipalToken
       - name: ERC20
-      - name: IBT
       - name: CurvePool
       - name: Metavault
       - name: SpectraWrapper
       - name: MetavaultWrapper
       - name: AmphorAsyncVault
+      # GnosisSafe and GnosisSafeModule are registered dynamically (templates)
+      - name: GnosisSafe
+      - name: GnosisSafeModule
 
   # Optimism
   - id: 10
@@ -392,12 +436,14 @@ networks:
       - name: Factory
       - name: PrincipalToken
       - name: ERC20
-      - name: IBT
       - name: CurvePool
       - name: Metavault
       - name: SpectraWrapper
       - name: MetavaultWrapper
       - name: AmphorAsyncVault
+      # GnosisSafe and GnosisSafeModule are registered dynamically (templates)
+      - name: GnosisSafe
+      - name: GnosisSafeModule
 
   # Avalanche
   - id: 43114
@@ -410,12 +456,14 @@ networks:
       - name: Factory
       - name: PrincipalToken
       - name: ERC20
-      - name: IBT
       - name: CurvePool
       - name: Metavault
       - name: SpectraWrapper
       - name: MetavaultWrapper
       - name: AmphorAsyncVault
+      # GnosisSafe and GnosisSafeModule are registered dynamically (templates)
+      - name: GnosisSafe
+      - name: GnosisSafeModule
 
   # BSC
   - id: 56
@@ -428,12 +476,14 @@ networks:
       - name: Factory
       - name: PrincipalToken
       - name: ERC20
-      - name: IBT
       - name: CurvePool
       - name: Metavault
       - name: SpectraWrapper
       - name: MetavaultWrapper
       - name: AmphorAsyncVault
+      # GnosisSafe and GnosisSafeModule are registered dynamically (templates)
+      - name: GnosisSafe
+      - name: GnosisSafeModule
 
   # Sonic
   - id: 146
@@ -446,7 +496,6 @@ networks:
       - name: Factory
       - name: PrincipalToken
       - name: ERC20
-      - name: IBT
       - name: CurvePool
       - name: Metavault
       - name: SpectraWrapper
