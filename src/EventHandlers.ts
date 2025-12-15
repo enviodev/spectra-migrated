@@ -7,9 +7,9 @@ import "./mappings/wrappers";
 import "./mappings/metavaults/metavaultWrapper";
 import "./mappings/limitOrders";
 import "./mappings/accessManager";
-import "./mappings/factory";
 import "./mappings/transfers";
 import "./mappings/amm";
 import "./mappings/metavaults/amphorAsyncVault";
 import "./mappings/bridgeInterfaceCCTP";
+import "./mappings/futures";
 

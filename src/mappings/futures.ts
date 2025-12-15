@@ -12,11 +12,17 @@ import { createFactory } from "../entities/Factory";
 import { getAccount } from "../entities/Account";
 import { getAsset } from "../entities/Asset";
 import { generateFeeClaimId, generateTransactionId } from "../utils/idGenerators";
-import { updateClaimedYieldAccountAssetBalance, updateYieldForAll } from "../entities/Yield";
+import {
+  updateClaimedYieldAccountAssetBalance,
+  updateYieldForAll,
+} from "../entities/Yield";
 import { updateFutureDailyStats } from "../entities/FutureDailyStats";
 import { getAssetAmount } from "../entities/AssetAmount";
 import { createTransaction } from "../entities/Transaction";
-import { updateAccountAssetBalance, updateAccountAssetYTBalance } from "../entities/AccountAsset";
+import {
+  updateAccountAssetBalance,
+  updateAccountAssetYTBalance,
+} from "../entities/AccountAsset";
 import { RAYS_PRECISION } from "../utils/toPrecision";
 import { createPool } from "../entities/Pool";
 import { getIBTAsset } from "../entities/IBTAsset";
@@ -73,7 +79,9 @@ Factory.PTDeployed.handler(async ({ event, context }) => {
   // The original subgraph creates Future entities even when RPC calls fail
   // This allows subsequent events to find the Future, even with incomplete data
   if (!ptData || !ptData.maturity || ptData.maturity === "0") {
-    context.log.warn(`Failed to fetch PrincipalToken data for ${ptAddress} - creating Future with default values`);
+    context.log.warn(
+      `Failed to fetch PrincipalToken data for ${ptAddress} - creating Future with default values`,
+    );
   }
 
   const eventTimestamp = BigInt(event.block.timestamp);
@@ -92,7 +100,7 @@ Factory.PTDeployed.handler(async ({ event, context }) => {
     null,
     event.chainId,
     blockNumber,
-    context
+    context,
   );
 
   // Get IBT asset
@@ -103,7 +111,7 @@ Factory.PTDeployed.handler(async ({ event, context }) => {
     eventTimestamp,
     event.chainId,
     blockNumber,
-    context
+    context,
   );
 
   // Update IBT asset underlying relationship
@@ -120,7 +128,7 @@ Factory.PTDeployed.handler(async ({ event, context }) => {
     null,
     event.chainId,
     blockNumber,
-    context
+    context,
   );
 
   // Update PT token futureVault relationship
@@ -138,7 +146,7 @@ Factory.PTDeployed.handler(async ({ event, context }) => {
     null,
     event.chainId,
     blockNumber,
-    context
+    context,
   );
 
   // Update YT token futureVault relationship
@@ -146,6 +154,11 @@ Factory.PTDeployed.handler(async ({ event, context }) => {
     ...ytToken,
     futureVault_id: futureId,
   });
+
+  // Note: In the subgraph they also create ERC20 templates for PT and YT.
+  // In our Envio indexer we currently don't have any ERC20.Transfer-based handlers for these,
+  // so we don't need to register them as ERC20 contracts yet. If we add such handlers later,
+  // we can register PT and YT as ERC20 here (or via contractRegister) at that time.
 
   // Create Future entity
   const future = {
@@ -183,7 +196,8 @@ Factory.CurvePoolDeployed.handler(async ({ event, context }) => {
     blockNumber: Number(event.block.number),
   });
 
-  const poolType = (typeof poolTypeResult === "string" ? poolTypeResult : null) || "UNKNOWN";
+  const poolType =
+    (typeof poolTypeResult === "string" ? poolTypeResult : null) || "UNKNOWN";
 
   // Get LP token address via RPC call
   const lpAddressResult = await context.effect(getPoolLPToken, {
@@ -193,7 +207,9 @@ Factory.CurvePoolDeployed.handler(async ({ event, context }) => {
     blockNumber: Number(event.block.number),
   });
 
-  const lpAddress = (typeof lpAddressResult === "string" ? lpAddressResult : null) || ZERO_ADDRESS;
+  const lpAddress =
+    (typeof lpAddressResult === "string" ? lpAddressResult : null) ||
+    ZERO_ADDRESS;
 
   // Use transaction hash from event (requires field_selection in config.yaml)
   const txHash = (event.transaction as any).hash?.toLowerCase();
@@ -211,7 +227,7 @@ Factory.CurvePoolDeployed.handler(async ({ event, context }) => {
     BigInt(event.block.timestamp),
     event.chainId,
     Number(event.block.number),
-    context
+    context,
   );
 
   // Note: Dynamic contract registration is handled in contractRegister
@@ -235,7 +251,7 @@ Factory.RegistryChange.handler(async ({ event, context }) => {
       BigInt(event.block.timestamp),
       event.chainId,
       event.block.number,
-      context
+      context,
     );
     return;
   }
@@ -261,18 +277,21 @@ Factory.CurveFactoryChange.handler(async ({ event, context }) => {
   const factory = await context.Factory.get(factoryId);
   if (factory) {
     // Fetch curveFactory via RPC call using Effect API (matches subgraph: getCurveFactory)
-    const curveFactory = await context.effect(getCurveFactory, {
-      factoryAddress: event.srcAddress,
-      chainId: event.chainId,
-      blockNumber: event.block.number,
-    }) || ZERO_ADDRESS;
+    const curveFactory =
+      (await context.effect(getCurveFactory, {
+        factoryAddress: event.srcAddress,
+        chainId: event.chainId,
+        blockNumber: event.block.number,
+      })) || ZERO_ADDRESS;
 
     context.Factory.set({
       ...factory,
       curveFactory: curveFactory,
     });
   } else {
-    context.log.warn(`CurveFactoryChange event call for non-existing factory ${event.srcAddress}`);
+    context.log.warn(
+      `CurveFactoryChange event call for non-existing factory ${event.srcAddress}`,
+    );
   }
 });
 
@@ -289,7 +308,9 @@ PrincipalToken.Paused.handler(async ({ event, context }) => {
       state: "PAUSED" as any,
     });
   } else {
-    context.log.warn(`Paused event call for non-existing Future ${event.srcAddress}`);
+    context.log.warn(
+      `Paused event call for non-existing Future ${event.srcAddress}`,
+    );
   }
 });
 
@@ -305,7 +326,9 @@ PrincipalToken.Unpaused.handler(async ({ event, context }) => {
       state: "ACTIVE" as any,
     });
   } else {
-    context.log.warn(`Unpaused event call for non-existing Future ${event.srcAddress}`);
+    context.log.warn(
+      `Unpaused event call for non-existing Future ${event.srcAddress}`,
+    );
   }
 });
 
@@ -316,14 +339,16 @@ PrincipalToken.FeeClaimed.handler(async ({ event, context }) => {
 
   const future = await context.Future.get(futureId);
   if (!future) {
-    context.log.warn(`FeeClaimed event call for non-existing Future ${event.srcAddress}`);
+    context.log.warn(
+      `FeeClaimed event call for non-existing Future ${event.srcAddress}`,
+    );
     return;
   }
 
   // Generate fee claim ID (matches subgraph: generateFeeClaimId(user, timestamp))
   const claimId = generateFeeClaimId(
     event.params.user,
-    event.block.timestamp.toString()
+    event.block.timestamp.toString(),
   );
 
   // Prefix claim ID with chainId for multichain support
@@ -334,7 +359,7 @@ PrincipalToken.FeeClaimed.handler(async ({ event, context }) => {
     event.params.user,
     BigInt(event.block.timestamp),
     event.chainId,
-    context
+    context,
   );
 
   // Create FeeClaim entity (matches subgraph logic)
@@ -366,7 +391,9 @@ PrincipalToken.YieldClaimed.handler(async ({ event, context }) => {
 
   const future = await context.Future.get(futureId);
   if (!future) {
-    context.log.warn(`YieldClaimed event call for non-existing Future ${event.srcAddress}`);
+    context.log.warn(
+      `YieldClaimed event call for non-existing Future ${event.srcAddress}`,
+    );
     return;
   }
 
@@ -377,7 +404,7 @@ PrincipalToken.YieldClaimed.handler(async ({ event, context }) => {
     event.params.yieldInIBT, // matches subgraph: event.params.yieldInIBT
     BigInt(event.block.timestamp),
     event.chainId,
-    context
+    context,
   );
 
   // Update future daily stats (matches subgraph: updateFutureDailyStats)
@@ -385,7 +412,7 @@ PrincipalToken.YieldClaimed.handler(async ({ event, context }) => {
     event,
     event.srcAddress,
     event.chainId,
-    context
+    context,
   );
 });
 
@@ -396,7 +423,9 @@ PrincipalToken.YieldUpdated.handler(async ({ event, context }) => {
 
   const future = await context.Future.get(futureId);
   if (!future) {
-    context.log.warn(`YieldUpdated event call for non-existing Future ${event.srcAddress}`);
+    context.log.warn(
+      `YieldUpdated event call for non-existing Future ${event.srcAddress}`,
+    );
     return;
   }
 
@@ -405,7 +434,7 @@ PrincipalToken.YieldUpdated.handler(async ({ event, context }) => {
     event.srcAddress,
     BigInt(event.block.timestamp),
     event.chainId,
-    context
+    context,
   );
 });
 
@@ -416,7 +445,9 @@ PrincipalToken.Transfer.handler(async ({ event, context }) => {
 
   const future = await context.Future.get(futureId);
   if (!future) {
-    context.log.warn(`PTTransfer event call for non-existing Future ${event.srcAddress}`);
+    context.log.warn(
+      `PTTransfer event call for non-existing Future ${event.srcAddress}`,
+    );
     return;
   }
 
@@ -425,7 +456,7 @@ PrincipalToken.Transfer.handler(async ({ event, context }) => {
     event.srcAddress,
     BigInt(event.block.timestamp),
     event.chainId,
-    context
+    context,
   );
 
   // Update future daily stats (matches subgraph: updateFutureDailyStats)
@@ -433,7 +464,7 @@ PrincipalToken.Transfer.handler(async ({ event, context }) => {
     event,
     event.srcAddress,
     event.chainId,
-    context
+    context,
   );
 });
 
@@ -444,7 +475,9 @@ PrincipalToken.Mint.handler(async ({ event, context }) => {
   const future = await context.Future.get(futureId);
 
   if (!future) {
-    context.log.warn(`Mint event call for non-existing Future ${event.srcAddress}`);
+    context.log.warn(
+      `Mint event call for non-existing Future ${event.srcAddress}`,
+    );
     return;
   }
 
@@ -488,7 +521,7 @@ PrincipalToken.Mint.handler(async ({ event, context }) => {
     BigInt(event.block.timestamp),
     event.block.number,
     event.chainId,
-    context
+    context,
   );
 
   // Update AccountAsset balance for PT
@@ -499,7 +532,7 @@ PrincipalToken.Mint.handler(async ({ event, context }) => {
     "PT",
     event.chainId,
     event.block.number,
-    context
+    context,
   );
 
   // Create AssetAmount for YT (amountOut)
@@ -512,7 +545,7 @@ PrincipalToken.Mint.handler(async ({ event, context }) => {
     BigInt(event.block.timestamp),
     event.block.number,
     event.chainId,
-    context
+    context,
   );
 
   // Update AccountAsset YT balance
@@ -524,7 +557,7 @@ PrincipalToken.Mint.handler(async ({ event, context }) => {
     ptAddress,
     event.chainId,
     event.block.number,
-    context
+    context,
   );
 
   // Calculate valueUnderlying: amount * ptRate / 10^RAYS_PRECISION
@@ -540,7 +573,7 @@ PrincipalToken.Mint.handler(async ({ event, context }) => {
     {
       id: generateTransactionId(
         txHash,
-        event.logIndex.toString()
+        event.logIndex.toString(),
       ),
       transactionAddress: txHash,
       futureInTransaction: ptAddress,
@@ -564,7 +597,7 @@ PrincipalToken.Mint.handler(async ({ event, context }) => {
       ptRate: ptRate,
     },
     event.chainId,
-    context
+    context,
   );
 
   // Update FutureDailyStats - Mint specific data
@@ -572,7 +605,7 @@ PrincipalToken.Mint.handler(async ({ event, context }) => {
     event,
     ptAddress,
     event.chainId,
-    context
+    context,
   );
 
   // Update dailyDeposits
@@ -589,7 +622,9 @@ PrincipalToken.Redeem.handler(async ({ event, context }) => {
   const future = await context.Future.get(futureId);
 
   if (!future) {
-    context.log.warn(`Redeem event call for non-existing Future ${event.srcAddress}`);
+    context.log.warn(
+      `Redeem event call for non-existing Future ${event.srcAddress}`,
+    );
     return;
   }
 
@@ -634,7 +669,7 @@ PrincipalToken.Redeem.handler(async ({ event, context }) => {
     BigInt(event.block.timestamp),
     event.block.number,
     event.chainId,
-    context
+    context,
   );
 
   // Update AccountAsset balance for PT
@@ -645,7 +680,7 @@ PrincipalToken.Redeem.handler(async ({ event, context }) => {
     "PT",
     event.chainId,
     event.block.number,
-    context
+    context,
   );
 
   // Create AssetAmount for YT (amountIn)
@@ -658,7 +693,7 @@ PrincipalToken.Redeem.handler(async ({ event, context }) => {
     BigInt(event.block.timestamp),
     event.block.number,
     event.chainId,
-    context
+    context,
   );
 
   // Update AccountAsset YT balance
@@ -670,7 +705,7 @@ PrincipalToken.Redeem.handler(async ({ event, context }) => {
     ptAddress,
     event.chainId,
     event.block.number,
-    context
+    context,
   );
 
   // Calculate valueUnderlying: amount * ptRate / 10^RAYS_PRECISION
@@ -686,7 +721,7 @@ PrincipalToken.Redeem.handler(async ({ event, context }) => {
     {
       id: generateTransactionId(
         txHash,
-        event.logIndex.toString()
+        event.logIndex.toString(),
       ),
       transactionAddress: txHash,
       futureInTransaction: ptAddress,
@@ -710,7 +745,7 @@ PrincipalToken.Redeem.handler(async ({ event, context }) => {
       ptRate: ptRate,
     },
     event.chainId,
-    context
+    context,
   );
 
   // Update FutureDailyStats - Redeem specific data
@@ -718,7 +753,7 @@ PrincipalToken.Redeem.handler(async ({ event, context }) => {
     event,
     ptAddress,
     event.chainId,
-    context
+    context,
   );
 
   // Update dailyWithdrawals
@@ -727,4 +762,5 @@ PrincipalToken.Redeem.handler(async ({ event, context }) => {
     dailyWithdrawals: futureDailyStats.dailyWithdrawals + UNIT_BI,
   });
 });
+
 
