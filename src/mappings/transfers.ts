@@ -1,28 +1,14 @@
 // Reference: spectra-subgraph-master/src/mappings/transfers.ts
 
-import { ERC20, IBT, MetavaultWrapper } from "generated";
+import { ERC20, MetavaultWrapper } from "generated";
 import { ZERO_ADDRESS } from "../constants";
 import { getAccount } from "../entities/Account";
 import { updateAccountAssetBalance, updateAccountAssetYTBalance } from "../entities/AccountAsset";
 import { getAsset } from "../entities/Asset";
 import { getAssetAmount } from "../entities/AssetAmount";
-import { updateIBTRates } from "../entities/IBTAsset";
 import { updateYieldForAll } from "../entities/Yield";
 import { AssetType } from "../utils/AssetType";
 import { generateTransferId } from "../utils/idGenerators";
-
-// IBT Transfer handlers
-// Reference: spectra-subgraph-master/src/mappings/transfers.ts handleIBTTransfer
-// Note: IBT transfers don't create Transfer entities, they just update IBT rates
-IBT.Transfer.handler(async ({ event, context }) => {
-  await updateIBTRates(
-    event.srcAddress,
-    BigInt(event.block.timestamp),
-    event.chainId,
-    Number(event.block.number),
-    context
-  );
-});
 
 // ERC20 Transfer handlers
 ERC20.Transfer.handler(async ({ event, context }) => {
