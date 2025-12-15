@@ -235,7 +235,8 @@ async function addLiquidity(
 
   if (pool.futureVault_id && spotPrice > ZERO_BI) {
     const ibtAmount = token_amounts[0];
-    const ptAmountInIbt = (token_amounts[1] * CURVE_UNIT) / spotPrice;
+    // Match subgraph calculation for PT amount in IBT terms: ptAmountInIbt = ptAmount * spotPrice / CURVE_UNIT
+    const ptAmountInIbt = (token_amounts[1] * spotPrice) / CURVE_UNIT;
     valueUnderlying = ((ibtAmount + ptAmountInIbt) * ibtRate) / decimalsMultiplier;
 
     feeUnderlying = getLpFeeUnderlying(
@@ -293,6 +294,7 @@ async function addLiquidity(
       futureInTransaction: ZERO_ADDRESS,
       userInTransaction: account.address,
       poolInTransaction: event.srcAddress,
+      metavaultInTransaction: ZERO_ADDRESS,
       amountsIn: [ibtAmountIn.id, ptAmountIn.id],
       amountsOut: [lpAmountOut.id],
       valueUnderlying: valueUnderlying,
@@ -309,6 +311,9 @@ async function addLiquidity(
       },
       ibtRate: ibtRate,
       ptRate: ptRate,
+      metavaultEpochId: ZERO_BI,
+      metavaultShares: ZERO_BI,
+      metavaultAssets: ZERO_BI,
     },
     event.chainId,
     context

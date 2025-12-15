@@ -109,7 +109,8 @@ export function getLpFeeUnderlying(
       // If admin fee is zero (or failed to fetch), avoid division by zero.
       return ZERO_BI;
     }
-    const ptAdminFeeInIbt = (ptAdminFee * CURVE_UNIT) / pool.spotPrice;
+    // Match subgraph logic: convert PT admin fee to IBT using spotPrice / CURVE_UNIT
+    const ptAdminFeeInIbt = (ptAdminFee * pool.spotPrice) / CURVE_UNIT;
 
     // Calculate 10^ibtDecimals
     let decimalsMultiplier = BigInt(1);

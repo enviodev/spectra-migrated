@@ -10,6 +10,8 @@ interface CreateTransactionParams {
   futureInTransaction: string;
   userInTransaction: string;
   poolInTransaction: string;
+   // Optional metavault context (for metavault-related transactions)
+  metavaultInTransaction?: string;
   amountsIn: string[];
   amountsOut: string[];
   valueUnderlying: bigint;
@@ -26,6 +28,10 @@ interface CreateTransactionParams {
   };
   ibtRate: bigint;
   ptRate: bigint;
+  // Optional metavault-specific fields
+  metavaultEpochId?: bigint;
+  metavaultShares?: bigint;
+  metavaultAssets?: bigint;
 }
 
 /**
@@ -74,6 +80,15 @@ export async function createTransaction(
         poolInTransaction_id = pool.id;
       }
     }
+    // Get metavault if provided
+    let metavaultInTransaction_id: string | undefined = undefined;
+    if (params.metavaultInTransaction && params.metavaultInTransaction !== ZERO_ADDRESS) {
+      const metavaultId = `${chainId}-${params.metavaultInTransaction}`;
+      const metavault = await context.Metavault.get(metavaultId);
+      if (metavault) {
+        metavaultInTransaction_id = metavault.id;
+      }
+    }
     
     // Create Transaction entity
     transaction = {
@@ -93,6 +108,11 @@ export async function createTransaction(
       userInTransaction_id: userInTransaction_id,
       futureInTransaction_id: futureInTransaction_id,
       poolInTransaction_id: poolInTransaction_id,
+      metavaultInTransaction_id: metavaultInTransaction_id,
+      // Metavault-specific numeric fields (optional)
+      metavaultEpochId: params.metavaultEpochId && params.metavaultEpochId !== ZERO_BI ? params.metavaultEpochId : undefined,
+      metavaultShares: params.metavaultShares && params.metavaultShares !== ZERO_BI ? params.metavaultShares : undefined,
+      metavaultAssets: params.metavaultAssets && params.metavaultAssets !== ZERO_BI ? params.metavaultAssets : undefined,
       // amountsIn and amountsOut are @derivedFrom, so we don't set them
     };
     context.Transaction.set(transaction);

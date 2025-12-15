@@ -225,7 +225,8 @@ export async function removeLiquidity(
     }
 
     const ibtAmount = token_amounts[0];
-    const ptAmountInIbt = (token_amounts[1] * CURVE_UNIT) / spotPrice;
+    // Match subgraph: ptAmountInIbt = ptAmount * spotPrice / CURVE_UNIT
+    const ptAmountInIbt = (token_amounts[1] * spotPrice) / CURVE_UNIT;
     valueUnderlying = ((ibtAmount + ptAmountInIbt) * ibtRate) / decimalsMultiplier;
 
     feeUnderlying = getLpFeeUnderlying(
@@ -283,6 +284,7 @@ export async function removeLiquidity(
       futureInTransaction: ZERO_ADDRESS,
       userInTransaction: account.address,
       poolInTransaction: event.srcAddress,
+      metavaultInTransaction: ZERO_ADDRESS,
       amountsIn: [lpAmountIn.id],
       amountsOut: [ibtAmountOut.id, ptAmountOut.id],
       valueUnderlying: valueUnderlying,
@@ -299,6 +301,9 @@ export async function removeLiquidity(
       },
       ibtRate: ibtRate,
       ptRate: ptRate,
+      metavaultEpochId: ZERO_BI,
+      metavaultShares: ZERO_BI,
+      metavaultAssets: ZERO_BI,
     },
     event.chainId,
     context
