@@ -4,6 +4,7 @@ import { Metavault, MetavaultWrapper, ERC20 } from "generated";
 import { ZERO_BI } from "../../constants";
 import { updateAccountMetavaultRequest } from "../../entities/AccountAsset";
 import { getMetavaultFromWrapper } from "../../entities/Metavault";
+import { AssetType } from "../../utils/AssetType";
 
 // Register dynamic contracts created by MetaVaultWrapperInitialized event
 Metavault.MetaVaultWrapperInitialized.contractRegister(({ event, context }) => {
@@ -12,12 +13,6 @@ Metavault.MetaVaultWrapperInitialized.contractRegister(({ event, context }) => {
   // denham todo - this doesn't make sense
   context.addMetavaultWrapper(event.srcAddress);
 });
-
-// AssetType constants (from spectra-subgraph-master/src/utils/AssetType.ts)
-const AssetType = {
-  MV_REQUEST_DEPOSIT: "MV_REQUEST_DEPOSIT",
-  MV_REQUEST_REDEEM: "MV_REQUEST_REDEEM",
-} as const;
 
 // Metavault handlers
 Metavault.MetaVaultWrapperInitialized.handler(async ({ event, context }) => {
