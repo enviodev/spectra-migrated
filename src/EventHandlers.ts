@@ -11,4 +11,5 @@ import "./mappings/factory";
 import "./mappings/transfers";
 import "./mappings/amm";
 import "./mappings/metavaults/amphorAsyncVault";
+import "./mappings/bridgeInterfaceCCTP";
 
