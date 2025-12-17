@@ -12,4 +12,5 @@ import "./mappings/amm";
 import "./mappings/metavaults/amphorAsyncVault";
 import "./mappings/bridgeInterfaceCCTP";
 import "./mappings/futures";
+import "./mappings/metavaults/modules";
 
