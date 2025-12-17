@@ -143,6 +143,9 @@ contracts:
     events:
       - event: PTDeployed(address indexed pt, address indexed poolCreator)
       - event: CurvePoolDeployed(address indexed poolAddress, address indexed ibt, address indexed pt)
+        field_selection:
+          transaction_fields:
+            - hash
       - event: RegistryChange(address indexed previousRegistry, address indexed newRegistry)
       - event: CurveFactoryChange(address indexed previousFactory, address indexed newFactory)
 
@@ -311,11 +314,29 @@ contracts:
     handler: src/EventHandlers.ts
     events:
       - event: DepositRequest(address indexed controller, address indexed owner, uint256 indexed requestId, address sender, uint256 assets)
+        field_selection:
+          transaction_fields:
+            - hash
       - event: DecreaseDepositRequest(uint256 indexed epochId, address indexed owner, uint256 indexed previousRequestedAssets, uint256 newRequestedAssets)
+        field_selection:
+          transaction_fields:
+            - hash
       - event: RedeemRequest(address indexed controller, address indexed owner, uint256 indexed requestId, address sender, uint256 shares)
+        field_selection:
+          transaction_fields:
+            - hash
       - event: DecreaseRedeemRequest(uint256 indexed epochId, address indexed owner, uint256 indexed previousRequestedShares, uint256 newRequestedShares)
+        field_selection:
+          transaction_fields:
+            - hash
       - event: Deposit(address indexed sender, address indexed owner, uint256 assets, uint256 shares)
+        field_selection:
+          transaction_fields:
+            - hash
       - event: Withdraw(address indexed sender, address indexed receiver, address indexed owner, uint256 assets, uint256 shares)
+        field_selection:
+          transaction_fields:
+            - hash
       - event: Transfer(address indexed from, address indexed to, uint256 value)
         field_selection:
           transaction_fields:
