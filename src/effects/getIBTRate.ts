@@ -30,11 +30,11 @@ export const getIBTRate = createEffect(
     rateLimit: false,
     cache: true,
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     try {
       const rpcUrl = process.env[`ENVIO_RPC_URL_${input.chainId}`] || process.env.RPC_URL;
       if (!rpcUrl) {
-        console.warn(`No RPC URL found for chain ${input.chainId}`);
+        context.log.warn(`No RPC URL found for chain ${input.chainId}`);
         return { ibtRate: UNIT_BI.toString() };
       }
 
@@ -72,11 +72,28 @@ export const getIBTRate = createEffect(
         abi: ERC4626_ABI,
         functionName: "convertToAssets",
         args: [ibtUnit],
+        blockNumber: BigInt(input.blockNumber),
       });
 
       return { ibtRate: ibtRate.toString() };
-    } catch (error) {
-      console.warn(`getIBTRate() call failed for ${input.ibtAddress}:`, error);
+    } catch (error: any) {
+      // Contract function reverted - this is expected for some addresses
+      // Reference: subgraph line 18 - log.warning and return UNIT_BI
+      // Check if it's a contract revert (expected) vs other error (unexpected)
+      const isContractRevert = 
+        error?.shortMessage?.includes("reverted") ||
+        error?.cause?.shortMessage?.includes("reverted") ||
+        error?.message?.includes("reverted");
+      
+      if (isContractRevert) {
+        // Silently handle expected reverts (non-ERC4626 contracts, etc.)
+        // This matches subgraph behavior - it logs a warning but continues
+        // We return UNIT_BI without logging to reduce noise
+        return { ibtRate: UNIT_BI.toString() };
+      }
+      
+      // Log unexpected errors (RPC issues, network problems, etc.)
+      context.log.warn(`getIBTRate() unexpected error for ${input.ibtAddress}: ${String(error)}`);
       return { ibtRate: UNIT_BI.toString() };
     }
   }

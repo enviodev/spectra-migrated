@@ -25,11 +25,11 @@ export const getPoolType = createEffect(
     rateLimit: false,
     cache: true,
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     try {
       const rpcUrl = process.env[`ENVIO_RPC_URL_${input.chainId}`] || process.env.RPC_URL;
       if (!rpcUrl) {
-        console.warn(`No RPC URL found for chain ${input.chainId}`);
+        context.log.warn(`No RPC URL found for chain ${input.chainId}`);
         return "UNKNOWN";
       }
 
@@ -91,10 +91,10 @@ export const getPoolType = createEffect(
         // Not standard Curve
       }
 
-      console.warn(`All identification methods failed for pool ${input.poolAddress}`);
+      context.log.warn(`All identification methods failed for pool ${input.poolAddress}`);
       return "UNKNOWN";
     } catch (error) {
-      console.warn(`getPoolType() call failed for ${input.poolAddress}:`, error);
+      context.log.warn(`getPoolType() call failed for ${input.poolAddress}: ${String(error)}`);
       return "UNKNOWN";
     }
   }

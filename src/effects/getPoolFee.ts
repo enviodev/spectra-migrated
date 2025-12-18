@@ -26,11 +26,11 @@ export const getPoolFee = createEffect(
     rateLimit: false,
     cache: true,
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     try {
       const rpcUrl = process.env[`ENVIO_RPC_URL_${input.chainId}`] || process.env.RPC_URL;
       if (!rpcUrl) {
-        console.warn(`No RPC URL found for chain ${input.chainId}`);
+        context.log.warn(`No RPC URL found for chain ${input.chainId}`);
         return ZERO_BI.toString();
       }
 
@@ -66,7 +66,7 @@ export const getPoolFee = createEffect(
 
       return fee.toString();
     } catch (error) {
-      console.warn(`getPoolFee() call failed for ${input.poolAddress}:`, error);
+      context.log.warn(`getPoolFee() call failed for ${input.poolAddress}: ${String(error)}`);
       return ZERO_BI.toString();
     }
   }

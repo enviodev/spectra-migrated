@@ -36,11 +36,11 @@ export const getPoolLastPrices = createEffect(
     rateLimit: false,
     cache: true,
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     try {
       const rpcUrl = process.env[`ENVIO_RPC_URL_${input.chainId}`] || process.env.RPC_URL;
       if (!rpcUrl) {
-        console.warn(`No RPC URL found for chain ${input.chainId}`);
+        context.log.warn(`No RPC URL found for chain ${input.chainId}`);
         return { lastPrice: ZERO_BI.toString() };
       }
 
@@ -76,7 +76,7 @@ export const getPoolLastPrices = createEffect(
             functionName: "last_price",
             args: [BigInt(0)],
           }).catch((err) => {
-            console.warn(`last_price() failed for ${input.poolAddress}:`, err.message);
+            context.log.warn(`last_price() failed for ${input.poolAddress}:`, err.message);
             return BigInt(0);
           }),
           publicClient.readContract({
@@ -84,7 +84,7 @@ export const getPoolLastPrices = createEffect(
             abi: CURVE_POOL_SNG_ABI,
             functionName: "stored_rates",
           }).catch((err) => {
-            console.warn(`stored_rates() failed for ${input.poolAddress}:`, err.message);
+            context.log.warn(`stored_rates() failed for ${input.poolAddress}:`, err.message);
             return [BigInt(0), BigInt(0)] as [bigint, bigint];
           }),
         ]);
@@ -102,14 +102,14 @@ export const getPoolLastPrices = createEffect(
           abi: CURVE_POOL_ABI,
           functionName: "last_prices",
         }).catch((err) => {
-          console.warn(`last_prices() failed for ${input.poolAddress}:`, err.message);
+          context.log.warn(`last_prices() failed for ${input.poolAddress}:`, err.message);
           return BigInt(0);
         });
 
         return { lastPrice: lastPrices.toString() };
       }
     } catch (error) {
-      console.warn(`getPoolLastPrices() call failed for ${input.poolAddress}:`, error);
+      context.log.warn(`getPoolLastPrices() call failed for ${input.poolAddress}: ${String(error)}`);
       return { lastPrice: ZERO_BI.toString() };
     }
   }

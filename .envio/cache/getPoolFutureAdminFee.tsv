@@ -271,3 +271,5 @@ id	output
 {"blockNumber":69304399,"chainId":43114,"poolAddress":"0xc9baebf125312cc9d2d17cc7518d09d463a151cf"}	{"futureAdminFee": "0"}
 {"blockNumber":70827325,"chainId":43114,"poolAddress":"0xea4b62b31dc1b7fe1c8d8a683f46092059087966"}	{"futureAdminFee": "0"}
 {"blockNumber":71179219,"chainId":43114,"poolAddress":"0x69e554ba642ae845642d94e4f09404434c2a8f77"}	{"futureAdminFee": "0"}
+{"blockNumber":23965175,"chainId":1,"poolAddress":"0x1618f07908d5c9875478d74e26127b763e7be271"}	{"futureAdminFee": "0"}
+{"blockNumber":23948148,"chainId":1,"poolAddress":"0x1d1ff54bbdb850aa638d810854e47749ca93d5ee"}	{"futureAdminFee": "0"}

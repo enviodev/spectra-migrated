@@ -28,11 +28,11 @@ export const getERC20Balance = createEffect(
     rateLimit: false,
     cache: true,
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     try {
       const rpcUrl = process.env[`ENVIO_RPC_URL_${input.chainId}`] || process.env.RPC_URL;
       if (!rpcUrl) {
-        console.warn(`No RPC URL found for chain ${input.chainId}`);
+        context.log.warn(`No RPC URL found for chain ${input.chainId}`);
         return { balance: "0" };
       }
 
@@ -65,13 +65,14 @@ export const getERC20Balance = createEffect(
         abi: ERC20_ABI,
         functionName: "balanceOf",
         args: [accountAddress],
+        blockNumber: BigInt(input.blockNumber),
       }).catch(() => BigInt(0));
 
       return {
         balance: String(balance),
       };
     } catch (error) {
-      console.error(`getERC20Balance() call failed for ${input.tokenAddress}: ${error}`);
+      context.log.error(`getERC20Balance() call failed for ${input.tokenAddress}: ${error}`);
       return { balance: "0" };
     }
   }

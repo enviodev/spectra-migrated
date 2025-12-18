@@ -25,7 +25,7 @@ export const getPoolLPToken = createEffect(
     rateLimit: false,
     cache: true,
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     try {
       // If pool is SNG, the LP token is itself
       if (input.poolType === "CURVE_SNG") {
@@ -34,7 +34,7 @@ export const getPoolLPToken = createEffect(
 
       const rpcUrl = process.env[`ENVIO_RPC_URL_${input.chainId}`] || process.env.RPC_URL;
       if (!rpcUrl) {
-        console.warn(`No RPC URL found for chain ${input.chainId}`);
+        context.log.warn(`No RPC URL found for chain ${input.chainId}`);
         return ZERO_ADDRESS;
       }
 
@@ -69,7 +69,7 @@ export const getPoolLPToken = createEffect(
 
       return (tokenAddress as string);
     } catch (error) {
-      console.warn(`getPoolLPToken() call failed for ${input.poolAddress}:`, error);
+      context.log.warn(`getPoolLPToken() call failed for ${input.poolAddress}: ${String(error)}`);
       return ZERO_ADDRESS;
     }
   }

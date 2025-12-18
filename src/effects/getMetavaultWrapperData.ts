@@ -37,11 +37,11 @@ export const getMetavaultWrapperData = createEffect(
     rateLimit: false,
     cache: true,
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     try {
       const rpcUrl = process.env[`ENVIO_RPC_URL_${input.chainId}`] || process.env.RPC_URL;
       if (!rpcUrl) {
-        console.warn(`No RPC URL found for chain ${input.chainId}`);
+        context.log.warn(`No RPC URL found for chain ${input.chainId}`);
         // Return default values on error
         return {
           owner: "",
@@ -116,7 +116,7 @@ export const getMetavaultWrapperData = createEffect(
         asset: String(asset),
       };
     } catch (error) {
-      console.error(`getMetavaultWrapperData() call failed for ${input.wrapperAddress}: ${error}`);
+      context.log.error(`getMetavaultWrapperData() call failed for ${input.wrapperAddress}: ${error}`);
       // Return default values on error
       return {
         owner: "",

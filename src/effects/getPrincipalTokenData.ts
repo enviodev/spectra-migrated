@@ -44,11 +44,11 @@ export const getPrincipalTokenData = createEffect(
     rateLimit: false,
     cache: true,
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     try {
       const rpcUrl = process.env[`ENVIO_RPC_URL_${input.chainId}`] || process.env.RPC_URL;
       if (!rpcUrl) {
-        console.warn(`No RPC URL found for chain ${input.chainId}`);
+        context.log.warn(`No RPC URL found for chain ${input.chainId}`);
         // Return default values on error
         return {
           maturity: "0",
@@ -96,7 +96,7 @@ export const getPrincipalTokenData = createEffect(
           functionName: "maturity",
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
-          console.warn(`maturity() call reverted for ${input.ptAddress}`);
+          context.log.warn(`maturity() call reverted for ${input.ptAddress}`);
           return BigInt(0);
         }),
         publicClient.readContract({
@@ -105,7 +105,7 @@ export const getPrincipalTokenData = createEffect(
           functionName: "name",
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
-          console.warn(`name() call reverted for ${input.ptAddress}`);
+          context.log.warn(`name() call reverted for ${input.ptAddress}`);
           return "";
         }),
         publicClient.readContract({
@@ -114,7 +114,7 @@ export const getPrincipalTokenData = createEffect(
           functionName: "symbol",
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
-          console.warn(`symbol() call reverted for ${input.ptAddress}`);
+          context.log.warn(`symbol() call reverted for ${input.ptAddress}`);
           return "";
         }),
         publicClient.readContract({
@@ -123,7 +123,7 @@ export const getPrincipalTokenData = createEffect(
           functionName: "decimals",
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
-          console.warn(`decimals() call reverted for ${input.ptAddress}`);
+          context.log.warn(`decimals() call reverted for ${input.ptAddress}`);
           return 18;
         }),
         publicClient.readContract({
@@ -132,7 +132,7 @@ export const getPrincipalTokenData = createEffect(
           functionName: "underlying",
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
-          console.warn(`underlying() call reverted for ${input.ptAddress}`);
+          context.log.warn(`underlying() call reverted for ${input.ptAddress}`);
           return "0x0000000000000000000000000000000000000000";
         }),
         publicClient.readContract({
@@ -141,7 +141,7 @@ export const getPrincipalTokenData = createEffect(
           functionName: "getIBT",
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
-          console.warn(`getIBT() call reverted for ${input.ptAddress}`);
+          context.log.warn(`getIBT() call reverted for ${input.ptAddress}`);
           return "0x0000000000000000000000000000000000000000";
         }),
         publicClient.readContract({
@@ -150,7 +150,7 @@ export const getPrincipalTokenData = createEffect(
           functionName: "getYT",
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
-          console.warn(`getYT() call reverted for ${input.ptAddress}`);
+          context.log.warn(`getYT() call reverted for ${input.ptAddress}`);
           return "0x0000000000000000000000000000000000000000";
         }),
         publicClient.readContract({
@@ -159,7 +159,7 @@ export const getPrincipalTokenData = createEffect(
           functionName: "getPTRate",
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
-          console.warn(`getPTRate() call reverted for ${input.ptAddress}`);
+          context.log.warn(`getPTRate() call reverted for ${input.ptAddress}`);
           return UNIT_BI;
         }),
         publicClient.readContract({
@@ -168,7 +168,7 @@ export const getPrincipalTokenData = createEffect(
           functionName: "totalAssets",
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
-          console.warn(`totalAssets() call reverted for ${input.ptAddress}`);
+          context.log.warn(`totalAssets() call reverted for ${input.ptAddress}`);
           return BigInt(0);
         }),
       ]);
@@ -187,7 +187,7 @@ export const getPrincipalTokenData = createEffect(
       };
     } catch (error) {
       // Log warning and return default values (matches original subgraph pattern)
-      console.warn(`getPrincipalTokenData() call failed for ${input.ptAddress}:`, error);
+      context.log.warn(`getPrincipalTokenData() call failed for ${input.ptAddress}: ${String(error)}`);
       return {
         maturity: "0",
         name: "",

@@ -28,11 +28,11 @@ export const getPoolAdminFee = createEffect(
     rateLimit: false,
     cache: true,
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     try {
       const rpcUrl = process.env[`ENVIO_RPC_URL_${input.chainId}`] || process.env.RPC_URL;
       if (!rpcUrl) {
-        console.warn(`No RPC URL found for chain ${input.chainId}`);
+        context.log.warn(`No RPC URL found for chain ${input.chainId}`);
         return { adminFee: ZERO_BI.toString() };
       }
 
@@ -65,7 +65,7 @@ export const getPoolAdminFee = createEffect(
 
       return { adminFee: adminFee.toString() };
     } catch (error) {
-      console.warn(`admin_fee() call reverted for ${input.poolAddress}`);
+      context.log.warn(`admin_fee() call reverted for ${input.poolAddress}`);
       return { adminFee: ZERO_BI.toString() };
     }
   }

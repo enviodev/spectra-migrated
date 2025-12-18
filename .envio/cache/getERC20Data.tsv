@@ -9101,6 +9101,7 @@ id	output
 {"blockNumber":122892649,"chainId":10,"tokenAddress":"0x6e0dccf49d095f8ea8920a8af03d236fa167b7e0"}	{"name": "Spectra ERC4626 Wrapper: uniBTC", "symbol": "sw-uniBTC", "decimals": 8}
 {"blockNumber":123040720,"chainId":10,"tokenAddress":"0x6e0dccf49d095f8ea8920a8af03d236fa167b7e0"}	{"name": "Spectra ERC4626 Wrapper: uniBTC", "symbol": "sw-uniBTC", "decimals": 8}
 {"blockNumber":123072149,"chainId":10,"tokenAddress":"0x6e0dccf49d095f8ea8920a8af03d236fa167b7e0"}	{"name": "Spectra ERC4626 Wrapper: uniBTC", "symbol": "sw-uniBTC", "decimals": 8}
+{"blockNumber":19919019,"chainId":1,"tokenAddress":"0x0000206329b97db379d5e1bf586bbdb969c63274"}	{"name": "USDA", "symbol": "USDA", "decimals": 18}
 {"blockNumber":123153447,"chainId":10,"tokenAddress":"0x6e0dccf49d095f8ea8920a8af03d236fa167b7e0"}	{"name": "Spectra ERC4626 Wrapper: uniBTC", "symbol": "sw-uniBTC", "decimals": 8}
 {"blockNumber":123228116,"chainId":10,"tokenAddress":"0x6e0dccf49d095f8ea8920a8af03d236fa167b7e0"}	{"name": "Spectra ERC4626 Wrapper: uniBTC", "symbol": "sw-uniBTC", "decimals": 8}
 {"blockNumber":123243798,"chainId":10,"tokenAddress":"0x6e0dccf49d095f8ea8920a8af03d236fa167b7e0"}	{"name": "Spectra ERC4626 Wrapper: uniBTC", "symbol": "sw-uniBTC", "decimals": 8}
@@ -10239,6 +10240,7 @@ id	output
 {"blockNumber":71068893,"chainId":43114,"tokenAddress":"0x4c916ad137b97b03ab5f105cea77c5d5f98a2a09"}	{"name": "Spectra ERC4626 Wrapper: Treehouse AVAX", "symbol": "sw-tAVAX", "decimals": 18}
 {"blockNumber":71073001,"chainId":43114,"tokenAddress":"0x4c916ad137b97b03ab5f105cea77c5d5f98a2a09"}	{"name": "Spectra ERC4626 Wrapper: Treehouse AVAX", "symbol": "sw-tAVAX", "decimals": 18}
 {"blockNumber":71073579,"chainId":43114,"tokenAddress":"0x4c916ad137b97b03ab5f105cea77c5d5f98a2a09"}	{"name": "Spectra ERC4626 Wrapper: Treehouse AVAX", "symbol": "sw-tAVAX", "decimals": 18}
+{"blockNumber":19928084,"chainId":1,"tokenAddress":"0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f"}	{"name": "Gho Token", "symbol": "GHO", "decimals": 18}
 {"blockNumber":71073647,"chainId":43114,"tokenAddress":"0x4c916ad137b97b03ab5f105cea77c5d5f98a2a09"}	{"name": "Spectra ERC4626 Wrapper: Treehouse AVAX", "symbol": "sw-tAVAX", "decimals": 18}
 {"blockNumber":71078200,"chainId":43114,"tokenAddress":"0x4c916ad137b97b03ab5f105cea77c5d5f98a2a09"}	{"name": "Spectra ERC4626 Wrapper: Treehouse AVAX", "symbol": "sw-tAVAX", "decimals": 18}
 {"blockNumber":71078273,"chainId":43114,"tokenAddress":"0x4c916ad137b97b03ab5f105cea77c5d5f98a2a09"}	{"name": "Spectra ERC4626 Wrapper: Treehouse AVAX", "symbol": "sw-tAVAX", "decimals": 18}
@@ -10317,3 +10319,309 @@ id	output
 {"blockNumber":37696329,"chainId":8453,"tokenAddress":"0x113f79607598fc9e8a56ace893c0c39a9c4ac66e"}	{"name": "Spectra-MetaVault", "symbol": "SMV", "decimals": 6}
 {"blockNumber":22647867,"chainId":1,"tokenAddress":"0x87fd322a24eaddfa57fe9bb9b83ab67d236d2cec"}	{"name": "Spectra ERC4626 Wrapper: YieldFi yUSD", "symbol": "sw-yUSD", "decimals": 18}
 {"blockNumber":23697612,"chainId":1,"tokenAddress":"0x205f7b9c99421d58d5c09a92445352a959801941"}	{"name": "Spectra ERC4626 Wrapper: avETH MAX", "symbol": "sw-avETHx", "decimals": 18}
+{"blockNumber":20411892,"chainId":1,"tokenAddress":"0x06c03069de266f58d10a0724a4f65c3d4fefff4d"}	{"name": "Spectra ERC4626 Wrapper: Amphor Restaked ETH", "symbol": "sw-amphrETH", "decimals": 18}
+{"blockNumber":21020863,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21005520,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21005683,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21005544,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21005503,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21020692,"chainId":1,"tokenAddress":"0x6e0dccf49d095f8ea8920a8af03d236fa167b7e0"}	{"name": "Spectra ERC4626 Wrapper: ynETH", "symbol": "sw-ynETH", "decimals": 18}
+{"blockNumber":23965175,"chainId":1,"tokenAddress":"0xb250c9e0f7be4cff13f94374c993ac445a1385fe"}	{"name": "ETH Strategy Perpetual Note", "symbol": "ESPN", "decimals": 18}
+{"blockNumber":23965175,"chainId":1,"tokenAddress":"0xdC035D45d973E3EC169d2276DDab16f1e407384F"}	{"name": "USDS Stablecoin", "symbol": "USDS", "decimals": 18}
+{"blockNumber":23965175,"chainId":1,"tokenAddress":"0xae27f0e72475f6b3af3b92ddc78da36acf994d7e"}	{"name": "Principal Token: ESPN(USDS) 2026/12/08", "symbol": "PT-ESPN(USDS)-2026/12/08", "decimals": 18}
+{"blockNumber":23965175,"chainId":1,"tokenAddress":"0xb250C9E0F7bE4cfF13F94374C993aC445A1385fE"}	{"name": "ETH Strategy Perpetual Note", "symbol": "ESPN", "decimals": 18}
+{"blockNumber":23948148,"chainId":1,"tokenAddress":"0xb43326e29631891d069ed21970b09fca0b624cee"}	{"name": "Principal Token: sBOLD(BOLD) 2026/06/05", "symbol": "PT-sBOLD(BOLD)-2026/06/05", "decimals": 18}
+{"blockNumber":23965175,"chainId":1,"tokenAddress":"0x1618f07908d5c9875478d74e26127b763e7be271"}	{"name": "Spectra-PT/IBT", "symbol": "SPT-PT/IBT", "decimals": 18}
+{"blockNumber":23948148,"chainId":1,"tokenAddress":"0x1d1ff54bbdb850aa638d810854e47749ca93d5ee"}	{"name": "Spectra-PT/IBT", "symbol": "SPT-PT/IBT", "decimals": 18}
+{"blockNumber":23948148,"chainId":1,"tokenAddress":"0xeF5bCa3661Bb126CD4B9ab37207ADE05306B3c83"}	{"name": "Yield Token: sBOLD(BOLD) 2026/06/05", "symbol": "YT-sBOLD(BOLD)-2026/06/05", "decimals": 18}
+{"blockNumber":23965175,"chainId":1,"tokenAddress":"0xefAa6014bBdc9cCb5568fB918bA73816A94fDC8c"}	{"name": "Yield Token: ESPN(USDS) 2026/12/08", "symbol": "YT-ESPN(USDS)-2026/12/08", "decimals": 18}
+{"blockNumber":19961120,"chainId":1,"tokenAddress":"0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee"}	{"name": "Wrapped eETH", "symbol": "weETH", "decimals": 18}
+{"blockNumber":19969673,"chainId":1,"tokenAddress":"0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"}	{"name": "Wrapped BTC", "symbol": "WBTC", "decimals": 8}
+{"blockNumber":19919019,"chainId":1,"tokenAddress":"0x74a1433e1bb818896df85a56b0aba5bac93971a7"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":19928084,"chainId":1,"tokenAddress":"0xfe8ab51fd37ea5cebe203510160303dad4ad11ad"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":19961120,"chainId":1,"tokenAddress":"0x00edfad7dd3dd2129f0f0227d219d83a761ed044"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":19969673,"chainId":1,"tokenAddress":"0x2b697ceb121275b6b7c37d1749ddc101ea960b8e"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":19919019,"chainId":1,"tokenAddress":"0x754be840e0a3e8fe06416591a501ce3f80ee3943"}	{"name": "Yield Token: stUSD-1748217638", "symbol": "YT-stUSD-1748217638", "decimals": 18}
+{"blockNumber":19928084,"chainId":1,"tokenAddress":"0x47b5d8d9d105ee794dfc7e0ac755dd151336d84d"}	{"name": "Yield Token: sw-stkGHO-1732492824", "symbol": "YT-sw-stkGHO-1732492824", "decimals": 18}
+{"blockNumber":19961120,"chainId":1,"tokenAddress":"0x763056e4000a9abdd11caa0d47d872944d34d129"}	{"name": "Yield Token: KweETH-1727308807", "symbol": "YT-KweETH-1727308807", "decimals": 18}
+{"blockNumber":19969673,"chainId":1,"tokenAddress":"0x4c9d41dfda778ab7cff5136f4083497cd3e4cbd9"}	{"name": "Yield Token: sw-uniBTC-1732752015", "symbol": "YT-sw-uniBTC-1732752015", "decimals": 8}
+{"blockNumber":20031244,"chainId":1,"tokenAddress":"0xa8258dee2a677874a48f5320670a869d74f0cbc1"}	{"name": "Warlord token", "symbol": "WAR", "decimals": 18}
+{"blockNumber":20076779,"chainId":1,"tokenAddress":"0xd1b5651e55d4ceed36251c61c50c889b36f6abb5"}	{"name": "Stake DAO CRV", "symbol": "sdCRV", "decimals": 18}
+{"blockNumber":20112870,"chainId":1,"tokenAddress":"0x856c4efb76c1d1ae02e20ceb03a2a6a08b0b8dc3"}	{"name": "Origin Ether", "symbol": "OETH", "decimals": 18}
+{"blockNumber":20118238,"chainId":1,"tokenAddress":"0x65d72aa8da931f047169112fcf34f52dbaae7d18"}	{"name": "f(x) rUSD", "symbol": "rUSD", "decimals": 18}
+{"blockNumber":20125962,"chainId":1,"tokenAddress":"0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"}	{"name": "Wrapped liquid staked Ether 2.0", "symbol": "wstETH", "decimals": 18}
+{"blockNumber":20127857,"chainId":1,"tokenAddress":"0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"}	{"name": "Wrapped liquid staked Ether 2.0", "symbol": "wstETH", "decimals": 18}
+{"blockNumber":20232136,"chainId":1,"tokenAddress":"0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"}	{"name": "Wrapped liquid staked Ether 2.0", "symbol": "wstETH", "decimals": 18}
+{"blockNumber":20161295,"chainId":1,"tokenAddress":"0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"}	{"name": "Wrapped Ether", "symbol": "WETH", "decimals": 18}
+{"blockNumber":20172980,"chainId":1,"tokenAddress":"0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b"}	{"name": "Convex Token", "symbol": "CVX", "decimals": 18}
+{"blockNumber":20232136,"chainId":1,"tokenAddress":"0x9b1e5e8909609f5b2a07394746f28e1eb0b236ae"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20125962,"chainId":1,"tokenAddress":"0x52cbf58cb19f4c56633c272faec796a0872e43c6"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20127857,"chainId":1,"tokenAddress":"0x4d46b713fc1e38f9923cd2a5ca5050574f9f0d73"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20161295,"chainId":1,"tokenAddress":"0x68a9a9a404f0d5f9a42659ad12b1d9bb1ad98e4e"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20031244,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20076779,"chainId":1,"tokenAddress":"0x1bc03e4a69bcb5ff949b15d293f49df61727dde5"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20112870,"chainId":1,"tokenAddress":"0x7ffa825bcc1b705c6dfe40938742840640597ad8"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20118238,"chainId":1,"tokenAddress":"0x1563a5f5ddc88db8f5ee935cc8c0dd9c0dcdc1ff"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20172980,"chainId":1,"tokenAddress":"0x4d78afe5b63ab9d44a4acc3ebcbe30f1d81a2531"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20031244,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20076779,"chainId":1,"tokenAddress":"0x0698aa9762fc38b908315c5c3efd0aee469356e6"}	{"name": "Yield Token: asdCRV-1733973768", "symbol": "YT-asdCRV-1733973768", "decimals": 18}
+{"blockNumber":20112870,"chainId":1,"tokenAddress":"0x12230373dfeae1950f9c2a59198a170fd8b4ed22"}	{"name": "Yield Token: WOETH-1750118420", "symbol": "YT-WOETH-1750118420", "decimals": 18}
+{"blockNumber":20118238,"chainId":1,"tokenAddress":"0xb4fe541f3ffb0f35da15e5919682e270f5a35a4d"}	{"name": "Yield Token: arUSD-1734480037", "symbol": "YT-arUSD-1734480037", "decimals": 18}
+{"blockNumber":20125962,"chainId":1,"tokenAddress":"0xc71f86ab0e10485a7c2f3c2ae5303e87dd28cca4"}	{"name": "Yield Token: sw-amphrETH-1726704008", "symbol": "YT-sw-amphrETH-1726704008", "decimals": 18}
+{"blockNumber":20127857,"chainId":1,"tokenAddress":"0x380e5d1a776a80a11291633ac77786e7061c40e0"}	{"name": "Yield Token: sw-amphrETH-1726790425", "symbol": "YT-sw-amphrETH-1726790425", "decimals": 18}
+{"blockNumber":20161295,"chainId":1,"tokenAddress":"0xe1cd8c0a6845122bada434ede90fe3635aa1bbfb"}	{"name": "Yield Token: sw-uniETH-1727136009", "symbol": "YT-sw-uniETH-1727136009", "decimals": 18}
+{"blockNumber":20172980,"chainId":1,"tokenAddress":"0x71449da26926f6879f47ec3a3dcfb9c2323d19a0"}	{"name": "Yield Token: afCVX-1727222454", "symbol": "YT-afCVX-1727222454", "decimals": 18}
+{"blockNumber":20232136,"chainId":1,"tokenAddress":"0xa52e41ddf4461f93840c9e26462ffdc333e015b9"}	{"name": "Yield Token: sw-amphrLRT-1728172816", "symbol": "YT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20827940,"chainId":1,"tokenAddress":"0xa62ca1514944cc858a52e672df52fde0fda44a20"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20828021,"chainId":1,"tokenAddress":"0x6228bbf6ebc60303c822d62ed06c12ed43edeb58"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20421312,"chainId":1,"tokenAddress":"0x0bb9ab78aaf7179b7515e6753d89822b91e670c4"}	{"name": "Kernel USD", "symbol": "kUSD", "decimals": 18}
+{"blockNumber":20421312,"chainId":1,"tokenAddress":"0x513d27c94c0d81eed9dc2a88b4531a69993187cf"}	{"name": "Kernel Staked ETH", "symbol": "ksETH", "decimals": 18}
+{"blockNumber":20421312,"chainId":1,"tokenAddress":"0xf02c96dbbb92dc0325ad52b3f9f2b951f972bf00"}	{"name": "Kernel Restaked ETH", "symbol": "krETH", "decimals": 18}
+{"blockNumber":20422887,"chainId":1,"tokenAddress":"0x853d955acef822db058eb8505911ed77f175b99e"}	{"name": "Frax", "symbol": "FRAX", "decimals": 18}
+{"blockNumber":20482543,"chainId":1,"tokenAddress":"0x1a7e4e63778b4f12a199c062f3efdd288afcbce8"}	{"name": "EURA (previously agEUR)", "symbol": "EURA", "decimals": 18}
+{"blockNumber":20506003,"chainId":1,"tokenAddress":"0x62b9c7356a2dc64a1969e19c23e4f579f9810aa7"}	{"name": "Convex CRV", "symbol": "cvxCRV", "decimals": 18}
+{"blockNumber":20521549,"chainId":1,"tokenAddress":"0xa1290d69c65a6fe4df752f95823fae25cb99e5a7"}	{"name": "rsETH", "symbol": "rsETH", "decimals": 18}
+{"blockNumber":20522173,"chainId":1,"tokenAddress":"0x093254005743b7af89e24f645730ba2dd8441333"}	{"name": "50APW-50WETH", "symbol": "50APW-50WETH", "decimals": 18}
+{"blockNumber":20582576,"chainId":1,"tokenAddress":"0x66a1e37c9b0eaddca17d3662d6c05f4decf3e110"}	{"name": "Resolv USD", "symbol": "USR", "decimals": 18}
+{"blockNumber":20585725,"chainId":1,"tokenAddress":"0x6010676bc2534652ad1ef5fa8073dcf9ad7ebfbe"}	{"name": "Pendle Market", "symbol": "PENDLE-LPT", "decimals": 18}
+{"blockNumber":20725682,"chainId":1,"tokenAddress":"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"}	{"name": "USD Coin", "symbol": "USDC", "decimals": 6}
+{"blockNumber":20764430,"chainId":1,"tokenAddress":"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"}	{"name": "USD Coin", "symbol": "USDC", "decimals": 6}
+{"blockNumber":20421312,"chainId":1,"tokenAddress":"0x66fbb4fca7fd1095a6bd62d2225647cfefbcddf4"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20421312,"chainId":1,"tokenAddress":"0x1ec04df27c0f5460a4cef9bd9790d760af381385"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20421312,"chainId":1,"tokenAddress":"0xef578b2a16ee408d89cd4e83085d90126846416f"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20422887,"chainId":1,"tokenAddress":"0xdbc714d4d7a0c6f46d258fd35f7c1a5b89a3801c"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20482543,"chainId":1,"tokenAddress":"0xd579447a354fcbd7e49d382d44fe322a884b3558"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20506003,"chainId":1,"tokenAddress":"0x24b27594b724eb6beecde3e7a09ef41368b87b96"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20521549,"chainId":1,"tokenAddress":"0xfe469c17898082dbdc1e969fb36fe4e7c56b5014"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20522173,"chainId":1,"tokenAddress":"0x9dcbd8707072f6e99ae7fdb8e4b4b982c0957adc"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20582576,"chainId":1,"tokenAddress":"0x3523de26602bec599a01da5f0ca91df9b85964e7"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20585725,"chainId":1,"tokenAddress":"0x0c5615939e86e4b99d7bdcacef62c8b515c78fea"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20827940,"chainId":1,"tokenAddress":"0xdfb8d94c25c8cfc4df171077fad479adaaef51c9"}	{"name": "Yield Token: sw-stkGHO-1742860812", "symbol": "YT-sw-stkGHO-1742860812", "decimals": 18}
+{"blockNumber":20828021,"chainId":1,"tokenAddress":"0x8e82b4295996feda8648b9ce3ff6d0ec40c4f83b"}	{"name": "Yield Token: sw-amphrLRT-1742860816", "symbol": "YT-sw-amphrLRT-1742860816", "decimals": 18}
+{"blockNumber":20683920,"chainId":1,"tokenAddress":"0x3a14c9de53d3f3476a74bd5c53b64cdbde5482c8"}	{"name": "Yield Token: thWAR-1741132844", "symbol": "YT-thWAR-1741132844", "decimals": 18}
+{"blockNumber":20683920,"chainId":1,"tokenAddress":"0x9093260fa354497397928c1404241e8657639876"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20861112,"chainId":1,"tokenAddress":"0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"}	{"name": "Wrapped Ether", "symbol": "WETH", "decimals": 18}
+{"blockNumber":20764439,"chainId":1,"tokenAddress":"0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"}	{"name": "Wrapped Ether", "symbol": "WETH", "decimals": 18}
+{"blockNumber":20725682,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20861112,"chainId":1,"tokenAddress":"0x85f05383f7cb67f35385f7bf3b74e68f4795cbb9"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20764439,"chainId":1,"tokenAddress":"0x420b98ecf46eaac880f96eabba9ec4ea8239cd47"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20764430,"chainId":1,"tokenAddress":"0x5a3f8c760a94838fbd08544221811add1012d034"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20421312,"chainId":1,"tokenAddress":"0x2944b97803e203b0e34d972e50d4edc099b1f97d"}	{"name": "Yield Token: sr-kUSD-1738195558", "symbol": "YT-sr-kUSD-1738195558", "decimals": 18}
+{"blockNumber":20421312,"chainId":1,"tokenAddress":"0xd040ef2009de5c61c02838bf89dc5de2a9f6dbf3"}	{"name": "Yield Token: sr-ksETH-1738195500", "symbol": "YT-sr-ksETH-1738195500", "decimals": 18}
+{"blockNumber":20421312,"chainId":1,"tokenAddress":"0x544d89d8630287e74e9f738ed28b916810e14ee5"}	{"name": "Yield Token: sr-krETH-1738195474", "symbol": "YT-sr-krETH-1738195474", "decimals": 18}
+{"blockNumber":20422887,"chainId":1,"tokenAddress":"0xf150f74435ab1da383664bb7d9f63c7fbdd51887"}	{"name": "Yield Token: sFRAX-1753833630", "symbol": "YT-sFRAX-1753833630", "decimals": 18}
+{"blockNumber":20482543,"chainId":1,"tokenAddress":"0xcfa32af1c5a084deee5e55708cf148b2965e4d2d"}	{"name": "Yield Token: stEUR-1734220822", "symbol": "YT-stEUR-1734220822", "decimals": 18}
+{"blockNumber":20506003,"chainId":1,"tokenAddress":"0x233af3eb7ecda3b9ab4886543f65471fdbfb7b17"}	{"name": "Yield Token: aCRV-1734652854", "symbol": "YT-aCRV-1734652854", "decimals": 18}
+{"blockNumber":20521549,"chainId":1,"tokenAddress":"0x2d176fc14374201a1641db67e5a9761bf92726f8"}	{"name": "Yield Token: agETH-1739404813", "symbol": "YT-agETH-1739404813", "decimals": 18}
+{"blockNumber":20522173,"chainId":1,"tokenAddress":"0x5a89ea1ccecfcba4a70722648056914cb8bb4506"}	{"name": "Yield Token: f50APW-50WETH-1744761606", "symbol": "YT-f50APW-50WETH-1744761606", "decimals": 18}
+{"blockNumber":20582576,"chainId":1,"tokenAddress":"0x861e65f1bf472ead79c248111d78211907130820"}	{"name": "Yield Token: wstUSR-1740182579", "symbol": "YT-wstUSR-1740182579", "decimals": 18}
+{"blockNumber":20585725,"chainId":1,"tokenAddress":"0xd580c5128200361ba1f1d4d46f593753e7019c28"}	{"name": "Yield Token: fPENDLE-LPT-1735084833", "symbol": "YT-fPENDLE-LPT-1735084833", "decimals": 18}
+{"blockNumber":20725682,"chainId":1,"tokenAddress":"0x3b53a1a02f54c77aef429e8750b1722ef8ce9fd6"}	{"name": "Yield Token: sw-USUALUSDC+-1731480491", "symbol": "YT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20764430,"chainId":1,"tokenAddress":"0xb14150c9093ebef74a0bac5a54231e1d78a72b84"}	{"name": "Yield Token: sw-gtUSDCcore-1757980809", "symbol": "YT-sw-gtUSDCcore-1757980809", "decimals": 18}
+{"blockNumber":20764439,"chainId":1,"tokenAddress":"0xd2efef232448ca036c83df3f56a0e890c088b5ce"}	{"name": "Yield Token: sw-gtLRTcore-1742083206", "symbol": "YT-sw-gtLRTcore-1742083206", "decimals": 18}
+{"blockNumber":20861112,"chainId":1,"tokenAddress":"0x52aceff7804bb5f251926d5a53a12cb8488efa71"}	{"name": "Yield Token: sw-ynETH-1735516827", "symbol": "YT-sw-ynETH-1735516827", "decimals": 18}
+{"blockNumber":21070385,"chainId":1,"tokenAddress":"0xae2d97cbbc13b67988eced2aba0f6939655ed3de"}	{"name": "Gyroscope ECLP paUSD/GYD", "symbol": "ECLP-paUSD-GYD", "decimals": 18}
+{"blockNumber":21143811,"chainId":1,"tokenAddress":"0x0a6e7ba5042b38349e437ec6db6214aec7b35676"}	{"name": "Swell Governance Token", "symbol": "SWELL", "decimals": 18}
+{"blockNumber":21182684,"chainId":1,"tokenAddress":"0xf939e0a03fb07f59a73314e73794be0e57ac1b4e"}	{"name": "Curve.Fi USD Stablecoin", "symbol": "crvUSD", "decimals": 18}
+{"blockNumber":21320940,"chainId":1,"tokenAddress":"0x2408569177553a427dd6956e1717f2fbe1a96f1d"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21116010,"chainId":1,"tokenAddress":"0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"}	{"name": "Wrapped Ether", "symbol": "WETH", "decimals": 18}
+{"blockNumber":21121454,"chainId":1,"tokenAddress":"0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"}	{"name": "Wrapped BTC", "symbol": "WBTC", "decimals": 8}
+{"blockNumber":21071577,"chainId":1,"tokenAddress":"0x477f0ea1ba96724f2c0bf42b589d8dc1bab464c9"}	{"name": "Yield Token: sw-stkGHO-1745886768", "symbol": "YT-sw-stkGHO-1745886768", "decimals": 18}
+{"blockNumber":21320940,"chainId":1,"tokenAddress":"0xc5773fb124cc02fa865bfb968de8ffa43bc1902f"}	{"name": "Yield Token: sw-ynETH-1743379491", "symbol": "YT-sw-ynETH-1743379491", "decimals": 18}
+{"blockNumber":21070385,"chainId":1,"tokenAddress":"0xe3031e3be0b8e8f77b6fb36932b066c3a9b65452"}	{"name": "Yield Token: sw-auraECLP-paUSD-GYD-vault-1745885004", "symbol": "YT-sw-auraECLP-paUSD-GYD-vault-1745885004", "decimals": 18}
+{"blockNumber":21070385,"chainId":1,"tokenAddress":"0xe0ca229d974b976fee2b782ffc30e3c174710757"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21071577,"chainId":1,"tokenAddress":"0x9b04af640ba44bc6a039e978987a950c703bb8ee"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21116010,"chainId":1,"tokenAddress":"0x8e36baf17dde6d1edfc94e9832d2e119779fa4f5"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21121454,"chainId":1,"tokenAddress":"0xf0ce4940445a2dc0338a6669a90d6817c617419d"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21143811,"chainId":1,"tokenAddress":"0x3f5dce0277644de67f8fc8600f0c08b78eb91889"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21182684,"chainId":1,"tokenAddress":"0xce664f6e46fdcafdc4841c6b47c91021b0f34a43"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21116010,"chainId":1,"tokenAddress":"0x70d0478c4dee033902f0187814a751936513fc93"}	{"name": "Yield Token: sw-hETH-1746316809", "symbol": "YT-sw-hETH-1746316809", "decimals": 18}
+{"blockNumber":21121454,"chainId":1,"tokenAddress":"0xe2e33e45c2322e7bccb15973caab28e27489fc61"}	{"name": "Yield Token: sw-eBTC-1746403213", "symbol": "YT-sw-eBTC-1746403213", "decimals": 8}
+{"blockNumber":21143811,"chainId":1,"tokenAddress":"0x0c8ccb30a3e327623be4ddeaf0cba75eee4cbd24"}	{"name": "Yield Token: rSWELL-1739059213", "symbol": "YT-rSWELL-1739059213", "decimals": 18}
+{"blockNumber":21182684,"chainId":1,"tokenAddress":"0xd421352e09bade9b07b54bf3c95d359b1e041f05"}	{"name": "Yield Token: scrvUSD-1747180822", "symbol": "YT-scrvUSD-1747180822", "decimals": 18}
+{"blockNumber":21470479,"chainId":1,"tokenAddress":"0x2f5ddf958c506a399be513213a943394c10da1b2"}	{"name": "Yield Token: arUSD-1750723349", "symbol": "YT-arUSD-1750723349", "decimals": 18}
+{"blockNumber":21470479,"chainId":1,"tokenAddress":"0xd80e70929517ef0d34db762b0d1e6ef9026d1310"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21492348,"chainId":1,"tokenAddress":"0x16165455608ab1a284505873673325cc08e6a367"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21504983,"chainId":1,"tokenAddress":"0xd55d343ff52594bc88ae789a9c9ce6c0bce7e140"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21493603,"chainId":1,"tokenAddress":"0x6e429b17a9c9928cadf8f30a17f2c2b274bff74f"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21492348,"chainId":1,"tokenAddress":"0x3ea5afb1b120660d374e6b886469f9aea0fb367b"}	{"name": "Yield Token: wstUSR-1743033610", "symbol": "YT-wstUSR-1743033610", "decimals": 18}
+{"blockNumber":21504983,"chainId":1,"tokenAddress":"0xbfb88a227507b57e914b1511406a0f2ee5122a70"}	{"name": "Yield Token: wstUSR-1766966428", "symbol": "YT-wstUSR-1766966428", "decimals": 18}
+{"blockNumber":21493603,"chainId":1,"tokenAddress":"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"}	{"name": "USD Coin", "symbol": "USDC", "decimals": 6}
+{"blockNumber":21493603,"chainId":1,"tokenAddress":"0xbf836ebf3bfa24e57bd06cb8b39720a02062b3d6"}	{"name": "Yield Token: ipUSDCfusion-1766793616", "symbol": "YT-ipUSDCfusion-1766793616", "decimals": 8}
+{"blockNumber":21543317,"chainId":1,"tokenAddress":"0xdc7fc5c2f348d6ec2d16523464a8f8746bada366"}	{"name": "Yield Token: asdCRV-1766707241", "symbol": "YT-asdCRV-1766707241", "decimals": 18}
+{"blockNumber":21515271,"chainId":1,"tokenAddress":"0x84054b49530ebf9329e970e4103f80f3abcdeb75"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21514035,"chainId":1,"tokenAddress":"0xc1ab0959826c28a1e528d68570e89e868596b78d"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21543317,"chainId":1,"tokenAddress":"0x73b697c42c24aa6e187898067dbea1a720e7106d"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21514035,"chainId":1,"tokenAddress":"0x377170a16b493a8faa7a362adb5a672ae3627645"}	{"name": "Yield Token: wstUSR-1743292810", "symbol": "YT-wstUSR-1743292810", "decimals": 18}
+{"blockNumber":21515271,"chainId":1,"tokenAddress":"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"}	{"name": "USD Coin", "symbol": "USDC", "decimals": 6}
+{"blockNumber":21515271,"chainId":1,"tokenAddress":"0x509aeec3863ba9a7ece25738db4315a7d3e2588d"}	{"name": "Yield Token: bbqUSDC-1751241604", "symbol": "YT-bbqUSDC-1751241604", "decimals": 18}
+{"blockNumber":21568240,"chainId":1,"tokenAddress":"0x865377367054516e17014ccded1e7d814edc9ce4"}	{"name": "Dola USD Stablecoin", "symbol": "DOLA", "decimals": 18}
+{"blockNumber":21591017,"chainId":1,"tokenAddress":"0x7c1156e515aa1a2e851674120074968c905aaf37"}	{"name": "Level USD", "symbol": "lvlUSD", "decimals": 18}
+{"blockNumber":21589445,"chainId":1,"tokenAddress":"0x6edee046d104a04fd5b8f86a833155469d728d98"}	{"name": "Yield Token: aCRV-1767916811", "symbol": "YT-aCRV-1767916811", "decimals": 18}
+{"blockNumber":21568240,"chainId":1,"tokenAddress":"0xcca700c9bd8a51e95a5701fa0bf82fd06823d3b6"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21578071,"chainId":1,"tokenAddress":"0xabf24cd98e637f2f545b4d0ea1c97c3c20f1d79c"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21587125,"chainId":1,"tokenAddress":"0xcfc1315af3f13b9b3b01fa7237c82e45be603a92"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21591017,"chainId":1,"tokenAddress":"0x1ac9bae70d07a235125fce3ed6146b1e7d7db4df"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21595624,"chainId":1,"tokenAddress":"0x26261ce551c31b0597fb370edf1b7aa4d7a489da"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21595668,"chainId":1,"tokenAddress":"0x5e1c672b48c4dc2796cb2a09585616bb06237aa4"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21596277,"chainId":1,"tokenAddress":"0xf4facb009cadf6f95d75a846eaacbec39f6c0929"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21589445,"chainId":1,"tokenAddress":"0x2a16899a3d4f4179d0661d3125e4eab3cd8a34eb"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21587125,"chainId":1,"tokenAddress":"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"}	{"name": "USD Coin", "symbol": "USDC", "decimals": 6}
+{"blockNumber":21596277,"chainId":1,"tokenAddress":"0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"}	{"name": "Wrapped BTC", "symbol": "WBTC", "decimals": 8}
+{"blockNumber":21578071,"chainId":1,"tokenAddress":"0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0"}	{"name": "Wrapped liquid staked Ether 2.0", "symbol": "wstETH", "decimals": 18}
+{"blockNumber":21595624,"chainId":1,"tokenAddress":"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"}	{"name": "USD Coin", "symbol": "USDC", "decimals": 6}
+{"blockNumber":21595668,"chainId":1,"tokenAddress":"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"}	{"name": "USD Coin", "symbol": "USDC", "decimals": 6}
+{"blockNumber":21568240,"chainId":1,"tokenAddress":"0x15b1dcb6e284a2dbbb91c4a633e7d7cf1f6a2946"}	{"name": "Yield Token: sDOLA-1767657613", "symbol": "YT-sDOLA-1767657613", "decimals": 18}
+{"blockNumber":21578071,"chainId":1,"tokenAddress":"0x6ce6cf344df283bf6b4f0533215c9f50703dfee3"}	{"name": "Yield Token: sw-bbqWSTETH-1767139206", "symbol": "YT-sw-bbqWSTETH-1767139206", "decimals": 18}
+{"blockNumber":21587125,"chainId":1,"tokenAddress":"0x297af3fbd9c693a08260880804fbdec32270c0da"}	{"name": "Yield Token: statz0RWAUSDC-1767916855", "symbol": "YT-statz0RWAUSDC-1767916855", "decimals": 6}
+{"blockNumber":21591017,"chainId":1,"tokenAddress":"0x121f68a28ffb1feb6c1639e4ac77c835d6c9f165"}	{"name": "Yield Token: slvlUSD-1744156830", "symbol": "YT-slvlUSD-1744156830", "decimals": 18}
+{"blockNumber":21595624,"chainId":1,"tokenAddress":"0x5c83a882b91393bb8aa43fbb28e041ce9687d9dd"}	{"name": "Yield Token: sw-statz0RWAUSDC-1768003244", "symbol": "YT-sw-statz0RWAUSDC-1768003244", "decimals": 18}
+{"blockNumber":21595668,"chainId":1,"tokenAddress":"0xbe21085a497afdfa894118d9c2caa4bd544fe323"}	{"name": "Yield Token: sw-eUSDC-19-1752105606", "symbol": "YT-sw-eUSDC-19-1752105606", "decimals": 18}
+{"blockNumber":21596277,"chainId":1,"tokenAddress":"0x41264034bcf8ba0df599d45d4caf2cb7634d44cd"}	{"name": "Yield Token: ctWBTC-1744588812", "symbol": "YT-ctWBTC-1744588812", "decimals": 17}
+{"blockNumber":21680345,"chainId":1,"tokenAddress":"0x15700b564ca08d9439c58ca5053166e8317aa138"}	{"name": "deUSD", "symbol": "deUSD", "decimals": 18}
+{"blockNumber":21688215,"chainId":1,"tokenAddress":"0x7751e2f4b8ae93ef6b79d86419d42fe3295a4559"}	{"name": "Wrapped USDL", "symbol": "wUSDL", "decimals": 18}
+{"blockNumber":21688502,"chainId":1,"tokenAddress":"0x08bb1cc8a54bced59834a14772e4fe82bb7a8cbb"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21687790,"chainId":1,"tokenAddress":"0x2a28016e4f4ed894cdd7034a1c0cd03094f7666c"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21667649,"chainId":1,"tokenAddress":"0x2cd244f1f9a856c251d276103862dd4325985d2a"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21628185,"chainId":1,"tokenAddress":"0x8238884ec9668ef77b90c6dff4d1a9f4f4823bfe"}	{"name": "OpenEden Open Dollar", "symbol": "USDO", "decimals": 18}
+{"blockNumber":21618732,"chainId":1,"tokenAddress":"0x15127ef53f07f2b4fc0cc6b8cd2100170ffafed6"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21628185,"chainId":1,"tokenAddress":"0xf535464768ca2d2f106db62b967505b3ffaa8bac"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21618732,"chainId":1,"tokenAddress":"0xa6676b5d6d56f905d084914b70b2cc9c383f1a23"}	{"name": "Yield Token: slvlUSD-1744502409", "symbol": "YT-slvlUSD-1744502409", "decimals": 18}
+{"blockNumber":21628185,"chainId":1,"tokenAddress":"0xfbfb97ff5b6b3ea41410e02b3a3b8f07eb4df7e5"}	{"name": "Yield Token: cUSDO-1768435221", "symbol": "YT-cUSDO-1768435221", "decimals": 18}
+{"blockNumber":21787241,"chainId":1,"tokenAddress":"0xda67b4284609d2d48e5d10cfac411572727dc1ed"}	{"name": "USN", "symbol": "USN", "decimals": 18}
+{"blockNumber":21796536,"chainId":1,"tokenAddress":"0x4628f13651ead6793f8d838b34b8f8522fb0cc52"}	{"name": "GHO/USR", "symbol": "GHOUSR", "decimals": 18}
+{"blockNumber":21793081,"chainId":1,"tokenAddress":"0xb11bf323a6e7334032ffa9ca39bf6c4a69a076a2"}	{"name": "Yield Token: yUSD-1747872030", "symbol": "YT-yUSD-1747872030", "decimals": 18}
+{"blockNumber":21793081,"chainId":1,"tokenAddress":"0x95cb87f0c29960fe63183d48df64919f044950c2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21787241,"chainId":1,"tokenAddress":"0x4a8bf1f25df44d28fb1e509ecb7bc04181af503b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21796536,"chainId":1,"tokenAddress":"0x04f970bb02b4cf20e836e4a3fd434c5e60057936"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21787241,"chainId":1,"tokenAddress":"0xb39e427d70eaf7d9f5adcca1522b9107fdd1ec47"}	{"name": "Yield Token: sUSN-1770336563", "symbol": "YT-sUSN-1770336563", "decimals": 18}
+{"blockNumber":21796536,"chainId":1,"tokenAddress":"0xdf249c88228350090fba136417a6fae8d4caddf9"}	{"name": "Yield Token: yvCurve-GHO-USR-1754524805", "symbol": "YT-yvCurve-GHO-USR-1754524805", "decimals": 18}
+{"blockNumber":21838580,"chainId":1,"tokenAddress":"0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"}	{"name": "Wrapped Ether", "symbol": "WETH", "decimals": 18}
+{"blockNumber":21838580,"chainId":1,"tokenAddress":"0x14068a311c8d0100791598053fb36bab073f09d3"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21838580,"chainId":1,"tokenAddress":"0x207e3e2217e95ef0b6427d2ff75fa4ce0fa14533"}	{"name": "Yield Token: ysWETH-1745193625", "symbol": "YT-ysWETH-1745193625", "decimals": 18}
+{"blockNumber":21924863,"chainId":1,"tokenAddress":"0x2a1e914ac7d2aec1e14cbea22a902000bdbcef92"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21924863,"chainId":1,"tokenAddress":"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"}	{"name": "USD Coin", "symbol": "USDC", "decimals": 6}
+{"blockNumber":21924863,"chainId":1,"tokenAddress":"0x738588798ce0117d95f05edbf05e662a1119cd4b"}	{"name": "Yield Token: sw-reUSDC-1756080006", "symbol": "YT-sw-reUSDC-1756080006", "decimals": 18}
+{"blockNumber":22032791,"chainId":1,"tokenAddress":"0xd1f0335b3249f09076c2270a28f3395932a6d52a"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":22032791,"chainId":1,"tokenAddress":"0xde17a000ba631c5d7c2bd9fb692efea52d90dee2"}	{"name": "Ultimate Synthetic Delta Neutral", "symbol": "USDN", "decimals": 18}
+{"blockNumber":22035481,"chainId":1,"tokenAddress":"0x740c030edbdddfcf14dffbedb8019dd841376b42"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":22029704,"chainId":1,"tokenAddress":"0x640e803f9f77bf8888664f1aec89eb3a702d4a3a"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":22030619,"chainId":1,"tokenAddress":"0x4f1325ce6fa756f64a76bf367d5cdea7ebeee39c"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":22031233,"chainId":1,"tokenAddress":"0x1ea97873f28d1e7b2436cb9e42b6be5d18db9b10"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":22035481,"chainId":1,"tokenAddress":"0xad1c5bc8882e87af14b16c51001bcedf253aedc1"}	{"name": "Yield Token: cUSDO-1749772809", "symbol": "YT-cUSDO-1749772809", "decimals": 18}
+{"blockNumber":22029704,"chainId":1,"tokenAddress":"0x7462810f5622ff5a6490a0fa2609e2788cd31017"}	{"name": "Yield Token: sw-inwstETHs-1757635226", "symbol": "YT-sw-inwstETHs-1757635226", "decimals": 18}
+{"blockNumber":22030619,"chainId":1,"tokenAddress":"0x2e8c6598e4705bbd64fee643fc879b3a9eb388c1"}	{"name": "Yield Token: sw-inwstETHs-1757635222", "symbol": "YT-sw-inwstETHs-1757635222", "decimals": 18}
+{"blockNumber":22031233,"chainId":1,"tokenAddress":"0x05c3051b91445bdd03282c30bf1486396f078261"}	{"name": "Yield Token: sw-inwstETHs-1757635211", "symbol": "YT-sw-inwstETHs-1757635211", "decimals": 18}
+{"blockNumber":22032791,"chainId":1,"tokenAddress":"0xd11338d36bdb217040d244da942c174bd2da4253"}	{"name": "Yield Token: sw-WUSDN-1766102414", "symbol": "YT-sw-WUSDN-1766102414", "decimals": 18}
+{"blockNumber":22116614,"chainId":1,"tokenAddress":"0x232bc50004cdfdba22f879ecc16cde857751e7b6"}	{"name": "Yield Token: sw-inwstETHs-1758672014", "symbol": "YT-sw-inwstETHs-1758672014", "decimals": 18}
+{"blockNumber":22116614,"chainId":1,"tokenAddress":"0x0e58c5af6b17400e853a7aec7cf29fa43e40e7a5"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":22174629,"chainId":1,"tokenAddress":"0x10126b6490bd8be580e442ba552744fa7c7aac69"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":22174629,"chainId":1,"tokenAddress":"0x20157DBAbb84e3BBFE68C349d0d44E48AE7B5AD2"}	{"name": "iBTC", "symbol": "IBTC", "decimals": 8}
+{"blockNumber":21688215,"chainId":1,"tokenAddress":"0xd73783df65a099c0d6d0ee9b59961e323185c3fe"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21684327,"chainId":1,"tokenAddress":"0x0a2363cd6510630f520c2a1fcf755696e6c3c12a"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21680345,"chainId":1,"tokenAddress":"0x09d484b738dd85ce3953102453e91507982121d0"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21684327,"chainId":1,"tokenAddress":"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"}	{"name": "USD Coin", "symbol": "USDC", "decimals": 6}
+{"blockNumber":21688502,"chainId":1,"tokenAddress":"0x4aa2d6c3d8c0fd28c968057dbc109ddf00a0b281"}	{"name": "Yield Token: wstUSR-1750896030", "symbol": "YT-wstUSR-1750896030", "decimals": 18}
+{"blockNumber":21687790,"chainId":1,"tokenAddress":"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"}	{"name": "USD Coin", "symbol": "USDC", "decimals": 6}
+{"blockNumber":21667649,"chainId":1,"tokenAddress":"0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0"}	{"name": "Wrapped liquid staked Ether 2.0", "symbol": "wstETH", "decimals": 18}
+{"blockNumber":21667649,"chainId":1,"tokenAddress":"0x0d38f201eccef2061d5be9ca0c062312f8f6ac70"}	{"name": "Yield Token: sw-inwstETHs-1752969615", "symbol": "YT-sw-inwstETHs-1752969615", "decimals": 18}
+{"blockNumber":21680345,"chainId":1,"tokenAddress":"0xe9677bfde5830b100281178681c7e78c7d861d1c"}	{"name": "Yield Token: sdeUSD-1753142406", "symbol": "YT-sdeUSD-1753142406", "decimals": 18}
+{"blockNumber":21684327,"chainId":1,"tokenAddress":"0x9b9968ba66b06c4340e60cb4dea237cc6e3e5999"}	{"name": "Yield Token: ysUSDC-1745107210", "symbol": "YT-ysUSDC-1745107210", "decimals": 6}
+{"blockNumber":21687790,"chainId":1,"tokenAddress":"0xc07cf8e6d7f6f47e196d36a4c18287e86f76b046"}	{"name": "Yield Token: sw-RLP-1750896023", "symbol": "YT-sw-RLP-1750896023", "decimals": 18}
+{"blockNumber":21688215,"chainId":1,"tokenAddress":"0x51fc3fc17623757bcaaf56f6ebfd52a6b7a9dc26"}	{"name": "Yield Token: sw-csUSDL-1753228818", "symbol": "YT-sw-csUSDL-1753228818", "decimals": 18}
+{"blockNumber":21716288,"chainId":1,"tokenAddress":"0xdac17f958d2ee523a2206206994597c13d831ec7"}	{"name": "Tether USD", "symbol": "USDT", "decimals": 6}
+{"blockNumber":21717457,"chainId":1,"tokenAddress":"0x4f8e1426a9d10bddc11d26042ad270f16ccb95f2"}	{"name": "YieldFi Stable Token", "symbol": "sUSD", "decimals": 18}
+{"blockNumber":21716288,"chainId":1,"tokenAddress":"0x7d609c12d9ce0dfc54c893e6d33ce116eb2a54dc"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21717457,"chainId":1,"tokenAddress":"0x8e3bfe8897cd5608304935173917b10eb7286f00"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21716288,"chainId":1,"tokenAddress":"0xb3094b552495dbe5597fdc08d2214ef5c2e51b87"}	{"name": "Yield Token: ipUSDTfusion-1753574462", "symbol": "YT-ipUSDTfusion-1753574462", "decimals": 8}
+{"blockNumber":21717457,"chainId":1,"tokenAddress":"0x77d8fe48c6113bd53ce0324449fc7858316fae66"}	{"name": "Yield Token: yUSD-1740182424", "symbol": "YT-yUSD-1740182424", "decimals": 18}
+{"blockNumber":21773736,"chainId":1,"tokenAddress":"0x183395dbd0b5e93323a7286d1973150697fffcb3"}	{"name": "Convex FXN", "symbol": "cvxFXN", "decimals": 18}
+{"blockNumber":21745607,"chainId":1,"tokenAddress":"0x66a1E37c9b0eAddca17d3662D6c05F4DECf3e110"}	{"name": "Resolv USD", "symbol": "USR", "decimals": 18}
+{"blockNumber":21771380,"chainId":1,"tokenAddress":"0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"}	{"name": "Wrapped Ether", "symbol": "WETH", "decimals": 18}
+{"blockNumber":21745607,"chainId":1,"tokenAddress":"0xf29d4a9c489f1e400fb8e66d0b4dfefd0b396368"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21771380,"chainId":1,"tokenAddress":"0xbc48c48789031a130f957c59e07b7f987aa642de"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21773736,"chainId":1,"tokenAddress":"0x031ec8a3671b2efaf4d7e1026f0e92eec292c4d2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21745607,"chainId":1,"tokenAddress":"0x436ad90b03c4ef8a8259484d387d9dc4d8c3faab"}	{"name": "Yield Token: sw-USR-1745971208", "symbol": "YT-sw-USR-1745971208", "decimals": 18}
+{"blockNumber":21771380,"chainId":1,"tokenAddress":"0xb5c00e4680e1307e78380d59e6d0e26b4bd991aa"}	{"name": "Yield Token: ynETHx-1770163226", "symbol": "YT-ynETHx-1770163226", "decimals": 18}
+{"blockNumber":21773736,"chainId":1,"tokenAddress":"0xf1d5e8426d593d0397e6f25ff8a6c8fe0781bb9e"}	{"name": "Yield Token: aFXN-1754265646", "symbol": "YT-aFXN-1754265646", "decimals": 18}
+{"blockNumber":21980240,"chainId":1,"tokenAddress":"0xd9a483d04c2aeaebdc5d4682207151dabbb1a878"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21980240,"chainId":1,"tokenAddress":"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"}	{"name": "USD Coin", "symbol": "USDC", "decimals": 6}
+{"blockNumber":21980240,"chainId":1,"tokenAddress":"0x55d25c805637d1911fd2a57cef68d6783678ac79"}	{"name": "Yield Token: USUALUSDC+-1749081617", "symbol": "YT-USUALUSDC+-1749081617", "decimals": 18}
+{"blockNumber":21987634,"chainId":1,"tokenAddress":"0xbe842ab0936bb3b31d59bccfd2a2d98e6c674861"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21983789,"chainId":1,"tokenAddress":"0x88670de19efcf43677df2db4e20c7969acac4409"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21987634,"chainId":1,"tokenAddress":"0x20157dbabb84e3bbfe68c349d0d44e48ae7b5ad2"}	{"name": "iBTC", "symbol": "IBTC", "decimals": 8}
+{"blockNumber":21983789,"chainId":1,"tokenAddress":"0x7C1156E515aA1A2E851674120074968C905aAF37"}	{"name": "Level USD", "symbol": "lvlUSD", "decimals": 18}
+{"blockNumber":21983789,"chainId":1,"tokenAddress":"0xf46bf6f6852aef9bbe0e689730dafa71820afd7d"}	{"name": "Yield Token: sw-lvlUSD-1749081624", "symbol": "YT-sw-lvlUSD-1749081624", "decimals": 18}
+{"blockNumber":21987634,"chainId":1,"tokenAddress":"0x4b04f8ea49d850508339a6e557806c7fadcd8af7"}	{"name": "Yield Token: wiBTC-1757116809", "symbol": "YT-wiBTC-1757116809", "decimals": 8}
+{"blockNumber":22045598,"chainId":1,"tokenAddress":"0x88dadfb05c1a135e6d0bcf7dad58ca17849717af"}	{"name": "Yield Token: scrvUSD-1773446404", "symbol": "YT-scrvUSD-1773446404", "decimals": 18}
+{"blockNumber":22045598,"chainId":1,"tokenAddress":"0x4cc67a6cce0b75fa5b1d5995fa0510ad6c70bbae"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":22231291,"chainId":1,"tokenAddress":"0x7db2080e6f3c736e9a782a5f0a6c64346dd701da"}	{"name": "Yield Token: slvlUSD-1754697615", "symbol": "YT-slvlUSD-1754697615", "decimals": 18}
+{"blockNumber":22231291,"chainId":1,"tokenAddress":"0x5a7cfb9f6ce443f48b346ceae63c267a93b85cdd"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":22315816,"chainId":1,"tokenAddress":"0xc522a6606bba746d7960404f22a3db936b6f4f50"}	{"name": "reUSD/scrvUSD", "symbol": "reusdscrv", "decimals": 18}
+{"blockNumber":22315943,"chainId":1,"tokenAddress":"0xed785af60bed688baa8990cd5c4166221599a441"}	{"name": "reUSD/sfrxUSD", "symbol": "reusdsfrx", "decimals": 18}
+{"blockNumber":22315816,"chainId":1,"tokenAddress":"0xe02f9bbe586e6c3801b3d869b31aaa869bc59791"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":22315943,"chainId":1,"tokenAddress":"0xc5e2b055ae428a81dd44f6f8a1042d6758cacb74"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":22315816,"chainId":1,"tokenAddress":"0x6593d9a09f8b38e96e8d42a45e382d2b108dc485"}	{"name": "Yield Token: yvCurve-reUSD-scrvUSD-1761004816", "symbol": "YT-yvCurve-reUSD-scrvUSD-1761004816", "decimals": 18}
+{"blockNumber":22315943,"chainId":1,"tokenAddress":"0xe9aebac2334c578d6f624925c52b2b258f4ea2af"}	{"name": "Yield Token: yvCurve-reUSD-sfrxUSD-1761004819", "symbol": "YT-yvCurve-reUSD-sfrxUSD-1761004819", "decimals": 18}
+{"blockNumber":22381401,"chainId":1,"tokenAddress":"0xb2406ed71fa2e8c7f1604001e65a2bc0e747475a"}	{"name": "Yield Token: cUSDO-1777507207", "symbol": "YT-cUSDO-1777507207", "decimals": 18}
+{"blockNumber":22381421,"chainId":1,"tokenAddress":"0x90e1534e324ca0a78c687a321ce72a1f29d4d4e7"}	{"name": "Yield Token: cUSDO-1777507212", "symbol": "YT-cUSDO-1777507212", "decimals": 18}
+{"blockNumber":22370132,"chainId":1,"tokenAddress":"0xbb0cdacf1fefc5dac5e5e603f3fe4e7784ede76d"}	{"name": "Yield Token: ysWETH-1754006418", "symbol": "YT-ysWETH-1754006418", "decimals": 18}
+{"blockNumber":22445595,"chainId":1,"tokenAddress":"0xfa2b947eec368f42195f24f36d2af29f7c24cec2"}	{"name": "Falcon USD", "symbol": "USDf", "decimals": 18}
+{"blockNumber":22423509,"chainId":1,"tokenAddress":"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"}	{"name": "USD Coin", "symbol": "USDC", "decimals": 6}
+{"blockNumber":22423509,"chainId":1,"tokenAddress":"0x22bb2a4570845c56237375f837b2dd8b2bfd50f5"}	{"name": "Yield Token: yUSD-1762387216", "symbol": "YT-yUSD-1762387216", "decimals": 18}
+{"blockNumber":22445595,"chainId":1,"tokenAddress":"0xca8859739936f33f5ae22775fde44601adab12f1"}	{"name": "Yield Token: sUSDf-1762646496", "symbol": "YT-sUSDf-1762646496", "decimals": 18}
+{"blockNumber":22465905,"chainId":1,"tokenAddress":"0xcaf16c3b9ca12c05a329d3621515439a7a805a4f"}	{"name": "Yield Token: yUSD-1762905619", "symbol": "YT-yUSD-1762905619", "decimals": 18}
+{"blockNumber":22569772,"chainId":1,"tokenAddress":"0x1220868672d5b10f3e1cb9ab519e4d0b08545ea4"}	{"name": "lvlUSD/USDC", "symbol": "lvlUSDUSDC", "decimals": 18}
+{"blockNumber":22569772,"chainId":1,"tokenAddress":"0xc5c1f2c5b7573d8ca3b9f986eae36db2cd8df68d"}	{"name": "Yield Token: yvCurve-lvlUSD-USDC-1764115216", "symbol": "YT-yvCurve-lvlUSD-USDC-1764115216", "decimals": 18}
+{"blockNumber":22583294,"chainId":1,"tokenAddress":"0x063a583b02d59b8a553171f5637d3f8cd5393f6d"}	{"name": "Yield Token: cUSDO-1763596806", "symbol": "YT-cUSDO-1763596806", "decimals": 18}
+{"blockNumber":22674607,"chainId":1,"tokenAddress":"0x6440f144b7e50d6a8439336510312d2f54beb01d"}	{"name": "BOLD Stablecoin", "symbol": "BOLD", "decimals": 18}
+{"blockNumber":22674607,"chainId":1,"tokenAddress":"0xe106d0b6eeee33bf0167bde7647c8c9c72a86900"}	{"name": "Yield Token: sBOLD-1765325646", "symbol": "YT-sBOLD-1765325646", "decimals": 18}
+{"blockNumber":22892948,"chainId":1,"tokenAddress":"0x3cdc2d0ae59be92a4fd7bc92b66c215609857b2b"}	{"name": "Yield Token: sw-xUSD(USDC) 2025/10/10", "symbol": "YT-sw-xUSD(USDC)-2025/10/10", "decimals": 6}
+{"blockNumber":22938041,"chainId":1,"tokenAddress":"0x15c82f65437c2dec8af32f8cbc77d4c8647760dc"}	{"name": "Yield Token: aCRV(cvxCRV) 2026/01/17", "symbol": "YT-aCRV(cvxCRV)-2026/01/17", "decimals": 18}
+{"blockNumber":22938404,"chainId":1,"tokenAddress":"0xd29fb7fafdbee7164c781a56a623b38e040030bb"}	{"name": "Yield Token: siBTC(IBTC) 2025/10/17", "symbol": "YT-siBTC(IBTC)-2025/10/17", "decimals": 8}
+{"blockNumber":22938565,"chainId":1,"tokenAddress":"0x1eaa7e63b3266d4d06ca76cbc2e144e8500c6f74"}	{"name": "Yield Token: ynETHx(WETH) 2026/02/04", "symbol": "YT-ynETHx(WETH)-2026/02/04", "decimals": 18}
+{"blockNumber":22945397,"chainId":1,"tokenAddress":"0x22b34bbeb1fbc9650909d2f796ad7ace74af23a2"}	{"name": "Yield Token: csUSDL(wUSDL) 2026/01/18", "symbol": "YT-csUSDL(wUSDL)-2026/01/18", "decimals": 18}
+{"blockNumber":22945759,"chainId":1,"tokenAddress":"0x189a9e3246aea31490bb808741a072b64abb766b"}	{"name": "Yield Token: asdCRV(sdCRV) 2026/01/18", "symbol": "YT-asdCRV(sdCRV)-2026/01/18", "decimals": 18}
+{"blockNumber":22945845,"chainId":1,"tokenAddress":"0x010466c1e87ed6e5cebd9f870c967fb7bf6b7d6e"}	{"name": "Yield Token: yvCurve-GHO-USR(GHOUSR) 2026/01/18", "symbol": "YT-yvCurve-GHO-USR(GHOUSR)-2026/01/18", "decimals": 18}
+{"blockNumber":22946047,"chainId":1,"tokenAddress":"0x4191dde6daa1749e50c4a013368f876973cc61e6"}	{"name": "Yield Token: sw-WUSDN(USDN) 2026/01/18", "symbol": "YT-sw-WUSDN(USDN)-2026/01/18", "decimals": 18}
+{"blockNumber":22946158,"chainId":1,"tokenAddress":"0x3f47a86c61242971bde46afa2af17cca4e55dde9"}	{"name": "Yield Token: aFXN(cvxFXN) 2026/01/18", "symbol": "YT-aFXN(cvxFXN)-2026/01/18", "decimals": 18}
+{"blockNumber":22946318,"chainId":1,"tokenAddress":"0x27e6a48b2a686c1d23db12569ab4185c408e0703"}	{"name": "Yield Token: slvlUSD(lvlUSD) 2026/01/18", "symbol": "YT-slvlUSD(lvlUSD)-2026/01/18", "decimals": 18}
+{"blockNumber":22174629,"chainId":1,"tokenAddress":"0xe186f4d254ee407dc3abf70ad8a1524eb7444321"}	{"name": "Yield Token: siBTC-1759276903", "symbol": "YT-siBTC-1759276903", "decimals": 8}
+{"blockNumber":22181809,"chainId":1,"tokenAddress":"0x65c9a641afceb9c0e6034e558a319488fa0fa3be"}	{"name": " f(x) Stability Pool", "symbol": "fxSP", "decimals": 18}
+{"blockNumber":22181809,"chainId":1,"tokenAddress":"0x0eba83c47399d962d0ea43d9217e2c3fd03258ca"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":22181809,"chainId":1,"tokenAddress":"0x67ed8e79d700bf8df66a6aded64a3bb32fb4de3a"}	{"name": "Yield Token: fxSAVE-1759363249", "symbol": "YT-fxSAVE-1759363249", "decimals": 18}
+{"blockNumber":22287681,"chainId":1,"tokenAddress":"0xf062a27b74b2c46e07078ae7dcb7957b22ecd748"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":22287681,"chainId":1,"tokenAddress":"0x8fc6c5f97ff9d183cb13baddff27955bbeb253f1"}	{"name": "Yield Token: WOETH-1776384030", "symbol": "YT-WOETH-1776384030", "decimals": 18}
+{"blockNumber":22628021,"chainId":1,"tokenAddress":"0x85e30b8b263bc64d94b827ed450f2edfee8579da"}	{"name": "USDaf Stablecoin", "symbol": "USDaf", "decimals": 18}
+{"blockNumber":22628021,"chainId":1,"tokenAddress":"0x52b1fce1784ac9da1f31e04077f46388cc4af7b3"}	{"name": "Yield Token: sUSDaf-1764720015", "symbol": "YT-sUSDaf-1764720015", "decimals": 18}
+{"blockNumber":22633909,"chainId":1,"tokenAddress":"0xf244324fbb57f09f0606ff088bc894b051d632eb"}	{"name": "slvlUSD/lvlUSD", "symbol": "s/lvlUSD", "decimals": 18}
+{"blockNumber":22633964,"chainId":1,"tokenAddress":"0x97b6d8d8534455d9a9a36ca7a95cc862c9c05e0b"}	{"name": "Yield Token: sw-stkGHO-1759536005", "symbol": "YT-sw-stkGHO-1759536005", "decimals": 18}
+{"blockNumber":22633853,"chainId":1,"tokenAddress":"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"}	{"name": "USD Coin", "symbol": "USDC", "decimals": 6}
+{"blockNumber":22633853,"chainId":1,"tokenAddress":"0xe46eb7cfcde7118fe15a5dc96ef4f9d706ec21e4"}	{"name": "Yield Token: sw-yUSD-1762905605", "symbol": "YT-sw-yUSD-1762905605", "decimals": 18}
+{"blockNumber":22633909,"chainId":1,"tokenAddress":"0xe1ac4d156e32e9938777f925ffd3504a8a18f9c2"}	{"name": "Yield Token: yvCurve-slvlUSD-lvlUSD-1764806417", "symbol": "YT-yvCurve-slvlUSD-lvlUSD-1764806417", "decimals": 18}
+{"blockNumber":22747879,"chainId":1,"tokenAddress":"0x2a8e1e676ec238d8a992307b495b45b3feaa5e86"}	{"name": "Origin Dollar", "symbol": "OUSD", "decimals": 18}
+{"blockNumber":22734320,"chainId":1,"tokenAddress":"0x6b2064b1189d262e4e9a1310b8bfb27907e533fe"}	{"name": "Yield Token: sw-RLP-1759190428", "symbol": "YT-sw-RLP-1759190428", "decimals": 18}
+{"blockNumber":22747844,"chainId":1,"tokenAddress":"0x4d80dc331f5777d9857b93e0e1a1e9f68be7ea04"}	{"name": "Yield Token: wOETH-1766188805", "symbol": "YT-wOETH-1766188805", "decimals": 18}
+{"blockNumber":22747879,"chainId":1,"tokenAddress":"0xf16088e3948c221c36ed6144b7f07fe0b3c88ffe"}	{"name": "Yield Token: WOUSD-1766188815", "symbol": "YT-WOUSD-1766188815", "decimals": 18}
+{"blockNumber":22825655,"chainId":1,"tokenAddress":"0x39b08b7dc3c217cf75d7c724bbff699d1d71861e"}	{"name": "Yield Token: sdeUSD-1767225604", "symbol": "YT-sdeUSD-1767225604", "decimals": 18}
+{"blockNumber":22825617,"chainId":1,"tokenAddress":"0x7751E2F4b8ae93EF6B79d86419d42FE3295A4559"}	{"name": "Wrapped USDL", "symbol": "wUSDL", "decimals": 18}
+{"blockNumber":22825617,"chainId":1,"tokenAddress":"0xd3ccee838c483612474abde839e2a63e3ec26500"}	{"name": "Yield Token: csUSDL-1763596823", "symbol": "YT-csUSDL-1763596823", "decimals": 18}
+{"blockNumber":23034283,"chainId":1,"tokenAddress":"0x259b0b5c9239981d4f8a4d927170f65383c42a1b"}	{"name": "Yield Token: ysUSDC(USDC) 2025/10/30", "symbol": "YT-ysUSDC(USDC)-2025/10/30", "decimals": 6}
+{"blockNumber":23070434,"chainId":1,"tokenAddress":"0x9cf12ccd6020b6888e4d4c4e4c7aca33c1eb91f8"}	{"name": "USDaf Stablecoin", "symbol": "USDaf", "decimals": 18}
+{"blockNumber":23073994,"chainId":1,"tokenAddress":"0xb4444468e444f89e1c2cac2f1d3ee7e336cbd1f5"}	{"name": "Rezerve.money", "symbol": "RZR", "decimals": 18}
+{"blockNumber":23054912,"chainId":1,"tokenAddress":"0x4f172e3afb8154d94dc8df5abd270c2d58df4a77"}	{"name": "Yield Token: ysWETH(WETH) 2025/10/29", "symbol": "YT-ysWETH(WETH)-2025/10/29", "decimals": 18}
+{"blockNumber":23070434,"chainId":1,"tokenAddress":"0x3fa9c2071d34103083e5c190aa461491b426b3b5"}	{"name": "Yield Token: sUSDaf(USDaf) 2026/02/04", "symbol": "YT-sUSDaf(USDaf)-2026/02/04", "decimals": 18}
+{"blockNumber":23073994,"chainId":1,"tokenAddress":"0x2526c3913de8be4b0655037fada87ed72f4c4bf7"}	{"name": "Yield Token: lstRZR(RZR) 2026/02/05", "symbol": "YT-lstRZR(RZR)-2026/02/05", "decimals": 18}
+{"blockNumber":23455294,"chainId":1,"tokenAddress":"0x02123e61f903aa635c6c4caad9f9c62b27996feb"}	{"name": "Yield Token: sw-stkGHO(GHO) 2026/01/31", "symbol": "YT-sw-stkGHO(GHO)-2026/01/31", "decimals": 18}
+{"blockNumber":23424171,"chainId":1,"tokenAddress":"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"}	{"name": "USD Coin", "symbol": "USDC", "decimals": 6}
+{"blockNumber":23424171,"chainId":1,"tokenAddress":"0xec50b8f16b5d32fe356e19c242f89623402a0dac"}	{"name": "Yield Token: afiUSD(USDC) 2025/12/23", "symbol": "YT-afiUSD(USDC)-2025/12/23", "decimals": 18}
+{"blockNumber":23589723,"chainId":1,"tokenAddress":"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"}	{"name": "USD Coin", "symbol": "USDC", "decimals": 6}
+{"blockNumber":23589723,"chainId":1,"tokenAddress":"0x1d4311f2412cf1d5eaf901cc994ff7cb658a3113"}	{"name": "Yield Token: ynRWAx(USDC) 2026/10/15", "symbol": "YT-ynRWAx(USDC)-2026/10/15", "decimals": 18}
+{"blockNumber":22969270,"chainId":1,"tokenAddress":"0x1598e8f97f1dbb4aea8d7aeae07d4fd3f865727c"}	{"name": "Yield Token: ipUSDCfusion(USDC) 2026/01/21", "symbol": "YT-ipUSDCfusion(USDC)-2026/01/21", "decimals": 8}
+{"blockNumber":22969331,"chainId":1,"tokenAddress":"0x36affc8c383d101ad48d6e28b2c1b7809db6c6eb"}	{"name": "Yield Token: fxSAVE(fxSP) 2026/01/21", "symbol": "YT-fxSAVE(fxSP)-2026/01/21", "decimals": 18}
+{"blockNumber":22969394,"chainId":1,"tokenAddress":"0x86e23491ae6c5066ed24c27020124180300846b3"}	{"name": "Yield Token: sUSN(USN) 2026/02/06", "symbol": "YT-sUSN(USN)-2026/02/06", "decimals": 18}
+{"blockNumber":22969409,"chainId":1,"tokenAddress":"0x0ec449a8113172d3bbc8093fa5b2fcf2c82c87e4"}	{"name": "Yield Token: sDOLA(DOLA) 2026/01/21", "symbol": "YT-sDOLA(DOLA)-2026/01/21", "decimals": 18}
+{"blockNumber":23127153,"chainId":1,"tokenAddress":"0x554e6255dda7dbad01d7e29c887ad5eac6c64ec2"}	{"name": "Yield Token: afCVX(CVX) 2026/02/12", "symbol": "YT-afCVX(CVX)-2026/02/12", "decimals": 18}
+{"blockNumber":23965175,"chainId":1,"tokenAddress":"0xdc035d45d973e3ec169d2276ddab16f1e407384f"}	{"name": "USDS Stablecoin", "symbol": "USDS", "decimals": 18}
+{"blockNumber":23948148,"chainId":1,"tokenAddress":"0xef5bca3661bb126cd4b9ab37207ade05306b3c83"}	{"name": "Yield Token: sBOLD(BOLD) 2026/06/05", "symbol": "YT-sBOLD(BOLD)-2026/06/05", "decimals": 18}
+{"blockNumber":23965175,"chainId":1,"tokenAddress":"0xefaa6014bbdc9ccb5568fb918ba73816a94fdc8c"}	{"name": "Yield Token: ESPN(USDS) 2026/12/08", "symbol": "YT-ESPN(USDS)-2026/12/08", "decimals": 18}

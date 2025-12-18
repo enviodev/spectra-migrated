@@ -31,11 +31,11 @@ export const getERC20Data = createEffect(
     rateLimit: false,
     cache: true,
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     try {
       const rpcUrl = process.env[`ENVIO_RPC_URL_${input.chainId}`] || process.env.RPC_URL;
       if (!rpcUrl) {
-        console.warn(`No RPC URL found for chain ${input.chainId}`);
+        context.log.warn(`No RPC URL found for chain ${input.chainId}`);
         // Return default values on error
         return {
           name: "UNKNOWN",
@@ -77,7 +77,7 @@ export const getERC20Data = createEffect(
           functionName: "name",
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
-          console.warn(`name() call (string or bytes) reverted for ${input.tokenAddress}`);
+          context.log.warn(`name() call (string or bytes) reverted for ${input.tokenAddress}`);
           return "UNKNOWN";
         }),
         publicClient.readContract({
@@ -86,7 +86,7 @@ export const getERC20Data = createEffect(
           functionName: "symbol",
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
-          console.warn(`symbol() call (string or bytes) reverted for ${input.tokenAddress}`);
+          context.log.warn(`symbol() call (string or bytes) reverted for ${input.tokenAddress}`);
           return "UNKNOWN";
         }),
         publicClient.readContract({
@@ -95,7 +95,7 @@ export const getERC20Data = createEffect(
           functionName: "decimals",
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
-          console.warn(`decimals() call (number) reverted for ${input.tokenAddress}`);
+          context.log.warn(`decimals() call (number) reverted for ${input.tokenAddress}`);
           return 18;
         }),
       ]);
@@ -107,7 +107,7 @@ export const getERC20Data = createEffect(
       };
     } catch (error) {
       // Log warning and return default values (matches original subgraph pattern)
-      console.warn(`getERC20Data() call failed for ${input.tokenAddress}:`, error);
+      context.log.warn(`getERC20Data() call failed for ${input.tokenAddress}: ${String(error)}`);
       return {
         name: "UNKNOWN",
         symbol: "UNKNOWN",

@@ -9,7 +9,8 @@ import { getAccount } from "./Account";
  * Get Asset ID with suffix (for special assets like MV request/redeem)
  */
 export function getAssetId(address: string, suffix: string): string {
-  return `${address}_${suffix}`;
+  // Normalize address to lowercase to prevent duplicate entries
+  return `${address.toLowerCase()}_${suffix}`;
 }
 
 /**
@@ -25,22 +26,26 @@ export async function getAccountAsset(
   chainId: number,
   context: any
 ): Promise<AccountAsset_t> {
+  // Normalize addresses to lowercase to prevent duplicate entries
+  const normalizedAccountAddress = accountAddress.toLowerCase();
+  const normalizedAssetAddress = assetAddress.toLowerCase();
+  
   // Generate account asset ID
-  const finalAssetId = assetId !== null ? assetId : assetAddress;
-  const accountAssetId = `${chainId}-${generateAccountAssetId(accountAddress, finalAssetId)}`;
+  const finalAssetId = assetId !== null ? assetId : normalizedAssetAddress;
+  const accountAssetId = `${chainId}-${generateAccountAssetId(normalizedAccountAddress, finalAssetId)}`;
   
   let accountAsset = await context.AccountAsset.get(accountAssetId);
   
   if (!accountAsset) {
-    // Get or create account
-    const account = await getAccount(accountAddress, timestamp, chainId, context);
+    // Get or create account (getAccount will normalize the address)
+    const account = await getAccount(normalizedAccountAddress, timestamp, chainId, context);
     
     // TODO: Get or create asset via getAsset
     // For now, create AccountAsset with asset_id pointing to assetAddress
-    // Full implementation needs: const asset = await getAsset(assetAddress, timestamp, assetType, assetId, chainId, context);
+    // Full implementation needs: const asset = await getAsset(normalizedAssetAddress, timestamp, assetType, assetId, chainId, context);
     const assetIdWithChain = assetId !== null 
       ? `${chainId}-${assetId}` 
-      : `${chainId}-${assetAddress}`;
+      : `${chainId}-${normalizedAssetAddress}`;
     
     accountAsset = {
       id: accountAssetId,
@@ -73,13 +78,17 @@ export async function updateAccountMetavaultRequest(
   chainId: number,
   context: any
 ): Promise<AccountAsset_t> {
+  // Normalize addresses to lowercase to prevent duplicate entries
+  const normalizedAccountAddress = accountAddress.toLowerCase();
+  const normalizedMetavaultAddress = metavaultAddress.toLowerCase();
+  
   // Get asset ID with suffix for metavault requests
-  const assetId = getAssetId(metavaultAddress, requestType);
+  const assetId = getAssetId(normalizedMetavaultAddress, requestType);
   
   // Get or create account asset
   let accountAsset = await getAccountAsset(
-    accountAddress,
-    metavaultAddress,
+    normalizedAccountAddress,
+    normalizedMetavaultAddress,
     timestamp,
     requestType,
     assetId,
@@ -133,10 +142,14 @@ export async function updateAccountAssetBalance(
   blockNumber: number,
   context: any
 ): Promise<AccountAsset_t> {
+  // Normalize addresses to lowercase to prevent duplicate entries
+  const normalizedAccountAddress = accountAddress.toLowerCase();
+  const normalizedAssetAddress = assetAddress.toLowerCase();
+  
   // Get or create AccountAsset
   const accountAsset = await getAccountAsset(
-    accountAddress,
-    assetAddress,
+    normalizedAccountAddress,
+    normalizedAssetAddress,
     timestamp,
     assetType,
     null,
@@ -146,38 +159,47 @@ export async function updateAccountAssetBalance(
   
   // Fetch balance via RPC
   // For IBT assets, use getERC4626Balance; for others, use getERC20Balance
+  // Reference: subgraph lines 89-93
   let balanceResult;
-  if (assetType === "IBT") {
-    balanceResult = await context.effect(
-      (await import("../effects/getERC4626Balance")).getERC4626Balance,
-      {
-        tokenAddress: assetAddress,
-        accountAddress: accountAddress,
-        chainId: chainId,
-        blockNumber: blockNumber,
-      }
-    );
-  } else {
-    balanceResult = await context.effect(
-      (await import("../effects/getERC20Balance")).getERC20Balance,
-      {
-        tokenAddress: assetAddress,
-        accountAddress: accountAddress,
-        chainId: chainId,
-        blockNumber: blockNumber,
-      }
-    );
+  try {
+    if (assetType === "IBT") {
+      balanceResult = await context.effect(
+        (await import("../effects/getERC4626Balance")).getERC4626Balance,
+        {
+          tokenAddress: normalizedAssetAddress,
+          accountAddress: normalizedAccountAddress,
+          chainId: chainId,
+          blockNumber: blockNumber,
+        }
+      );
+    } else {
+      balanceResult = await context.effect(
+        (await import("../effects/getERC20Balance")).getERC20Balance,
+        {
+          tokenAddress: normalizedAssetAddress,
+          accountAddress: normalizedAccountAddress,
+          chainId: chainId,
+          blockNumber: blockNumber,
+        }
+      );
+    }
+    
+    const balance = BigInt((balanceResult as { balance: string }).balance);
+    
+    // Update balance
+    // Reference: subgraph line 95 - accountAsset.balance = getERC20Balance/getERC4626Balance
+    const updatedAccountAsset = {
+      ...accountAsset,
+      balance: balance,
+    };
+    context.AccountAsset.set(updatedAccountAsset);
+    return updatedAccountAsset;
+  } catch (error) {
+    // If RPC call fails, log warning but don't throw - return accountAsset with existing balance
+    // This matches subgraph behavior where RPC calls can fail silently
+    context.log.warn(`updateAccountAssetBalance failed for account ${normalizedAccountAddress}, asset ${normalizedAssetAddress}: ${String(error)}`);
+    return accountAsset;
   }
-  
-  const balance = BigInt((balanceResult as { balance: string }).balance);
-  
-  // Update balance
-  const updatedAccountAsset = {
-    ...accountAsset,
-    balance: balance,
-  };
-  context.AccountAsset.set(updatedAccountAsset);
-  return updatedAccountAsset;
 }
 
 /**
@@ -194,10 +216,15 @@ export async function updateAccountAssetYTBalance(
   blockNumber: number,
   context: any
 ): Promise<AccountAsset_t> {
+  // Normalize addresses to lowercase to prevent duplicate entries
+  const normalizedAccountAddress = accountAddress.toLowerCase();
+  const normalizedYtAddress = ytAddress.toLowerCase();
+  const normalizedPrincipalTokenAddress = principalTokenAddress.toLowerCase();
+  
   // Get or create AccountAsset for YT
   const accountAsset = await getAccountAsset(
-    accountAddress,
-    ytAddress,
+    normalizedAccountAddress,
+    normalizedYtAddress,
     timestamp,
     assetType,
     null,
@@ -209,8 +236,8 @@ export async function updateAccountAssetYTBalance(
   const balanceResult = await context.effect(
     (await import("../effects/getERC20Balance")).getERC20Balance,
     {
-      tokenAddress: ytAddress,
-      accountAddress: accountAddress,
+      tokenAddress: normalizedYtAddress,
+      accountAddress: normalizedAccountAddress,
       chainId: chainId,
       blockNumber: blockNumber,
     }
@@ -219,7 +246,7 @@ export async function updateAccountAssetYTBalance(
   const balance = BigInt((balanceResult as { balance: string }).balance);
   
   // Update balance and set principalToken relationship
-  const futureId = `${chainId}-${principalTokenAddress}`;
+  const futureId = `${chainId}-${normalizedPrincipalTokenAddress}`;
   const updatedAccountAsset = {
     ...accountAsset,
     balance: balance,

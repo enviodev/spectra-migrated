@@ -103,8 +103,16 @@ Factory.PTDeployed.handler(async ({ event, context }) => {
     context,
   );
 
-  // Get IBT asset
-  const ibtAddress = ptData.ibt;
+  // Get IBT asset and normalize to lowercase to prevent duplicate entries
+  const ibtAddress = ptData.ibt.toLowerCase();
+
+  // Track specific address for debugging
+  const TRACK_ADDRESS = "0x0022228a2cc5e7ef0274a7baa600d44da5ab5776";
+  const isTracking = ibtAddress === TRACK_ADDRESS.toLowerCase();
+
+  if (isTracking) {
+    context.log.info(`[handlePTDeployed] Calling getIBTAsset for tracked address: ${ibtAddress} at block ${blockNumber}, timestamp: ${eventTimestamp.toString()}`);
+  }
 
   const ibtAsset = await getIBTAsset(
     ibtAddress,
@@ -114,11 +122,56 @@ Factory.PTDeployed.handler(async ({ event, context }) => {
     context,
   );
 
+  if (isTracking) {
+    context.log.info(`[handlePTDeployed] getIBTAsset returned - convertToAssetsUnit: ${ibtAsset.convertToAssetsUnit?.toString() || 'null'}, lastIBTRate: ${ibtAsset.lastIBTRate?.toString() || 'null'}`);
+  }
+
+  // Re-read the asset to ensure we have the latest state after getIBTAsset.set()
+  const assetIdWithChain = `${event.chainId}-${ibtAddress}`;
+  const latestIbtAsset = await context.Asset.get(assetIdWithChain);
+  
+  if (!latestIbtAsset) {
+    context.log.warn(`[handlePTDeployed] Asset not found after getIBTAsset for ${ibtAddress}`);
+    return;
+  }
+
+  if (isTracking) {
+    context.log.info(`[handlePTDeployed] Re-read asset - convertToAssetsUnit: ${latestIbtAsset.convertToAssetsUnit?.toString() || 'null'}, lastIBTRate: ${latestIbtAsset.lastIBTRate?.toString() || 'null'}, lastUpdateTimestamp: ${latestIbtAsset.lastUpdateTimestamp?.toString() || 'null'}`);
+  }
+
   // Update IBT asset underlying relationship
-  context.Asset.set({
-    ...ibtAsset,
+  // Note: getIBTAsset already sets convertToAssetsUnit, lastIBTRate, and lastUpdateTimestamp
+  // Use the re-read asset to ensure we have the latest state with all fields
+  // Explicitly set all fields to ensure BigDecimal/BigInt fields are preserved
+  const assetUpdate = {
+    ...latestIbtAsset,
     underlying_id: underlyingAsset.id,
-  });
+    // CRITICAL: Explicitly preserve IBT rate fields - BigDecimal/BigInt may not serialize correctly in spread
+    convertToAssetsUnit: latestIbtAsset.convertToAssetsUnit ?? undefined,
+    lastIBTRate: latestIbtAsset.lastIBTRate ?? undefined,
+    lastUpdateTimestamp: latestIbtAsset.lastUpdateTimestamp ?? undefined,
+  };
+
+  if (isTracking) {
+    context.log.info(`[handlePTDeployed] About to set asset with - convertToAssetsUnit: ${assetUpdate.convertToAssetsUnit?.toString() || 'null'}, lastIBTRate: ${assetUpdate.lastIBTRate?.toString() || 'null'}, lastUpdateTimestamp: ${assetUpdate.lastUpdateTimestamp?.toString() || 'null'}, underlying_id: ${assetUpdate.underlying_id || 'null'}`);
+    context.log.info(`[handlePTDeployed] Asset update type check - convertToAssetsUnit type: ${typeof assetUpdate.convertToAssetsUnit}, lastIBTRate type: ${assetUpdate.lastIBTRate?.constructor?.name || 'null'}`);
+  }
+
+  context.Asset.set(assetUpdate);
+
+  if (isTracking) {
+    // Verify the asset was set correctly by reading it back
+    const verifyAsset = await context.Asset.get(assetIdWithChain);
+    if (verifyAsset) {
+      context.log.info(`[handlePTDeployed] Verified asset after set - convertToAssetsUnit: ${verifyAsset.convertToAssetsUnit?.toString() || 'null'}, lastIBTRate: ${verifyAsset.lastIBTRate?.toString() || 'null'}, lastUpdateTimestamp: ${verifyAsset.lastUpdateTimestamp?.toString() || 'null'}`);
+    } else {
+      context.log.warn(`[handlePTDeployed] Asset not found after set!`);
+    }
+  }
+
+  if (isTracking) {
+    context.log.info(`[handlePTDeployed] Asset.set() completed for ${ibtAddress}`);
+  }
 
   // Get PT token asset
   const ptToken = await getAsset(

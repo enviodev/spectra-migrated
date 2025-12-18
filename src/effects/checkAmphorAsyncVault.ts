@@ -29,11 +29,11 @@ export const checkAmphorAsyncVault = createEffect(
     rateLimit: false,
     cache: true,
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     try {
       const rpcUrl = process.env[`ENVIO_RPC_URL_${input.chainId}`] || process.env.RPC_URL;
       if (!rpcUrl) {
-        console.warn(`No RPC URL found for chain ${input.chainId}`);
+        context.log.warn(`No RPC URL found for chain ${input.chainId}`);
         return { isAmphorAsyncVault: false };
       }
 
@@ -85,7 +85,7 @@ export const checkAmphorAsyncVault = createEffect(
 
       return { isAmphorAsyncVault };
     } catch (error) {
-      console.error(`checkAmphorAsyncVault() call failed for ${input.infravaultAddress}: ${error}`);
+      context.log.error(`checkAmphorAsyncVault() call failed for ${input.infravaultAddress}: ${error}`);
       return { isAmphorAsyncVault: false };
     }
   }

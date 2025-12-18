@@ -26,12 +26,12 @@ export const getCurveFactory = createEffect(
     rateLimit: false,
     cache: true,
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     try {
       // Get RPC URL from environment (should be set per chain)
       const rpcUrl = process.env[`ENVIO_RPC_URL_${input.chainId}`] || process.env.RPC_URL;
       if (!rpcUrl) {
-        console.warn(`No RPC URL found for chain ${input.chainId}`);
+        context.log.warn(`No RPC URL found for chain ${input.chainId}`);
         return ZERO_ADDRESS;
       }
 
@@ -67,7 +67,7 @@ export const getCurveFactory = createEffect(
 
       return (curveFactory as string);
     } catch (error) {
-      console.warn(`getCurveFactory() call failed for ${input.factoryAddress}:`, error);
+      context.log.warn(`getCurveFactory() call failed for ${input.factoryAddress}: ${String(error)}`);
       return ZERO_ADDRESS;
     }
   }

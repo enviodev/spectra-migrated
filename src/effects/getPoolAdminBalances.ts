@@ -31,7 +31,7 @@ export const getPoolAdminBalances = createEffect(
     rateLimit: false,
     cache: true,
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     try {
       // If pool isn't SNG, return zeros
       if (input.poolType !== PoolType.CURVE_SNG) {
@@ -43,7 +43,7 @@ export const getPoolAdminBalances = createEffect(
 
       const rpcUrl = process.env[`ENVIO_RPC_URL_${input.chainId}`] || process.env.RPC_URL;
       if (!rpcUrl) {
-        console.warn(`No RPC URL found for chain ${input.chainId}`);
+        context.log.warn(`No RPC URL found for chain ${input.chainId}`);
         return {
           ibtAdminBalance: ZERO_BI.toString(),
           ptAdminBalance: ZERO_BI.toString(),
@@ -81,7 +81,7 @@ export const getPoolAdminBalances = createEffect(
           functionName: "admin_balances",
           args: [BigInt(0)],
         }).catch((err) => {
-          console.warn(`admin_balances(0) failed for ${input.poolAddress}:`, err.message);
+          context.log.warn(`admin_balances(0) failed for ${input.poolAddress}:`, err.message);
           return BigInt(0);
         }),
         publicClient.readContract({
@@ -90,7 +90,7 @@ export const getPoolAdminBalances = createEffect(
           functionName: "admin_balances",
           args: [BigInt(1)],
         }).catch((err) => {
-          console.warn(`admin_balances(1) failed for ${input.poolAddress}:`, err.message);
+          context.log.warn(`admin_balances(1) failed for ${input.poolAddress}:`, err.message);
           return BigInt(0);
         }),
       ]);
@@ -100,7 +100,7 @@ export const getPoolAdminBalances = createEffect(
         ptAdminBalance: ptAdminBalance.toString(),
       };
     } catch (error) {
-      console.warn(`getPoolAdminBalances() call failed for ${input.poolAddress}:`, error);
+      context.log.warn(`getPoolAdminBalances() call failed for ${input.poolAddress}: ${String(error)}`);
       return {
         ibtAdminBalance: ZERO_BI.toString(),
         ptAdminBalance: ZERO_BI.toString(),

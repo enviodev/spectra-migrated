@@ -29,11 +29,11 @@ export const getAmphorAsyncVaultData = createEffect(
     rateLimit: false,
     cache: true,
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     try {
       const rpcUrl = process.env[`ENVIO_RPC_URL_${input.chainId}`] || process.env.RPC_URL;
       if (!rpcUrl) {
-        console.warn(`No RPC URL found for chain ${input.chainId}`);
+        context.log.warn(`No RPC URL found for chain ${input.chainId}`);
         return {
           epochId: "0",
           decimals: 18,
@@ -82,7 +82,7 @@ export const getAmphorAsyncVaultData = createEffect(
         decimals: Number(decimals) || 18,
       };
     } catch (error) {
-      console.error(`getAmphorAsyncVaultData() call failed for ${input.vaultAddress}: ${error}`);
+      context.log.error(`getAmphorAsyncVaultData() call failed for ${input.vaultAddress}: ${error}`);
       return {
         epochId: "0",
         decimals: 18,

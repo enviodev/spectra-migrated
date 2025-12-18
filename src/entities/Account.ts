@@ -12,15 +12,17 @@ export async function getAccount(
   chainId: number,
   context: any
 ): Promise<Account> {
+  // Normalize address to lowercase to prevent duplicate entries
+  const normalizedAddress = accountAddress.toLowerCase();
 
-  const accountId = chainId + "-" + accountAddress;
+  const accountId = chainId + "-" + normalizedAddress;
 
   let account = await context.Account.get(accountId);
 
   if (!account) {
     account = {
       id: accountId,
-      address: accountAddress,
+      address: normalizedAddress, // Store normalized (lowercase) address
       createdAtTimestamp: timestamp,
     };
     context.Account.set(account);

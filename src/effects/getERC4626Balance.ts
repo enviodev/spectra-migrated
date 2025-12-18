@@ -29,11 +29,11 @@ export const getERC4626Balance = createEffect(
     rateLimit: false,
     cache: true,
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     try {
       const rpcUrl = process.env[`ENVIO_RPC_URL_${input.chainId}`] || process.env.RPC_URL;
       if (!rpcUrl) {
-        console.warn(`No RPC URL found for chain ${input.chainId}`);
+        context.log.warn(`No RPC URL found for chain ${input.chainId}`);
         return { balance: "0" };
       }
 
@@ -72,7 +72,7 @@ export const getERC4626Balance = createEffect(
         balance: String(balance),
       };
     } catch (error) {
-      console.error(`getERC4626Balance() call failed for ${input.tokenAddress}: ${error}`);
+      context.log.error(`getERC4626Balance() call failed for ${input.tokenAddress}: ${error}`);
       return { balance: "0" };
     }
   }

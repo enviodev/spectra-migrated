@@ -22,8 +22,11 @@ export async function getAsset(
   blockNumber: number,
   context: any
 ): Promise<Asset_t> {
-  // Use provided assetId or address as ID
-  const finalAssetId = assetId !== null ? assetId : address;
+  // Normalize address to lowercase to prevent duplicate entries
+  const normalizedAddress = address.toLowerCase();
+  
+  // Use provided assetId or normalized address as ID
+  const finalAssetId = assetId !== null ? assetId : normalizedAddress;
   // Prefix with chainId for multichain support
   const assetIdWithChain = `${chainId}-${finalAssetId}`;
 
@@ -34,16 +37,16 @@ export async function getAsset(
     // These functions check database first, then make RPC calls if needed
     // This matches the original subgraph pattern exactly
     const [name, symbol, decimals] = await Promise.all([
-      getERC20Name(address, chainId, blockNumber, context),
-      getERC20Symbol(address, chainId, blockNumber, context),
-      getERC20Decimals(address, chainId, blockNumber, context),
+      getERC20Name(normalizedAddress, chainId, blockNumber, context),
+      getERC20Symbol(normalizedAddress, chainId, blockNumber, context),
+      getERC20Decimals(normalizedAddress, chainId, blockNumber, context),
     ]);
 
     // Create Asset entity
     asset = {
       id: assetIdWithChain,
       chainId: chainId,
-      address: address,
+      address: normalizedAddress, // Store normalized (lowercase) address
       createdAtTimestamp: timestamp,
       name: name,
       symbol: symbol,
@@ -63,6 +66,11 @@ export async function getAsset(
     };
     context.Asset.set(asset);
   }
+
+  // Note: IBT rate fields are NOT set here (matches subgraph behavior)
+  // The subgraph's getAsset() does NOT set IBT rate fields
+  // IBT rate fields are only set in getIBTAsset() -> createIBTAsset() when the asset is first created
+  // Reference: subgraph's getAsset() only creates basic asset, no IBT-specific logic
 
   return asset;
 }

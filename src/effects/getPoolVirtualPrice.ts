@@ -28,11 +28,11 @@ export const getPoolVirtualPrice = createEffect(
     rateLimit: false,
     cache: true,
   },
-  async ({ input }) => {
+  async ({ input, context }) => {
     try {
       const rpcUrl = process.env[`ENVIO_RPC_URL_${input.chainId}`] || process.env.RPC_URL;
       if (!rpcUrl) {
-        console.warn(`No RPC URL found for chain ${input.chainId}`);
+        context.log.warn(`No RPC URL found for chain ${input.chainId}`);
         return { virtualPrice: CURVE_UNIT.toString() };
       }
 
@@ -63,14 +63,15 @@ export const getPoolVirtualPrice = createEffect(
         address: poolAddress,
         abi: CURVE_POOL_ABI,
         functionName: "get_virtual_price",
+        blockNumber: BigInt(input.blockNumber),
       }).catch((err) => {
-        console.warn(`get_virtual_price() failed for ${input.poolAddress}:`, err.message);
+        context.log.warn(`get_virtual_price() failed for ${input.poolAddress}:`, err.message);
         return CURVE_UNIT;
       });
 
       return { virtualPrice: virtualPrice.toString() };
     } catch (error) {
-      console.warn(`getPoolVirtualPrice() call failed for ${input.poolAddress}:`, error);
+      context.log.warn(`getPoolVirtualPrice() call failed for ${input.poolAddress}: ${String(error)}`);
       return { virtualPrice: CURVE_UNIT.toString() };
     }
   }

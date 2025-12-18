@@ -20,10 +20,13 @@ export async function getAssetAmount(
   chainId: number,
   context: any
 ): Promise<AssetAmount_t> {
+  // Normalize address to lowercase to prevent duplicate entries
+  const normalizedAssetAddress = assetAddress.toLowerCase();
+  
   // Generate AssetAmount ID
   const assetAmountId = `${chainId}-${generateAssetAmountId(
     transactionHash,
-    assetAddress,
+    normalizedAssetAddress,
     logIndex,
     assetType
   )}`;
@@ -31,9 +34,9 @@ export async function getAssetAmount(
   let assetAmount = await context.AssetAmount.get(assetAmountId);
 
   if (!assetAmount) {
-    // Get or create Asset entity
+    // Get or create Asset entity (getAsset will normalize the address)
     const asset = await getAsset(
-      assetAddress,
+      normalizedAssetAddress,
       timestamp,
       assetType,
       null,
@@ -54,14 +57,18 @@ export async function getAssetAmount(
   }
 
   // Accumulate amount (matches original subgraph behavior)
-  const newAmount = assetAmount.amount + amount;
-  context.AssetAmount.set({
-    ...assetAmount,
-    amount: newAmount,
-  });
-
-  return {
-    ...assetAmount,
+  // Reference: subgraph line 29 - assetAmount.amount.plus(amount)
+  // Re-read the assetAmount to ensure we have the latest value (in case of concurrent updates)
+  const currentAssetAmount = await context.AssetAmount.get(assetAmountId);
+  const currentAmount = currentAssetAmount?.amount || assetAmount.amount || ZERO_BI;
+  const newAmount = currentAmount + amount;
+  
+  const updatedAssetAmount = {
+    ...(currentAssetAmount || assetAmount),
     amount: newAmount,
   };
+  
+  context.AssetAmount.set(updatedAssetAmount);
+
+  return updatedAssetAmount;
 }

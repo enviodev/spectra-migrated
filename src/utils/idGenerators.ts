@@ -3,11 +3,11 @@
 
 // FYTTokenDetails
 export const generateFYTInfoId = (tokenAddress: string): string =>
-    `${tokenAddress}-FYT`
+    `${tokenAddress.toLowerCase()}-FYT`
 
 // LiquidityTokenDetails
 export const generateLPInfoId = (tokenAddress: string): string =>
-    `${tokenAddress}-LP`
+    `${tokenAddress.toLowerCase()}-LP`
 
 // AssetAmount
 export const generateAssetAmountId = (
@@ -15,26 +15,26 @@ export const generateAssetAmountId = (
     assetAddress: string,
     logIndex: string,
     type: string
-): string => `${transactionHash}-${assetAddress}-${type}-${logIndex}`
+): string => `${transactionHash}-${assetAddress.toLowerCase()}-${type}-${logIndex}`
 
 // AssetPrice
 export const generateAssetPriceId = (
     tokenAddress: string,
     timestamp: string
-): string => `${timestamp}-${tokenAddress}`
+): string => `${timestamp}-${tokenAddress.toLowerCase()}`
 
 // AccountAsset
 export const generateAccountAssetId = (
     accountAddress: string,
     assetAddress: string,
     prefix: string = ""
-): string => `${prefix}${accountAddress}-${assetAddress}`
+): string => `${prefix}${accountAddress.toLowerCase()}-${assetAddress.toLowerCase()}`
 
 // Fees
 export const generateFeeClaimId = (
     collectorAddress: string,
     timestamp: string
-): string => `${timestamp}-${collectorAddress}`
+): string => `${timestamp}-${collectorAddress.toLowerCase()}`
 
 // Transfer
 export const generateTransferId = (
@@ -47,14 +47,14 @@ export const generateTransferId = (
 export const generateFutureDailyStatsId = (
     futureAddress: string,
     dayId: string
-): string => `${futureAddress}-${dayId}`
+): string => `${futureAddress.toLowerCase()}-${dayId}`
 
 // PoolStats
 export const generatePoolStatsId = (
     poolAddress: string,
     span: string,
     statId: string
-): string => `${poolAddress}-S-${span}-${statId}`
+): string => `${poolAddress.toLowerCase()}-S-${span}-${statId}`
 
 export const generateTransactionId = (
     transactionHash: string,
@@ -62,8 +62,8 @@ export const generateTransactionId = (
 ): string => `${transactionHash}-${eventIterator}`
 
 export const generateYieldAssetId = (principalToken: string): string =>
-    `${principalToken}-yield`
+    `${principalToken.toLowerCase()}-yield`
 
 export const generateClaimedYieldAssetId = (principalToken: string): string =>
-    `${principalToken}-claimed-yield`
+    `${principalToken.toLowerCase()}-claimed-yield`
 
