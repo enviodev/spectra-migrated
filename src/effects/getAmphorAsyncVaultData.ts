@@ -69,11 +69,13 @@ export const getAmphorAsyncVaultData = createEffect(
           address: vaultAddress,
           abi: AMPHOR_ASYNC_VAULT_ABI,
           functionName: "epochId",
+          blockNumber: BigInt(input.blockNumber),
         }).catch(() => BigInt(0)),
         publicClient.readContract({
           address: vaultAddress,
           abi: AMPHOR_ASYNC_VAULT_ABI,
           functionName: "decimals",
+          blockNumber: BigInt(input.blockNumber),
         }).catch(() => 18),
       ]);
 

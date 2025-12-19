@@ -65,6 +65,7 @@ export const getPoolLPToken = createEffect(
         address: input.poolAddress as `0x${string}`,
         abi: CURVE_POOL_ABI,
         functionName: "token",
+        blockNumber: BigInt(input.blockNumber),
       });
 
       return (tokenAddress as string);

@@ -16,6 +16,7 @@ const PRINCIPAL_TOKEN_ABI = parseAbi([
   "function getYT() view returns (address)",
   "function getPTRate() view returns (uint256)",
   "function totalAssets() view returns (uint256)",
+  "function getCurrentYieldOfUserInIBT(address) view returns (uint256)",
 ]);
 
 /**

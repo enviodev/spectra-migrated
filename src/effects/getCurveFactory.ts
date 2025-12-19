@@ -63,6 +63,7 @@ export const getCurveFactory = createEffect(
         address: input.factoryAddress as `0x${string}`,
         abi: FACTORY_ABI,
         functionName: "getCurveFactory",
+        blockNumber: BigInt(input.blockNumber),
       });
 
       return (curveFactory as string);

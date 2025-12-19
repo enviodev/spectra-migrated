@@ -457,6 +457,7 @@ PrincipalToken.YieldClaimed.handler(async ({ event, context }) => {
     event.params.yieldInIBT, // matches subgraph: event.params.yieldInIBT
     BigInt(event.block.timestamp),
     event.chainId,
+    event.block.number,
     context,
   );
 
@@ -487,6 +488,7 @@ PrincipalToken.YieldUpdated.handler(async ({ event, context }) => {
     event.srcAddress,
     BigInt(event.block.timestamp),
     event.chainId,
+    event.block.number,
     context,
   );
 });
@@ -509,6 +511,7 @@ PrincipalToken.Transfer.handler(async ({ event, context }) => {
     event.srcAddress,
     BigInt(event.block.timestamp),
     event.chainId,
+    event.block.number,
     context,
   );
 

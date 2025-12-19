@@ -152,3 +152,26 @@ export async function getPTRate(
   const ptData = await getPTData(address, chainId, blockNumber, context);
   return BigInt(ptData.ptRate || UNIT_BI.toString());
 }
+
+/**
+ * Get current yield of user in IBT
+ * Reference: spectra-subgraph/src/entities/FutureVault.ts getCurrentYieldOfUserInIBT (lines 166-183)
+ */
+export async function getCurrentYieldOfUserInIBT(
+  principalToken: string,
+  accountAddress: string,
+  chainId: number,
+  blockNumber: number,
+  context: any
+): Promise<bigint> {
+  const { getCurrentYieldOfUserInIBT: getCurrentYieldOfUserInIBTEffect } = await import("../effects/getCurrentYieldOfUserInIBT");
+  
+  const result = await context.effect(getCurrentYieldOfUserInIBTEffect, {
+    ptAddress: principalToken,
+    accountAddress: accountAddress,
+    chainId: chainId,
+    blockNumber: blockNumber,
+  });
+
+  return BigInt(result as string || ZERO_BI.toString());
+}

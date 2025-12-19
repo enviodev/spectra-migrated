@@ -79,31 +79,37 @@ export const getMetavaultWrapperData = createEffect(
           address: wrapperAddress,
           abi: METAVAULT_WRAPPER_ABI,
           functionName: "owner",
+          blockNumber: BigInt(input.blockNumber),
         }),
         publicClient.readContract({
           address: wrapperAddress,
           abi: METAVAULT_WRAPPER_ABI,
           functionName: "getInfraVault",
+          blockNumber: BigInt(input.blockNumber),
         }),
         publicClient.readContract({
           address: wrapperAddress,
           abi: METAVAULT_WRAPPER_ABI,
           functionName: "name",
+          blockNumber: BigInt(input.blockNumber),
         }),
         publicClient.readContract({
           address: wrapperAddress,
           abi: METAVAULT_WRAPPER_ABI,
           functionName: "symbol",
+          blockNumber: BigInt(input.blockNumber),
         }),
         publicClient.readContract({
           address: wrapperAddress,
           abi: METAVAULT_WRAPPER_ABI,
           functionName: "decimals",
+          blockNumber: BigInt(input.blockNumber),
         }),
         publicClient.readContract({
           address: wrapperAddress,
           abi: METAVAULT_WRAPPER_ABI,
           functionName: "asset",
+          blockNumber: BigInt(input.blockNumber),
         }),
       ]);
 

@@ -151,6 +151,8 @@ contracts:
         field_selection:
           transaction_fields:
             - hash
+            - transactionIndex
+            - gas
             - gasPrice
           block_fields:
             - gasUsed
@@ -336,6 +338,8 @@ contracts:
         field_selection:
           transaction_fields:
             - hash
+            - transactionIndex
+            - gas
             - gasPrice
           block_fields:
             - gasUsed
