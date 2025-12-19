@@ -90,6 +90,7 @@ export const getPrincipalTokenData = createEffect(
       // Note: These calls may fail if the address is not a contract or doesn't exist
       // This is expected behavior - we catch errors and return default values
       // Original subgraph logs warnings but continues execution
+      // ERC20 metadata (name, symbol, decimals) are typically immutable, so we query at latest block
       const [maturity, name, symbol, decimals, underlying, ibt, yt, ptRate, totalAssets] = await Promise.all([
         publicClient.readContract({
           address: input.ptAddress as `0x${string}`,
@@ -105,7 +106,6 @@ export const getPrincipalTokenData = createEffect(
           address: input.ptAddress as `0x${string}`,
           abi: PRINCIPAL_TOKEN_ABI,
           functionName: "name",
-          blockNumber: BigInt(input.blockNumber),
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
           context.log.warn(`name() call reverted for ${input.ptAddress}`);
@@ -115,7 +115,6 @@ export const getPrincipalTokenData = createEffect(
           address: input.ptAddress as `0x${string}`,
           abi: PRINCIPAL_TOKEN_ABI,
           functionName: "symbol",
-          blockNumber: BigInt(input.blockNumber),
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
           context.log.warn(`symbol() call reverted for ${input.ptAddress}`);
@@ -125,7 +124,6 @@ export const getPrincipalTokenData = createEffect(
           address: input.ptAddress as `0x${string}`,
           abi: PRINCIPAL_TOKEN_ABI,
           functionName: "decimals",
-          blockNumber: BigInt(input.blockNumber),
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
           context.log.warn(`decimals() call reverted for ${input.ptAddress}`);

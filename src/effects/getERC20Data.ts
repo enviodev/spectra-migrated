@@ -70,12 +70,12 @@ export const getERC20Data = createEffect(
       // Read all contract data in parallel
       // Note: These calls may fail if the address is not a contract or doesn't exist
       // We log warnings when they fail (matching original subgraph pattern)
+      // ERC20 metadata (name, symbol, decimals) are typically immutable, so we query at latest block
       const [name, symbol, decimals] = await Promise.all([
         publicClient.readContract({
           address: tokenAddress,
           abi: ERC20_ABI,
           functionName: "name",
-          blockNumber: BigInt(input.blockNumber),
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
           context.log.warn(`name() call (string or bytes) reverted for ${input.tokenAddress}`);
@@ -85,7 +85,6 @@ export const getERC20Data = createEffect(
           address: tokenAddress,
           abi: ERC20_ABI,
           functionName: "symbol",
-          blockNumber: BigInt(input.blockNumber),
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
           context.log.warn(`symbol() call (string or bytes) reverted for ${input.tokenAddress}`);
@@ -95,7 +94,6 @@ export const getERC20Data = createEffect(
           address: tokenAddress,
           abi: ERC20_ABI,
           functionName: "decimals",
-          blockNumber: BigInt(input.blockNumber),
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
           context.log.warn(`decimals() call (number) reverted for ${input.tokenAddress}`);

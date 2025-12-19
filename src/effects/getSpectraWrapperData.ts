@@ -86,24 +86,22 @@ export const getSpectraWrapperData = createEffect(
       const wrapperAddress = input.wrapperAddress as `0x${string}`;
 
       // Read wrapper contract data
+      // ERC20 metadata (name, symbol, decimals) are typically immutable, so we query at latest block
       const [name, symbol, decimals, vaultShare, asset] = await Promise.all([
         publicClient.readContract({
           address: wrapperAddress,
           abi: SPECTRA_WRAPPER_ABI,
           functionName: "name",
-          blockNumber: BigInt(input.blockNumber),
         }).catch(() => "UNKNOWN"),
         publicClient.readContract({
           address: wrapperAddress,
           abi: SPECTRA_WRAPPER_ABI,
           functionName: "symbol",
-          blockNumber: BigInt(input.blockNumber),
         }).catch(() => "UNKNOWN"),
         publicClient.readContract({
           address: wrapperAddress,
           abi: SPECTRA_WRAPPER_ABI,
           functionName: "decimals",
-          blockNumber: BigInt(input.blockNumber),
         }).catch(() => 18),
         publicClient.readContract({
           address: wrapperAddress,
@@ -120,42 +118,37 @@ export const getSpectraWrapperData = createEffect(
       ]);
 
       // Fetch vault share and asset ERC20 data if available
+      // ERC20 metadata (name, symbol, decimals) are typically immutable, so we query at latest block
       const [vaultShareName, vaultShareSymbol, vaultShareDecimals, assetName, assetSymbol, assetDecimals] = await Promise.all([
         vaultShare ? publicClient.readContract({
           address: vaultShare as `0x${string}`,
           abi: parseAbi(["function name() view returns (string)"]),
           functionName: "name",
-          blockNumber: BigInt(input.blockNumber),
         }).catch(() => "UNKNOWN") : Promise.resolve("UNKNOWN"),
         vaultShare ? publicClient.readContract({
           address: vaultShare as `0x${string}`,
           abi: parseAbi(["function symbol() view returns (string)"]),
           functionName: "symbol",
-          blockNumber: BigInt(input.blockNumber),
         }).catch(() => "UNKNOWN") : Promise.resolve("UNKNOWN"),
         vaultShare ? publicClient.readContract({
           address: vaultShare as `0x${string}`,
           abi: parseAbi(["function decimals() view returns (uint8)"]),
           functionName: "decimals",
-          blockNumber: BigInt(input.blockNumber),
         }).catch(() => 18) : Promise.resolve(18),
         asset ? publicClient.readContract({
           address: asset as `0x${string}`,
           abi: parseAbi(["function name() view returns (string)"]),
           functionName: "name",
-          blockNumber: BigInt(input.blockNumber),
         }).catch(() => "UNKNOWN") : Promise.resolve("UNKNOWN"),
         asset ? publicClient.readContract({
           address: asset as `0x${string}`,
           abi: parseAbi(["function symbol() view returns (string)"]),
           functionName: "symbol",
-          blockNumber: BigInt(input.blockNumber),
         }).catch(() => "UNKNOWN") : Promise.resolve("UNKNOWN"),
         asset ? publicClient.readContract({
           address: asset as `0x${string}`,
           abi: parseAbi(["function decimals() view returns (uint8)"]),
           functionName: "decimals",
-          blockNumber: BigInt(input.blockNumber),
         }).catch(() => 18) : Promise.resolve(18),
       ]);
 
