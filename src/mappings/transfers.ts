@@ -366,4 +366,16 @@ MetavaultWrapper.Transfer.handler(async ({ event, context }) => {
     Number(event.block.number),
     context
   );
+
+  // Update yield for all (if this is a PT/YT token) - matches ERC20.Transfer handler logic
+  if (asset.futureVault_id) {
+    const futureVaultAddress = asset.futureVault_id.replace(`${event.chainId}-`, "");
+    await updateYieldForAll(
+      futureVaultAddress,
+      eventTimestamp,
+      event.chainId,
+      event.block.number,
+      context
+    );
+  }
 });

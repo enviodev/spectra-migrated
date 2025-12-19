@@ -166,6 +166,12 @@ contracts:
       - event: YieldClaimed(address indexed owner, address indexed receiver, uint256 indexed yieldInIBT)
       - event: YieldUpdated(address indexed user, uint256 indexed amount)
       - event: Transfer(address indexed from, address indexed to, uint256 value)
+        field_selection:
+          transaction_fields:
+            - hash
+            - transactionIndex
+            - gas
+            - gasPrice
       - event: Mint(address indexed from, address indexed to, uint256 amount)
         field_selection:
           transaction_fields:

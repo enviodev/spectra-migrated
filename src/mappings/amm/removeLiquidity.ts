@@ -309,12 +309,19 @@ export async function removeLiquidity(
     context
   );
 
+  // Re-read pool entity to ensure we have the latest state (important for multiple transactions in same block)
+  const latestPool = await context.Pool.get(poolId);
+  if (!latestPool) {
+    context.log.warn(`RemoveLiquidity: Pool ${event.srcAddress} not found when updating`);
+    return;
+  }
+  
   // Update pool entity
   const updatedPool = {
-    ...pool,
+    ...latestPool,
     spotPrice: spotPrice,
     lpTotalSupply: tokenSupply, // Use token_supply from event
-    totalFeeRatio: pool.totalFeeRatio + feeRatio,
+    totalFeeRatio: latestPool.totalFeeRatio + feeRatio,
     ibtAdminBalance: newIbtAdminBalance,
     ptAdminBalance: newPtAdminBalance,
   };

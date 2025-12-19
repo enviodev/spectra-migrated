@@ -319,12 +319,19 @@ async function addLiquidity(
     context
   );
 
+  // Re-read pool entity to ensure we have the latest state (important for multiple transactions in same block)
+  const latestPool = await context.Pool.get(poolId);
+  if (!latestPool) {
+    context.log.warn(`AddLiquidity: Pool ${event.srcAddress} not found when updating`);
+    return;
+  }
+  
   // Update pool entity
   const updatedPool = {
-    ...pool,
-    totalFees: pool.totalFees + fee,
-    totalFeeRatio: pool.totalFeeRatio + feeRatio,
-    totalAdminFees: pool.totalAdminFees + adminFee,
+    ...latestPool,
+    totalFees: latestPool.totalFees + fee,
+    totalFeeRatio: latestPool.totalFeeRatio + feeRatio,
+    totalAdminFees: latestPool.totalAdminFees + adminFee,
     spotPrice: spotPrice,
     lpTotalSupply: lpTotalSupply,
     ibtAdminBalance: newIbtAdminBalance,
