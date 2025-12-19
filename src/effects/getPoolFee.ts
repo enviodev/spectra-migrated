@@ -62,6 +62,7 @@ export const getPoolFee = createEffect(
         address: input.poolAddress as `0x${string}`,
         abi: CURVE_POOL_ABI,
         functionName: "fee",
+        blockNumber: BigInt(input.blockNumber),
       });
 
       return fee.toString();

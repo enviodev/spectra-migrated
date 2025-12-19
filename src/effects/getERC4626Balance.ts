@@ -66,6 +66,7 @@ export const getERC4626Balance = createEffect(
         abi: ERC4626_ABI,
         functionName: "balanceOf",
         args: [accountAddress],
+        blockNumber: BigInt(input.blockNumber),
       }).catch(() => BigInt(0));
 
       return {

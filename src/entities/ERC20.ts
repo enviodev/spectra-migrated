@@ -45,7 +45,7 @@ export async function getERC20Name(
     return erc20Data.name || "UNKNOWN";
   } catch (error) {
     // RPC call failed - log warning and return default (matches original subgraph)
-    console.warn(`name() call reverted for ${address}`);
+    context.log.warn(`name() call reverted for ${address}`);
     return "UNKNOWN";
   }
 }
@@ -90,7 +90,7 @@ export async function getERC20Symbol(
     return erc20Data.symbol || "UNKNOWN";
   } catch (error) {
     // RPC call failed - log warning and return default (matches original subgraph)
-    console.warn(`symbol() call reverted for ${address}`);
+    context.log.warn(`symbol() call reverted for ${address}`);
     return "UNKNOWN";
   }
 }
@@ -135,7 +135,7 @@ export async function getERC20Decimals(
     return erc20Data.decimals || 18;
   } catch (error) {
     // RPC call failed - log warning and return default (matches original subgraph)
-    console.warn(`decimals() call reverted for ${address}`);
+    context.log.warn(`decimals() call reverted for ${address}`);
     return 18;
   }
 }

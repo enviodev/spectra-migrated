@@ -98,9 +98,6 @@ id	output
 {"blockNumber":22633909,"chainId":1,"poolAddress":"0x21ff331d1928cb7fde9a151d43eba4ebee843e87"}	{"virtualPrice": "1000000000000000000"}
 {"blockNumber":22633964,"chainId":1,"poolAddress":"0x17a23e49ae0209b5243090c138e800c4ca1921e9"}	{"virtualPrice": "1000000000000000000"}
 {"blockNumber":22674607,"chainId":1,"poolAddress":"0x593a8a7c12d8111e12945ff167389662a02b5ece"}	{"virtualPrice": "1000000000000000000"}
-{"blockNumber":22734320,"chainId":1,"poolAddress":"0xe48c3a1389be663f0e6f96ac1b90c10ee8b1b1ec"}	{"virtualPrice": "1000000000000000000"}
-{"blockNumber":22747844,"chainId":1,"poolAddress":"0xa8cd51f4b240d2c19925a758e93142df1ed6f9d6"}	{"virtualPrice": "1000000000000000000"}
-{"blockNumber":22747879,"chainId":1,"poolAddress":"0xbc682b0c7d0941bf0619886f9596f6f5c6d114c3"}	{"virtualPrice": "1000000000000000000"}
 {"blockNumber":22825617,"chainId":1,"poolAddress":"0xba03b286fc03ee1f403f02ead4788c298c38cd4e"}	{"virtualPrice": "1000000000000000000"}
 {"blockNumber":22825655,"chainId":1,"poolAddress":"0x0e2e7e5692074f406fa4037c8c8c1ace4b6ece32"}	{"virtualPrice": "1000000000000000000"}
 {"blockNumber":22892948,"chainId":1,"poolAddress":"0x6e7f0c234582b9421e4c9bc4ab3542016cd23301"}	{"virtualPrice": "1000000000000000000"}
@@ -117,6 +114,9 @@ id	output
 {"blockNumber":22969331,"chainId":1,"poolAddress":"0xd31fac73411da2c19aab7cd5d71f22d5c54e748a"}	{"virtualPrice": "1000000000000000000"}
 {"blockNumber":22969394,"chainId":1,"poolAddress":"0x0c15c823c614c77f09ef90d35a71b6616070a22a"}	{"virtualPrice": "1000000000000000000"}
 {"blockNumber":22969409,"chainId":1,"poolAddress":"0xdcb8c27adee3d9b83a01cd40a3c572746a641319"}	{"virtualPrice": "1000000000000000000"}
+{"blockNumber":22734320,"chainId":1,"poolAddress":"0xe48c3a1389be663f0e6f96ac1b90c10ee8b1b1ec"}	{"virtualPrice": "1000000000000000000"}
+{"blockNumber":22747844,"chainId":1,"poolAddress":"0xa8cd51f4b240d2c19925a758e93142df1ed6f9d6"}	{"virtualPrice": "1000000000000000000"}
+{"blockNumber":22747879,"chainId":1,"poolAddress":"0xbc682b0c7d0941bf0619886f9596f6f5c6d114c3"}	{"virtualPrice": "1000000000000000000"}
 {"blockNumber":23034283,"chainId":1,"poolAddress":"0xceb283be31a655a9c707a7bb5bb1edffc35491b0"}	{"virtualPrice": "1000000000000000000"}
 {"blockNumber":23054912,"chainId":1,"poolAddress":"0x43cb9f6ddf5b313aec35f013800345cc895d4f22"}	{"virtualPrice": "1000000000000000000"}
 {"blockNumber":23070434,"chainId":1,"poolAddress":"0x1f1975f2efea483f0e96ebf965caf95df17675a1"}	{"virtualPrice": "1000000000000000000"}

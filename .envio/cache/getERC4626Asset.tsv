@@ -157,3 +157,10 @@ id	output
 {"blockNumber":23424171,"chainId":1,"vaultAddress":"0x0b4c655bc989baafe728f8270ff988a7c2b40fd1"}	{"assetAddress": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"}
 {"blockNumber":23589723,"chainId":1,"vaultAddress":"0x01ba69727e2860b37bc1a2bd56999c1afb4c15d8"}	{"assetAddress": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"}
 {"blockNumber":23965175,"chainId":1,"vaultAddress":"0xb250c9e0f7be4cff13f94374c993ac445a1385fe"}	{"assetAddress": "0xdC035D45d973E3EC169d2276DDab16f1e407384F"}
+{"blockNumber":21320940,"chainId":1,"vaultAddress":"0x6e0dccf49d095f8ea8920a8af03d236fa167b7e0"}	{"assetAddress": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"}
+{"blockNumber":21070385,"chainId":1,"vaultAddress":"0xc1d7a926635081d24f232969379556e08d87e10a"}	{"assetAddress": "0xae2D97CbBc13B67988ECEd2abA0F6939655eD3De"}
+{"blockNumber":21618732,"chainId":1,"vaultAddress":"0x4737d9b4592b40d51e110b94c9c043c6654067ae"}	{"assetAddress": "0x7C1156E515aA1A2E851674120074968C905aAF37"}
+{"blockNumber":22031233,"chainId":1,"vaultAddress":"0xa54a3f9e33ca1473477f05a94123d117aaa6002a"}	{"assetAddress": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"}
+{"blockNumber":22465905,"chainId":1,"vaultAddress":"0x19ebd191f7a24ece672ba13a302212b5ef7f35cb"}	{"assetAddress": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"}
+{"blockNumber":22892948,"chainId":1,"vaultAddress":"0xcbe00e807e49df75aa4d4557eba083a34cc149de"}	{"assetAddress": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"}
+{"blockNumber":22945397,"chainId":1,"vaultAddress":"0xbeefc011e94f43b8b7b455ebab290c7ab4e216f1"}	{"assetAddress": "0x7751E2F4b8ae93EF6B79d86419d42FE3295A4559"}

@@ -106,8 +106,8 @@ Factory.PTDeployed.handler(async ({ event, context }) => {
   // Get IBT asset and normalize to lowercase to prevent duplicate entries
   const ibtAddress = ptData.ibt.toLowerCase();
 
-  // Track specific address for debugging
-  const TRACK_ADDRESS = "0x0022228a2cc5e7ef0274a7baa600d44da5ab5776";
+  // Track specific address for debugging (address with IBT rate difference: 4.63% diff)
+  const TRACK_ADDRESS = "0x1202f5c7b4b9e47a1a484e8b270be34dbbc75055";
   const isTracking = ibtAddress === TRACK_ADDRESS.toLowerCase();
 
   if (isTracking) {

@@ -94,6 +94,7 @@ export const getPrincipalTokenData = createEffect(
           address: input.ptAddress as `0x${string}`,
           abi: PRINCIPAL_TOKEN_ABI,
           functionName: "maturity",
+          blockNumber: BigInt(input.blockNumber),
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
           context.log.warn(`maturity() call reverted for ${input.ptAddress}`);
@@ -103,6 +104,7 @@ export const getPrincipalTokenData = createEffect(
           address: input.ptAddress as `0x${string}`,
           abi: PRINCIPAL_TOKEN_ABI,
           functionName: "name",
+          blockNumber: BigInt(input.blockNumber),
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
           context.log.warn(`name() call reverted for ${input.ptAddress}`);
@@ -112,6 +114,7 @@ export const getPrincipalTokenData = createEffect(
           address: input.ptAddress as `0x${string}`,
           abi: PRINCIPAL_TOKEN_ABI,
           functionName: "symbol",
+          blockNumber: BigInt(input.blockNumber),
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
           context.log.warn(`symbol() call reverted for ${input.ptAddress}`);
@@ -121,6 +124,7 @@ export const getPrincipalTokenData = createEffect(
           address: input.ptAddress as `0x${string}`,
           abi: PRINCIPAL_TOKEN_ABI,
           functionName: "decimals",
+          blockNumber: BigInt(input.blockNumber),
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
           context.log.warn(`decimals() call reverted for ${input.ptAddress}`);
@@ -130,6 +134,7 @@ export const getPrincipalTokenData = createEffect(
           address: input.ptAddress as `0x${string}`,
           abi: PRINCIPAL_TOKEN_ABI,
           functionName: "underlying",
+          blockNumber: BigInt(input.blockNumber),
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
           context.log.warn(`underlying() call reverted for ${input.ptAddress}`);
@@ -139,6 +144,7 @@ export const getPrincipalTokenData = createEffect(
           address: input.ptAddress as `0x${string}`,
           abi: PRINCIPAL_TOKEN_ABI,
           functionName: "getIBT",
+          blockNumber: BigInt(input.blockNumber),
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
           context.log.warn(`getIBT() call reverted for ${input.ptAddress}`);
@@ -148,6 +154,7 @@ export const getPrincipalTokenData = createEffect(
           address: input.ptAddress as `0x${string}`,
           abi: PRINCIPAL_TOKEN_ABI,
           functionName: "getYT",
+          blockNumber: BigInt(input.blockNumber),
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
           context.log.warn(`getYT() call reverted for ${input.ptAddress}`);
@@ -157,6 +164,7 @@ export const getPrincipalTokenData = createEffect(
           address: input.ptAddress as `0x${string}`,
           abi: PRINCIPAL_TOKEN_ABI,
           functionName: "getPTRate",
+          blockNumber: BigInt(input.blockNumber),
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
           context.log.warn(`getPTRate() call reverted for ${input.ptAddress}`);
@@ -166,6 +174,7 @@ export const getPrincipalTokenData = createEffect(
           address: input.ptAddress as `0x${string}`,
           abi: PRINCIPAL_TOKEN_ABI,
           functionName: "totalAssets",
+          blockNumber: BigInt(input.blockNumber),
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
           context.log.warn(`totalAssets() call reverted for ${input.ptAddress}`);

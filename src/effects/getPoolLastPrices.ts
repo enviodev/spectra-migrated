@@ -75,6 +75,7 @@ export const getPoolLastPrices = createEffect(
             abi: CURVE_POOL_SNG_ABI,
             functionName: "last_price",
             args: [BigInt(0)],
+            blockNumber: BigInt(input.blockNumber),
           }).catch((err) => {
             context.log.warn(`last_price() failed for ${input.poolAddress}:`, err.message);
             return BigInt(0);
@@ -83,6 +84,7 @@ export const getPoolLastPrices = createEffect(
             address: poolAddress,
             abi: CURVE_POOL_SNG_ABI,
             functionName: "stored_rates",
+            blockNumber: BigInt(input.blockNumber),
           }).catch((err) => {
             context.log.warn(`stored_rates() failed for ${input.poolAddress}:`, err.message);
             return [BigInt(0), BigInt(0)] as [bigint, bigint];
@@ -101,6 +103,7 @@ export const getPoolLastPrices = createEffect(
           address: poolAddress,
           abi: CURVE_POOL_ABI,
           functionName: "last_prices",
+          blockNumber: BigInt(input.blockNumber),
         }).catch((err) => {
           context.log.warn(`last_prices() failed for ${input.poolAddress}:`, err.message);
           return BigInt(0);

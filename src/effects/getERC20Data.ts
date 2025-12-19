@@ -75,6 +75,7 @@ export const getERC20Data = createEffect(
           address: tokenAddress,
           abi: ERC20_ABI,
           functionName: "name",
+          blockNumber: BigInt(input.blockNumber),
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
           context.log.warn(`name() call (string or bytes) reverted for ${input.tokenAddress}`);
@@ -84,6 +85,7 @@ export const getERC20Data = createEffect(
           address: tokenAddress,
           abi: ERC20_ABI,
           functionName: "symbol",
+          blockNumber: BigInt(input.blockNumber),
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
           context.log.warn(`symbol() call (string or bytes) reverted for ${input.tokenAddress}`);
@@ -93,6 +95,7 @@ export const getERC20Data = createEffect(
           address: tokenAddress,
           abi: ERC20_ABI,
           functionName: "decimals",
+          blockNumber: BigInt(input.blockNumber),
         }).catch((err) => {
           // Log warning when RPC call fails (matches original subgraph)
           context.log.warn(`decimals() call (number) reverted for ${input.tokenAddress}`);

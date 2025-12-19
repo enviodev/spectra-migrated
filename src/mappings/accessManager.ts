@@ -31,7 +31,7 @@ AccessManager.RoleGranted.handler(async ({ event, context }) => {
       id: attributionId,
       address: event.params.account,
       roleId: event.params.roleId,
-      since: BigInt(0),
+      since: event.params.since,
       currentDelay: BigInt(0),
       pendingDelay: BigInt(0),
       effect: BigInt(0),
@@ -160,10 +160,19 @@ AccessManager.TargetFunctionRoleUpdated.handler(async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/accessManager.ts handleTargetFunctionRoleUpdated
   const eventId = `${event.chainId}-${event.transaction.hash.toLowerCase()}-${event.logIndex}`;
 
+  // Extract only the first 4 bytes (selector) from the bytes4 parameter
+  // bytes4 = 4 bytes = 8 hex characters + "0x" prefix = 10 characters total
+  // The subgraph stores only the 4-byte selector, not the full function signature
+  // If the selector is longer than 10 characters, slice to get only the first 4 bytes
+  const selectorHex = String(event.params.selector).toLowerCase();
+  const selector = selectorHex.length > 10 
+    ? selectorHex.slice(0, 10) // Take only first 4 bytes (10 chars: "0x" + 8 hex)
+    : selectorHex;
+
   const targetFunctionRoleUpdated = {
     id: eventId,
     target: event.params.target,
-    selector: event.params.selector.toLowerCase(),
+    selector: selector,
     roleId: event.params.roleId,
     timestamp: BigInt(event.block.timestamp),
     blockNumber: BigInt(event.block.number),

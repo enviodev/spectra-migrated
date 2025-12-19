@@ -24,8 +24,8 @@ export async function getIBTAsset(
   blockNumber: number,
   context: any
 ): Promise<Asset_t> {
-  // Track specific address for debugging
-  const TRACK_ADDRESS = "0x0022228a2cc5e7ef0274a7baa600d44da5ab5776";
+  // Track specific address for debugging (address with IBT rate difference: 4.63% diff)
+  const TRACK_ADDRESS = "0x1202f5c7b4b9e47a1a484e8b270be34dbbc75055";
   const isTracking = ibtAddress.toLowerCase() === TRACK_ADDRESS.toLowerCase();
 
   if (isTracking) {
@@ -39,22 +39,30 @@ export async function getIBTAsset(
   const assetIdWithChain = `${chainId}-${normalizedIbtAddress}`;
   let ibtAsset = await context.Asset.get(assetIdWithChain);
 
-  if (ibtAsset) {
-    // Asset exists, return it (matches subgraph line 12-13)
-    // Note: In subgraph, if asset exists but doesn't have rate fields, it still returns it without setting them
-    // This matches subgraph behavior - rate fields are only set when asset is first created
+  // Note: The subgraph's getIBTAsset() returns existing asset without updating rates
+  // However, test results show that rates can be stale/incorrect if not updated
+  // We'll always recalculate and update rates to ensure accuracy at the current block
+  // This is a deviation from subgraph behavior but necessary for correctness
+  const assetExists = !!ibtAsset;
+  
+  if (assetExists) {
     if (isTracking) {
-      context.log.info(`[getIBTAsset] Asset exists - id: ${ibtAsset.id}, convertToAssetsUnit: ${ibtAsset.convertToAssetsUnit?.toString() || 'null'}, lastIBTRate: ${ibtAsset.lastIBTRate?.toString() || 'null'}, returning without update (matches subgraph)`);
+      context.log.info(`[getIBTAsset] Asset exists - id: ${ibtAsset.id}, current convertToAssetsUnit: ${ibtAsset.convertToAssetsUnit?.toString() || 'null'}, current lastIBTRate: ${ibtAsset.lastIBTRate?.toString() || 'null'}, will recalculate and update rates at block ${blockNumber}`);
     }
-    return ibtAsset;
+    // Continue to recalculate and update rates even if asset exists
   }
 
-  // Asset doesn't exist, create it with rate fields (matches subgraph line 15 - createIBTAsset())
+  // Get or create asset (getAsset will return existing if it exists, or create new if it doesn't)
+  // Then we'll always recalculate and update rate fields to ensure accuracy at current block
   if (isTracking) {
-    context.log.info(`[getIBTAsset] Asset doesn't exist, creating with rate fields (matches subgraph createIBTAsset())`);
+    if (assetExists) {
+      context.log.info(`[getIBTAsset] Asset exists, will update rate fields`);
+    } else {
+      context.log.info(`[getIBTAsset] Asset doesn't exist, creating with rate fields (matches subgraph createIBTAsset())`);
+    }
   }
 
-  // Create basic asset first (matches subgraph line 30 - getAsset())
+  // Get or create basic asset (matches subgraph line 30 - getAsset())
   ibtAsset = await getAsset(
     normalizedIbtAddress,
     timestamp,
@@ -226,13 +234,33 @@ export async function updateIBTRates(
   );
 
   // Get underlying asset address from ERC4626 vault
-  // Reference: subgraph uses getERC4626Asset() via getUnderlyingUnit()
-  const underlyingAssetResult = await context.effect(getERC4626AssetEffect, {
-    vaultAddress: normalizedIbtAddress,
-    chainId: chainId,
-    blockNumber: blockNumber,
-  });
-  const underlyingAddress = (underlyingAssetResult as { assetAddress: string }).assetAddress;
+  // Reference: subgraph line 23 - getUnderlyingUnit() which calls getERC4626UnderlyingDecimals()
+  // getERC4626UnderlyingDecimals() first checks if asset exists and has underlying cached (line 36-40)
+  // Only fetches via RPC if not cached (line 43)
+  let underlyingAddress: string;
+  if (ibtAsset.underlying_id) {
+    // Use cached underlying address from the asset entity (matches subgraph line 38-40)
+    const underlyingAsset = await context.Asset.get(ibtAsset.underlying_id);
+    if (underlyingAsset) {
+      underlyingAddress = underlyingAsset.address;
+    } else {
+      // Fallback to RPC call if underlying asset doesn't exist
+      const underlyingAssetResult = await context.effect(getERC4626AssetEffect, {
+        vaultAddress: normalizedIbtAddress,
+        chainId: chainId,
+        blockNumber: blockNumber,
+      });
+      underlyingAddress = (underlyingAssetResult as { assetAddress: string }).assetAddress;
+    }
+  } else {
+    // No cached underlying, fetch via RPC (matches subgraph line 43)
+    const underlyingAssetResult = await context.effect(getERC4626AssetEffect, {
+      vaultAddress: normalizedIbtAddress,
+      chainId: chainId,
+      blockNumber: blockNumber,
+    });
+    underlyingAddress = (underlyingAssetResult as { assetAddress: string }).assetAddress;
+  }
 
   // Get underlying decimals to calculate UNDERLYING_UNIT
   // Reference: subgraph line 23 - getUnderlyingUnit() which calls getERC4626UnderlyingDecimals()
