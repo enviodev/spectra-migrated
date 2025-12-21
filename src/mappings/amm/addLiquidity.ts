@@ -132,14 +132,13 @@ async function addLiquidity(
 
   const lpTokenAddress = (typeof lpTokenAddressResult === "string" ? lpTokenAddressResult : null) || ZERO_ADDRESS;
 
-  // Get LP total supply
-  const lpTotalSupply = await getERC20TotalSupply(
-    lpTokenAddress,
-    event.chainId,
-    event.block.number,
-    context
-  );
-
+  // Use token_supply from event params (new LP total supply after this AddLiquidity)
+  // This is more reliable than querying RPC, which gives us the state after ALL transactions in the block
+  // event.params.token_supply is the supply AFTER this specific AddLiquidity event
+  const lpTotalSupply = BigInt(event.params.token_supply || "0");
+  
+  // Calculate the difference: new supply (from event) - old supply (from pool entity read at start)
+  // Use pool.lpTotalSupply from the initial read, which should be the supply BEFORE any transactions in this block
   const lpTokenDiff = lpTotalSupply - pool.lpTotalSupply;
 
   // Create AssetAmount for LP output
@@ -245,7 +244,8 @@ async function addLiquidity(
       ibtAdminFee,
       ptAdminFee,
       ibtRate,
-      ibtDecimals
+      ibtDecimals,
+      spotPrice // Pass fresh spotPrice instead of using pool.spotPrice
     );
 
     const liquidityInUnderlying = getPoolLiquidityInUnderlying(

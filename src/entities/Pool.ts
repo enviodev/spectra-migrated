@@ -93,6 +93,8 @@ export async function updatePoolAdminBalances(
 /**
  * Calculate LP fee in underlying
  * Reference: spectra-subgraph-master/src/entities/Pool.ts
+ * 
+ * @param spotPrice - Fresh spotPrice from RPC (not pool.spotPrice which might be stale)
  */
 export function getLpFeeUnderlying(
   pool: Pool_t,
@@ -100,7 +102,8 @@ export function getLpFeeUnderlying(
   ibtAdminFee: bigint,
   ptAdminFee: bigint,
   ibtRate: bigint,
-  ibtDecimals: number
+  ibtDecimals: number,
+  spotPrice: bigint // Pass fresh spotPrice instead of using pool.spotPrice
 ): bigint {
   if (pool.poolType === PoolType.CURVE) {
     return (valueUnderlying * pool.feeRate) / FEES_UNIT;
@@ -110,7 +113,8 @@ export function getLpFeeUnderlying(
       return ZERO_BI;
     }
     // Match subgraph logic: convert PT admin fee to IBT using spotPrice / CURVE_UNIT
-    const ptAdminFeeInIbt = (ptAdminFee * pool.spotPrice) / CURVE_UNIT;
+    // Use fresh spotPrice parameter instead of pool.spotPrice (which might be stale)
+    const ptAdminFeeInIbt = (ptAdminFee * spotPrice) / CURVE_UNIT;
 
     // Calculate 10^ibtDecimals
     let decimalsMultiplier = BigInt(1);

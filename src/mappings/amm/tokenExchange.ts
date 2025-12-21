@@ -246,7 +246,8 @@ async function tokenExchange(
       ibtAdminFee,
       ptAdminFee,
       ibtRate,
-      ibtDecimals
+      ibtDecimals,
+      spotPrice // Pass fresh spotPrice instead of using pool.spotPrice
     );
     
     const liquidityInUnderlying = getPoolLiquidityInUnderlying(

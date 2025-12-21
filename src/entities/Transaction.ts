@@ -99,11 +99,12 @@ export async function createTransaction(
       transactionType: params.transaction.type as any, // TransactionType enum
       gas: params.transaction.gas,
       gasPrice: params.transaction.gasPrice,
-      fee: params.transaction.fee !== ZERO_BI ? params.transaction.fee : undefined,
-      adminFee: params.transaction.adminFee !== ZERO_BI ? params.transaction.adminFee : undefined,
+      fee: params.transaction.fee !== ZERO_BI ? params.transaction.fee : ZERO_BI, // Set to ZERO_BI instead of undefined (matches subgraph behavior but ensures "0" not null)
+      adminFee: params.transaction.adminFee !== ZERO_BI ? params.transaction.adminFee : ZERO_BI, // Set to ZERO_BI instead of undefined
       valueUnderlying: params.valueUnderlying,
       feeUnderlying: params.feeUnderlying,
       feeRatio: params.feeRatio,
+      // Note: ibtRate and ptRate are passed as params but not stored in Transaction entity (matches subgraph behavior)
       // Relationships
       userInTransaction_id: userInTransaction_id,
       futureInTransaction_id: futureInTransaction_id,
