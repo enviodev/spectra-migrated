@@ -77,6 +77,9 @@ async function tokenExchange(
   const ibtAddress = ibtAsset.address;
   const ptAddress = ptAsset.address;
   
+  // Use transaction hash from event (requires field_selection in config.yaml)
+  const txHash = event.transaction.hash.toLowerCase();
+  
   // Determine asset sold and asset bought
   const assetSoldAddress = soldId === ZERO_BI ? ibtAddress : ptAddress;
   const assetBoughtAddress = boughtId === ZERO_BI ? ibtAddress : ptAddress;
@@ -86,9 +89,6 @@ async function tokenExchange(
   // Get pool asset amounts for sold and bought
   const poolAssetInAmount = soldId === ZERO_BI ? poolIBTAssetAmount : poolPTAssetAmount;
   const poolAssetOutAmount = boughtId === ZERO_BI ? poolIBTAssetAmount : poolPTAssetAmount;
-  
-  // Use transaction hash from event (requires field_selection in config.yaml)
-  const txHash = event.transaction.hash.toLowerCase();
   
   // Create AssetAmount for input (sold)
   const amountIn = await getAssetAmount(
@@ -215,7 +215,9 @@ async function tokenExchange(
     ibtAddress,
     event.chainId,
     event.block.number,
-    context
+    context,
+    txHash,
+    event.logIndex.toString()
   );
   
   const ptRate = currentPool.futureVault_id
@@ -229,6 +231,9 @@ async function tokenExchange(
   
   if (currentPool.futureVault_id && spotPrice > ZERO_BI) {
     // Calculate decimals multiplier for IBT
+    // IMPORTANT: Use the same ibtDecimals that was used in getIBTRate
+    // The subgraph gets ibtDecimals inside getIBTRate, but we get it separately
+    // We must use the same value for consistency
     let ibtDecimalsMultiplier = BigInt(1);
     for (let i = 0; i < ibtDecimals; i++) {
       ibtDecimalsMultiplier *= BigInt(10);

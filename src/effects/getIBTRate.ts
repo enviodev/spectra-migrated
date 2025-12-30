@@ -23,6 +23,9 @@ export const getIBTRate = createEffect(
       decimals: S.number,
       chainId: S.number,
       blockNumber: S.number,
+      symbol: S.string,
+      transactionHash: S.string,
+      logIndex: S.string,
     },
     output: S.schema({
       ibtRate: S.string,
@@ -36,6 +39,9 @@ export const getIBTRate = createEffect(
       if (!rpcUrl) {
         context.log.warn(`No RPC URL found for chain ${input.chainId}`);
         return { ibtRate: UNIT_BI.toString() };
+      }
+      if (input.symbol === "UNKNOWN") {
+        context.log.warn(`Symbol is UNKNOWN for ${input.ibtAddress}`);
       }
 
       const publicClient = createPublicClient({
@@ -61,19 +67,32 @@ export const getIBTRate = createEffect(
 
       const ibtAddress = input.ibtAddress as `0x${string}`;
 
-      // Calculate 10^decimals
-      let ibtUnit = BigInt(1);
-      for (let i = 0; i < input.decimals; i++) {
-        ibtUnit *= BigInt(10);
-      }
+      let ibtUnit = Math.pow(10, input.decimals);
 
       const ibtRate = await publicClient.readContract({
         address: ibtAddress,
         abi: ERC4626_ABI,
         functionName: "convertToAssets",
-        args: [ibtUnit],
+        args: [BigInt(ibtUnit)],
         blockNumber: BigInt(input.blockNumber),
       });
+
+      // Target transaction entity ID: 1-0x001edc41512d1e03d00676b52cb22ae50bd595affd057f4a201a8998cf888e81-706
+      const targetTxHash = "0x001edc41512d1e03d00676b52cb22ae50bd595affd057f4a201a8998cf888e81";
+      const targetLogIndex = "706";
+      
+      const shouldLog = input.transactionHash?.toLowerCase() === targetTxHash.toLowerCase() && 
+                        input.logIndex === targetLogIndex;
+
+      if (shouldLog) {
+        context.log.info(`Address: ${ibtAddress},
+        IBT Unit: ${ibtUnit},
+        Block Number: ${input.blockNumber},
+        Chain ID: ${input.chainId},
+        Symbol: ${input.symbol},
+        Decimals: ${input.decimals},
+        IBT Rate: ${ibtRate.toString()}`);
+      }
 
       return { ibtRate: ibtRate.toString() };
     } catch (error: any) {

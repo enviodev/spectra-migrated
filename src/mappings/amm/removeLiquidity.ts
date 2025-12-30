@@ -68,29 +68,6 @@ export async function removeLiquidity(
   // Use transaction hash from event (requires field_selection in config.yaml)
   const txHash = event.transaction.hash.toLowerCase();
 
-  // Logging for specific AssetAmount IDs being debugged
-  const TRACK_TX_HASH_1 = "0x00259cbeb2647834f9f9e2fb52630407aedf35403a524c4c9992f1851c3bd42d";
-  const TRACK_TX_HASH_2 = "0x0015ef6e95bd45f1a91498be9eea32e133e0dfd0636b4c1600908062aba6452d";
-  const TRACK_ASSET_1 = "0x740c030edbdddfcf14dffbedb8019dd841376b42";
-  const TRACK_ASSET_2 = "0xa62ca1514944cc858a52e672df52fde0fda44a20";
-  const TRACK_LOG_INDEX_1 = "233";
-  const TRACK_LOG_INDEX_2 = "495";
-
-  const isTrackedTx1 = txHash.toLowerCase() === TRACK_TX_HASH_1.toLowerCase() && 
-                       lpTokenAddress.toLowerCase() === TRACK_ASSET_1.toLowerCase() &&
-                       event.logIndex.toString() === TRACK_LOG_INDEX_1;
-  const isTrackedTx2 = txHash.toLowerCase() === TRACK_TX_HASH_2.toLowerCase() && 
-                       lpTokenAddress.toLowerCase() === TRACK_ASSET_2.toLowerCase() &&
-                       event.logIndex.toString() === TRACK_LOG_INDEX_2;
-
-  if (isTrackedTx1 || isTrackedTx2) {
-    context.log.info(`[RemoveLiquidity LP AssetAmount Debug] TxHash: ${txHash}, Asset: ${lpTokenAddress}, LogIndex: ${event.logIndex.toString()}`);
-    context.log.info(`  Pool.lpTotalSupply (old): ${pool.lpTotalSupply.toString()}`);
-    context.log.info(`  tokenSupply (new from event): ${tokenSupply.toString()}`);
-    context.log.info(`  lpTokenDiff (old - new): ${lpTokenDiff.toString()}`);
-    context.log.info(`  Block: ${event.block.number}, ChainId: ${event.chainId}`);
-  }
-
   // Create AssetAmount for LP input
   const lpAmountIn = await getAssetAmount(
     txHash,
@@ -103,11 +80,6 @@ export async function removeLiquidity(
     event.chainId,
     context
   );
-
-  if (isTrackedTx1 || isTrackedTx2) {
-    context.log.info(`  AssetAmount ID: ${lpAmountIn.id}`);
-    context.log.info(`  AssetAmount.amount (after getAssetAmount): ${lpAmountIn.amount.toString()}`);
-  }
 
   // Update AccountAsset balance for LP
   const lpPosition = await updateAccountAssetBalance(
@@ -225,7 +197,9 @@ export async function removeLiquidity(
     ibtAddress,
     event.chainId,
     Number(event.block.number),
-    context
+    context,
+    txHash,
+    event.logIndex.toString()
   );
 
   const ptRate = pool.futureVault_id

@@ -220,7 +220,9 @@ async function addLiquidity(
     ibtAddress,
     event.chainId,
     event.block.number,
-    context
+    context,
+    txHash,
+    event.logIndex.toString()
   );
 
   const ptRate = pool.futureVault_id

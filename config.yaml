@@ -530,7 +530,7 @@ networks:
   #     - name: MetavaultWrapper
   #     - name: AmphorAsyncVault
 
-  # # Monad
+  # Monad
   # - id: 143
   #   start_block: 37910111
   #   rpc_config: 
