@@ -61,6 +61,7 @@ export const getPoolType = createEffect(
           address: input.poolAddress as `0x${string}`,
           abi: CURVE_POOL_SNG_ABI,
           functionName: "decimals",
+          blockNumber: BigInt(input.blockNumber),
         });
         return "CURVE_SNG";
       } catch {
@@ -73,6 +74,7 @@ export const getPoolType = createEffect(
           address: input.poolAddress as `0x${string}`,
           abi: CURVE_POOL_NG_ABI,
           functionName: "ma_time",
+          blockNumber: BigInt(input.blockNumber),
         });
         return "CURVE_NG";
       } catch {
@@ -85,6 +87,7 @@ export const getPoolType = createEffect(
           address: input.poolAddress as `0x${string}`,
           abi: CURVE_POOL_ABI,
           functionName: "ma_half_time",
+          blockNumber: BigInt(input.blockNumber),
         });
         return "CURVE";
       } catch {

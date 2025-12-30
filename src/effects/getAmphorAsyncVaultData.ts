@@ -64,11 +64,13 @@ export const getAmphorAsyncVaultData = createEffect(
       const vaultAddress = input.vaultAddress as `0x${string}`;
 
       // Read contract data
+      // ERC20 decimals() is typically immutable, so we query at latest block
       const [epochId, decimals] = await Promise.all([
         publicClient.readContract({
           address: vaultAddress,
           abi: AMPHOR_ASYNC_VAULT_ABI,
           functionName: "epochId",
+          blockNumber: BigInt(input.blockNumber),
         }).catch(() => BigInt(0)),
         publicClient.readContract({
           address: vaultAddress,

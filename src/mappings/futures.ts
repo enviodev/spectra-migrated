@@ -11,7 +11,7 @@ import { ZERO_ADDRESS, ZERO_BI, UNIT_BI } from "../constants";
 import { createFactory } from "../entities/Factory";
 import { getAccount } from "../entities/Account";
 import { getAsset } from "../entities/Asset";
-import { generateFeeClaimId, generateTransactionId } from "../utils/idGenerators";
+import { generateFeeClaimId, generateTransactionId, generateTransferId } from "../utils/idGenerators";
 import {
   updateClaimedYieldAccountAssetBalance,
   updateYieldForAll,
@@ -26,24 +26,107 @@ import {
 import { RAYS_PRECISION } from "../utils/toPrecision";
 import { createPool } from "../entities/Pool";
 import { getIBTAsset } from "../entities/IBTAsset";
+import { createPublicClient, http, parseAbi } from "viem";
 
 // Register dynamic contracts created by factory events
-Factory.PTDeployed.contractRegister(({ event, context }) => {
+Factory.PTDeployed.contractRegister(async ({ event, context }) => {
   // Register PrincipalToken contract created by PTDeployed event
   // Note: PT already has Transfer events in PrincipalToken config, so no need to register as ERC20
   // This avoids conflicts since Envio doesn't allow the same address for multiple contract types
   context.addPrincipalToken(event.params.pt);
+  
+  // Register YT token as ERC20 to track Transfer events (matches subgraph line 139: ERC20.create(Address.fromBytes(ytToken.address)))
+  // Note: We need to make a direct viem call here (not Effect API) to get the YT address
+  try {
+    const rpcUrl = process.env[`ENVIO_RPC_URL_${event.chainId}`] || process.env.RPC_URL;
+    if (rpcUrl) {
+      const publicClient = createPublicClient({
+        chain: {
+          id: event.chainId,
+          name: `Chain ${event.chainId}`,
+          nativeCurrency: {
+            decimals: 18,
+            name: "ETH",
+            symbol: "ETH",
+          },
+          rpcUrls: {
+            default: { http: [rpcUrl] },
+            public: { http: [rpcUrl] },
+          },
+        },
+        transport: http(rpcUrl, { batch: true }),
+      });
+
+      const PRINCIPAL_TOKEN_ABI = parseAbi([
+        "function getYT() view returns (address)",
+      ]);
+
+      const ytAddress = await publicClient.readContract({
+        address: event.params.pt as `0x${string}`,
+        abi: PRINCIPAL_TOKEN_ABI,
+        functionName: "getYT",
+      });
+
+      if (ytAddress && ytAddress !== ZERO_ADDRESS) {
+        context.addERC20(ytAddress as string);
+      }
+    }
+  } catch (error) {
+    // If RPC call fails, we'll skip YT registration - it can be handled via wildcard indexing
+    // The handler will still work, just won't track YT transfers via ERC20.Transfer
+  }
 });
 
-Factory.CurvePoolDeployed.contractRegister(({ event, context }) => {
+Factory.CurvePoolDeployed.contractRegister(async ({ event, context }) => {
   // Register the CurvePool contract
   context.addCurvePool(event.params.poolAddress);
 
-  // Note: IBT, YT, and LP token addresses would need to be registered to match subgraph
-  // IBT: Subgraph registers in PTDeployed via RPC call to getIBT(pt)
-  // YT: Requires RPC call to getYT(pt)
-  // LP: Requires RPC call to getPoolLPToken(pool)
-  // All three would need wildcard indexing to match subgraph behavior without RPC in contractRegister
+  // Register LP token as ERC20 to track Transfer events (matches subgraph line 443: ERC20.create(lpAddress))
+  // Note: We need to make a direct viem call here (not Effect API) to get the LP address
+  try {
+    const rpcUrl = process.env[`ENVIO_RPC_URL_${event.chainId}`] || process.env.RPC_URL;
+    if (rpcUrl) {
+      const publicClient = createPublicClient({
+        chain: {
+          id: event.chainId,
+          name: `Chain ${event.chainId}`,
+          nativeCurrency: {
+            decimals: 18,
+            name: "ETH",
+            symbol: "ETH",
+          },
+          rpcUrls: {
+            default: { http: [rpcUrl] },
+            public: { http: [rpcUrl] },
+          },
+        },
+        transport: http(rpcUrl, { batch: true }),
+      });
+
+      const CURVE_POOL_ABI = parseAbi(["function token() view returns (address)"]);
+
+      // For SNG pools, the LP token is the pool itself
+      // For other pools, we need to call token()
+      let lpAddress: string;
+      try {
+        lpAddress = await publicClient.readContract({
+          address: event.params.poolAddress as `0x${string}`,
+          abi: CURVE_POOL_ABI,
+          functionName: "token",
+        }) as string;
+      } catch {
+        // If token() call fails, it might be an SNG pool where LP token is the pool itself
+        lpAddress = event.params.poolAddress;
+      }
+
+      if (lpAddress && lpAddress !== ZERO_ADDRESS) {
+        context.addERC20(lpAddress);
+      }
+    }
+  } catch (error) {
+    // If RPC call fails, we'll skip LP registration - it can be handled via wildcard indexing
+    // The handler will still work, just won't track LP transfers via ERC20.Transfer
+  }
 });
 
 // Factory handlers
@@ -110,10 +193,6 @@ Factory.PTDeployed.handler(async ({ event, context }) => {
   const TRACK_ADDRESS = "0x1202f5c7b4b9e47a1a484e8b270be34dbbc75055";
   const isTracking = ibtAddress === TRACK_ADDRESS.toLowerCase();
 
-  if (isTracking) {
-    context.log.info(`[handlePTDeployed] Calling getIBTAsset for tracked address: ${ibtAddress} at block ${blockNumber}, timestamp: ${eventTimestamp.toString()}`);
-  }
-
   const ibtAsset = await getIBTAsset(
     ibtAddress,
     eventTimestamp,
@@ -122,10 +201,6 @@ Factory.PTDeployed.handler(async ({ event, context }) => {
     context,
   );
 
-  if (isTracking) {
-    context.log.info(`[handlePTDeployed] getIBTAsset returned - convertToAssetsUnit: ${ibtAsset.convertToAssetsUnit?.toString() || 'null'}, lastIBTRate: ${ibtAsset.lastIBTRate?.toString() || 'null'}`);
-  }
-
   // Re-read the asset to ensure we have the latest state after getIBTAsset.set()
   const assetIdWithChain = `${event.chainId}-${ibtAddress}`;
   const latestIbtAsset = await context.Asset.get(assetIdWithChain);
@@ -133,10 +208,6 @@ Factory.PTDeployed.handler(async ({ event, context }) => {
   if (!latestIbtAsset) {
     context.log.warn(`[handlePTDeployed] Asset not found after getIBTAsset for ${ibtAddress}`);
     return;
-  }
-
-  if (isTracking) {
-    context.log.info(`[handlePTDeployed] Re-read asset - convertToAssetsUnit: ${latestIbtAsset.convertToAssetsUnit?.toString() || 'null'}, lastIBTRate: ${latestIbtAsset.lastIBTRate?.toString() || 'null'}, lastUpdateTimestamp: ${latestIbtAsset.lastUpdateTimestamp?.toString() || 'null'}`);
   }
 
   // Update IBT asset underlying relationship
@@ -152,26 +223,7 @@ Factory.PTDeployed.handler(async ({ event, context }) => {
     lastUpdateTimestamp: latestIbtAsset.lastUpdateTimestamp ?? undefined,
   };
 
-  if (isTracking) {
-    context.log.info(`[handlePTDeployed] About to set asset with - convertToAssetsUnit: ${assetUpdate.convertToAssetsUnit?.toString() || 'null'}, lastIBTRate: ${assetUpdate.lastIBTRate?.toString() || 'null'}, lastUpdateTimestamp: ${assetUpdate.lastUpdateTimestamp?.toString() || 'null'}, underlying_id: ${assetUpdate.underlying_id || 'null'}`);
-    context.log.info(`[handlePTDeployed] Asset update type check - convertToAssetsUnit type: ${typeof assetUpdate.convertToAssetsUnit}, lastIBTRate type: ${assetUpdate.lastIBTRate?.constructor?.name || 'null'}`);
-  }
-
   context.Asset.set(assetUpdate);
-
-  if (isTracking) {
-    // Verify the asset was set correctly by reading it back
-    const verifyAsset = await context.Asset.get(assetIdWithChain);
-    if (verifyAsset) {
-      context.log.info(`[handlePTDeployed] Verified asset after set - convertToAssetsUnit: ${verifyAsset.convertToAssetsUnit?.toString() || 'null'}, lastIBTRate: ${verifyAsset.lastIBTRate?.toString() || 'null'}, lastUpdateTimestamp: ${verifyAsset.lastUpdateTimestamp?.toString() || 'null'}`);
-    } else {
-      context.log.warn(`[handlePTDeployed] Asset not found after set!`);
-    }
-  }
-
-  if (isTracking) {
-    context.log.info(`[handlePTDeployed] Asset.set() completed for ${ibtAddress}`);
-  }
 
   // Get PT token asset
   const ptToken = await getAsset(
@@ -457,6 +509,7 @@ PrincipalToken.YieldClaimed.handler(async ({ event, context }) => {
     event.params.yieldInIBT, // matches subgraph: event.params.yieldInIBT
     BigInt(event.block.timestamp),
     event.chainId,
+    event.block.number,
     context,
   );
 
@@ -487,38 +540,125 @@ PrincipalToken.YieldUpdated.handler(async ({ event, context }) => {
     event.srcAddress,
     BigInt(event.block.timestamp),
     event.chainId,
+    event.block.number,
     context,
   );
 });
 
 PrincipalToken.Transfer.handler(async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/futures.ts handlePTTransfer
-  // Prefix with chainId for multichain support
-  const futureId = `${event.chainId}-${event.srcAddress}`;
+  // AND spectra-subgraph-master/src/mappings/transfers.ts handleTransfer
+  // PrincipalToken has Transfer event with same signature as ERC20, so we need to create Transfer entities
+  // This matches the subgraph behavior where ERC20.create() is called for PT tokens
+  
+  const eventTimestamp = BigInt(event.block.timestamp);
+  const txHash = event.transaction.hash.toLowerCase();
 
-  const future = await context.Future.get(futureId);
-  if (!future) {
-    context.log.warn(
-      `PTTransfer event call for non-existing Future ${event.srcAddress}`,
-    );
+  // Generate Transfer ID (same as ERC20.Transfer handler)
+  const transferId = `${event.chainId}-${generateTransferId(
+    txHash,
+    eventTimestamp.toString(),
+    event.logIndex.toString()
+  )}`;
+
+  // Get accounts
+  const accountFrom = await getAccount(event.params.from, eventTimestamp, event.chainId, context);
+  const accountTo = await getAccount(event.params.to, eventTimestamp, event.chainId, context);
+
+  // Get Asset entity (PT token)
+  const asset = await getAsset(
+    event.srcAddress,
+    eventTimestamp,
+    AssetType.PT,
+    null,
+    event.chainId,
+    Number(event.block.number),
+    context
+  );
+
+  if (!asset) {
+    context.log.warn(`PTTransfer event call for non-existing Asset ${event.srcAddress}`);
     return;
   }
 
-  // Update yield for all accounts holding YT tokens (matches subgraph: updateYieldForAll)
-  await updateYieldForAll(
+  // Create AssetAmount for the transfer
+  const amountOut = await getAssetAmount(
+    txHash,
     event.srcAddress,
-    BigInt(event.block.timestamp),
+    event.params.value,
+    asset.assetType,
+    event.logIndex.toString(),
+    eventTimestamp,
+    Number(event.block.number),
     event.chainId,
-    context,
+    context
   );
 
-  // Update future daily stats (matches subgraph: updateFutureDailyStats)
-  await updateFutureDailyStats(
-    event,
+  // Create Transfer entity (same as ERC20.Transfer handler)
+  const transfer = {
+    id: transferId,
+    createdAtTimestamp: eventTimestamp,
+    address: txHash,
+    block: BigInt(event.block.number),
+    logIndex: BigInt(event.transaction.transactionIndex),
+    transactionLogIndex: BigInt(event.logIndex),
+    from_id: accountFrom.id,
+    to_id: accountTo.id,
+    gasLimit: BigInt(event.transaction.gas),
+    gasPrice: BigInt(event.transaction.gasPrice || 0),
+    amountOut_id: amountOut.id,
+  };
+
+  context.Transfer.set(transfer);
+
+  // Update AccountAsset balances (PT tokens use regular updateAccountAssetBalance)
+  await updateAccountAssetBalance(
+    accountFrom.address,
     event.srcAddress,
+    eventTimestamp,
+    asset.assetType,
     event.chainId,
-    context,
+    Number(event.block.number),
+    context
   );
+
+  await updateAccountAssetBalance(
+    accountTo.address,
+    event.srcAddress,
+    eventTimestamp,
+    asset.assetType,
+    event.chainId,
+    Number(event.block.number),
+    context
+  );
+
+  // PrincipalToken-specific logic (matches subgraph handlePTTransfer)
+  // Check if future exists before updating yield and stats
+  const futureId = `${event.chainId}-${event.srcAddress}`;
+  const future = await context.Future.get(futureId);
+  if (future) {
+    // Update yield for all accounts holding YT tokens (matches subgraph: updateYieldForAll)
+    // Note: Subgraph calls updateYieldForAll(event.address, event.block.timestamp) directly
+    await updateYieldForAll(
+      event.srcAddress,
+      eventTimestamp,
+      event.chainId,
+      event.block.number,
+      context,
+    );
+
+    // Update future daily stats (matches subgraph: updateFutureDailyStats)
+    await updateFutureDailyStats(
+      event,
+      event.srcAddress,
+      event.chainId,
+      context,
+    );
+  } else {
+    context.log.warn(
+      `PTTransfer event call for non-existing Future ${event.srcAddress}`,
+    );
+  }
 });
 
 PrincipalToken.Mint.handler(async ({ event, context }) => {

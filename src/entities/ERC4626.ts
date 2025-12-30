@@ -3,7 +3,7 @@
 import { UNIT_BI } from "../constants";
 import { getIBTRate as getIBTRateEffect } from "../effects/getIBTRate";
 
-import { getERC20Decimals } from "./ERC20";
+import { getERC20Decimals, getERC20Symbol } from "./ERC20";
 
 /**
  * Get IBT rate (convertToAssets with 1 unit of shares)
@@ -13,16 +13,24 @@ export async function getIBTRate(
   address: string,
   chainId: number,
   blockNumber: number,
-  context: any
+  context: any,
+  transactionHash?: string,
+  logIndex?: string
 ): Promise<bigint> {
-  // Get decimals first
-  const decimals = await getERC20Decimals(address, chainId, blockNumber, context);
+  // Get decimals and symbol first
+  const [decimals, symbol] = await Promise.all([
+    getERC20Decimals(address, chainId, blockNumber, context),
+    getERC20Symbol(address, chainId, blockNumber, context)
+  ]);
 
   const result = await context.effect(getIBTRateEffect, {
     ibtAddress: address,
     decimals: decimals,
     chainId: chainId,
     blockNumber: blockNumber,
+    symbol: symbol,
+    transactionHash: transactionHash || null,
+    logIndex: logIndex || null,
   });
 
   const data = result as { ibtRate: string };

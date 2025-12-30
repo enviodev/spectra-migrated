@@ -80,6 +80,7 @@ export const getPoolAdminBalances = createEffect(
           abi: CURVE_POOL_SNG_ABI,
           functionName: "admin_balances",
           args: [BigInt(0)],
+          blockNumber: BigInt(input.blockNumber),
         }).catch((err) => {
           context.log.warn(`admin_balances(0) failed for ${input.poolAddress}:`, err.message);
           return BigInt(0);
@@ -89,6 +90,7 @@ export const getPoolAdminBalances = createEffect(
           abi: CURVE_POOL_SNG_ABI,
           functionName: "admin_balances",
           args: [BigInt(1)],
+          blockNumber: BigInt(input.blockNumber),
         }).catch((err) => {
           context.log.warn(`admin_balances(1) failed for ${input.poolAddress}:`, err.message);
           return BigInt(0);

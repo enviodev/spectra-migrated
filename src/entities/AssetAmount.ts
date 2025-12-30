@@ -53,18 +53,14 @@ export async function getAssetAmount(
       asset_id: asset.id,
       // transactionIn and transactionOut are @derivedFrom, so we don't set them
     };
-    context.AssetAmount.set(assetAmount);
   }
 
   // Accumulate amount (matches original subgraph behavior)
   // Reference: subgraph line 29 - assetAmount.amount.plus(amount)
-  // Re-read the assetAmount to ensure we have the latest value (in case of concurrent updates)
-  const currentAssetAmount = await context.AssetAmount.get(assetAmountId);
-  const currentAmount = currentAssetAmount?.amount || assetAmount.amount || ZERO_BI;
-  const newAmount = currentAmount + amount;
+  const newAmount = assetAmount.amount + amount;
   
   const updatedAssetAmount = {
-    ...(currentAssetAmount || assetAmount),
+    ...assetAmount,
     amount: newAmount,
   };
   

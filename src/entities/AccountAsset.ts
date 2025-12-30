@@ -4,6 +4,7 @@ import { AccountAsset_t } from "generated/src/db/Entities.gen";
 import { ZERO_BI } from "../constants";
 import { generateAccountAssetId } from "../utils/idGenerators";
 import { getAccount } from "./Account";
+import { getAccountYieldAsset } from "./Yield";
 
 /**
  * Get Asset ID with suffix (for special assets like MV request/redeem)
@@ -247,10 +248,45 @@ export async function updateAccountAssetYTBalance(
   
   // Update balance and set principalToken relationship
   const futureId = `${chainId}-${normalizedPrincipalTokenAddress}`;
+  
+  // Reference: subgraph lines 165-184 - if principalToken exists, get/create yield AccountAsset and set generatedYield
+  let generatedYield: boolean | undefined = undefined;
+  if (accountAsset.principalToken_id || principalTokenAddress !== "0x0000000000000000000000000000000000000000") {
+    // Get Future entity to get underlying asset address
+    const future = await context.Future.get(futureId);
+    
+    if (future) {
+      // Get underlying asset address from Future
+      const underlyingAsset = await context.Asset.get(future.underlyingAsset_id);
+      
+      if (underlyingAsset) {
+        // Get or create account yield asset (this will create yield asset if needed)
+        const yieldAccountAsset = await getAccountYieldAsset(
+          normalizedAccountAddress,
+          normalizedPrincipalTokenAddress,
+          underlyingAsset.address,
+          timestamp,
+          chainId,
+          blockNumber,
+          context
+        );
+        
+        // Set generatedYield flag based on balance > 0 or yieldAccountAsset.balance > 0
+        // Reference: subgraph lines 176-184
+        if (balance > ZERO_BI || (yieldAccountAsset.balance && yieldAccountAsset.balance > ZERO_BI)) {
+          generatedYield = true;
+        } else {
+          generatedYield = false;
+        }
+      }
+    }
+  }
+  
   const updatedAccountAsset = {
     ...accountAsset,
     balance: balance,
     principalToken_id: futureId,
+    generatedYield: generatedYield !== undefined ? generatedYield : accountAsset.generatedYield,
   };
   context.AccountAsset.set(updatedAccountAsset);
   return updatedAccountAsset;

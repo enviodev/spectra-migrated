@@ -41,7 +41,7 @@ async function tokenExchange(
   // Get account
   const account = await getAccount(event.transaction.from, eventTimestamp, event.chainId, context);
   
-  // Get pool
+  // Get pool (will be re-read later to get latest state)
   const pool = await context.Pool.get(poolId);
   if (!pool) {
     context.log.warn(`${handlerName} event call for non-existing Pool ${event.srcAddress}`);
@@ -77,6 +77,9 @@ async function tokenExchange(
   const ibtAddress = ibtAsset.address;
   const ptAddress = ptAsset.address;
   
+  // Use transaction hash from event (requires field_selection in config.yaml)
+  const txHash = event.transaction.hash.toLowerCase();
+  
   // Determine asset sold and asset bought
   const assetSoldAddress = soldId === ZERO_BI ? ibtAddress : ptAddress;
   const assetBoughtAddress = boughtId === ZERO_BI ? ibtAddress : ptAddress;
@@ -86,9 +89,6 @@ async function tokenExchange(
   // Get pool asset amounts for sold and bought
   const poolAssetInAmount = soldId === ZERO_BI ? poolIBTAssetAmount : poolPTAssetAmount;
   const poolAssetOutAmount = boughtId === ZERO_BI ? poolIBTAssetAmount : poolPTAssetAmount;
-  
-  // Use transaction hash from event (requires field_selection in config.yaml)
-  const txHash = event.transaction.hash.toLowerCase();
   
   // Create AssetAmount for input (sold)
   const amountIn = await getAssetAmount(
@@ -149,9 +149,16 @@ async function tokenExchange(
     context
   );
   
+  // Re-read pool to get latest feeRate and adminFeeRate (in case they were updated by NewParameters event in same block)
+  const currentPool = await context.Pool.get(poolId);
+  if (!currentPool) {
+    context.log.warn(`TokenExchange: Pool ${event.srcAddress} not found`);
+    return;
+  }
+  
   // Calculate fee with bought token precision
   const feeWithBoughtTokenPrecision = toPrecision(
-    pool.feeRate,
+    currentPool.feeRate,
     FEES_PRECISION,
     assetBought.decimals
   );
@@ -167,7 +174,7 @@ async function tokenExchange(
   
   // Calculate admin fee
   const adminFeeWithBoughtTokenPrecision = toPrecision(
-    pool.adminFeeRate,
+    currentPool.adminFeeRate,
     FEES_PRECISION,
     assetBought.decimals
   );
@@ -176,7 +183,7 @@ async function tokenExchange(
   // Get spot price
   const spotPrice = await getPoolLastPrices(
     event.srcAddress,
-    pool.poolType,
+    currentPool.poolType,
     event.chainId,
     event.block.number,
     context
@@ -184,9 +191,9 @@ async function tokenExchange(
   
   // Update pool admin balances
   const [ibtAdminFee, ptAdminFee, newIbtAdminBalance, newPtAdminBalance] = await updatePoolAdminBalances(
-    pool,
+    currentPool,
     event.srcAddress,
-    pool.poolType,
+    currentPool.poolType,
     event.chainId,
     event.block.number,
     context
@@ -208,20 +215,25 @@ async function tokenExchange(
     ibtAddress,
     event.chainId,
     event.block.number,
-    context
+    context,
+    txHash,
+    event.logIndex.toString()
   );
   
-  const ptRate = pool.futureVault_id
+  const ptRate = currentPool.futureVault_id
     ? await getPTRate(
-        pool.futureVault_id.replace(`${event.chainId}-`, ""),
+        currentPool.futureVault_id.replace(`${event.chainId}-`, ""),
         event.chainId,
         event.block.number,
         context
       )
     : ZERO_BI;
   
-  if (pool.futureVault_id && spotPrice > ZERO_BI) {
+  if (currentPool.futureVault_id && spotPrice > ZERO_BI) {
     // Calculate decimals multiplier for IBT
+    // IMPORTANT: Use the same ibtDecimals that was used in getIBTRate
+    // The subgraph gets ibtDecimals inside getIBTRate, but we get it separately
+    // We must use the same value for consistency
     let ibtDecimalsMultiplier = BigInt(1);
     for (let i = 0; i < ibtDecimals; i++) {
       ibtDecimalsMultiplier *= BigInt(10);
@@ -234,12 +246,13 @@ async function tokenExchange(
     valueUnderlying = ((ibt + ptInIbt) * ibtRate) / ibtDecimalsMultiplier / BigInt(2);
     
     feeUnderlying = getLpFeeUnderlying(
-      pool,
+      currentPool,
       valueUnderlying,
       ibtAdminFee,
       ptAdminFee,
       ibtRate,
-      ibtDecimals
+      ibtDecimals,
+      spotPrice // Pass fresh spotPrice instead of using pool.spotPrice
     );
     
     const liquidityInUnderlying = getPoolLiquidityInUnderlying(
@@ -313,12 +326,19 @@ async function tokenExchange(
     context
   );
   
+  // Re-read pool entity again to ensure we have the latest state (important for multiple transactions in same block)
+  const latestPool = await context.Pool.get(poolId);
+  if (!latestPool) {
+    context.log.warn(`TokenExchange: Pool ${event.srcAddress} not found when updating`);
+    return;
+  }
+  
   // Update pool entity
   const updatedPool = {
-    ...pool,
-    totalFees: pool.totalFees + fee,
-    totalFeeRatio: pool.totalFeeRatio + feeRatio,
-    totalAdminFees: pool.totalAdminFees + adminFee,
+    ...latestPool,
+    totalFees: latestPool.totalFees + fee,
+    totalFeeRatio: latestPool.totalFeeRatio + feeRatio,
+    totalAdminFees: latestPool.totalAdminFees + adminFee,
     spotPrice: spotPrice,
     ibtAdminBalance: newIbtAdminBalance,
     ptAdminBalance: newPtAdminBalance,

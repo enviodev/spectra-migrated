@@ -60,17 +60,20 @@ ERC20.Transfer.handler(async ({ event, context }) => {
   );
 
   // Create Transfer entity
+  // Reference: subgraph lines 30-31, 39-40
+  // logIndex = event.transaction.index (transaction index in block)
+  // transactionLogIndex = event.transactionLogIndex (log index within transaction, which is event.logIndex in Envio)
   const transfer = {
     id: transferId,
     createdAtTimestamp: eventTimestamp,
     address: txHash,
     block: BigInt(event.block.number),
-    logIndex: BigInt(event.logIndex),
-    transactionLogIndex: BigInt((event.transaction as any).index || 0),
+    logIndex: BigInt(event.transaction.transactionIndex), // Transaction index in block (subgraph: event.transaction.index)
+    transactionLogIndex: BigInt(event.logIndex), // Log index within transaction (subgraph: event.transactionLogIndex)
     from_id: accountFrom.id,
     to_id: accountTo.id,
-    gasLimit: BigInt((event.transaction as any).gasLimit || 0),
-    gasPrice: BigInt((event.transaction as any).gasPrice || 0),
+    gasLimit: BigInt(event.transaction.gas), // Transaction gas limit (subgraph: event.transaction.gasLimit, Envio uses 'gas')
+    gasPrice: BigInt(event.transaction.gasPrice || 0),
     amountOut_id: amountOut.id,
   };
 
@@ -131,6 +134,7 @@ ERC20.Transfer.handler(async ({ event, context }) => {
       futureVaultAddress,
       eventTimestamp,
       event.chainId,
+      event.block.number,
       context
     );
   }
@@ -323,17 +327,20 @@ MetavaultWrapper.Transfer.handler(async ({ event, context }) => {
   );
 
   // Create Transfer entity
+  // Reference: subgraph lines 30-31, 39-40
+  // logIndex = event.transaction.index (transaction index in block)
+  // transactionLogIndex = event.transactionLogIndex (log index within transaction, which is event.logIndex in Envio)
   const transfer = {
     id: transferId,
     createdAtTimestamp: eventTimestamp,
     address: txHash,
     block: BigInt(event.block.number),
-    logIndex: BigInt(event.logIndex),
-    transactionLogIndex: BigInt((event.transaction as any).index || 0),
+    logIndex: BigInt(event.transaction.transactionIndex), // Transaction index in block (subgraph: event.transaction.index)
+    transactionLogIndex: BigInt(event.logIndex), // Log index within transaction (subgraph: event.transactionLogIndex)
     from_id: accountFrom.id,
     to_id: accountTo.id,
-    gasLimit: BigInt((event.transaction as any).gasLimit || 0),
-    gasPrice: BigInt((event.transaction as any).gasPrice || 0),
+    gasLimit: BigInt(event.transaction.gas), // Transaction gas limit (subgraph: event.transaction.gasLimit, Envio uses 'gas')
+    gasPrice: BigInt(event.transaction.gasPrice || 0),
     amountOut_id: amountOut.id,
   };
 
@@ -359,4 +366,16 @@ MetavaultWrapper.Transfer.handler(async ({ event, context }) => {
     Number(event.block.number),
     context
   );
+
+  // Update yield for all (if this is a PT/YT token) - matches ERC20.Transfer handler logic
+  if (asset.futureVault_id) {
+    const futureVaultAddress = asset.futureVault_id.replace(`${event.chainId}-`, "");
+    await updateYieldForAll(
+      futureVaultAddress,
+      eventTimestamp,
+      event.chainId,
+      event.block.number,
+      context
+    );
+  }
 });

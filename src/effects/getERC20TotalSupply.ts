@@ -63,6 +63,7 @@ export const getERC20TotalSupply = createEffect(
         address: tokenAddress,
         abi: ERC20_ABI,
         functionName: "totalSupply",
+        blockNumber: BigInt(input.blockNumber),
       });
 
       return { totalSupply: totalSupply.toString() };

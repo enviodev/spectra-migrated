@@ -296,13 +296,6 @@ id	output
 {"blockNumber":21470479,"chainId":1,"tokenAddress":"0x71c34e0c6cd94ab11a80ec8006e0755ce5248b2a"}	{"name": "Principal Token: arUSD-1750723349", "symbol": "PT-arUSD-1750723349", "decimals": 18}
 {"blockNumber":21470479,"chainId":1,"tokenAddress":"0xd80e70929517ef0d34db762b0d1e6ef9026d1310"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
 {"blockNumber":21470479,"chainId":1,"tokenAddress":"0x2f5ddf958c506a399be513213a943394c10da1b2"}	{"name": "Yield Token: arUSD-1750723349", "symbol": "YT-arUSD-1750723349", "decimals": 18}
-{"blockNumber":21463690,"chainId":1,"tokenAddress":"0x0000000000000000000000000000000000000000"}	{"name": "UNKNOWN", "symbol": "UNKNOWN", "decimals": 18}
-{"blockNumber":21463839,"chainId":1,"tokenAddress":"0x0000000000000000000000000000000000000000"}	{"name": "UNKNOWN", "symbol": "UNKNOWN", "decimals": 18}
-{"blockNumber":21463970,"chainId":1,"tokenAddress":"0x0000000000000000000000000000000000000000"}	{"name": "UNKNOWN", "symbol": "UNKNOWN", "decimals": 18}
-{"blockNumber":21464738,"chainId":1,"tokenAddress":"0x0000000000000000000000000000000000000000"}	{"name": "UNKNOWN", "symbol": "UNKNOWN", "decimals": 18}
-{"blockNumber":21464775,"chainId":1,"tokenAddress":"0x0000000000000000000000000000000000000000"}	{"name": "UNKNOWN", "symbol": "UNKNOWN", "decimals": 18}
-{"blockNumber":21465563,"chainId":1,"tokenAddress":"0x0000000000000000000000000000000000000000"}	{"name": "UNKNOWN", "symbol": "UNKNOWN", "decimals": 18}
-{"blockNumber":21467405,"chainId":1,"tokenAddress":"0x0000000000000000000000000000000000000000"}	{"name": "UNKNOWN", "symbol": "UNKNOWN", "decimals": 18}
 {"blockNumber":21493603,"chainId":1,"tokenAddress":"0x43ee0243ea8cf02f7087d8b16c8d2007cc9c7ca2"}	{"name": "IPOR USDC Ethereum Optimizer", "symbol": "ipUSDCfusion", "decimals": 8}
 {"blockNumber":21492348,"chainId":1,"tokenAddress":"0x45d3e915da5f79da2892cd006de525c5be275997"}	{"name": "Principal Token: wstUSR-1743033610", "symbol": "PT-wstUSR-1743033610", "decimals": 18}
 {"blockNumber":21492348,"chainId":1,"tokenAddress":"0x3ea5afb1b120660d374e6b886469f9aea0fb367b"}	{"name": "Yield Token: wstUSR-1743033610", "symbol": "YT-wstUSR-1743033610", "decimals": 18}
@@ -386,6 +379,7 @@ id	output
 {"blockNumber":21618732,"chainId":1,"tokenAddress":"0xa6676b5d6d56f905d084914b70b2cc9c383f1a23"}	{"name": "Yield Token: slvlUSD-1744502409", "symbol": "YT-slvlUSD-1744502409", "decimals": 18}
 {"blockNumber":21680345,"chainId":1,"tokenAddress":"0x5c5b196abe0d54485975d1ec29617d42d9198326"}	{"name": "Staked deUSD", "symbol": "sdeUSD", "decimals": 18}
 {"blockNumber":21684327,"chainId":1,"tokenAddress":"0xf7de3c70f2db39a188a81052d2f3c8e3e217822a"}	{"name": "SuperUSDC", "symbol": "ysUSDC", "decimals": 6}
+{"blockNumber":20764430,"chainId":1,"tokenAddress":"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"}	{"name": "USD Coin", "symbol": "USDC", "decimals": 6}
 {"blockNumber":21667649,"chainId":1,"tokenAddress":"0x4ae0154f83427a5864e5de6513a47dac9e5d5a69"}	{"name": "Principal Token: sw-inwstETHs-1752969615", "symbol": "PT-sw-inwstETHs-1752969615", "decimals": 18}
 {"blockNumber":21628185,"chainId":1,"tokenAddress":"0xfc7d13dab1c024b6640367cb92ead33f627f6d4e"}	{"name": "Principal Token: cUSDO-1768435221", "symbol": "PT-cUSDO-1768435221", "decimals": 18}
 {"blockNumber":21680345,"chainId":1,"tokenAddress":"0xb4b8925c4cbce692f37c9d946883f2e330a042a9"}	{"name": "Principal Token: sdeUSD-1753142406", "symbol": "PT-sdeUSD-1753142406", "decimals": 18}
@@ -771,7 +765,6 @@ id	output
 {"blockNumber":20257061,"chainId":1,"tokenAddress":"0x06c03069de266f58d10a0724a4f65c3d4fefff4d"}	{"name": "Spectra ERC4626 Wrapper: Amphor Restaked ETH", "symbol": "sw-amphrETH", "decimals": 18}
 {"blockNumber":20387803,"chainId":1,"tokenAddress":"0x06c03069de266f58d10a0724a4f65c3d4fefff4d"}	{"name": "Spectra ERC4626 Wrapper: Amphor Restaked ETH", "symbol": "sw-amphrETH", "decimals": 18}
 {"blockNumber":20355087,"chainId":1,"tokenAddress":"0x248f43b622ce2f35a14db3fc528284730b619cd5"}	{"name": "Spectra ERC4626 Wrapper: Universal ETH", "symbol": "sw-uniETH", "decimals": 18}
-{"blockNumber":20764430,"chainId":1,"tokenAddress":"0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"}	{"name": "USD Coin", "symbol": "USDC", "decimals": 6}
 {"blockNumber":20743205,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
 {"blockNumber":20746333,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
 {"blockNumber":20746726,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
@@ -940,3 +933,550 @@ id	output
 {"blockNumber":22944879,"chainId":1,"tokenAddress":"0xcbe00e807e49df75aa4d4557eba083a34cc149de"}	{"name": "Spectra ERC4626 Wrapper: Staked Stream USD", "symbol": "sw-xUSD", "decimals": 6}
 {"blockNumber":22945397,"chainId":1,"tokenAddress":"0xbeefc011e94f43b8b7b455ebab290c7ab4e216f1"}	{"name": "Coinshift USDL", "symbol": "csUSDL", "decimals": 18}
 {"blockNumber":22945397,"chainId":1,"tokenAddress":"0x7751E2F4b8ae93EF6B79d86419d42FE3295A4559"}	{"name": "Wrapped USDL", "symbol": "wUSDL", "decimals": 18}
+{"blockNumber":20451370,"chainId":1,"tokenAddress":"0x248f43b622ce2f35a14db3fc528284730b619cd5"}	{"name": "Spectra ERC4626 Wrapper: Universal ETH", "symbol": "sw-uniETH", "decimals": 18}
+{"blockNumber":20524472,"chainId":1,"tokenAddress":"0x248f43b622ce2f35a14db3fc528284730b619cd5"}	{"name": "Spectra ERC4626 Wrapper: Universal ETH", "symbol": "sw-uniETH", "decimals": 18}
+{"blockNumber":20578382,"chainId":1,"tokenAddress":"0x248f43b622ce2f35a14db3fc528284730b619cd5"}	{"name": "Spectra ERC4626 Wrapper: Universal ETH", "symbol": "sw-uniETH", "decimals": 18}
+{"blockNumber":20588878,"chainId":1,"tokenAddress":"0x248f43b622ce2f35a14db3fc528284730b619cd5"}	{"name": "Spectra ERC4626 Wrapper: Universal ETH", "symbol": "sw-uniETH", "decimals": 18}
+{"blockNumber":20590090,"chainId":1,"tokenAddress":"0x248f43b622ce2f35a14db3fc528284730b619cd5"}	{"name": "Spectra ERC4626 Wrapper: Universal ETH", "symbol": "sw-uniETH", "decimals": 18}
+{"blockNumber":20428471,"chainId":1,"tokenAddress":"0xeab93ec2a82eb235a1f426accd9254f2ab32a99d"}	{"name": "Spectra ERC4626 Wrapper: Amphor Symbiotic LRT (WSTETH)", "symbol": "sw-amphrLRT", "decimals": 18}
+{"blockNumber":20437279,"chainId":1,"tokenAddress":"0xeab93ec2a82eb235a1f426accd9254f2ab32a99d"}	{"name": "Spectra ERC4626 Wrapper: Amphor Symbiotic LRT (WSTETH)", "symbol": "sw-amphrLRT", "decimals": 18}
+{"blockNumber":20437606,"chainId":1,"tokenAddress":"0xeab93ec2a82eb235a1f426accd9254f2ab32a99d"}	{"name": "Spectra ERC4626 Wrapper: Amphor Symbiotic LRT (WSTETH)", "symbol": "sw-amphrLRT", "decimals": 18}
+{"blockNumber":20446985,"chainId":1,"tokenAddress":"0xeab93ec2a82eb235a1f426accd9254f2ab32a99d"}	{"name": "Spectra ERC4626 Wrapper: Amphor Symbiotic LRT (WSTETH)", "symbol": "sw-amphrLRT", "decimals": 18}
+{"blockNumber":20573373,"chainId":1,"tokenAddress":"0xeab93ec2a82eb235a1f426accd9254f2ab32a99d"}	{"name": "Spectra ERC4626 Wrapper: Amphor Symbiotic LRT (WSTETH)", "symbol": "sw-amphrLRT", "decimals": 18}
+{"blockNumber":20570928,"chainId":1,"tokenAddress":"0xeab93ec2a82eb235a1f426accd9254f2ab32a99d"}	{"name": "Spectra ERC4626 Wrapper: Amphor Symbiotic LRT (WSTETH)", "symbol": "sw-amphrLRT", "decimals": 18}
+{"blockNumber":20421172,"chainId":1,"tokenAddress":"0xeab93ec2a82eb235a1f426accd9254f2ab32a99d"}	{"name": "Spectra ERC4626 Wrapper: Amphor Symbiotic LRT (WSTETH)", "symbol": "sw-amphrLRT", "decimals": 18}
+{"blockNumber":20440197,"chainId":1,"tokenAddress":"0xeab93ec2a82eb235a1f426accd9254f2ab32a99d"}	{"name": "Spectra ERC4626 Wrapper: Amphor Symbiotic LRT (WSTETH)", "symbol": "sw-amphrLRT", "decimals": 18}
+{"blockNumber":20440332,"chainId":1,"tokenAddress":"0xeab93ec2a82eb235a1f426accd9254f2ab32a99d"}	{"name": "Spectra ERC4626 Wrapper: Amphor Symbiotic LRT (WSTETH)", "symbol": "sw-amphrLRT", "decimals": 18}
+{"blockNumber":20437575,"chainId":1,"tokenAddress":"0xeab93ec2a82eb235a1f426accd9254f2ab32a99d"}	{"name": "Spectra ERC4626 Wrapper: Amphor Symbiotic LRT (WSTETH)", "symbol": "sw-amphrLRT", "decimals": 18}
+{"blockNumber":21045021,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21175685,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21084583,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21184168,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21192319,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21199994,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21206386,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21206858,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21084626,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21084721,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21206873,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21084635,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21084728,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21186215,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21206381,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21206882,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21200038,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21209637,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21209603,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21184178,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21195794,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21192345,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21222871,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21182367,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21194329,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21177792,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21242782,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21178994,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21184165,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21192327,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21200000,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21177785,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21182349,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21186184,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21192599,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21195324,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21205505,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21205511,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21222856,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21242557,"chainId":1,"tokenAddress":"0x1b56e30b6efd7cfde46ee3e29b851b9094d5810b"}	{"name": "Spectra ERC4626 Wrapper:  Usual Boosted USDC", "symbol": "sw-USUALUSDC+", "decimals": 18}
+{"blockNumber":21117701,"chainId":1,"tokenAddress":"0xbdc1d4bbca6429efaaa42c26e80f6a138f9c69d5"}	{"name": "Spectra ERC4626 Wrapper: Gauntlet LRT Core", "symbol": "sw-gtLRTcore", "decimals": 18}
+{"blockNumber":20690567,"chainId":1,"tokenAddress":"0xcf79bc535076c0e75cabcbfdebfcaeaac8bb7209"}	{"name": "Principal Token: thWAR-1741132844", "symbol": "PT-thWAR-1741132844", "decimals": 18}
+{"blockNumber":20693922,"chainId":1,"tokenAddress":"0xcf79bc535076c0e75cabcbfdebfcaeaac8bb7209"}	{"name": "Principal Token: thWAR-1741132844", "symbol": "PT-thWAR-1741132844", "decimals": 18}
+{"blockNumber":20710811,"chainId":1,"tokenAddress":"0xcf79bc535076c0e75cabcbfdebfcaeaac8bb7209"}	{"name": "Principal Token: thWAR-1741132844", "symbol": "PT-thWAR-1741132844", "decimals": 18}
+{"blockNumber":20716354,"chainId":1,"tokenAddress":"0xcf79bc535076c0e75cabcbfdebfcaeaac8bb7209"}	{"name": "Principal Token: thWAR-1741132844", "symbol": "PT-thWAR-1741132844", "decimals": 18}
+{"blockNumber":20718294,"chainId":1,"tokenAddress":"0xcf79bc535076c0e75cabcbfdebfcaeaac8bb7209"}	{"name": "Principal Token: thWAR-1741132844", "symbol": "PT-thWAR-1741132844", "decimals": 18}
+{"blockNumber":20721511,"chainId":1,"tokenAddress":"0xcf79bc535076c0e75cabcbfdebfcaeaac8bb7209"}	{"name": "Principal Token: thWAR-1741132844", "symbol": "PT-thWAR-1741132844", "decimals": 18}
+{"blockNumber":20730394,"chainId":1,"tokenAddress":"0xcf79bc535076c0e75cabcbfdebfcaeaac8bb7209"}	{"name": "Principal Token: thWAR-1741132844", "symbol": "PT-thWAR-1741132844", "decimals": 18}
+{"blockNumber":20731134,"chainId":1,"tokenAddress":"0xcf79bc535076c0e75cabcbfdebfcaeaac8bb7209"}	{"name": "Principal Token: thWAR-1741132844", "symbol": "PT-thWAR-1741132844", "decimals": 18}
+{"blockNumber":20740867,"chainId":1,"tokenAddress":"0xcf79bc535076c0e75cabcbfdebfcaeaac8bb7209"}	{"name": "Principal Token: thWAR-1741132844", "symbol": "PT-thWAR-1741132844", "decimals": 18}
+{"blockNumber":19954841,"chainId":1,"tokenAddress":"0xfe8ab51fd37ea5cebe203510160303dad4ad11ad"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":19962081,"chainId":1,"tokenAddress":"0x00edfad7dd3dd2129f0f0227d219d83a761ed044"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":19975352,"chainId":1,"tokenAddress":"0x00edfad7dd3dd2129f0f0227d219d83a761ed044"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":19974973,"chainId":1,"tokenAddress":"0x2b697ceb121275b6b7c37d1749ddc101ea960b8e"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":19954841,"chainId":1,"tokenAddress":"0xc7d669e7cc521a6676b20e209b3a49a1e64856f1"}	{"name": "Principal Token: sw-stkGHO-1732492824", "symbol": "PT-sw-stkGHO-1732492824", "decimals": 18}
+{"blockNumber":19962081,"chainId":1,"tokenAddress":"0x6def54ae7e38992a7d1ab60d279483ba7f7b0aeb"}	{"name": "Principal Token: KweETH-1727308807", "symbol": "PT-KweETH-1727308807", "decimals": 18}
+{"blockNumber":19975352,"chainId":1,"tokenAddress":"0x6def54ae7e38992a7d1ab60d279483ba7f7b0aeb"}	{"name": "Principal Token: KweETH-1727308807", "symbol": "PT-KweETH-1727308807", "decimals": 18}
+{"blockNumber":19974973,"chainId":1,"tokenAddress":"0xe617fc640413171100c32cc8dbf69fc7928d895e"}	{"name": "Principal Token: sw-uniBTC-1732752015", "symbol": "PT-sw-uniBTC-1732752015", "decimals": 8}
+{"blockNumber":19954841,"chainId":1,"tokenAddress":"0x47b5d8d9d105ee794dfc7e0ac755dd151336d84d"}	{"name": "Yield Token: sw-stkGHO-1732492824", "symbol": "YT-sw-stkGHO-1732492824", "decimals": 18}
+{"blockNumber":19954856,"chainId":1,"tokenAddress":"0x47b5d8d9d105ee794dfc7e0ac755dd151336d84d"}	{"name": "Yield Token: sw-stkGHO-1732492824", "symbol": "YT-sw-stkGHO-1732492824", "decimals": 18}
+{"blockNumber":19962081,"chainId":1,"tokenAddress":"0x763056e4000a9abdd11caa0d47d872944d34d129"}	{"name": "Yield Token: KweETH-1727308807", "symbol": "YT-KweETH-1727308807", "decimals": 18}
+{"blockNumber":19975352,"chainId":1,"tokenAddress":"0x763056e4000a9abdd11caa0d47d872944d34d129"}	{"name": "Yield Token: KweETH-1727308807", "symbol": "YT-KweETH-1727308807", "decimals": 18}
+{"blockNumber":19974973,"chainId":1,"tokenAddress":"0x4c9d41dfda778ab7cff5136f4083497cd3e4cbd9"}	{"name": "Yield Token: sw-uniBTC-1732752015", "symbol": "YT-sw-uniBTC-1732752015", "decimals": 8}
+{"blockNumber":20470434,"chainId":1,"tokenAddress":"0x66fbb4fca7fd1095a6bd62d2225647cfefbcddf4"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20470434,"chainId":1,"tokenAddress":"0x1ec04df27c0f5460a4cef9bd9790d760af381385"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20470434,"chainId":1,"tokenAddress":"0xef578b2a16ee408d89cd4e83085d90126846416f"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20470434,"chainId":1,"tokenAddress":"0x2944b97803e203b0e34d972e50d4edc099b1f97d"}	{"name": "Yield Token: sr-kUSD-1738195558", "symbol": "YT-sr-kUSD-1738195558", "decimals": 18}
+{"blockNumber":20470434,"chainId":1,"tokenAddress":"0xd040ef2009de5c61c02838bf89dc5de2a9f6dbf3"}	{"name": "Yield Token: sr-ksETH-1738195500", "symbol": "YT-sr-ksETH-1738195500", "decimals": 18}
+{"blockNumber":20470434,"chainId":1,"tokenAddress":"0x544d89d8630287e74e9f738ed28b916810e14ee5"}	{"name": "Yield Token: sr-krETH-1738195474", "symbol": "YT-sr-krETH-1738195474", "decimals": 18}
+{"blockNumber":20532131,"chainId":1,"tokenAddress":"0x0e9d35405d7ed06821d4f4d030821db6335bd8d2"}	{"name": "Principal Token: f50APW-50WETH-1744761606", "symbol": "PT-f50APW-50WETH-1744761606", "decimals": 18}
+{"blockNumber":20532229,"chainId":1,"tokenAddress":"0x0e9d35405d7ed06821d4f4d030821db6335bd8d2"}	{"name": "Principal Token: f50APW-50WETH-1744761606", "symbol": "PT-f50APW-50WETH-1744761606", "decimals": 18}
+{"blockNumber":20588565,"chainId":1,"tokenAddress":"0x0e9d35405d7ed06821d4f4d030821db6335bd8d2"}	{"name": "Principal Token: f50APW-50WETH-1744761606", "symbol": "PT-f50APW-50WETH-1744761606", "decimals": 18}
+{"blockNumber":20596734,"chainId":1,"tokenAddress":"0x0e9d35405d7ed06821d4f4d030821db6335bd8d2"}	{"name": "Principal Token: f50APW-50WETH-1744761606", "symbol": "PT-f50APW-50WETH-1744761606", "decimals": 18}
+{"blockNumber":20598670,"chainId":1,"tokenAddress":"0x0e9d35405d7ed06821d4f4d030821db6335bd8d2"}	{"name": "Principal Token: f50APW-50WETH-1744761606", "symbol": "PT-f50APW-50WETH-1744761606", "decimals": 18}
+{"blockNumber":20599699,"chainId":1,"tokenAddress":"0x0e9d35405d7ed06821d4f4d030821db6335bd8d2"}	{"name": "Principal Token: f50APW-50WETH-1744761606", "symbol": "PT-f50APW-50WETH-1744761606", "decimals": 18}
+{"blockNumber":20634266,"chainId":1,"tokenAddress":"0x0e9d35405d7ed06821d4f4d030821db6335bd8d2"}	{"name": "Principal Token: f50APW-50WETH-1744761606", "symbol": "PT-f50APW-50WETH-1744761606", "decimals": 18}
+{"blockNumber":20591733,"chainId":1,"tokenAddress":"0xd0097149aa4cc0d0e1fc99b8bd73fc17dc32c1e9"}	{"name": "Principal Token: wstUSR-1740182579", "symbol": "PT-wstUSR-1740182579", "decimals": 18}
+{"blockNumber":20618312,"chainId":1,"tokenAddress":"0xd0097149aa4cc0d0e1fc99b8bd73fc17dc32c1e9"}	{"name": "Principal Token: wstUSR-1740182579", "symbol": "PT-wstUSR-1740182579", "decimals": 18}
+{"blockNumber":20620107,"chainId":1,"tokenAddress":"0xd0097149aa4cc0d0e1fc99b8bd73fc17dc32c1e9"}	{"name": "Principal Token: wstUSR-1740182579", "symbol": "PT-wstUSR-1740182579", "decimals": 18}
+{"blockNumber":20620547,"chainId":1,"tokenAddress":"0xd0097149aa4cc0d0e1fc99b8bd73fc17dc32c1e9"}	{"name": "Principal Token: wstUSR-1740182579", "symbol": "PT-wstUSR-1740182579", "decimals": 18}
+{"blockNumber":20625418,"chainId":1,"tokenAddress":"0xd0097149aa4cc0d0e1fc99b8bd73fc17dc32c1e9"}	{"name": "Principal Token: wstUSR-1740182579", "symbol": "PT-wstUSR-1740182579", "decimals": 18}
+{"blockNumber":20620523,"chainId":1,"tokenAddress":"0xd0097149aa4cc0d0e1fc99b8bd73fc17dc32c1e9"}	{"name": "Principal Token: wstUSR-1740182579", "symbol": "PT-wstUSR-1740182579", "decimals": 18}
+{"blockNumber":20620557,"chainId":1,"tokenAddress":"0xd0097149aa4cc0d0e1fc99b8bd73fc17dc32c1e9"}	{"name": "Principal Token: wstUSR-1740182579", "symbol": "PT-wstUSR-1740182579", "decimals": 18}
+{"blockNumber":20037351,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20083940,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20084354,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20084465,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20084540,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20084547,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20084550,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20084688,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20084925,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20085002,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20085283,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20086114,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20086584,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20087061,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20087646,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20091221,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20094062,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20094152,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20094162,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20094174,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20097582,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20097648,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20097716,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20103204,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20105630,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20109288,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20109295,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20111292,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20118365,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20119985,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20124459,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20099970,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20099978,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20109300,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20111272,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20094001,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20094075,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20109167,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20099945,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20094167,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20109214,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20094035,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20094116,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20088800,"chainId":1,"tokenAddress":"0x982e5a072cb6634f45715665a02c723392977e9f"}	{"name": "Principal Token: thWAR-1725581923", "symbol": "PT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20081722,"chainId":1,"tokenAddress":"0xf85640cf6ec7658180761927516d11264d635775"}	{"name": "Principal Token: asdCRV-1733973768", "symbol": "PT-asdCRV-1733973768", "decimals": 18}
+{"blockNumber":20096644,"chainId":1,"tokenAddress":"0xf85640cf6ec7658180761927516d11264d635775"}	{"name": "Principal Token: asdCRV-1733973768", "symbol": "PT-asdCRV-1733973768", "decimals": 18}
+{"blockNumber":20102271,"chainId":1,"tokenAddress":"0xf85640cf6ec7658180761927516d11264d635775"}	{"name": "Principal Token: asdCRV-1733973768", "symbol": "PT-asdCRV-1733973768", "decimals": 18}
+{"blockNumber":20114395,"chainId":1,"tokenAddress":"0xf85640cf6ec7658180761927516d11264d635775"}	{"name": "Principal Token: asdCRV-1733973768", "symbol": "PT-asdCRV-1733973768", "decimals": 18}
+{"blockNumber":20114456,"chainId":1,"tokenAddress":"0xf85640cf6ec7658180761927516d11264d635775"}	{"name": "Principal Token: asdCRV-1733973768", "symbol": "PT-asdCRV-1733973768", "decimals": 18}
+{"blockNumber":20114488,"chainId":1,"tokenAddress":"0xf85640cf6ec7658180761927516d11264d635775"}	{"name": "Principal Token: asdCRV-1733973768", "symbol": "PT-asdCRV-1733973768", "decimals": 18}
+{"blockNumber":20114432,"chainId":1,"tokenAddress":"0xf85640cf6ec7658180761927516d11264d635775"}	{"name": "Principal Token: asdCRV-1733973768", "symbol": "PT-asdCRV-1733973768", "decimals": 18}
+{"blockNumber":20114483,"chainId":1,"tokenAddress":"0xf85640cf6ec7658180761927516d11264d635775"}	{"name": "Principal Token: asdCRV-1733973768", "symbol": "PT-asdCRV-1733973768", "decimals": 18}
+{"blockNumber":20087886,"chainId":1,"tokenAddress":"0xf85640cf6ec7658180761927516d11264d635775"}	{"name": "Principal Token: asdCRV-1733973768", "symbol": "PT-asdCRV-1733973768", "decimals": 18}
+{"blockNumber":20105630,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20111292,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20109300,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20099978,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20037351,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20083940,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20085283,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20087061,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20094062,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20094152,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20094162,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20094174,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20109288,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20109295,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20084354,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20084465,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20084540,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20084547,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20084688,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20084550,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20084925,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20085002,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20124459,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20091221,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20086114,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20086584,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20087646,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20097582,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20097648,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20097716,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20103204,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20118365,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20119985,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20094167,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20109214,"chainId":1,"tokenAddress":"0x0882ff8ff5c3e547b4afdb86c309c2bf0c7fcad8"}	{"name": "Yield Token: thWAR-1725581923", "symbol": "YT-thWAR-1725581923", "decimals": 18}
+{"blockNumber":20118268,"chainId":1,"tokenAddress":"0xf58e22d224e465fb65f4257573b58dbfb0f704a0"}	{"name": "Principal Token: arUSD-1734480037", "symbol": "PT-arUSD-1734480037", "decimals": 18}
+{"blockNumber":20126513,"chainId":1,"tokenAddress":"0xf58e22d224e465fb65f4257573b58dbfb0f704a0"}	{"name": "Principal Token: arUSD-1734480037", "symbol": "PT-arUSD-1734480037", "decimals": 18}
+{"blockNumber":20118268,"chainId":1,"tokenAddress":"0xb4fe541f3ffb0f35da15e5919682e270f5a35a4d"}	{"name": "Yield Token: arUSD-1734480037", "symbol": "YT-arUSD-1734480037", "decimals": 18}
+{"blockNumber":20126513,"chainId":1,"tokenAddress":"0xb4fe541f3ffb0f35da15e5919682e270f5a35a4d"}	{"name": "Yield Token: arUSD-1734480037", "symbol": "YT-arUSD-1734480037", "decimals": 18}
+{"blockNumber":20131655,"chainId":1,"tokenAddress":"0xb4fe541f3ffb0f35da15e5919682e270f5a35a4d"}	{"name": "Yield Token: arUSD-1734480037", "symbol": "YT-arUSD-1734480037", "decimals": 18}
+{"blockNumber":20126833,"chainId":1,"tokenAddress":"0x912ff30d1536bb4b2db604b7b0fca2da76a0c5f3"}	{"name": "Principal Token: sw-amphrETH-1726704008", "symbol": "PT-sw-amphrETH-1726704008", "decimals": 18}
+{"blockNumber":20127270,"chainId":1,"tokenAddress":"0x912ff30d1536bb4b2db604b7b0fca2da76a0c5f3"}	{"name": "Principal Token: sw-amphrETH-1726704008", "symbol": "PT-sw-amphrETH-1726704008", "decimals": 18}
+{"blockNumber":20133115,"chainId":1,"tokenAddress":"0x912ff30d1536bb4b2db604b7b0fca2da76a0c5f3"}	{"name": "Principal Token: sw-amphrETH-1726704008", "symbol": "PT-sw-amphrETH-1726704008", "decimals": 18}
+{"blockNumber":20134018,"chainId":1,"tokenAddress":"0x912ff30d1536bb4b2db604b7b0fca2da76a0c5f3"}	{"name": "Principal Token: sw-amphrETH-1726704008", "symbol": "PT-sw-amphrETH-1726704008", "decimals": 18}
+{"blockNumber":20133177,"chainId":1,"tokenAddress":"0x912ff30d1536bb4b2db604b7b0fca2da76a0c5f3"}	{"name": "Principal Token: sw-amphrETH-1726704008", "symbol": "PT-sw-amphrETH-1726704008", "decimals": 18}
+{"blockNumber":20134042,"chainId":1,"tokenAddress":"0x912ff30d1536bb4b2db604b7b0fca2da76a0c5f3"}	{"name": "Principal Token: sw-amphrETH-1726704008", "symbol": "PT-sw-amphrETH-1726704008", "decimals": 18}
+{"blockNumber":20128439,"chainId":1,"tokenAddress":"0x470f623e8bc3c870f96516b8cbfc6a27e253424d"}	{"name": "Principal Token: sw-amphrETH-1726790425", "symbol": "PT-sw-amphrETH-1726790425", "decimals": 18}
+{"blockNumber":20128506,"chainId":1,"tokenAddress":"0x470f623e8bc3c870f96516b8cbfc6a27e253424d"}	{"name": "Principal Token: sw-amphrETH-1726790425", "symbol": "PT-sw-amphrETH-1726790425", "decimals": 18}
+{"blockNumber":20131696,"chainId":1,"tokenAddress":"0x470f623e8bc3c870f96516b8cbfc6a27e253424d"}	{"name": "Principal Token: sw-amphrETH-1726790425", "symbol": "PT-sw-amphrETH-1726790425", "decimals": 18}
+{"blockNumber":20134013,"chainId":1,"tokenAddress":"0x470f623e8bc3c870f96516b8cbfc6a27e253424d"}	{"name": "Principal Token: sw-amphrETH-1726790425", "symbol": "PT-sw-amphrETH-1726790425", "decimals": 18}
+{"blockNumber":20134023,"chainId":1,"tokenAddress":"0x470f623e8bc3c870f96516b8cbfc6a27e253424d"}	{"name": "Principal Token: sw-amphrETH-1726790425", "symbol": "PT-sw-amphrETH-1726790425", "decimals": 18}
+{"blockNumber":20134095,"chainId":1,"tokenAddress":"0x470f623e8bc3c870f96516b8cbfc6a27e253424d"}	{"name": "Principal Token: sw-amphrETH-1726790425", "symbol": "PT-sw-amphrETH-1726790425", "decimals": 18}
+{"blockNumber":20134134,"chainId":1,"tokenAddress":"0x470f623e8bc3c870f96516b8cbfc6a27e253424d"}	{"name": "Principal Token: sw-amphrETH-1726790425", "symbol": "PT-sw-amphrETH-1726790425", "decimals": 18}
+{"blockNumber":20130152,"chainId":1,"tokenAddress":"0x470f623e8bc3c870f96516b8cbfc6a27e253424d"}	{"name": "Principal Token: sw-amphrETH-1726790425", "symbol": "PT-sw-amphrETH-1726790425", "decimals": 18}
+{"blockNumber":20131696,"chainId":1,"tokenAddress":"0x380e5d1a776a80a11291633ac77786e7061c40e0"}	{"name": "Yield Token: sw-amphrETH-1726790425", "symbol": "YT-sw-amphrETH-1726790425", "decimals": 18}
+{"blockNumber":20134013,"chainId":1,"tokenAddress":"0x380e5d1a776a80a11291633ac77786e7061c40e0"}	{"name": "Yield Token: sw-amphrETH-1726790425", "symbol": "YT-sw-amphrETH-1726790425", "decimals": 18}
+{"blockNumber":20134134,"chainId":1,"tokenAddress":"0x380e5d1a776a80a11291633ac77786e7061c40e0"}	{"name": "Yield Token: sw-amphrETH-1726790425", "symbol": "YT-sw-amphrETH-1726790425", "decimals": 18}
+{"blockNumber":20128506,"chainId":1,"tokenAddress":"0x380e5d1a776a80a11291633ac77786e7061c40e0"}	{"name": "Yield Token: sw-amphrETH-1726790425", "symbol": "YT-sw-amphrETH-1726790425", "decimals": 18}
+{"blockNumber":20134095,"chainId":1,"tokenAddress":"0x380e5d1a776a80a11291633ac77786e7061c40e0"}	{"name": "Yield Token: sw-amphrETH-1726790425", "symbol": "YT-sw-amphrETH-1726790425", "decimals": 18}
+{"blockNumber":20128439,"chainId":1,"tokenAddress":"0x380e5d1a776a80a11291633ac77786e7061c40e0"}	{"name": "Yield Token: sw-amphrETH-1726790425", "symbol": "YT-sw-amphrETH-1726790425", "decimals": 18}
+{"blockNumber":20134023,"chainId":1,"tokenAddress":"0x380e5d1a776a80a11291633ac77786e7061c40e0"}	{"name": "Yield Token: sw-amphrETH-1726790425", "symbol": "YT-sw-amphrETH-1726790425", "decimals": 18}
+{"blockNumber":20133115,"chainId":1,"tokenAddress":"0x52cbf58cb19f4c56633c272faec796a0872e43c6"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20134018,"chainId":1,"tokenAddress":"0x52cbf58cb19f4c56633c272faec796a0872e43c6"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20127270,"chainId":1,"tokenAddress":"0x52cbf58cb19f4c56633c272faec796a0872e43c6"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20126833,"chainId":1,"tokenAddress":"0x52cbf58cb19f4c56633c272faec796a0872e43c6"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20111090,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20094001,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20109167,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20099945,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20093631,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20089804,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20091221,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20092378,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20092429,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20094035,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20094062,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20094116,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20094152,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20094162,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20094174,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20097582,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20097648,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20097716,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20099970,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20099978,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20103204,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20105630,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20109288,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20109295,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20109300,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20111272,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20111292,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20118365,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20119985,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20124459,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20037351,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20083940,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20085283,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20087061,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20084300,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20084354,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20084465,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20084540,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20084547,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20084688,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20084550,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20084925,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20085002,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20086114,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20086584,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20087646,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20094075,"chainId":1,"tokenAddress":"0x6c6d8ad90664d00f7b548d1f2a64c41a941d2cd2"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20114432,"chainId":1,"tokenAddress":"0x0698aa9762fc38b908315c5c3efd0aee469356e6"}	{"name": "Yield Token: asdCRV-1733973768", "symbol": "YT-asdCRV-1733973768", "decimals": 18}
+{"blockNumber":20114483,"chainId":1,"tokenAddress":"0x0698aa9762fc38b908315c5c3efd0aee469356e6"}	{"name": "Yield Token: asdCRV-1733973768", "symbol": "YT-asdCRV-1733973768", "decimals": 18}
+{"blockNumber":20081722,"chainId":1,"tokenAddress":"0x0698aa9762fc38b908315c5c3efd0aee469356e6"}	{"name": "Yield Token: asdCRV-1733973768", "symbol": "YT-asdCRV-1733973768", "decimals": 18}
+{"blockNumber":20096644,"chainId":1,"tokenAddress":"0x0698aa9762fc38b908315c5c3efd0aee469356e6"}	{"name": "Yield Token: asdCRV-1733973768", "symbol": "YT-asdCRV-1733973768", "decimals": 18}
+{"blockNumber":20114395,"chainId":1,"tokenAddress":"0x0698aa9762fc38b908315c5c3efd0aee469356e6"}	{"name": "Yield Token: asdCRV-1733973768", "symbol": "YT-asdCRV-1733973768", "decimals": 18}
+{"blockNumber":20114456,"chainId":1,"tokenAddress":"0x0698aa9762fc38b908315c5c3efd0aee469356e6"}	{"name": "Yield Token: asdCRV-1733973768", "symbol": "YT-asdCRV-1733973768", "decimals": 18}
+{"blockNumber":20114488,"chainId":1,"tokenAddress":"0x0698aa9762fc38b908315c5c3efd0aee469356e6"}	{"name": "Yield Token: asdCRV-1733973768", "symbol": "YT-asdCRV-1733973768", "decimals": 18}
+{"blockNumber":20102271,"chainId":1,"tokenAddress":"0x0698aa9762fc38b908315c5c3efd0aee469356e6"}	{"name": "Yield Token: asdCRV-1733973768", "symbol": "YT-asdCRV-1733973768", "decimals": 18}
+{"blockNumber":20127270,"chainId":1,"tokenAddress":"0xc71f86ab0e10485a7c2f3c2ae5303e87dd28cca4"}	{"name": "Yield Token: sw-amphrETH-1726704008", "symbol": "YT-sw-amphrETH-1726704008", "decimals": 18}
+{"blockNumber":20126833,"chainId":1,"tokenAddress":"0xc71f86ab0e10485a7c2f3c2ae5303e87dd28cca4"}	{"name": "Yield Token: sw-amphrETH-1726704008", "symbol": "YT-sw-amphrETH-1726704008", "decimals": 18}
+{"blockNumber":20133177,"chainId":1,"tokenAddress":"0xc71f86ab0e10485a7c2f3c2ae5303e87dd28cca4"}	{"name": "Yield Token: sw-amphrETH-1726704008", "symbol": "YT-sw-amphrETH-1726704008", "decimals": 18}
+{"blockNumber":20134042,"chainId":1,"tokenAddress":"0xc71f86ab0e10485a7c2f3c2ae5303e87dd28cca4"}	{"name": "Yield Token: sw-amphrETH-1726704008", "symbol": "YT-sw-amphrETH-1726704008", "decimals": 18}
+{"blockNumber":20128114,"chainId":1,"tokenAddress":"0x4d46b713fc1e38f9923cd2a5ca5050574f9f0d73"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20128506,"chainId":1,"tokenAddress":"0x4d46b713fc1e38f9923cd2a5ca5050574f9f0d73"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20128280,"chainId":1,"tokenAddress":"0x4d46b713fc1e38f9923cd2a5ca5050574f9f0d73"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20134095,"chainId":1,"tokenAddress":"0x4d46b713fc1e38f9923cd2a5ca5050574f9f0d73"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20128439,"chainId":1,"tokenAddress":"0x4d46b713fc1e38f9923cd2a5ca5050574f9f0d73"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20130152,"chainId":1,"tokenAddress":"0x4d46b713fc1e38f9923cd2a5ca5050574f9f0d73"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20134023,"chainId":1,"tokenAddress":"0x4d46b713fc1e38f9923cd2a5ca5050574f9f0d73"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20081722,"chainId":1,"tokenAddress":"0x1bc03e4a69bcb5ff949b15d293f49df61727dde5"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20096644,"chainId":1,"tokenAddress":"0x1bc03e4a69bcb5ff949b15d293f49df61727dde5"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20114395,"chainId":1,"tokenAddress":"0x1bc03e4a69bcb5ff949b15d293f49df61727dde5"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20114456,"chainId":1,"tokenAddress":"0x1bc03e4a69bcb5ff949b15d293f49df61727dde5"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20114488,"chainId":1,"tokenAddress":"0x1bc03e4a69bcb5ff949b15d293f49df61727dde5"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20102271,"chainId":1,"tokenAddress":"0x1bc03e4a69bcb5ff949b15d293f49df61727dde5"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20126513,"chainId":1,"tokenAddress":"0x1563a5f5ddc88db8f5ee935cc8c0dd9c0dcdc1ff"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20131646,"chainId":1,"tokenAddress":"0x1563a5f5ddc88db8f5ee935cc8c0dd9c0dcdc1ff"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20181228,"chainId":1,"tokenAddress":"0xd4c0ab44698bca5070624ef62c66b1f4d1488551"}	{"name": "Principal Token: sw-uniETH-1727136009", "symbol": "PT-sw-uniETH-1727136009", "decimals": 18}
+{"blockNumber":20182219,"chainId":1,"tokenAddress":"0x4f65a884eb41cd09a2f0a4505de2c6d698a78c73"}	{"name": "Principal Token: afCVX-1727222454", "symbol": "PT-afCVX-1727222454", "decimals": 18}
+{"blockNumber":20247138,"chainId":1,"tokenAddress":"0x4f65a884eb41cd09a2f0a4505de2c6d698a78c73"}	{"name": "Principal Token: afCVX-1727222454", "symbol": "PT-afCVX-1727222454", "decimals": 18}
+{"blockNumber":20289077,"chainId":1,"tokenAddress":"0x4f65a884eb41cd09a2f0a4505de2c6d698a78c73"}	{"name": "Principal Token: afCVX-1727222454", "symbol": "PT-afCVX-1727222454", "decimals": 18}
+{"blockNumber":20252546,"chainId":1,"tokenAddress":"0x4f65a884eb41cd09a2f0a4505de2c6d698a78c73"}	{"name": "Principal Token: afCVX-1727222454", "symbol": "PT-afCVX-1727222454", "decimals": 18}
+{"blockNumber":20344461,"chainId":1,"tokenAddress":"0x4f65a884eb41cd09a2f0a4505de2c6d698a78c73"}	{"name": "Principal Token: afCVX-1727222454", "symbol": "PT-afCVX-1727222454", "decimals": 18}
+{"blockNumber":20252552,"chainId":1,"tokenAddress":"0x4f65a884eb41cd09a2f0a4505de2c6d698a78c73"}	{"name": "Principal Token: afCVX-1727222454", "symbol": "PT-afCVX-1727222454", "decimals": 18}
+{"blockNumber":20271230,"chainId":1,"tokenAddress":"0x4f65a884eb41cd09a2f0a4505de2c6d698a78c73"}	{"name": "Principal Token: afCVX-1727222454", "symbol": "PT-afCVX-1727222454", "decimals": 18}
+{"blockNumber":20247138,"chainId":1,"tokenAddress":"0x71449da26926f6879f47ec3a3dcfb9c2323d19a0"}	{"name": "Yield Token: afCVX-1727222454", "symbol": "YT-afCVX-1727222454", "decimals": 18}
+{"blockNumber":20252546,"chainId":1,"tokenAddress":"0x71449da26926f6879f47ec3a3dcfb9c2323d19a0"}	{"name": "Yield Token: afCVX-1727222454", "symbol": "YT-afCVX-1727222454", "decimals": 18}
+{"blockNumber":20344461,"chainId":1,"tokenAddress":"0x71449da26926f6879f47ec3a3dcfb9c2323d19a0"}	{"name": "Yield Token: afCVX-1727222454", "symbol": "YT-afCVX-1727222454", "decimals": 18}
+{"blockNumber":20182219,"chainId":1,"tokenAddress":"0x71449da26926f6879f47ec3a3dcfb9c2323d19a0"}	{"name": "Yield Token: afCVX-1727222454", "symbol": "YT-afCVX-1727222454", "decimals": 18}
+{"blockNumber":20289077,"chainId":1,"tokenAddress":"0x71449da26926f6879f47ec3a3dcfb9c2323d19a0"}	{"name": "Yield Token: afCVX-1727222454", "symbol": "YT-afCVX-1727222454", "decimals": 18}
+{"blockNumber":20271854,"chainId":1,"tokenAddress":"0x8f01036563831feabbf3bee396d99b117c032428"}	{"name": "Principal Token: sw-amphrLRT-1728172816", "symbol": "PT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20271923,"chainId":1,"tokenAddress":"0x8f01036563831feabbf3bee396d99b117c032428"}	{"name": "Principal Token: sw-amphrLRT-1728172816", "symbol": "PT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20286306,"chainId":1,"tokenAddress":"0x8f01036563831feabbf3bee396d99b117c032428"}	{"name": "Principal Token: sw-amphrLRT-1728172816", "symbol": "PT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20295881,"chainId":1,"tokenAddress":"0x8f01036563831feabbf3bee396d99b117c032428"}	{"name": "Principal Token: sw-amphrLRT-1728172816", "symbol": "PT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20274935,"chainId":1,"tokenAddress":"0x8f01036563831feabbf3bee396d99b117c032428"}	{"name": "Principal Token: sw-amphrLRT-1728172816", "symbol": "PT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20274867,"chainId":1,"tokenAddress":"0x8f01036563831feabbf3bee396d99b117c032428"}	{"name": "Principal Token: sw-amphrLRT-1728172816", "symbol": "PT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20274878,"chainId":1,"tokenAddress":"0x8f01036563831feabbf3bee396d99b117c032428"}	{"name": "Principal Token: sw-amphrLRT-1728172816", "symbol": "PT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20274887,"chainId":1,"tokenAddress":"0x8f01036563831feabbf3bee396d99b117c032428"}	{"name": "Principal Token: sw-amphrLRT-1728172816", "symbol": "PT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20274903,"chainId":1,"tokenAddress":"0x8f01036563831feabbf3bee396d99b117c032428"}	{"name": "Principal Token: sw-amphrLRT-1728172816", "symbol": "PT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20313316,"chainId":1,"tokenAddress":"0x8f01036563831feabbf3bee396d99b117c032428"}	{"name": "Principal Token: sw-amphrLRT-1728172816", "symbol": "PT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20274943,"chainId":1,"tokenAddress":"0x8f01036563831feabbf3bee396d99b117c032428"}	{"name": "Principal Token: sw-amphrLRT-1728172816", "symbol": "PT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20274950,"chainId":1,"tokenAddress":"0x8f01036563831feabbf3bee396d99b117c032428"}	{"name": "Principal Token: sw-amphrLRT-1728172816", "symbol": "PT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20274957,"chainId":1,"tokenAddress":"0x8f01036563831feabbf3bee396d99b117c032428"}	{"name": "Principal Token: sw-amphrLRT-1728172816", "symbol": "PT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20274961,"chainId":1,"tokenAddress":"0x8f01036563831feabbf3bee396d99b117c032428"}	{"name": "Principal Token: sw-amphrLRT-1728172816", "symbol": "PT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20274969,"chainId":1,"tokenAddress":"0x8f01036563831feabbf3bee396d99b117c032428"}	{"name": "Principal Token: sw-amphrLRT-1728172816", "symbol": "PT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20274867,"chainId":1,"tokenAddress":"0x9b1e5e8909609f5b2a07394746f28e1eb0b236ae"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20274878,"chainId":1,"tokenAddress":"0x9b1e5e8909609f5b2a07394746f28e1eb0b236ae"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20274887,"chainId":1,"tokenAddress":"0x9b1e5e8909609f5b2a07394746f28e1eb0b236ae"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20274903,"chainId":1,"tokenAddress":"0x9b1e5e8909609f5b2a07394746f28e1eb0b236ae"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20274943,"chainId":1,"tokenAddress":"0x9b1e5e8909609f5b2a07394746f28e1eb0b236ae"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20274950,"chainId":1,"tokenAddress":"0x9b1e5e8909609f5b2a07394746f28e1eb0b236ae"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20274957,"chainId":1,"tokenAddress":"0x9b1e5e8909609f5b2a07394746f28e1eb0b236ae"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20274961,"chainId":1,"tokenAddress":"0x9b1e5e8909609f5b2a07394746f28e1eb0b236ae"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20274969,"chainId":1,"tokenAddress":"0x9b1e5e8909609f5b2a07394746f28e1eb0b236ae"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20286306,"chainId":1,"tokenAddress":"0x9b1e5e8909609f5b2a07394746f28e1eb0b236ae"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20295881,"chainId":1,"tokenAddress":"0x9b1e5e8909609f5b2a07394746f28e1eb0b236ae"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20313316,"chainId":1,"tokenAddress":"0x9b1e5e8909609f5b2a07394746f28e1eb0b236ae"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20271854,"chainId":1,"tokenAddress":"0x9b1e5e8909609f5b2a07394746f28e1eb0b236ae"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20271923,"chainId":1,"tokenAddress":"0x9b1e5e8909609f5b2a07394746f28e1eb0b236ae"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20273972,"chainId":1,"tokenAddress":"0x9b1e5e8909609f5b2a07394746f28e1eb0b236ae"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20274005,"chainId":1,"tokenAddress":"0x9b1e5e8909609f5b2a07394746f28e1eb0b236ae"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20344461,"chainId":1,"tokenAddress":"0x4d78afe5b63ab9d44a4acc3ebcbe30f1d81a2531"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20182219,"chainId":1,"tokenAddress":"0x4d78afe5b63ab9d44a4acc3ebcbe30f1d81a2531"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20289077,"chainId":1,"tokenAddress":"0x4d78afe5b63ab9d44a4acc3ebcbe30f1d81a2531"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20181228,"chainId":1,"tokenAddress":"0xe1cd8c0a6845122bada434ede90fe3635aa1bbfb"}	{"name": "Yield Token: sw-uniETH-1727136009", "symbol": "YT-sw-uniETH-1727136009", "decimals": 18}
+{"blockNumber":20181228,"chainId":1,"tokenAddress":"0x68a9a9a404f0d5f9a42659ad12b1d9bb1ad98e4e"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20274867,"chainId":1,"tokenAddress":"0xa52e41ddf4461f93840c9e26462ffdc333e015b9"}	{"name": "Yield Token: sw-amphrLRT-1728172816", "symbol": "YT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20274878,"chainId":1,"tokenAddress":"0xa52e41ddf4461f93840c9e26462ffdc333e015b9"}	{"name": "Yield Token: sw-amphrLRT-1728172816", "symbol": "YT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20274887,"chainId":1,"tokenAddress":"0xa52e41ddf4461f93840c9e26462ffdc333e015b9"}	{"name": "Yield Token: sw-amphrLRT-1728172816", "symbol": "YT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20274903,"chainId":1,"tokenAddress":"0xa52e41ddf4461f93840c9e26462ffdc333e015b9"}	{"name": "Yield Token: sw-amphrLRT-1728172816", "symbol": "YT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20274935,"chainId":1,"tokenAddress":"0xa52e41ddf4461f93840c9e26462ffdc333e015b9"}	{"name": "Yield Token: sw-amphrLRT-1728172816", "symbol": "YT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20286306,"chainId":1,"tokenAddress":"0xa52e41ddf4461f93840c9e26462ffdc333e015b9"}	{"name": "Yield Token: sw-amphrLRT-1728172816", "symbol": "YT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20271854,"chainId":1,"tokenAddress":"0xa52e41ddf4461f93840c9e26462ffdc333e015b9"}	{"name": "Yield Token: sw-amphrLRT-1728172816", "symbol": "YT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20271923,"chainId":1,"tokenAddress":"0xa52e41ddf4461f93840c9e26462ffdc333e015b9"}	{"name": "Yield Token: sw-amphrLRT-1728172816", "symbol": "YT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20295881,"chainId":1,"tokenAddress":"0xa52e41ddf4461f93840c9e26462ffdc333e015b9"}	{"name": "Yield Token: sw-amphrLRT-1728172816", "symbol": "YT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20313316,"chainId":1,"tokenAddress":"0xa52e41ddf4461f93840c9e26462ffdc333e015b9"}	{"name": "Yield Token: sw-amphrLRT-1728172816", "symbol": "YT-sw-amphrLRT-1728172816", "decimals": 18}
+{"blockNumber":20782133,"chainId":1,"tokenAddress":"0xcf79bc535076c0e75cabcbfdebfcaeaac8bb7209"}	{"name": "Principal Token: thWAR-1741132844", "symbol": "PT-thWAR-1741132844", "decimals": 18}
+{"blockNumber":20740414,"chainId":1,"tokenAddress":"0xcf79bc535076c0e75cabcbfdebfcaeaac8bb7209"}	{"name": "Principal Token: thWAR-1741132844", "symbol": "PT-thWAR-1741132844", "decimals": 18}
+{"blockNumber":20740399,"chainId":1,"tokenAddress":"0xcf79bc535076c0e75cabcbfdebfcaeaac8bb7209"}	{"name": "Principal Token: thWAR-1741132844", "symbol": "PT-thWAR-1741132844", "decimals": 18}
+{"blockNumber":20735382,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20735936,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20738411,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20739331,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20741027,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20743205,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20746333,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20747348,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20747916,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20748856,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20752756,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20752955,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20752969,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20620538,"chainId":1,"tokenAddress":"0xd0097149aa4cc0d0e1fc99b8bd73fc17dc32c1e9"}	{"name": "Principal Token: wstUSR-1740182579", "symbol": "PT-wstUSR-1740182579", "decimals": 18}
+{"blockNumber":20625413,"chainId":1,"tokenAddress":"0xd0097149aa4cc0d0e1fc99b8bd73fc17dc32c1e9"}	{"name": "Principal Token: wstUSR-1740182579", "symbol": "PT-wstUSR-1740182579", "decimals": 18}
+{"blockNumber":20582620,"chainId":1,"tokenAddress":"0xd0097149aa4cc0d0e1fc99b8bd73fc17dc32c1e9"}	{"name": "Principal Token: wstUSR-1740182579", "symbol": "PT-wstUSR-1740182579", "decimals": 18}
+{"blockNumber":20591874,"chainId":1,"tokenAddress":"0xd0097149aa4cc0d0e1fc99b8bd73fc17dc32c1e9"}	{"name": "Principal Token: wstUSR-1740182579", "symbol": "PT-wstUSR-1740182579", "decimals": 18}
+{"blockNumber":20618312,"chainId":1,"tokenAddress":"0x861e65f1bf472ead79c248111d78211907130820"}	{"name": "Yield Token: wstUSR-1740182579", "symbol": "YT-wstUSR-1740182579", "decimals": 18}
+{"blockNumber":20625418,"chainId":1,"tokenAddress":"0x861e65f1bf472ead79c248111d78211907130820"}	{"name": "Yield Token: wstUSR-1740182579", "symbol": "YT-wstUSR-1740182579", "decimals": 18}
+{"blockNumber":20591733,"chainId":1,"tokenAddress":"0x861e65f1bf472ead79c248111d78211907130820"}	{"name": "Yield Token: wstUSR-1740182579", "symbol": "YT-wstUSR-1740182579", "decimals": 18}
+{"blockNumber":20620107,"chainId":1,"tokenAddress":"0x861e65f1bf472ead79c248111d78211907130820"}	{"name": "Yield Token: wstUSR-1740182579", "symbol": "YT-wstUSR-1740182579", "decimals": 18}
+{"blockNumber":20620547,"chainId":1,"tokenAddress":"0x861e65f1bf472ead79c248111d78211907130820"}	{"name": "Yield Token: wstUSR-1740182579", "symbol": "YT-wstUSR-1740182579", "decimals": 18}
+{"blockNumber":20620557,"chainId":1,"tokenAddress":"0x3523de26602bec599a01da5f0ca91df9b85964e7"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20591874,"chainId":1,"tokenAddress":"0x3523de26602bec599a01da5f0ca91df9b85964e7"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20618312,"chainId":1,"tokenAddress":"0x3523de26602bec599a01da5f0ca91df9b85964e7"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20620107,"chainId":1,"tokenAddress":"0x3523de26602bec599a01da5f0ca91df9b85964e7"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20620523,"chainId":1,"tokenAddress":"0x3523de26602bec599a01da5f0ca91df9b85964e7"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20620538,"chainId":1,"tokenAddress":"0x3523de26602bec599a01da5f0ca91df9b85964e7"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20620547,"chainId":1,"tokenAddress":"0x3523de26602bec599a01da5f0ca91df9b85964e7"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20625413,"chainId":1,"tokenAddress":"0x3523de26602bec599a01da5f0ca91df9b85964e7"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20625418,"chainId":1,"tokenAddress":"0x3523de26602bec599a01da5f0ca91df9b85964e7"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20591733,"chainId":1,"tokenAddress":"0x3523de26602bec599a01da5f0ca91df9b85964e7"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20634266,"chainId":1,"tokenAddress":"0x9dcbd8707072f6e99ae7fdb8e4b4b982c0957adc"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20598670,"chainId":1,"tokenAddress":"0x9dcbd8707072f6e99ae7fdb8e4b4b982c0957adc"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20532131,"chainId":1,"tokenAddress":"0x9dcbd8707072f6e99ae7fdb8e4b4b982c0957adc"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20532229,"chainId":1,"tokenAddress":"0x9dcbd8707072f6e99ae7fdb8e4b4b982c0957adc"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20582831,"chainId":1,"tokenAddress":"0x9dcbd8707072f6e99ae7fdb8e4b4b982c0957adc"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20588432,"chainId":1,"tokenAddress":"0x9dcbd8707072f6e99ae7fdb8e4b4b982c0957adc"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20588565,"chainId":1,"tokenAddress":"0x9dcbd8707072f6e99ae7fdb8e4b4b982c0957adc"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20599699,"chainId":1,"tokenAddress":"0x9dcbd8707072f6e99ae7fdb8e4b4b982c0957adc"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20596734,"chainId":1,"tokenAddress":"0x9dcbd8707072f6e99ae7fdb8e4b4b982c0957adc"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20606553,"chainId":1,"tokenAddress":"0x9dcbd8707072f6e99ae7fdb8e4b4b982c0957adc"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20615222,"chainId":1,"tokenAddress":"0x9dcbd8707072f6e99ae7fdb8e4b4b982c0957adc"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20598670,"chainId":1,"tokenAddress":"0x5a89ea1ccecfcba4a70722648056914cb8bb4506"}	{"name": "Yield Token: f50APW-50WETH-1744761606", "symbol": "YT-f50APW-50WETH-1744761606", "decimals": 18}
+{"blockNumber":20532131,"chainId":1,"tokenAddress":"0x5a89ea1ccecfcba4a70722648056914cb8bb4506"}	{"name": "Yield Token: f50APW-50WETH-1744761606", "symbol": "YT-f50APW-50WETH-1744761606", "decimals": 18}
+{"blockNumber":20532229,"chainId":1,"tokenAddress":"0x5a89ea1ccecfcba4a70722648056914cb8bb4506"}	{"name": "Yield Token: f50APW-50WETH-1744761606", "symbol": "YT-f50APW-50WETH-1744761606", "decimals": 18}
+{"blockNumber":20588565,"chainId":1,"tokenAddress":"0x5a89ea1ccecfcba4a70722648056914cb8bb4506"}	{"name": "Yield Token: f50APW-50WETH-1744761606", "symbol": "YT-f50APW-50WETH-1744761606", "decimals": 18}
+{"blockNumber":20599699,"chainId":1,"tokenAddress":"0x5a89ea1ccecfcba4a70722648056914cb8bb4506"}	{"name": "Yield Token: f50APW-50WETH-1744761606", "symbol": "YT-f50APW-50WETH-1744761606", "decimals": 18}
+{"blockNumber":20596734,"chainId":1,"tokenAddress":"0x5a89ea1ccecfcba4a70722648056914cb8bb4506"}	{"name": "Yield Token: f50APW-50WETH-1744761606", "symbol": "YT-f50APW-50WETH-1744761606", "decimals": 18}
+{"blockNumber":20634266,"chainId":1,"tokenAddress":"0x5a89ea1ccecfcba4a70722648056914cb8bb4506"}	{"name": "Yield Token: f50APW-50WETH-1744761606", "symbol": "YT-f50APW-50WETH-1744761606", "decimals": 18}
+{"blockNumber":20754610,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20754736,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20765948,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20768697,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20778895,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20779621,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20726053,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20778878,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20726010,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20776946,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20754704,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20777068,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20746726,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20746766,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20753410,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20756258,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20782995,"chainId":1,"tokenAddress":"0x4ee81b93cf490f7157144c82ff07557cffd2b86b"}	{"name": "Principal Token: sw-USUALUSDC+-1731480491", "symbol": "PT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20735936,"chainId":1,"tokenAddress":"0x3b53a1a02f54c77aef429e8750b1722ef8ce9fd6"}	{"name": "Yield Token: sw-USUALUSDC+-1731480491", "symbol": "YT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20741027,"chainId":1,"tokenAddress":"0x3b53a1a02f54c77aef429e8750b1722ef8ce9fd6"}	{"name": "Yield Token: sw-USUALUSDC+-1731480491", "symbol": "YT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20752756,"chainId":1,"tokenAddress":"0x3b53a1a02f54c77aef429e8750b1722ef8ce9fd6"}	{"name": "Yield Token: sw-USUALUSDC+-1731480491", "symbol": "YT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20752955,"chainId":1,"tokenAddress":"0x3b53a1a02f54c77aef429e8750b1722ef8ce9fd6"}	{"name": "Yield Token: sw-USUALUSDC+-1731480491", "symbol": "YT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20747916,"chainId":1,"tokenAddress":"0x3b53a1a02f54c77aef429e8750b1722ef8ce9fd6"}	{"name": "Yield Token: sw-USUALUSDC+-1731480491", "symbol": "YT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20752969,"chainId":1,"tokenAddress":"0x3b53a1a02f54c77aef429e8750b1722ef8ce9fd6"}	{"name": "Yield Token: sw-USUALUSDC+-1731480491", "symbol": "YT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20765948,"chainId":1,"tokenAddress":"0x3b53a1a02f54c77aef429e8750b1722ef8ce9fd6"}	{"name": "Yield Token: sw-USUALUSDC+-1731480491", "symbol": "YT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20726010,"chainId":1,"tokenAddress":"0x3b53a1a02f54c77aef429e8750b1722ef8ce9fd6"}	{"name": "Yield Token: sw-USUALUSDC+-1731480491", "symbol": "YT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20735382,"chainId":1,"tokenAddress":"0x3b53a1a02f54c77aef429e8750b1722ef8ce9fd6"}	{"name": "Yield Token: sw-USUALUSDC+-1731480491", "symbol": "YT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20738411,"chainId":1,"tokenAddress":"0x3b53a1a02f54c77aef429e8750b1722ef8ce9fd6"}	{"name": "Yield Token: sw-USUALUSDC+-1731480491", "symbol": "YT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20739331,"chainId":1,"tokenAddress":"0x3b53a1a02f54c77aef429e8750b1722ef8ce9fd6"}	{"name": "Yield Token: sw-USUALUSDC+-1731480491", "symbol": "YT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20743205,"chainId":1,"tokenAddress":"0x3b53a1a02f54c77aef429e8750b1722ef8ce9fd6"}	{"name": "Yield Token: sw-USUALUSDC+-1731480491", "symbol": "YT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20746333,"chainId":1,"tokenAddress":"0x3b53a1a02f54c77aef429e8750b1722ef8ce9fd6"}	{"name": "Yield Token: sw-USUALUSDC+-1731480491", "symbol": "YT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20747348,"chainId":1,"tokenAddress":"0x3b53a1a02f54c77aef429e8750b1722ef8ce9fd6"}	{"name": "Yield Token: sw-USUALUSDC+-1731480491", "symbol": "YT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20748856,"chainId":1,"tokenAddress":"0x3b53a1a02f54c77aef429e8750b1722ef8ce9fd6"}	{"name": "Yield Token: sw-USUALUSDC+-1731480491", "symbol": "YT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20754610,"chainId":1,"tokenAddress":"0x3b53a1a02f54c77aef429e8750b1722ef8ce9fd6"}	{"name": "Yield Token: sw-USUALUSDC+-1731480491", "symbol": "YT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20754736,"chainId":1,"tokenAddress":"0x3b53a1a02f54c77aef429e8750b1722ef8ce9fd6"}	{"name": "Yield Token: sw-USUALUSDC+-1731480491", "symbol": "YT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20768697,"chainId":1,"tokenAddress":"0x3b53a1a02f54c77aef429e8750b1722ef8ce9fd6"}	{"name": "Yield Token: sw-USUALUSDC+-1731480491", "symbol": "YT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20778895,"chainId":1,"tokenAddress":"0x3b53a1a02f54c77aef429e8750b1722ef8ce9fd6"}	{"name": "Yield Token: sw-USUALUSDC+-1731480491", "symbol": "YT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20779621,"chainId":1,"tokenAddress":"0x3b53a1a02f54c77aef429e8750b1722ef8ce9fd6"}	{"name": "Yield Token: sw-USUALUSDC+-1731480491", "symbol": "YT-sw-USUALUSDC+-1731480491", "decimals": 18}
+{"blockNumber":20740867,"chainId":1,"tokenAddress":"0x3a14c9de53d3f3476a74bd5c53b64cdbde5482c8"}	{"name": "Yield Token: thWAR-1741132844", "symbol": "YT-thWAR-1741132844", "decimals": 18}
+{"blockNumber":20782133,"chainId":1,"tokenAddress":"0x3a14c9de53d3f3476a74bd5c53b64cdbde5482c8"}	{"name": "Yield Token: thWAR-1741132844", "symbol": "YT-thWAR-1741132844", "decimals": 18}
+{"blockNumber":20740414,"chainId":1,"tokenAddress":"0x3a14c9de53d3f3476a74bd5c53b64cdbde5482c8"}	{"name": "Yield Token: thWAR-1741132844", "symbol": "YT-thWAR-1741132844", "decimals": 18}
+{"blockNumber":20690567,"chainId":1,"tokenAddress":"0x3a14c9de53d3f3476a74bd5c53b64cdbde5482c8"}	{"name": "Yield Token: thWAR-1741132844", "symbol": "YT-thWAR-1741132844", "decimals": 18}
+{"blockNumber":20693922,"chainId":1,"tokenAddress":"0x3a14c9de53d3f3476a74bd5c53b64cdbde5482c8"}	{"name": "Yield Token: thWAR-1741132844", "symbol": "YT-thWAR-1741132844", "decimals": 18}
+{"blockNumber":20710811,"chainId":1,"tokenAddress":"0x3a14c9de53d3f3476a74bd5c53b64cdbde5482c8"}	{"name": "Yield Token: thWAR-1741132844", "symbol": "YT-thWAR-1741132844", "decimals": 18}
+{"blockNumber":20716354,"chainId":1,"tokenAddress":"0x3a14c9de53d3f3476a74bd5c53b64cdbde5482c8"}	{"name": "Yield Token: thWAR-1741132844", "symbol": "YT-thWAR-1741132844", "decimals": 18}
+{"blockNumber":20718294,"chainId":1,"tokenAddress":"0x3a14c9de53d3f3476a74bd5c53b64cdbde5482c8"}	{"name": "Yield Token: thWAR-1741132844", "symbol": "YT-thWAR-1741132844", "decimals": 18}
+{"blockNumber":20721511,"chainId":1,"tokenAddress":"0x3a14c9de53d3f3476a74bd5c53b64cdbde5482c8"}	{"name": "Yield Token: thWAR-1741132844", "symbol": "YT-thWAR-1741132844", "decimals": 18}
+{"blockNumber":20730394,"chainId":1,"tokenAddress":"0x3a14c9de53d3f3476a74bd5c53b64cdbde5482c8"}	{"name": "Yield Token: thWAR-1741132844", "symbol": "YT-thWAR-1741132844", "decimals": 18}
+{"blockNumber":20731134,"chainId":1,"tokenAddress":"0x3a14c9de53d3f3476a74bd5c53b64cdbde5482c8"}	{"name": "Yield Token: thWAR-1741132844", "symbol": "YT-thWAR-1741132844", "decimals": 18}
+{"blockNumber":20740399,"chainId":1,"tokenAddress":"0x9093260fa354497397928c1404241e8657639876"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20710811,"chainId":1,"tokenAddress":"0x9093260fa354497397928c1404241e8657639876"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20716354,"chainId":1,"tokenAddress":"0x9093260fa354497397928c1404241e8657639876"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20718294,"chainId":1,"tokenAddress":"0x9093260fa354497397928c1404241e8657639876"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20721511,"chainId":1,"tokenAddress":"0x9093260fa354497397928c1404241e8657639876"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20730394,"chainId":1,"tokenAddress":"0x9093260fa354497397928c1404241e8657639876"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20731134,"chainId":1,"tokenAddress":"0x9093260fa354497397928c1404241e8657639876"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20690567,"chainId":1,"tokenAddress":"0x9093260fa354497397928c1404241e8657639876"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20693922,"chainId":1,"tokenAddress":"0x9093260fa354497397928c1404241e8657639876"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20782147,"chainId":1,"tokenAddress":"0x9093260fa354497397928c1404241e8657639876"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20776946,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20747916,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20752969,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20739331,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20741027,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20743205,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20746333,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20746726,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20746766,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20748856,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20752756,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20752955,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20753410,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20754610,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20754704,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20754736,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20756258,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20765948,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20768697,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20777006,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20726053,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20735382,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20738411,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20747348,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20778895,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20779621,"chainId":1,"tokenAddress":"0x926b0a79a0dfa26a88ce3c1fff5d38c7212fcd1b"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20903695,"chainId":1,"tokenAddress":"0xa62ca1514944cc858a52e672df52fde0fda44a20"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20905441,"chainId":1,"tokenAddress":"0xa62ca1514944cc858a52e672df52fde0fda44a20"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20837684,"chainId":1,"tokenAddress":"0xa62ca1514944cc858a52e672df52fde0fda44a20"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20849053,"chainId":1,"tokenAddress":"0xa62ca1514944cc858a52e672df52fde0fda44a20"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20933984,"chainId":1,"tokenAddress":"0xa62ca1514944cc858a52e672df52fde0fda44a20"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20828847,"chainId":1,"tokenAddress":"0xa62ca1514944cc858a52e672df52fde0fda44a20"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20846721,"chainId":1,"tokenAddress":"0xa62ca1514944cc858a52e672df52fde0fda44a20"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20849053,"chainId":1,"tokenAddress":"0xdfb8d94c25c8cfc4df171077fad479adaaef51c9"}	{"name": "Yield Token: sw-stkGHO-1742860812", "symbol": "YT-sw-stkGHO-1742860812", "decimals": 18}
+{"blockNumber":20933989,"chainId":1,"tokenAddress":"0xdfb8d94c25c8cfc4df171077fad479adaaef51c9"}	{"name": "Yield Token: sw-stkGHO-1742860812", "symbol": "YT-sw-stkGHO-1742860812", "decimals": 18}
+{"blockNumber":20828847,"chainId":1,"tokenAddress":"0xdfb8d94c25c8cfc4df171077fad479adaaef51c9"}	{"name": "Yield Token: sw-stkGHO-1742860812", "symbol": "YT-sw-stkGHO-1742860812", "decimals": 18}
+{"blockNumber":20846721,"chainId":1,"tokenAddress":"0xdfb8d94c25c8cfc4df171077fad479adaaef51c9"}	{"name": "Yield Token: sw-stkGHO-1742860812", "symbol": "YT-sw-stkGHO-1742860812", "decimals": 18}
+{"blockNumber":20903695,"chainId":1,"tokenAddress":"0xdfb8d94c25c8cfc4df171077fad479adaaef51c9"}	{"name": "Yield Token: sw-stkGHO-1742860812", "symbol": "YT-sw-stkGHO-1742860812", "decimals": 18}
+{"blockNumber":20920846,"chainId":1,"tokenAddress":"0x6228bbf6ebc60303c822d62ed06c12ed43edeb58"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20920871,"chainId":1,"tokenAddress":"0x6228bbf6ebc60303c822d62ed06c12ed43edeb58"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20841693,"chainId":1,"tokenAddress":"0x6228bbf6ebc60303c822d62ed06c12ed43edeb58"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20835886,"chainId":1,"tokenAddress":"0x6228bbf6ebc60303c822d62ed06c12ed43edeb58"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20836979,"chainId":1,"tokenAddress":"0x6228bbf6ebc60303c822d62ed06c12ed43edeb58"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20922785,"chainId":1,"tokenAddress":"0x8e82b4295996feda8648b9ce3ff6d0ec40c4f83b"}	{"name": "Yield Token: sw-amphrLRT-1742860816", "symbol": "YT-sw-amphrLRT-1742860816", "decimals": 18}
+{"blockNumber":20920850,"chainId":1,"tokenAddress":"0x8e82b4295996feda8648b9ce3ff6d0ec40c4f83b"}	{"name": "Yield Token: sw-amphrLRT-1742860816", "symbol": "YT-sw-amphrLRT-1742860816", "decimals": 18}
+{"blockNumber":20841693,"chainId":1,"tokenAddress":"0x8e82b4295996feda8648b9ce3ff6d0ec40c4f83b"}	{"name": "Yield Token: sw-amphrLRT-1742860816", "symbol": "YT-sw-amphrLRT-1742860816", "decimals": 18}
+{"blockNumber":20835886,"chainId":1,"tokenAddress":"0x8e82b4295996feda8648b9ce3ff6d0ec40c4f83b"}	{"name": "Yield Token: sw-amphrLRT-1742860816", "symbol": "YT-sw-amphrLRT-1742860816", "decimals": 18}
+{"blockNumber":20836979,"chainId":1,"tokenAddress":"0x8e82b4295996feda8648b9ce3ff6d0ec40c4f83b"}	{"name": "Yield Token: sw-amphrLRT-1742860816", "symbol": "YT-sw-amphrLRT-1742860816", "decimals": 18}
+{"blockNumber":20922785,"chainId":1,"tokenAddress":"0xa5ad927a85516885f09aa1b2124a8975dc725c48"}	{"name": "Principal Token: sw-amphrLRT-1742860816", "symbol": "PT-sw-amphrLRT-1742860816", "decimals": 18}
+{"blockNumber":20920850,"chainId":1,"tokenAddress":"0xa5ad927a85516885f09aa1b2124a8975dc725c48"}	{"name": "Principal Token: sw-amphrLRT-1742860816", "symbol": "PT-sw-amphrLRT-1742860816", "decimals": 18}
+{"blockNumber":20835886,"chainId":1,"tokenAddress":"0xa5ad927a85516885f09aa1b2124a8975dc725c48"}	{"name": "Principal Token: sw-amphrLRT-1742860816", "symbol": "PT-sw-amphrLRT-1742860816", "decimals": 18}
+{"blockNumber":20836979,"chainId":1,"tokenAddress":"0xa5ad927a85516885f09aa1b2124a8975dc725c48"}	{"name": "Principal Token: sw-amphrLRT-1742860816", "symbol": "PT-sw-amphrLRT-1742860816", "decimals": 18}
+{"blockNumber":20841693,"chainId":1,"tokenAddress":"0xa5ad927a85516885f09aa1b2124a8975dc725c48"}	{"name": "Principal Token: sw-amphrLRT-1742860816", "symbol": "PT-sw-amphrLRT-1742860816", "decimals": 18}
+{"blockNumber":20920846,"chainId":1,"tokenAddress":"0xa5ad927a85516885f09aa1b2124a8975dc725c48"}	{"name": "Principal Token: sw-amphrLRT-1742860816", "symbol": "PT-sw-amphrLRT-1742860816", "decimals": 18}
+{"blockNumber":20920871,"chainId":1,"tokenAddress":"0xa5ad927a85516885f09aa1b2124a8975dc725c48"}	{"name": "Principal Token: sw-amphrLRT-1742860816", "symbol": "PT-sw-amphrLRT-1742860816", "decimals": 18}
+{"blockNumber":20933989,"chainId":1,"tokenAddress":"0x0f7454c4537afe1243df65842c7919b5d6d6198c"}	{"name": "Principal Token: sw-stkGHO-1742860812", "symbol": "PT-sw-stkGHO-1742860812", "decimals": 18}
+{"blockNumber":20828847,"chainId":1,"tokenAddress":"0x0f7454c4537afe1243df65842c7919b5d6d6198c"}	{"name": "Principal Token: sw-stkGHO-1742860812", "symbol": "PT-sw-stkGHO-1742860812", "decimals": 18}
+{"blockNumber":20846721,"chainId":1,"tokenAddress":"0x0f7454c4537afe1243df65842c7919b5d6d6198c"}	{"name": "Principal Token: sw-stkGHO-1742860812", "symbol": "PT-sw-stkGHO-1742860812", "decimals": 18}
+{"blockNumber":20849053,"chainId":1,"tokenAddress":"0x0f7454c4537afe1243df65842c7919b5d6d6198c"}	{"name": "Principal Token: sw-stkGHO-1742860812", "symbol": "PT-sw-stkGHO-1742860812", "decimals": 18}
+{"blockNumber":20903695,"chainId":1,"tokenAddress":"0x0f7454c4537afe1243df65842c7919b5d6d6198c"}	{"name": "Principal Token: sw-stkGHO-1742860812", "symbol": "PT-sw-stkGHO-1742860812", "decimals": 18}
+{"blockNumber":20933984,"chainId":1,"tokenAddress":"0x0f7454c4537afe1243df65842c7919b5d6d6198c"}	{"name": "Principal Token: sw-stkGHO-1742860812", "symbol": "PT-sw-stkGHO-1742860812", "decimals": 18}
+{"blockNumber":20939936,"chainId":1,"tokenAddress":"0x57e9ebeb30852d31f99a08e39068d93b0d8fc917"}	{"name": "Principal Token: sw-ynETH-1735516827", "symbol": "PT-sw-ynETH-1735516827", "decimals": 18}
+{"blockNumber":20939936,"chainId":1,"tokenAddress":"0x85f05383f7cb67f35385f7bf3b74e68f4795cbb9"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":20939936,"chainId":1,"tokenAddress":"0x52aceff7804bb5f251926d5a53a12cb8488efa71"}	{"name": "Yield Token: sw-ynETH-1735516827", "symbol": "YT-sw-ynETH-1735516827", "decimals": 18}
+{"blockNumber":21118006,"chainId":1,"tokenAddress":"0xe835a841c2a4c55c62ab0162b2a8f9921d41c645"}	{"name": "Principal Token: sw-hETH-1746316809", "symbol": "PT-sw-hETH-1746316809", "decimals": 18}
+{"blockNumber":21123670,"chainId":1,"tokenAddress":"0xe835a841c2a4c55c62ab0162b2a8f9921d41c645"}	{"name": "Principal Token: sw-hETH-1746316809", "symbol": "PT-sw-hETH-1746316809", "decimals": 18}
+{"blockNumber":21135613,"chainId":1,"tokenAddress":"0xe835a841c2a4c55c62ab0162b2a8f9921d41c645"}	{"name": "Principal Token: sw-hETH-1746316809", "symbol": "PT-sw-hETH-1746316809", "decimals": 18}
+{"blockNumber":21123713,"chainId":1,"tokenAddress":"0xe835a841c2a4c55c62ab0162b2a8f9921d41c645"}	{"name": "Principal Token: sw-hETH-1746316809", "symbol": "PT-sw-hETH-1746316809", "decimals": 18}
+{"blockNumber":21142489,"chainId":1,"tokenAddress":"0x86fa5e412f82bec8e911ca1a44e5daead7136930"}	{"name": "Principal Token: sw-eBTC-1746403213", "symbol": "PT-sw-eBTC-1746403213", "decimals": 8}
+{"blockNumber":21123713,"chainId":1,"tokenAddress":"0x8e36baf17dde6d1edfc94e9832d2e119779fa4f5"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21118006,"chainId":1,"tokenAddress":"0x8e36baf17dde6d1edfc94e9832d2e119779fa4f5"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21123670,"chainId":1,"tokenAddress":"0x8e36baf17dde6d1edfc94e9832d2e119779fa4f5"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21133867,"chainId":1,"tokenAddress":"0x8e36baf17dde6d1edfc94e9832d2e119779fa4f5"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21134274,"chainId":1,"tokenAddress":"0x8e36baf17dde6d1edfc94e9832d2e119779fa4f5"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21135613,"chainId":1,"tokenAddress":"0x8e36baf17dde6d1edfc94e9832d2e119779fa4f5"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21118006,"chainId":1,"tokenAddress":"0x70d0478c4dee033902f0187814a751936513fc93"}	{"name": "Yield Token: sw-hETH-1746316809", "symbol": "YT-sw-hETH-1746316809", "decimals": 18}
+{"blockNumber":21123670,"chainId":1,"tokenAddress":"0x70d0478c4dee033902f0187814a751936513fc93"}	{"name": "Yield Token: sw-hETH-1746316809", "symbol": "YT-sw-hETH-1746316809", "decimals": 18}
+{"blockNumber":21135613,"chainId":1,"tokenAddress":"0x70d0478c4dee033902f0187814a751936513fc93"}	{"name": "Yield Token: sw-hETH-1746316809", "symbol": "YT-sw-hETH-1746316809", "decimals": 18}
+{"blockNumber":21142489,"chainId":1,"tokenAddress":"0xe2e33e45c2322e7bccb15973caab28e27489fc61"}	{"name": "Yield Token: sw-eBTC-1746403213", "symbol": "YT-sw-eBTC-1746403213", "decimals": 8}
+{"blockNumber":21142489,"chainId":1,"tokenAddress":"0xf0ce4940445a2dc0338a6669a90d6817c617419d"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21278927,"chainId":1,"tokenAddress":"0x729908238075f050fa25ab8e50051d28acae0588"}	{"name": "Principal Token: scrvUSD-1747180822", "symbol": "PT-scrvUSD-1747180822", "decimals": 18}
+{"blockNumber":21285555,"chainId":1,"tokenAddress":"0x729908238075f050fa25ab8e50051d28acae0588"}	{"name": "Principal Token: scrvUSD-1747180822", "symbol": "PT-scrvUSD-1747180822", "decimals": 18}
+{"blockNumber":21278927,"chainId":1,"tokenAddress":"0xce664f6e46fdcafdc4841c6b47c91021b0f34a43"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}
+{"blockNumber":21278927,"chainId":1,"tokenAddress":"0xd421352e09bade9b07b54bf3c95d359b1e041f05"}	{"name": "Yield Token: scrvUSD-1747180822", "symbol": "YT-scrvUSD-1747180822", "decimals": 18}
+{"blockNumber":21335831,"chainId":1,"tokenAddress":"0xbba9b8e2f698d2b1d79b6ee9fb05ac2520696f6d"}	{"name": "Principal Token: sw-ynETH-1743379491", "symbol": "PT-sw-ynETH-1743379491", "decimals": 18}
+{"blockNumber":21335831,"chainId":1,"tokenAddress":"0xc5773fb124cc02fa865bfb968de8ffa43bc1902f"}	{"name": "Yield Token: sw-ynETH-1743379491", "symbol": "YT-sw-ynETH-1743379491", "decimals": 18}
+{"blockNumber":21335831,"chainId":1,"tokenAddress":"0x2408569177553a427dd6956e1717f2fbe1a96f1d"}	{"name": "Curve.fi Factory Crypto Pool: Spectra-PT/IBT", "symbol": "SPT-PT/IBT-f", "decimals": 18}

@@ -61,6 +61,7 @@ export const getPoolFutureAdminFee = createEffect(
         address: input.poolAddress as `0x${string}`,
         abi: CURVE_POOL_ABI,
         functionName: "future_admin_fee",
+        blockNumber: BigInt(input.blockNumber),
       });
 
       return { futureAdminFee: futureAdminFee.toString() };

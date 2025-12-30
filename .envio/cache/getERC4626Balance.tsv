@@ -34986,6 +34986,7 @@ id	output
 {"accountAddress":"0x2d42d6bb3d18a7be35d76b599aee9d3358b22b3e","blockNumber":23420000,"chainId":1,"tokenAddress":"0xcbe00e807e49df75aa4d4557eba083a34cc149de"}	{"balance": "181130"}
 {"accountAddress":"0x2d42d6bb3d18a7be35d76b599aee9d3358b22b3e","blockNumber":23429260,"chainId":1,"tokenAddress":"0xcbe00e807e49df75aa4d4557eba083a34cc149de"}	{"balance": "57510"}
 {"accountAddress":"0x29566e4affd4403b09f43b1b38348e52612bf867","blockNumber":23568317,"chainId":1,"tokenAddress":"0x50bd66d59911f5e086ec87ae43c811e0d059dd11"}	{"balance": "883539126477971916"}
+{"accountAddress":"0xc2fe20938b039c1c5a5f3990fd500555dd6cd2c8","blockNumber":23776752,"chainId":1,"tokenAddress":"0xa94ec39c91df334dcab55adaa8edd9c1daf67ca7"}	{"balance": "0"}
 {"accountAddress":"0x29566e4affd4403b09f43b1b38348e52612bf867","blockNumber":23568323,"chainId":1,"tokenAddress":"0x50bd66d59911f5e086ec87ae43c811e0d059dd11"}	{"balance": "1536307289391871310"}
 {"accountAddress":"0x29566e4affd4403b09f43b1b38348e52612bf867","blockNumber":23568647,"chainId":1,"tokenAddress":"0x50bd66d59911f5e086ec87ae43c811e0d059dd11"}	{"balance": "2728072889207589475"}
 {"accountAddress":"0x5ad4370d6a6c77f95eb2b57a9a1088c930fc0bfb","blockNumber":23577950,"chainId":1,"tokenAddress":"0x50bd66d59911f5e086ec87ae43c811e0d059dd11"}	{"balance": "52668797485259407"}
@@ -35200,7 +35201,6 @@ id	output
 {"accountAddress":"0xe3fbd803865f2dad742786fbaac4a32d7ef9f3f5","blockNumber":23691202,"chainId":1,"tokenAddress":"0xa94ec39c91df334dcab55adaa8edd9c1daf67ca7"}	{"balance": "0"}
 {"accountAddress":"0xe3fbd803865f2dad742786fbaac4a32d7ef9f3f5","blockNumber":23691343,"chainId":1,"tokenAddress":"0xa94ec39c91df334dcab55adaa8edd9c1daf67ca7"}	{"balance": "0"}
 {"accountAddress":"0xc2fe20938b039c1c5a5f3990fd500555dd6cd2c8","blockNumber":23768879,"chainId":1,"tokenAddress":"0xa94ec39c91df334dcab55adaa8edd9c1daf67ca7"}	{"balance": "0"}
-{"accountAddress":"0xc2fe20938b039c1c5a5f3990fd500555dd6cd2c8","blockNumber":23776752,"chainId":1,"tokenAddress":"0xa94ec39c91df334dcab55adaa8edd9c1daf67ca7"}	{"balance": "0"}
 {"accountAddress":"0x1fa6c7a2b48293412cdb3ef6bc31f059ab57d7f4","blockNumber":23815302,"chainId":1,"tokenAddress":"0xa94ec39c91df334dcab55adaa8edd9c1daf67ca7"}	{"balance": "0"}
 {"accountAddress":"0x193f8f54af510bde7f49ad47315ec04d4a9f1905","blockNumber":23855331,"chainId":1,"tokenAddress":"0xa94ec39c91df334dcab55adaa8edd9c1daf67ca7"}	{"balance": "0"}
 {"accountAddress":"0xc069958f93d517b3b19ba83ed45f2c1669a0631a","blockNumber":23863729,"chainId":1,"tokenAddress":"0xa94ec39c91df334dcab55adaa8edd9c1daf67ca7"}	{"balance": "0"}

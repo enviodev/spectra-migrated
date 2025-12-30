@@ -6,16 +6,17 @@ import { createPublicClient, http, parseAbi } from "viem";
 import { ZERO_BI } from "../constants";
 import { PoolType } from "../utils/PoolType";
 
+// Import full ABIs to ensure correct parsing of array return types
+import CURVE_POOL_SNG_ABI_JSON from "../../abis/CurvePoolSNG.json";
+
 // Minimal ABI for CurvePool functions
 const CURVE_POOL_ABI = parseAbi([
   "function last_prices() view returns (uint256)",
 ]);
 
-// Minimal ABI for CurvePoolSNG functions
-const CURVE_POOL_SNG_ABI = parseAbi([
-  "function last_price(uint256) view returns (uint256)",
-  "function stored_rates() view returns (uint256[2])",
-]);
+// Use full ABI for CURVE_SNG to correctly parse stored_rates() return value
+// parseAbi doesn't handle uint256[] correctly, so we use the full JSON ABI
+const CURVE_POOL_SNG_ABI = CURVE_POOL_SNG_ABI_JSON as any;
 
 /**
  * Effect to fetch pool last prices from a CurvePool contract
@@ -84,18 +85,25 @@ export const getPoolLastPrices = createEffect(
             address: poolAddress,
             abi: CURVE_POOL_SNG_ABI,
             functionName: "stored_rates",
+            args: [],
             blockNumber: BigInt(input.blockNumber),
           }).catch((err) => {
             context.log.warn(`stored_rates() failed for ${input.poolAddress}:`, err.message);
-            return [BigInt(0), BigInt(0)] as [bigint, bigint];
+            return [BigInt(0), BigInt(0)] as bigint[];
           }),
         ]);
 
+        // Type assertions for the results
+        const lastPriceBigInt = BigInt(lastPrice as bigint | string | number);
+        const storedRatesArray = storedRates as bigint[];
+
         // Calculate: storedRates[1] * lastPrice / storedRates[0]
-        if (storedRates[0] > BigInt(0)) {
-          const calculatedPrice = (storedRates[1] * lastPrice) / storedRates[0];
+        // Ensure storedRates is an array with at least 2 elements
+        if (Array.isArray(storedRatesArray) && storedRatesArray.length >= 2 && storedRatesArray[0] > BigInt(0)) {
+          const calculatedPrice = (storedRatesArray[1] * lastPriceBigInt) / storedRatesArray[0];
           return { lastPrice: calculatedPrice.toString() };
         }
+        context.log.warn(`Invalid stored_rates() result for ${input.poolAddress}: ${JSON.stringify(storedRates)}`);
         return { lastPrice: ZERO_BI.toString() };
       } else {
         // For CURVE/CURVE_NG: call last_prices()

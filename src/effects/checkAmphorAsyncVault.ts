@@ -67,16 +67,19 @@ export const checkAmphorAsyncVault = createEffect(
           address: infravaultAddress,
           abi: AMPHOR_ASYNC_VAULT_ABI,
           functionName: "pendingSilo",
+          blockNumber: BigInt(input.blockNumber),
         }).catch(() => null),
         publicClient.readContract({
           address: infravaultAddress,
           abi: AMPHOR_ASYNC_VAULT_ABI,
           functionName: "claimableSilo",
+          blockNumber: BigInt(input.blockNumber),
         }).catch(() => null),
         publicClient.readContract({
           address: infravaultAddress,
           abi: AMPHOR_ASYNC_VAULT_ABI,
           functionName: "epochId",
+          blockNumber: BigInt(input.blockNumber),
         }).catch(() => null),
       ]);
 
