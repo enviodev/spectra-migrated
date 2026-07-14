@@ -1,11 +1,13 @@
 // Reference: spectra-subgraph-master/src/mappings/amm/adminFee.ts
 
-import { CurvePool } from "generated";
+import { indexer, CurvePool } from "envio";
 import { ZERO_BI } from "../../constants";
 import { createFeeClaim } from "../../entities/FeeClaim";
 
 // CurvePool ClaimAdminFee handlers
-CurvePool.ClaimAdminFee.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "CurvePool", event: "ClaimAdminFee" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/amm/adminFee.ts handleClaimAdminFee
   // Prefix with chainId for multichain support
   const poolId = `${event.chainId}-${event.srcAddress}`;
@@ -33,13 +35,17 @@ CurvePool.ClaimAdminFee.handler(async ({ event, context }) => {
     ...pool,
     totalClaimedAdminFees: pool.totalClaimedAdminFees + event.params.tokens,
   });
-});
+}
+);
 
 // CurvePoolNG ClaimAdminFee handlers
 // Note: Original subgraph has this as TODO (see handleClaimAdminFeeNG in spectra-subgraph-master/src/mappings/amm/adminFee.ts)
 // Leaving as TODO to match original subgraph implementation
-CurvePool.ClaimAdminFeeNG.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "CurvePool", event: "ClaimAdminFeeNG" },
+  async ({ event, context }) => {
   // TODO: Original subgraph has this as TODO - not implemented
   // Reference: spectra-subgraph-master/src/mappings/amm/adminFee.ts line 27-29
-});
+}
+);
 

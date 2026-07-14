@@ -1,6 +1,6 @@
 // Reference: spectra-subgraph-master/src/entities/Yield.ts
 
-import { AccountAsset } from "generated";
+import { AccountAsset } from "envio";
 import { ZERO_BI } from "../constants";
 import { generateAccountAssetId } from "../utils/idGenerators";
 import { getAccount } from "./Account";

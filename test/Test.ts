@@ -1,8 +1,5 @@
 import assert from "assert";
-import { 
-  TestHelpers,
-  Registry_AuthorityUpdated
-} from "generated";
+import { TestHelpers, Registry_AuthorityUpdated } from "envio";
 const { MockDb, Registry } = TestHelpers;
 
 describe("Registry contract AuthorityUpdated event tests", () => {

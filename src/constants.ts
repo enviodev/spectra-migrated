@@ -1,6 +1,6 @@
 // Reference: spectra-subgraph-master/src/constants.ts
 
-import { BigDecimal } from "generated";
+import { BigDecimal } from "envio";
 
 export const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000"
 export const ZERO_BD = new BigDecimal("0")

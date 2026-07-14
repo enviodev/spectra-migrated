@@ -1,9 +1,11 @@
 // Reference: spectra-subgraph-master/src/mappings/metavaults/metavaultRegistry.ts
 
-import { MetavaultsRegistry } from "generated";
+import { indexer } from "envio";
 import { getMetavault } from "../../entities/Metavault";
 
-MetavaultsRegistry.MetavaultRegistered.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "MetavaultsRegistry", event: "MetavaultRegistered" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/metavaults/metavaultRegistry.ts handleMetavaultRegistered  
 
   let metavault = await getMetavault(
@@ -19,9 +21,12 @@ MetavaultsRegistry.MetavaultRegistered.handler(async ({ event, context }) => {
     ...metavault,
     isMetavaultRegistered: true,
   });
-});
+}
+);
 
-MetavaultsRegistry.MetavaultUnregistered.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "MetavaultsRegistry", event: "MetavaultUnregistered" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/metavaults/metavaultRegistry.ts handleMetavaultUnregistered  
 
   let metavault = await getMetavault(
@@ -37,9 +42,12 @@ MetavaultsRegistry.MetavaultUnregistered.handler(async ({ event, context }) => {
     ...metavault,
     isMetavaultRegistered: false,
   });
-});
+}
+);
 
-MetavaultsRegistry.ChainRegistered.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "MetavaultsRegistry", event: "ChainRegistered" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/metavaults/metavaultRegistry.ts handleChainRegistered
   // Prefix with chainId for multichain support
   const metavaultId = `${event.chainId}-${event.params.metavault}`;
@@ -63,18 +71,24 @@ MetavaultsRegistry.ChainRegistered.handler(async ({ event, context }) => {
   // Note: In Envio, @derivedFrom fields (like metavault.chains) are virtual
   // They are automatically populated based on the reverse relationship (RemoteMetavault.metavault_id)
   // So we don't need to manually add to the chains array like the subgraph does
-});
+}
+);
 
-MetavaultsRegistry.ChainUnregistered.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "MetavaultsRegistry", event: "ChainUnregistered" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/metavaults/metavaultRegistry.ts handleChainUnregistered
   // Remove RemoteMetavault entity
   // Note: In subgraph, they manually remove from metavault.chains array
   // In Envio, removing the entity will automatically remove it from the @derivedFrom array
   const remoteMetavaultId = `${event.chainId}-${event.params.metavault}-${event.params.chainId}`;
   context.RemoteMetavault.deleteUnsafe(remoteMetavaultId);
-});
+}
+);
 
-MetavaultsRegistry.MarketRegistered.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "MetavaultsRegistry", event: "MarketRegistered" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/metavaults/metavaultRegistry.ts handleMarketRegistered
   // Prefix with chainId for multichain support
   const poolId = `${event.chainId}-${event.params.market}`;
@@ -91,9 +105,12 @@ MetavaultsRegistry.MarketRegistered.handler(async ({ event, context }) => {
       metavault_id: metavaultId,
     });
   }
-});
+}
+);
 
-MetavaultsRegistry.MarketUnregistered.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "MetavaultsRegistry", event: "MarketUnregistered" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/metavaults/metavaultRegistry.ts handleMarketUnregistered
   // Prefix with chainId for multichain support
   const poolId = `${event.chainId}-${event.params.market}`;
@@ -109,5 +126,6 @@ MetavaultsRegistry.MarketUnregistered.handler(async ({ event, context }) => {
       metavault_id: undefined,
     });
   }
-});
+}
+);
 

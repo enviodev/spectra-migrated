@@ -1,6 +1,6 @@
 // Reference: spectra-subgraph-master/src/mappings/amm/removeLiquidity.ts
 
-import { CurvePool } from "generated";
+import { indexer, CurvePool } from "envio";
 import { ZERO_ADDRESS, ZERO_BI, UNIT_BI, SECONDS_PER_HOUR, SECONDS_PER_DAY, CURVE_UNIT } from "../../constants";
 import { getAccount } from "../../entities/Account";
 import { updateAccountAssetBalance } from "../../entities/AccountAsset";
@@ -360,20 +360,29 @@ export async function removeLiquidity(
 }
 
 // CurvePool RemoveLiquidity handlers
-CurvePool.RemoveLiquidity.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "CurvePool", event: "RemoveLiquidity" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/amm/removeLiquidity.ts handleRemoveLiquidity
   await removeLiquidity(event, event.params.token_amounts, context, undefined, "CurvePool.RemoveLiquidity");
-});
+}
+);
 
 // CurvePoolSNG RemoveLiquidity handlers
-CurvePool.RemoveLiquiditySNG.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "CurvePool", event: "RemoveLiquiditySNG" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/amm/removeLiquidity.ts handleRemoveLiquiditySNG
   await removeLiquidity(event, event.params.token_amounts, context, undefined, "CurvePool.RemoveLiquiditySNG");
-});
+}
+);
 
 // CurvePoolSNG RemoveLiquidityImbalance handlers
-CurvePool.RemoveLiquidityImbalanceSNG.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "CurvePool", event: "RemoveLiquidityImbalanceSNG" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/amm/removeLiquidity.ts handleRemoveLiquidityImbalanceSNG
   // RemoveLiquidityImbalance is similar to RemoveLiquidity but with different token_amounts structure
   await removeLiquidity(event, event.params.token_amounts, context, undefined, "CurvePool.RemoveLiquidityImbalanceSNG");
-});
+}
+);

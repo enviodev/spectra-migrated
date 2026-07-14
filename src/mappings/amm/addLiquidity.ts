@@ -1,7 +1,7 @@
 // Reference: spectra-subgraph-master/src/mappings/amm/addLiquidity.ts
 
 
-import { CurvePool } from "generated";
+import { indexer, CurvePool } from "envio";
 import { ZERO_ADDRESS, ZERO_BI, UNIT_BI, SECONDS_PER_HOUR, SECONDS_PER_DAY, CURVE_UNIT } from "../../constants";
 import { getAccount } from "../../entities/Account";
 import { updateAccountAssetBalance } from "../../entities/AccountAsset";
@@ -394,20 +394,29 @@ async function addLiquidity(
 }
 
 // CurvePool AddLiquidity handlers
-CurvePool.AddLiquidity.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "CurvePool", event: "AddLiquidity" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/amm/addLiquidity.ts handleAddLiquidity
   await addLiquidity(event, event.params.token_amounts, event.params.fee, context, "CurvePool.AddLiquidity");
-});
+}
+);
 
 // CurvePoolNG AddLiquidity handlers
-CurvePool.AddLiquidityNG.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "CurvePool", event: "AddLiquidityNG" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/amm/addLiquidity.ts handleAddLiquidityNG
   await addLiquidity(event, event.params.token_amounts, event.params.fee, context, "CurvePool.AddLiquidityNG");
-});
+}
+);
 
 // CurvePoolSNG AddLiquidity handlers
-CurvePool.AddLiquiditySNG.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "CurvePool", event: "AddLiquiditySNG" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/amm/addLiquidity.ts handleAddLiquiditySNG
   // Note: SNG pools don't have fee parameter, use 0
   await addLiquidity(event, event.params.token_amounts, ZERO_BI, context, "CurvePool.AddLiquiditySNG");
-});
+}
+);

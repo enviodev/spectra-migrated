@@ -1,6 +1,6 @@
 // Reference: spectra-subgraph-master/src/entities/IBTAsset.ts
 
-import { Asset_t } from "generated/src/db/Entities.gen";
+import { type Asset } from "envio";
 import { getAsset } from "./Asset";
 import { getIBTRate } from "./ERC4626";
 import { getERC20Decimals } from "./ERC20";
@@ -15,7 +15,7 @@ export async function getIBTAsset(
   chainId: number,
   blockNumber: number,
   context: any
-): Promise<Asset_t> {
+): Promise<Asset> {
   // Get or create IBT Asset entity
   const ibtAsset = await getAsset(
     ibtAddress,

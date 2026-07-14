@@ -1,6 +1,6 @@
 // Reference: spectra-subgraph-master/src/entities/FeeClaim.ts
 
-import { FeeClaim } from "generated";
+import { FeeClaim } from "envio";
 import { ZERO_BI } from "../constants";
 import { generateFeeClaimId } from "../utils/idGenerators";
 import { getAccount } from "./Account";

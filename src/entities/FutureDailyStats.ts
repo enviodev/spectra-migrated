@@ -1,6 +1,6 @@
 // Reference: spectra-subgraph-master/src/entities/FutureDailyStats.ts
 
-import { FutureDailyStats } from "generated";
+import { FutureDailyStats } from "envio";
 import { DAYS_PER_YEAR_BD, ZERO_BD, ZERO_BI } from "../constants";
 import { generateFutureDailyStatsId } from "../utils/idGenerators";
 import { getDayIdFromTimestamp, getPastDayId } from "../utils/dayId";

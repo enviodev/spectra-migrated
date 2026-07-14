@@ -1,6 +1,6 @@
 // Reference: spectra-subgraph-master/src/mappings/amm/removeLiquidityOne.ts
 
-import { CurvePool } from "generated";
+import { indexer, CurvePool } from "envio";
 import { ZERO_BI } from "../../constants";
 import { removeLiquidity } from "./removeLiquidity";
 
@@ -44,7 +44,9 @@ async function removeLiquidityOne(
 }
 
 // CurvePool RemoveLiquidityOne handlers
-CurvePool.RemoveLiquidityOne.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "CurvePool", event: "RemoveLiquidityOne" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/amm/removeLiquidityOne.ts handleRemoveLiquidityOne
   await removeLiquidityOne(
     event,
@@ -54,10 +56,13 @@ CurvePool.RemoveLiquidityOne.handler(async ({ event, context }) => {
     context,
     "CurvePool.RemoveLiquidityOne"
   );
-});
+}
+);
 
 // CurvePoolNG RemoveLiquidityOne handlers
-CurvePool.RemoveLiquidityOneNG.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "CurvePool", event: "RemoveLiquidityOneNG" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/amm/removeLiquidityOne.ts handleRemoveLiquidityOneNG
   await removeLiquidityOne(
     event,
@@ -67,11 +72,14 @@ CurvePool.RemoveLiquidityOneNG.handler(async ({ event, context }) => {
     context,
     "CurvePool.RemoveLiquidityOneNG"
   );
-});
+}
+);
 
 // CurvePoolSNG RemoveLiquidityOne handlers
 // Note: SNG uses token_id (int128) instead of coin_index (uint256)
-CurvePool.RemoveLiquidityOneSNG.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "CurvePool", event: "RemoveLiquidityOneSNG" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/amm/removeLiquidityOne.ts handleRemoveLiquidityOneSNG
   await removeLiquidityOne(
     event,
@@ -81,4 +89,5 @@ CurvePool.RemoveLiquidityOneSNG.handler(async ({ event, context }) => {
     context,
     "CurvePool.RemoveLiquidityOneSNG"
   );
-});
+}
+);

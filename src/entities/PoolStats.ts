@@ -1,6 +1,6 @@
 // Reference: spectra-subgraph-master/src/entities/PoolStats.ts
 
-import { PoolStats_t, Pool_t } from "generated/src/db/Entities.gen";
+import { type PoolStats, type Pool } from "envio";
 import { UNIT_BI, ZERO_BI, ZERO_BD, SECONDS_PER_YEAR } from "../constants";
 import { generatePoolStatsId } from "../utils/idGenerators";
 
@@ -21,7 +21,7 @@ export async function createPoolStats(
   statId: number,
   timestamp: bigint,
   context: any
-): Promise<PoolStats_t> {
+): Promise<PoolStats> {
   const poolStatsId = `${poolId}-S-${span}-${statId}`;
 
   let poolStats = await context.PoolStats.get(poolStatsId);
@@ -63,7 +63,7 @@ export async function createPoolStats(
  */
 export async function updatePoolStats(
   event: any,
-  pool: Pool_t,
+  pool: Pool,
   span: number,
   type: PoolActionType,
   valueUnderlying: bigint,
@@ -71,7 +71,7 @@ export async function updatePoolStats(
   feeRatio: bigint,
   chainId: number,
   context: any
-): Promise<PoolStats_t> {
+): Promise<PoolStats> {
   const statId = Math.floor(event.block.timestamp / span);
   const poolStatsId = `${chainId}-${generatePoolStatsId(pool.address, span.toString(), statId.toString())}`;
 

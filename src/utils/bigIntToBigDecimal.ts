@@ -1,6 +1,6 @@
 // Reference: spectra-subgraph-master/src/utils/bigIntToBigDecimal.ts
 
-import { BigDecimal } from "generated";
+import { BigDecimal } from "envio";
 
 export function bigIntToBigDecimal(
     quantity: bigint,

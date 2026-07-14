@@ -1,6 +1,6 @@
 // Reference: spectra-subgraph-master/src/entities/AssetAmount.ts
 
-import { AssetAmount_t } from "generated/src/db/Entities.gen";
+import { type AssetAmount } from "envio";
 import { ZERO_BI } from "../constants";
 import { generateAssetAmountId } from "../utils/idGenerators";
 import { getAsset } from "./Asset";
@@ -19,7 +19,7 @@ export async function getAssetAmount(
   blockNumber: number,
   chainId: number,
   context: any
-): Promise<AssetAmount_t> {
+): Promise<AssetAmount> {
   // Generate AssetAmount ID
   const assetAmountId = `${chainId}-${generateAssetAmountId(
     transactionHash,

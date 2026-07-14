@@ -293,7 +293,7 @@ contracts:
     events:
       - event: EpochStart(uint256 indexed timestamp, uint256 lastSavedBalance, uint256 totalShares)
 
-networks:
+chains:
   # Mainnet
   - id: 1
     start_block: 19727256
@@ -561,6 +561,4 @@ networks:
   #     - name: MetavaultWrapper
   #     - name: AmphorAsyncVault
 
-unordered_multichain_mode: true
-preload_handlers: true
 address_format: lowercase

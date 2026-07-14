@@ -1,6 +1,6 @@
 // Reference: spectra-subgraph-master/src/entities/Pool.ts
 
-import { Pool_t } from "generated/src/db/Entities.gen";
+import { type Pool } from "envio";
 import { CURVE_UNIT, ZERO_BI, ZERO_ADDRESS } from "../constants";
 import { PoolType } from "../utils/PoolType";
 import { getAsset } from "./Asset";
@@ -47,7 +47,7 @@ export function getPoolLiquidityInUnderlying(
  * Returns [ibtAdminFee, ptAdminFee, newIbtAdminBalance, newPtAdminBalance]
  */
 export async function updatePoolAdminBalances(
-  pool: Pool_t,
+  pool: Pool,
   poolAddress: string,
   poolType: string,
   chainId: number,
@@ -95,7 +95,7 @@ export async function updatePoolAdminBalances(
  * Reference: spectra-subgraph-master/src/entities/Pool.ts
  */
 export function getLpFeeUnderlying(
-  pool: Pool_t,
+  pool: Pool,
   valueUnderlying: bigint,
   ibtAdminFee: bigint,
   ptAdminFee: bigint,
@@ -142,7 +142,7 @@ export async function createPool(
   chainId: number,
   blockNumber: number,
   context: any
-): Promise<Pool_t> {
+): Promise<Pool> {
   const poolId = `${chainId}-${poolAddress}`;
 
   // Create AssetAmount for IBT
@@ -231,7 +231,7 @@ export async function createPool(
   );
 
   // Create Pool entity
-  const pool: Pool_t = {
+  const pool: Pool = {
     id: poolId,
     address: poolAddress,
     createdAtTimestamp: timestamp,

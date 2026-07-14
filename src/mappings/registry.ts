@@ -1,15 +1,20 @@
 // Reference: spectra-subgraph-master/src/mappings/registry.ts
 
-import { Registry } from "generated";
+import { indexer } from "envio";
 import { createFactory } from "../entities/Factory";
 
 // Register dynamic Factory contract created by FactoryChange event
-Registry.FactoryChange.contractRegister(({ event, context }) => {
+indexer.contractRegister(
+  { contract: "Registry", event: "FactoryChange" },
+  ({ event, context }) => {
   // Register new Factory contract when FactoryChange event occurs
-  context.addFactory(event.params.newFactory);
-});
+  context.chain.Factory.add(event.params.newFactory);
+}
+);
 
-Registry.FactoryChange.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "Registry", event: "FactoryChange" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/registry.ts handleFactoryChange
 
   // Get or create new Factory entity
@@ -44,5 +49,6 @@ Registry.FactoryChange.handler(async ({ event, context }) => {
     ...factory,
     oldFactory: oldFactoryAddress,
   });
-});
+}
+);
 

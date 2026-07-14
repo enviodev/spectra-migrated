@@ -1,6 +1,6 @@
 // Reference: spectra-subgraph-master/src/mappings/wrappers.ts
 
-import { SpectraWrapper, ERC20 } from "generated";
+import { indexer, SpectraWrapper, ERC20 } from "envio";
 import { getSpectraWrapper } from "../entities/SpectraWrapper";
 import { getAsset } from "../entities/Asset";
 import { isSpectraWrapper } from "../utils/checkSpectraWrapperSymbol";
@@ -16,7 +16,9 @@ const checkedAddresses = new Set<string>();
 
 // Register dynamic SpectraWrapper as ERC20 to track transfers (matches subgraph's ERC20.create)
 // Only register if symbol starts with "sw-" (matches subgraph line 18-20 check before line 40)
-SpectraWrapper.AuthorityUpdated.contractRegister(async ({ event, context }) => {
+indexer.contractRegister(
+  { contract: "SpectraWrapper", event: "AuthorityUpdated" },
+  async ({ event, context }) => {
   // Create cache key
   const cacheKey = `${event.chainId}-${event.srcAddress.toLowerCase()}`;
   
@@ -34,11 +36,14 @@ SpectraWrapper.AuthorityUpdated.contractRegister(async ({ event, context }) => {
   
   if (isWrapper) {
     // Register as ERC20 to track Transfer events (matches subgraph line 40 in wrappers.ts)
-    context.addERC20(event.srcAddress);
+    context.chain.ERC20.add(event.srcAddress);
   }
-});
+}
+);
 
-SpectraWrapper.AuthorityUpdated.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "SpectraWrapper", event: "AuthorityUpdated", wildcard: true }, // wildcard: track all SpectraWrapper contracts
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/wrappers.ts handleAuthorityUpdated
   // Check if symbol starts with "sw-" (SpectraWrapper prefix)
   // This check is done via RPC in getSpectraWrapper, but we can skip if wrapper already exists
@@ -77,9 +82,8 @@ SpectraWrapper.AuthorityUpdated.handler(async ({ event, context }) => {
     event.block.number,
     context
   );
-}, {
-  wildcard: true  // Enable wildcard indexing to track ALL SpectraWrapper contracts
-});
+}
+);
 
 // Note: SpectraWrapper.Transfer handler is in transfers.ts to avoid duplicate registration
 

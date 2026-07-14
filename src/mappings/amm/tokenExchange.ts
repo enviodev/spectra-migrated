@@ -1,6 +1,6 @@
 // Reference: spectra-subgraph-master/src/mappings/amm/tokenExchange.ts
 
-import { CurvePool } from "generated";
+import { indexer, CurvePool } from "envio";
 import { ZERO_ADDRESS, ZERO_BI, UNIT_BI, SECONDS_PER_HOUR, SECONDS_PER_DAY, CURVE_UNIT } from "../../constants";
 import { getAccount } from "../../entities/Account";
 import { updateAccountAssetBalance } from "../../entities/AccountAsset";
@@ -381,7 +381,9 @@ async function tokenExchange(
 }
 
 // CurvePool TokenExchange handlers
-CurvePool.TokenExchange.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "CurvePool", event: "TokenExchange" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/amm/tokenExchange.ts handleTokenExchange
   await tokenExchange(
     event,
@@ -392,10 +394,13 @@ CurvePool.TokenExchange.handler(async ({ event, context }) => {
     context,
     "CurvePool.TokenExchange"
   );
-});
+}
+);
 
 // CurvePoolNG TokenExchange handlers
-CurvePool.TokenExchangeNG.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "CurvePool", event: "TokenExchangeNG" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/amm/tokenExchange.ts handleTokenExchangeNG
   await tokenExchange(
     event,
@@ -406,10 +411,13 @@ CurvePool.TokenExchangeNG.handler(async ({ event, context }) => {
     context,
     "CurvePool.TokenExchangeNG"
   );
-});
+}
+);
 
 // CurvePoolSNG TokenExchange handlers
-CurvePool.TokenExchangeSNG.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "CurvePool", event: "TokenExchangeSNG" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/amm/tokenExchange.ts handleTokenExchangeSNG
   // Note: SNG uses int128 for sold_id and bought_id, but we handle it the same way
   await tokenExchange(
@@ -421,4 +429,5 @@ CurvePool.TokenExchangeSNG.handler(async ({ event, context }) => {
     context,
     "CurvePool.TokenExchangeSNG"
   );
-});
+}
+);

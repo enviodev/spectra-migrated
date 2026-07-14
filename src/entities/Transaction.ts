@@ -1,6 +1,6 @@
 // Reference: spectra-subgraph-master/src/entities/Transaction.ts
 
-import { Transaction_t } from "generated/src/db/Entities.gen";
+import { type Transaction } from "envio";
 import { ZERO_ADDRESS, ZERO_BI } from "../constants";
 import { getAccount } from "./Account";
 import { generateTransactionId } from "../utils/idGenerators";
@@ -37,7 +37,7 @@ export async function createTransaction(
   params: CreateTransactionParams,
   chainId: number,
   context: any
-): Promise<Transaction_t> {
+): Promise<Transaction> {
   // Prefix with chainId for multichain support
   const transactionId = `${chainId}-${params.id}`;
   

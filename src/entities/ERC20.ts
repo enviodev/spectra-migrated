@@ -1,6 +1,6 @@
 // Reference: spectra-subgraph-master/src/entities/ERC20.ts
 
-import { Asset_t } from "generated/src/db/Entities.gen";
+import { type Asset } from "envio";
 import { ZERO_BI } from "../constants";
 import { getERC20Data } from "../effects/getERC20Data";
 import { getERC20TotalSupply as getERC20TotalSupplyEffect } from "../effects/getERC20TotalSupply";

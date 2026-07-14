@@ -1,8 +1,10 @@
 // Reference: spectra-subgraph-master/src/mappings/accessManager.ts
 
-import { AccessManager } from "generated";
+import { indexer } from "envio";
 
-AccessManager.RoleGranted.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "AccessManager", event: "RoleGranted" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/accessManager.ts handleRoleGranted
   // Prefix with chainId for multichain support
   // Use transaction.hash (requires field_selection in config.yaml)
@@ -48,9 +50,12 @@ AccessManager.RoleGranted.handler(async ({ event, context }) => {
     };
   }
   context.RoleAttribution.set(attribution);
-});
+}
+);
 
-AccessManager.RoleRevoked.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "AccessManager", event: "RoleRevoked" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/accessManager.ts handleRoleRevoked
   // Prefix with chainId for multichain support
   const eventId = `${event.chainId}-${event.transaction.hash.toLowerCase()}-${event.logIndex}`;
@@ -72,9 +77,12 @@ AccessManager.RoleRevoked.handler(async ({ event, context }) => {
   // Remove RoleAttribution using deleteUnsafe
   const attributionId = `${event.chainId}-${event.params.account}-${event.params.roleId}`;
   context.RoleAttribution.deleteUnsafe(attributionId);
-});
+}
+);
 
-AccessManager.RoleAdminChanged.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "AccessManager", event: "RoleAdminChanged" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/accessManager.ts handleRoleAdminChanged
   const eventId = `${event.chainId}-${event.transaction.hash.toLowerCase()}-${event.logIndex}`;
 
@@ -88,9 +96,12 @@ AccessManager.RoleAdminChanged.handler(async ({ event, context }) => {
     logIndex: BigInt(event.logIndex),
   };
   context.RoleAdminChanged.set(roleAdminChanged);
-});
+}
+);
 
-AccessManager.RoleGuardianChanged.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "AccessManager", event: "RoleGuardianChanged" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/accessManager.ts handleRoleGuardianChanged
   const eventId = `${event.chainId}-${event.transaction.hash.toLowerCase()}-${event.logIndex}`;
 
@@ -104,9 +115,12 @@ AccessManager.RoleGuardianChanged.handler(async ({ event, context }) => {
     logIndex: BigInt(event.logIndex),
   };
   context.RoleGuardianChanged.set(roleGuardianChanged);
-});
+}
+);
 
-AccessManager.RoleGrantDelayChanged.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "AccessManager", event: "RoleGrantDelayChanged" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/accessManager.ts handleRoleGrantDelayChanged
   const eventId = `${event.chainId}-${event.transaction.hash.toLowerCase()}-${event.logIndex}`;
 
@@ -121,9 +135,12 @@ AccessManager.RoleGrantDelayChanged.handler(async ({ event, context }) => {
     logIndex: BigInt(event.logIndex),
   };
   context.RoleGrantDelayChanged.set(roleGrantDelayChanged);
-});
+}
+);
 
-AccessManager.TargetAdminDelayUpdated.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "AccessManager", event: "TargetAdminDelayUpdated" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/accessManager.ts handleTargetAdminDelayUpdated
   const eventId = `${event.chainId}-${event.transaction.hash.toLowerCase()}-${event.logIndex}`;
 
@@ -138,9 +155,12 @@ AccessManager.TargetAdminDelayUpdated.handler(async ({ event, context }) => {
     logIndex: BigInt(event.logIndex),
   };
   context.TargetAdminDelayUpdated.set(targetAdminDelayUpdated);
-});
+}
+);
 
-AccessManager.TargetClosed.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "AccessManager", event: "TargetClosed" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/accessManager.ts handleTargetClosed
   const eventId = `${event.chainId}-${event.transaction.hash.toLowerCase()}-${event.logIndex}`;
 
@@ -154,9 +174,12 @@ AccessManager.TargetClosed.handler(async ({ event, context }) => {
     logIndex: BigInt(event.logIndex),
   };
   context.TargetClosed.set(targetClosed);
-});
+}
+);
 
-AccessManager.TargetFunctionRoleUpdated.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "AccessManager", event: "TargetFunctionRoleUpdated" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/accessManager.ts handleTargetFunctionRoleUpdated
   const eventId = `${event.chainId}-${event.transaction.hash.toLowerCase()}-${event.logIndex}`;
 
@@ -171,9 +194,12 @@ AccessManager.TargetFunctionRoleUpdated.handler(async ({ event, context }) => {
     logIndex: BigInt(event.logIndex),
   };
   context.TargetFunctionRoleUpdated.set(targetFunctionRoleUpdated);
-});
+}
+);
 
-AccessManager.OperationScheduled.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "AccessManager", event: "OperationScheduled" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/accessManager.ts handleOperationScheduled
   const eventId = `${event.chainId}-${event.transaction.hash.toLowerCase()}-${event.logIndex}`;
 
@@ -191,9 +217,12 @@ AccessManager.OperationScheduled.handler(async ({ event, context }) => {
     logIndex: BigInt(event.logIndex),
   };
   context.OperationScheduled.set(operationScheduled);
-});
+}
+);
 
-AccessManager.OperationExecuted.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "AccessManager", event: "OperationExecuted" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/accessManager.ts handleOperationExecuted
   const eventId = `${event.chainId}-${event.transaction.hash.toLowerCase()}-${event.logIndex}`;
 
@@ -207,9 +236,12 @@ AccessManager.OperationExecuted.handler(async ({ event, context }) => {
     logIndex: BigInt(event.logIndex),
   };
   context.OperationExecuted.set(operationExecuted);
-});
+}
+);
 
-AccessManager.OperationCanceled.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "AccessManager", event: "OperationCanceled" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/accessManager.ts handleOperationCanceled
   const eventId = `${event.chainId}-${event.transaction.hash.toLowerCase()}-${event.logIndex}`;
 
@@ -223,9 +255,12 @@ AccessManager.OperationCanceled.handler(async ({ event, context }) => {
     logIndex: BigInt(event.logIndex),
   };
   context.OperationCanceled.set(operationCanceled);
-});
+}
+);
 
-AccessManager.RoleLabel.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "AccessManager", event: "RoleLabel" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/accessManager.ts handleRoleLabel
   const eventId = `${event.chainId}-${event.transaction.hash.toLowerCase()}-${event.logIndex}`;
 
@@ -239,5 +274,6 @@ AccessManager.RoleLabel.handler(async ({ event, context }) => {
     logIndex: BigInt(event.logIndex),
   };
   context.RoleLabel.set(roleLabel);
-});
+}
+);
 

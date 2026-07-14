@@ -1,10 +1,12 @@
 // Reference: spectra-subgraph-master/src/mappings/metavaults/amphorAsyncVault.ts
 
-import { AmphorAsyncVault } from "generated";
+import { indexer, AmphorAsyncVault } from "envio";
 import { createMetavaultEpoch } from "../../entities/Metavault";
 import { getAmphorAsyncVaultData } from "../../effects/getAmphorAsyncVaultData";
 
-AmphorAsyncVault.EpochStart.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "AmphorAsyncVault", event: "EpochStart" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/metavaults/amphorAsyncVault.ts handleEpochStart
   // Get infravault by address
   const infravaultId = `${event.chainId}-${event.srcAddress}`;
@@ -61,5 +63,6 @@ AmphorAsyncVault.EpochStart.handler(async ({ event, context }) => {
     event.chainId,
     context
   );
-});
+}
+);
 

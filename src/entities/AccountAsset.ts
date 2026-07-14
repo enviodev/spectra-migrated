@@ -1,6 +1,6 @@
 // Reference: spectra-subgraph-master/src/entities/AccountAsset.ts
 
-import { AccountAsset_t } from "generated/src/db/Entities.gen";
+import { type AccountAsset } from "envio";
 import { ZERO_BI } from "../constants";
 import { generateAccountAssetId } from "../utils/idGenerators";
 import { getAccount } from "./Account";
@@ -24,7 +24,7 @@ export async function getAccountAsset(
   assetId: string | null = null,
   chainId: number,
   context: any
-): Promise<AccountAsset_t> {
+): Promise<AccountAsset> {
   // Generate account asset ID
   const finalAssetId = assetId !== null ? assetId : assetAddress;
   const accountAssetId = `${chainId}-${generateAccountAssetId(accountAddress, finalAssetId)}`;
@@ -72,7 +72,7 @@ export async function updateAccountMetavaultRequest(
   amount: bigint,
   chainId: number,
   context: any
-): Promise<AccountAsset_t> {
+): Promise<AccountAsset> {
   // Get asset ID with suffix for metavault requests
   const assetId = getAssetId(metavaultAddress, requestType);
   
@@ -132,7 +132,7 @@ export async function updateAccountAssetBalance(
   chainId: number,
   blockNumber: number,
   context: any
-): Promise<AccountAsset_t> {
+): Promise<AccountAsset> {
   // Get or create AccountAsset
   const accountAsset = await getAccountAsset(
     accountAddress,
@@ -193,7 +193,7 @@ export async function updateAccountAssetYTBalance(
   chainId: number,
   blockNumber: number,
   context: any
-): Promise<AccountAsset_t> {
+): Promise<AccountAsset> {
   // Get or create AccountAsset for YT
   const accountAsset = await getAccountAsset(
     accountAddress,

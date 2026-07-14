@@ -1,6 +1,6 @@
 // Reference: spectra-subgraph-master/src/mappings/transfers.ts
 
-import { ERC20, IBT, MetavaultWrapper } from "generated";
+import { indexer } from "envio";
 import { ZERO_ADDRESS } from "../constants";
 import { getAccount } from "../entities/Account";
 import { updateAccountAssetBalance, updateAccountAssetYTBalance } from "../entities/AccountAsset";
@@ -14,7 +14,9 @@ import { generateTransferId } from "../utils/idGenerators";
 // IBT Transfer handlers
 // Reference: spectra-subgraph-master/src/mappings/transfers.ts handleIBTTransfer
 // Note: IBT transfers don't create Transfer entities, they just update IBT rates
-IBT.Transfer.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "IBT", event: "Transfer" },
+  async ({ event, context }) => {
   await updateIBTRates(
     event.srcAddress,
     BigInt(event.block.timestamp),
@@ -22,10 +24,13 @@ IBT.Transfer.handler(async ({ event, context }) => {
     Number(event.block.number),
     context
   );
-});
+}
+);
 
 // ERC20 Transfer handlers
-ERC20.Transfer.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "ERC20", event: "Transfer" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/transfers.ts handleTransfer
   const eventTimestamp = BigInt(event.block.timestamp);
 
@@ -148,7 +153,8 @@ ERC20.Transfer.handler(async ({ event, context }) => {
       context
     );
   }
-});
+}
+);
 
 // // denham todo - check the subgraph 
 // // Note: SpectraWrapper.Transfer handler removed - SpectraWrapper now uses ERC20 contract type
@@ -157,7 +163,7 @@ ERC20.Transfer.handler(async ({ event, context }) => {
 // // MetavaultWrapper Transfer handlers
 // // Reference: MetavaultWrapper implements ERC20, so Transfer events track share transfers
 // // MetavaultWrapper has Transfer event in config (can't register as both MetavaultWrapper and ERC20 in Envio)
-// MetavaultWrapper.Transfer.handler(async ({ event, context }) => {
+// MetavaultWrapper.Transfer.handler_COMMENTED(async ({ event, context }) => {
 //   // MetavaultWrapper transfers use the same logic as ERC20 transfers
 //   // Reference: spectra-subgraph-master/src/mappings/transfers.ts handleTransfer
 //   const eventTimestamp = BigInt(event.block.timestamp);
@@ -288,7 +294,9 @@ ERC20.Transfer.handler(async ({ event, context }) => {
 // MetavaultWrapper Transfer handlers
 // Reference: MetavaultWrapper implements ERC20, so Transfer events track share transfers
 // MetavaultWrapper has Transfer event in config (can't register as both MetavaultWrapper and ERC20 in Envio)
-MetavaultWrapper.Transfer.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "MetavaultWrapper", event: "Transfer" },
+  async ({ event, context }) => {
   // MetavaultWrapper transfers use the same logic as ERC20 transfers
   // Reference: spectra-subgraph-master/src/mappings/transfers.ts handleTransfer
   const eventTimestamp = BigInt(event.block.timestamp);
@@ -373,4 +381,5 @@ MetavaultWrapper.Transfer.handler(async ({ event, context }) => {
     Number(event.block.number),
     context
   );
-});
+}
+);

@@ -1,7 +1,7 @@
 // Reference: spectra-subgraph-master/src/mappings/futures.ts
 
-import { Factory, PrincipalToken, CurvePool } from "generated";
-// import { Factory, PrincipalToken, CurvePool, ERC20 } from "generated";
+import { indexer, Factory, PrincipalToken, CurvePool } from "envio";
+// import { indexer, Factory, PrincipalToken, CurvePool, ERC20 } from "envio";
 import { AssetType } from "../utils/AssetType";
 import { getCurveFactory } from "../effects/getCurveFactory";
 import { getPoolType } from "../effects/getPoolType";
@@ -22,26 +22,34 @@ import { createPool } from "../entities/Pool";
 import { getIBTAsset } from "../entities/IBTAsset";
 
 // Register dynamic contracts created by factory events
-Factory.PTDeployed.contractRegister(({ event, context }) => {
+indexer.contractRegister(
+  { contract: "Factory", event: "PTDeployed" },
+  ({ event, context }) => {
   // Register PrincipalToken contract created by PTDeployed event
   // Note: PT already has Transfer events in PrincipalToken config, so no need to register as ERC20
   // This avoids conflicts since Envio doesn't allow the same address for multiple contract types
-  context.addPrincipalToken(event.params.pt);
-});
+  context.chain.PrincipalToken.add(event.params.pt);
+}
+);
 
-Factory.CurvePoolDeployed.contractRegister(({ event, context }) => {
+indexer.contractRegister(
+  { contract: "Factory", event: "CurvePoolDeployed" },
+  ({ event, context }) => {
   // Register the CurvePool contract
-  context.addCurvePool(event.params.poolAddress);
+  context.chain.CurvePool.add(event.params.poolAddress);
 
   // Note: IBT, YT, and LP token addresses would need to be registered to match subgraph
   // IBT: Subgraph registers in PTDeployed via RPC call to getIBT(pt)
   // YT: Requires RPC call to getYT(pt)
   // LP: Requires RPC call to getPoolLPToken(pool)
   // All three would need wildcard indexing to match subgraph behavior without RPC in contractRegister
-});
+}
+);
 
 // Factory handlers
-Factory.PTDeployed.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "Factory", event: "PTDeployed" },
+  async ({ event, context }) => {
   // Note: Original subgraph calls getNetwork().chainId, but in Envio we have event.chainId directly
   // No need to call setNetwork() here
 
@@ -168,9 +176,12 @@ Factory.PTDeployed.handler(async ({ event, context }) => {
   };
 
   context.Future.set(future);
-});
+}
+);
 
-Factory.CurvePoolDeployed.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "Factory", event: "CurvePoolDeployed" },
+  async ({ event, context }) => {
   const poolAddress = event.params.poolAddress;
   const ibtAddress = event.params.ibt;
   const ptAddress = event.params.pt;
@@ -216,9 +227,12 @@ Factory.CurvePoolDeployed.handler(async ({ event, context }) => {
 
   // Note: Dynamic contract registration is handled in contractRegister
   // CurvePool and ERC20 (LP token) are already registered in config.yaml
-});
+}
+);
 
-Factory.RegistryChange.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "Factory", event: "RegistryChange" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/futures.ts handleRegistryChange
   // Prefix with chainId for multichain support
   const factoryId = `${event.chainId}-${event.srcAddress}`;
@@ -251,9 +265,12 @@ Factory.RegistryChange.handler(async ({ event, context }) => {
     oldRegistry: event.params.previousRegistry,
     registry: event.params.newRegistry,
   });
-});
+}
+);
 
-Factory.CurveFactoryChange.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "Factory", event: "CurveFactoryChange" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/futures.ts handleCurveFactoryChange
   // Prefix with chainId for multichain support
   const factoryId = `${event.chainId}-${event.srcAddress}`;
@@ -274,10 +291,13 @@ Factory.CurveFactoryChange.handler(async ({ event, context }) => {
   } else {
     context.log.warn(`CurveFactoryChange event call for non-existing factory ${event.srcAddress}`);
   }
-});
+}
+);
 
 // PrincipalToken handlers
-PrincipalToken.Paused.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "PrincipalToken", event: "Paused" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/futures.ts handlePaused
   // Prefix with chainId for multichain support
   const futureId = `${event.chainId}-${event.srcAddress}`;
@@ -291,9 +311,12 @@ PrincipalToken.Paused.handler(async ({ event, context }) => {
   } else {
     context.log.warn(`Paused event call for non-existing Future ${event.srcAddress}`);
   }
-});
+}
+);
 
-PrincipalToken.Unpaused.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "PrincipalToken", event: "Unpaused" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/futures.ts handleUnpaused
   // Prefix with chainId for multichain support
   const futureId = `${event.chainId}-${event.srcAddress}`;
@@ -307,9 +330,12 @@ PrincipalToken.Unpaused.handler(async ({ event, context }) => {
   } else {
     context.log.warn(`Unpaused event call for non-existing Future ${event.srcAddress}`);
   }
-});
+}
+);
 
-PrincipalToken.FeeClaimed.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "PrincipalToken", event: "FeeClaimed" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/futures.ts handleFeeClaimed
   // Prefix with chainId for multichain support
   const futureId = `${event.chainId}-${event.srcAddress}`;
@@ -357,9 +383,12 @@ PrincipalToken.FeeClaimed.handler(async ({ event, context }) => {
     totalCollectedFees: future.totalCollectedFees + event.params.receivedAssets,
     unclaimedFees: ZERO_BI,
   });
-});
+}
+);
 
-PrincipalToken.YieldClaimed.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "PrincipalToken", event: "YieldClaimed" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/futures.ts handleYieldClaimed
   // Prefix with chainId for multichain support
   const futureId = `${event.chainId}-${event.srcAddress}`;
@@ -387,9 +416,12 @@ PrincipalToken.YieldClaimed.handler(async ({ event, context }) => {
     event.chainId,
     context
   );
-});
+}
+);
 
-PrincipalToken.YieldUpdated.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "PrincipalToken", event: "YieldUpdated" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/futures.ts handleYieldUpdated
   // Prefix with chainId for multichain support
   const futureId = `${event.chainId}-${event.srcAddress}`;
@@ -407,9 +439,12 @@ PrincipalToken.YieldUpdated.handler(async ({ event, context }) => {
     event.chainId,
     context
   );
-});
+}
+);
 
-PrincipalToken.Transfer.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "PrincipalToken", event: "Transfer" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/futures.ts handlePTTransfer
   // Prefix with chainId for multichain support
   const futureId = `${event.chainId}-${event.srcAddress}`;
@@ -435,9 +470,12 @@ PrincipalToken.Transfer.handler(async ({ event, context }) => {
     event.chainId,
     context
   );
-});
+}
+);
 
-PrincipalToken.Mint.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "PrincipalToken", event: "Mint" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/futures.ts
 
   const futureId = `${event.chainId}-${event.srcAddress}`;
@@ -580,9 +618,12 @@ PrincipalToken.Mint.handler(async ({ event, context }) => {
     ...futureDailyStats,
     dailyDeposits: futureDailyStats.dailyDeposits + UNIT_BI,
   });
-});
+}
+);
 
-PrincipalToken.Redeem.handler(async ({ event, context }) => {
+indexer.onEvent(
+  { contract: "PrincipalToken", event: "Redeem" },
+  async ({ event, context }) => {
   // Reference: spectra-subgraph-master/src/mappings/futures.ts
 
   const futureId = `${event.chainId}-${event.srcAddress}`;
@@ -726,5 +767,6 @@ PrincipalToken.Redeem.handler(async ({ event, context }) => {
     ...futureDailyStats,
     dailyWithdrawals: futureDailyStats.dailyWithdrawals + UNIT_BI,
   });
-});
+}
+);
 

@@ -1,6 +1,6 @@
 // Reference: spectra-subgraph-master/src/entities/SpectraWrapper.ts
 
-import { SpectraWrapper_t } from "generated/src/db/Entities.gen";
+import { type SpectraWrapper } from "envio";
 import { getSpectraWrapperData } from "../effects/getSpectraWrapperData";
 
 /**
@@ -13,7 +13,7 @@ export async function getSpectraWrapper(
   blockNumber: number,
   chainId: number,
   context: any
-): Promise<SpectraWrapper_t> {
+): Promise<SpectraWrapper> {
   // Prefix with chainId for multichain support
   const wrapperId = `${chainId}-${wrapperAddress}`;
 

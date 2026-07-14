@@ -1,6 +1,6 @@
 // Reference: spectra-subgraph-master/src/entities/Account.ts
 
-import { Account } from "generated";
+import { Account } from "envio";
 
 /**
  * Get or create an Account entity

@@ -1,6 +1,6 @@
 // Reference: spectra-subgraph-master/src/entities/Metavault.ts
 
-import { Metavault_t, Infravault_t, Asset_t, MetavaultEpoch_t } from "generated/src/db/Entities.gen";
+import { type Metavault, type Infravault, type Asset, type MetavaultEpoch } from "envio";
 import { getAccount } from "./Account";
 import { getMetavaultWrapperData } from "../effects/getMetavaultWrapperData";
 import { checkAmphorAsyncVault } from "../effects/checkAmphorAsyncVault";
@@ -29,7 +29,7 @@ export async function getMetavault(
   blockNumber: number,
   chainId: number,
   context: any
-): Promise<Metavault_t> {
+): Promise<Metavault> {
   // Prefix with chainId for multichain support
   const metavaultId = `${chainId}-${metavaultAddress}`;
   
@@ -101,7 +101,7 @@ export async function createInfravault(
   chainId: number,
   blockNumber: number,
   context: any
-): Promise<Infravault_t> {
+): Promise<Infravault> {
   // Prefix with chainId for multichain support
   const infravaultId = `${chainId}-${infravaultAddress}`;
   
@@ -139,7 +139,7 @@ export async function getMetavaultFromWrapper(
   blockNumber: number,
   chainId: number,
   context: any
-): Promise<Metavault_t> {
+): Promise<Metavault> {
   // Fetch wrapper data via effect
   const wrapperDataResult = await context.effect(getMetavaultWrapperData, {
     wrapperAddress: metavaultWrapperAddress,
@@ -237,7 +237,7 @@ export async function createMetavaultEpoch(
   blockNumber: bigint,
   chainId: number,
   context: any
-): Promise<MetavaultEpoch_t> {
+): Promise<MetavaultEpoch> {
   // Always fetch owner from wrapper contract via RPC (matches original subgraph)
   // Original: let safeAddress = MetavaultWrapper.bind(metavaultWrapperAddress).try_owner().value
   const wrapperDataResult = await context.effect(getMetavaultWrapperData, {

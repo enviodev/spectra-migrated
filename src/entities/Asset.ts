@@ -1,6 +1,6 @@
 // Reference: spectra-subgraph-master/src/entities/Asset.ts
 
-import { Asset_t } from "generated/src/db/Entities.gen";
+import { type Asset } from "envio";
 import { getERC20Name, getERC20Symbol, getERC20Decimals } from "./ERC20";
 
 /**
@@ -21,7 +21,7 @@ export async function getAsset(
   chainId: number,
   blockNumber: number,
   context: any
-): Promise<Asset_t> {
+): Promise<Asset> {
   // Use provided assetId or address as ID
   const finalAssetId = assetId !== null ? assetId : address;
   // Prefix with chainId for multichain support
