@@ -28,7 +28,6 @@ export const getPoolLastPrices = createEffect(
     input: {
       poolAddress: S.string,
       poolType: S.string,
-      chainId: S.number,
       blockNumber: S.number,
     },
     output: S.schema({

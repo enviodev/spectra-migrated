@@ -20,7 +20,6 @@ export const getPoolFee = createEffect(
     name: "getPoolFee",
     input: {
       poolAddress: S.string,
-      chainId: S.number,
       blockNumber: S.number,
     },
     output: S.nullable(S.string),

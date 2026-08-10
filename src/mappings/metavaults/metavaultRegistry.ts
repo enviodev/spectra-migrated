@@ -62,7 +62,6 @@ indexer.onEvent(
 
   const remoteMetavault = {
     id: remoteMetavaultId,
-    chainId: chainIdNum,
     remoteMetavaultAddress: String(event.params.remoteMetavaultAddress),
     metavault_id: metavaultId, // This links RemoteMetavault to Metavault, auto-populating metavault.chains
   };

@@ -12,7 +12,6 @@ import { getERC20Decimals } from "./ERC20";
 export async function getIBTAsset(
   ibtAddress: string,
   timestamp: bigint,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<Asset> {
@@ -39,7 +38,6 @@ export async function getIBTAsset(
 export async function updateIBTRates(
   ibtAddress: string,
   timestamp: bigint,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<void> {

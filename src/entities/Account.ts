@@ -9,7 +9,6 @@ import { Account } from "envio";
 export async function getAccount(
   accountAddress: string,
   timestamp: bigint,
-  chainId: number,
   context: any
 ): Promise<Account> {
 

@@ -11,7 +11,6 @@ import { getERC20Decimals } from "./ERC20";
  */
 export async function getIBTRate(
   address: string,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<bigint> {
@@ -21,7 +20,6 @@ export async function getIBTRate(
   const result = await context.effect(getIBTRateEffect, {
     ibtAddress: address,
     decimals: decimals,
-    chainId: chainId,
     blockNumber: blockNumber,
   });
 

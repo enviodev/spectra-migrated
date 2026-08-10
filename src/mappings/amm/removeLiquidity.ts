@@ -55,7 +55,6 @@ export async function removeLiquidity(
   const lpTokenAddressResult = await context.effect(getPoolLPToken, {
     poolAddress: event.srcAddress,
     poolType: pool.poolType,
-    chainId: event.chainId,
     blockNumber: Number(event.block.number),
   });
 

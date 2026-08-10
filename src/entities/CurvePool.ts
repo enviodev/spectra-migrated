@@ -11,14 +11,12 @@ import { getPoolVirtualPrice as getPoolVirtualPriceEffect } from "../effects/get
 export async function getPoolLastPrices(
   poolAddress: string,
   poolType: string,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<bigint> {
   const result = await context.effect(getPoolLastPricesEffect, {
     poolAddress: poolAddress,
     poolType: poolType,
-    chainId: chainId,
     blockNumber: blockNumber,
   });
 
@@ -32,13 +30,11 @@ export async function getPoolLastPrices(
  */
 export async function getPoolVirtualPrice(
   poolAddress: string,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<bigint> {
   const result = await context.effect(getPoolVirtualPriceEffect, {
     poolAddress: poolAddress,
-    chainId: chainId,
     blockNumber: blockNumber,
   });
 

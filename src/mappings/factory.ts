@@ -62,7 +62,6 @@ indexer.onEvent(
   // Fetch PrincipalToken data via RPC call using Effect API
   const ptDataResult = await context.effect(getPrincipalTokenData, {
     ptAddress: ptAddress,
-    chainId: event.chainId,
     blockNumber: event.block.number,
   });
 
@@ -158,7 +157,6 @@ indexer.onEvent(
   // Create Future entity
   const future = {
     id: futureId,
-    chainId: event.chainId,
     address: ptAddress,
     createdAtTimestamp: eventTimestamp,
     createdAtBlock: BigInt(event.block.number),
@@ -190,7 +188,6 @@ indexer.onEvent(
   // Determine pool type via RPC call
   const poolTypeResult = await context.effect(getPoolType, {
     poolAddress: poolAddress,
-    chainId: event.chainId,
     blockNumber: Number(event.block.number),
   });
 
@@ -200,7 +197,6 @@ indexer.onEvent(
   const lpAddressResult = await context.effect(getPoolLPToken, {
     poolAddress: poolAddress,
     poolType: poolType,
-    chainId: event.chainId,
     blockNumber: Number(event.block.number),
   });
 
@@ -280,7 +276,6 @@ indexer.onEvent(
     // Fetch curveFactory via RPC call using Effect API (matches subgraph: getCurveFactory)
     const curveFactory = await context.effect(getCurveFactory, {
       factoryAddress: event.srcAddress,
-      chainId: event.chainId,
       blockNumber: event.block.number,
     }) || ZERO_ADDRESS;
 
@@ -489,7 +484,6 @@ indexer.onEvent(
   // Fetch PrincipalToken data to get YT address
   const ptDataResult = await context.effect(getPrincipalTokenData, {
     ptAddress: event.srcAddress,
-    chainId: event.chainId,
     blockNumber: event.block.number,
   });
 
@@ -637,7 +631,6 @@ indexer.onEvent(
   // Fetch PrincipalToken data to get IBT and YT addresses
   const ptDataResult = await context.effect(getPrincipalTokenData, {
     ptAddress: event.srcAddress,
-    chainId: event.chainId,
     blockNumber: event.block.number,
   });
 

@@ -35,7 +35,6 @@ indexer.onEvent(
     // Fetch feeRate via RPC call using Effect API
     const feeRateResult = await context.effect(getPoolFee, {
       poolAddress: event.srcAddress,
-      chainId: event.chainId,
       blockNumber: event.block.number,
     });
 

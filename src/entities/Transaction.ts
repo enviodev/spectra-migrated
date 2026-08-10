@@ -35,7 +35,6 @@ interface CreateTransactionParams {
  */
 export async function createTransaction(
   params: CreateTransactionParams,
-  chainId: number,
   context: any
 ): Promise<Transaction> {
   // Prefix with chainId for multichain support

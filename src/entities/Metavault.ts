@@ -27,7 +27,6 @@ export async function getMetavault(
   metavaultAddress: string,
   timestamp: bigint,
   blockNumber: number,
-  chainId: number,
   context: any
 ): Promise<Metavault> {
   // Prefix with chainId for multichain support
@@ -72,14 +71,12 @@ export async function getMetavault(
  */
 export async function inferInfravaultType(
   infravaultAddress: string,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<string> {
   // Check if it's an AmphorAsyncVault via effect
   const checkResult = await context.effect(checkAmphorAsyncVault, {
     infravaultAddress: infravaultAddress,
-    chainId: chainId,
     blockNumber: blockNumber,
   });
   
@@ -98,7 +95,6 @@ export async function inferInfravaultType(
 export async function createInfravault(
   infravaultAddress: string,
   metavaultAddress: string,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<Infravault> {
@@ -137,13 +133,11 @@ export async function getMetavaultFromWrapper(
   metavaultWrapperAddress: string,
   timestamp: bigint,
   blockNumber: number,
-  chainId: number,
   context: any
 ): Promise<Metavault> {
   // Fetch wrapper data via effect
   const wrapperDataResult = await context.effect(getMetavaultWrapperData, {
     wrapperAddress: metavaultWrapperAddress,
-    chainId: chainId,
     blockNumber: blockNumber,
   });
   
@@ -235,14 +229,12 @@ export async function createMetavaultEpoch(
   assets: bigint,
   timestamp: bigint,
   blockNumber: bigint,
-  chainId: number,
   context: any
 ): Promise<MetavaultEpoch> {
   // Always fetch owner from wrapper contract via RPC (matches original subgraph)
   // Original: let safeAddress = MetavaultWrapper.bind(metavaultWrapperAddress).try_owner().value
   const wrapperDataResult = await context.effect(getMetavaultWrapperData, {
     wrapperAddress: metavaultWrapperAddress,
-    chainId: chainId,
     blockNumber: blockNumber,
   });
   

@@ -20,7 +20,6 @@ export const getERC20TotalSupply = createEffect(
     name: "getERC20TotalSupply",
     input: {
       tokenAddress: S.string,
-      chainId: S.number,
       blockNumber: S.number,
     },
     output: S.schema({

@@ -16,7 +16,6 @@ export async function createFeeClaim(
   amount: bigint,
   ibtAmount: bigint,
   ptAmount: bigint,
-  chainId: number,
   context: any
 ): Promise<FeeClaim> {
   // Generate fee claim ID
@@ -51,14 +50,12 @@ export async function createFeeClaim(
 export async function getPoolAdminBalances(
   poolAddress: string,
   poolType: string,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<[bigint, bigint]> {
   const result = await context.effect(getPoolAdminBalancesEffect, {
     poolAddress: poolAddress,
     poolType: poolType,
-    chainId: chainId,
     blockNumber: blockNumber,
   });
   

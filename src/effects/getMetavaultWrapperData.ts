@@ -24,7 +24,6 @@ export const getMetavaultWrapperData = createEffect(
     name: "getMetavaultWrapperData",
     input: {
       wrapperAddress: S.string,
-      chainId: S.number,
       blockNumber: S.number,
     },
     output: S.schema({

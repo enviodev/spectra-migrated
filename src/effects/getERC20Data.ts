@@ -21,7 +21,6 @@ export const getERC20Data = createEffect(
     name: "getERC20Data",
     input: {
       tokenAddress: S.string,
-      chainId: S.number,
       blockNumber: S.number,
     },
     output: S.schema({

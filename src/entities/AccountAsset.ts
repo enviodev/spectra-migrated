@@ -22,7 +22,6 @@ export async function getAccountAsset(
   timestamp: bigint,
   assetType: string,
   assetId: string | null = null,
-  chainId: number,
   context: any
 ): Promise<AccountAsset> {
   // Generate account asset ID
@@ -70,7 +69,6 @@ export async function updateAccountMetavaultRequest(
   requestType: string, // AssetType.MV_REQUEST_DEPOSIT or MV_REQUEST_REDEEM
   operation: string, // "add", "sub", or "set"
   amount: bigint,
-  chainId: number,
   context: any
 ): Promise<AccountAsset> {
   // Get asset ID with suffix for metavault requests
@@ -129,7 +127,6 @@ export async function updateAccountAssetBalance(
   assetAddress: string,
   timestamp: bigint,
   assetType: string,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<AccountAsset> {
@@ -153,7 +150,6 @@ export async function updateAccountAssetBalance(
       {
         tokenAddress: assetAddress,
         accountAddress: accountAddress,
-        chainId: chainId,
         blockNumber: blockNumber,
       }
     );
@@ -163,7 +159,6 @@ export async function updateAccountAssetBalance(
       {
         tokenAddress: assetAddress,
         accountAddress: accountAddress,
-        chainId: chainId,
         blockNumber: blockNumber,
       }
     );
@@ -190,7 +185,6 @@ export async function updateAccountAssetYTBalance(
   timestamp: bigint,
   assetType: string,
   principalTokenAddress: string,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<AccountAsset> {
@@ -211,7 +205,6 @@ export async function updateAccountAssetYTBalance(
     {
       tokenAddress: ytAddress,
       accountAddress: accountAddress,
-      chainId: chainId,
       blockNumber: blockNumber,
     }
   );

@@ -8,7 +8,6 @@ import { getPrincipalTokenData } from "../effects/getPrincipalTokenData";
  */
 async function getPTData(
   address: string,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<{
@@ -24,7 +23,6 @@ async function getPTData(
 }> {
   const ptDataResult = await context.effect(getPrincipalTokenData, {
     ptAddress: address,
-    chainId: chainId,
     blockNumber: blockNumber,
   });
 
@@ -47,7 +45,6 @@ async function getPTData(
  */
 export async function getExpirationTimestamp(
   address: string,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<bigint> {
@@ -61,7 +58,6 @@ export async function getExpirationTimestamp(
  */
 export async function getName(
   address: string,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<string> {
@@ -75,7 +71,6 @@ export async function getName(
  */
 export async function getSymbol(
   address: string,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<string> {
@@ -89,7 +84,6 @@ export async function getSymbol(
  */
 export async function getUnderlying(
   address: string,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<string> {
@@ -103,7 +97,6 @@ export async function getUnderlying(
  */
 export async function getIBT(
   address: string,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<string> {
@@ -117,7 +110,6 @@ export async function getIBT(
  */
 export async function getYT(
   address: string,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<string> {
@@ -131,7 +123,6 @@ export async function getYT(
  */
 export async function getTotalAssets(
   address: string,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<bigint> {
@@ -145,7 +136,6 @@ export async function getTotalAssets(
  */
 export async function getPTRate(
   address: string,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<bigint> {

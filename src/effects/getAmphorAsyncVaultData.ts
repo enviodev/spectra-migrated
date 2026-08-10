@@ -20,7 +20,6 @@ export const getAmphorAsyncVaultData = createEffect(
     name: "getAmphorAsyncVaultData",
     input: {
       vaultAddress: S.string,
-      chainId: S.number,
       blockNumber: S.number,
     },
     output: S.schema({

@@ -50,7 +50,6 @@ export async function updatePoolAdminBalances(
   pool: Pool,
   poolAddress: string,
   poolType: string,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<[bigint, bigint, bigint, bigint]> {
@@ -139,7 +138,6 @@ export async function createPool(
   transactionHash: string,
   logIndex: string,
   timestamp: bigint,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<Pool> {
@@ -202,17 +200,14 @@ export async function createPool(
   const [feeResult, adminFeeResult, futureAdminFeeResult] = await Promise.all([
     context.effect(getPoolFee, {
       poolAddress: poolAddress,
-      chainId: chainId,
       blockNumber: blockNumber,
     }),
     context.effect(getPoolAdminFee, {
       poolAddress: poolAddress,
-      chainId: chainId,
       blockNumber: blockNumber,
     }),
     context.effect(getPoolFutureAdminFee, {
       poolAddress: poolAddress,
-      chainId: chainId,
       blockNumber: blockNumber,
     }),
   ]);

@@ -11,7 +11,6 @@ export async function getSpectraWrapper(
   wrapperAddress: string,
   timestamp: bigint,
   blockNumber: number,
-  chainId: number,
   context: any
 ): Promise<SpectraWrapper> {
   // Prefix with chainId for multichain support
@@ -23,7 +22,6 @@ export async function getSpectraWrapper(
     // Fetch wrapper data via effect
     const wrapperDataResult = await context.effect(getSpectraWrapperData, {
       wrapperAddress: wrapperAddress,
-      chainId: chainId,
       blockNumber: blockNumber,
     });
 

@@ -20,7 +20,6 @@ export const getPoolFutureAdminFee = createEffect(
     name: "getPoolFutureAdminFee",
     input: {
       poolAddress: S.string,
-      chainId: S.number,
       blockNumber: S.number,
     },
     output: S.schema({

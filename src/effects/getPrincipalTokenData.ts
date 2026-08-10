@@ -28,7 +28,6 @@ export const getPrincipalTokenData = createEffect(
     name: "getPrincipalTokenData",
     input: {
       ptAddress: S.string,
-      chainId: S.number,
       blockNumber: S.number,
     },
     output: S.schema({

@@ -69,7 +69,6 @@ export async function updatePoolStats(
   valueUnderlying: bigint,
   feeUnderlying: bigint,
   feeRatio: bigint,
-  chainId: number,
   context: any
 ): Promise<PoolStats> {
   const statId = Math.floor(event.block.timestamp / span);

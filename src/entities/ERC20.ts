@@ -17,7 +17,6 @@ import { getERC20TotalSupply as getERC20TotalSupplyEffect } from "../effects/get
  */
 export async function getERC20Name(
   address: string,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<string> {
@@ -32,7 +31,6 @@ export async function getERC20Name(
   try {
     const erc20DataResult = await context.effect(getERC20Data, {
       tokenAddress: address,
-      chainId: chainId,
       blockNumber: blockNumber,
     });
 
@@ -62,7 +60,6 @@ export async function getERC20Name(
  */
 export async function getERC20Symbol(
   address: string,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<string> {
@@ -77,7 +74,6 @@ export async function getERC20Symbol(
   try {
     const erc20DataResult = await context.effect(getERC20Data, {
       tokenAddress: address,
-      chainId: chainId,
       blockNumber: blockNumber,
     });
 
@@ -107,7 +103,6 @@ export async function getERC20Symbol(
  */
 export async function getERC20Decimals(
   address: string,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<number> {
@@ -122,7 +117,6 @@ export async function getERC20Decimals(
   try {
     const erc20DataResult = await context.effect(getERC20Data, {
       tokenAddress: address,
-      chainId: chainId,
       blockNumber: blockNumber,
     });
 
@@ -146,13 +140,11 @@ export async function getERC20Decimals(
  */
 export async function getERC20TotalSupply(
   address: string,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<bigint> {
   const result = await context.effect(getERC20TotalSupplyEffect, {
     tokenAddress: address,
-    chainId: chainId,
     blockNumber: blockNumber,
   });
 

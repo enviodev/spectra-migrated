@@ -20,7 +20,6 @@ export const getCurveFactory = createEffect(
     name: "getCurveFactory",
     input: {
       factoryAddress: S.string,
-      chainId: S.number,
       blockNumber: S.number,
     },
     output: S.nullable(S.string),

@@ -22,7 +22,6 @@ export const getIBTRate = createEffect(
     input: {
       ibtAddress: S.string,
       decimals: S.number,
-      chainId: S.number,
       blockNumber: S.number,
     },
     output: S.schema({

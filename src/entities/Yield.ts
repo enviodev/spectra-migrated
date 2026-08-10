@@ -13,7 +13,6 @@ export async function getAccountClaimedYieldAsset(
   accountAddress: string,
   principalToken: string,
   timestamp: bigint,
-  chainId: number,
   context: any
 ): Promise<AccountAsset> {
   // TODO: Implement full logic with getClaimedYieldAsset, getIBT, getAsset
@@ -49,7 +48,6 @@ export async function updateClaimedYieldAccountAssetBalance(
   accountAddress: string,
   claimBalance: bigint,
   timestamp: bigint,
-  chainId: number,
   context: any
 ): Promise<AccountAsset> {
   const accountAsset = await getAccountClaimedYieldAsset(
@@ -80,7 +78,6 @@ export async function updateClaimedYieldAccountAssetBalance(
 export async function updateYieldForAll(
   principalTokenAddress: string,
   timestamp: bigint,
-  chainId: number,
   context: any
 ): Promise<void> {
   // Get Future entity

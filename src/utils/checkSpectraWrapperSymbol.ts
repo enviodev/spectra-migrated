@@ -16,7 +16,6 @@ const ERC20_SYMBOL_ABI = parseAbi(["function symbol() view returns (string)"]);
  */
 export async function isSpectraWrapper(
   address: string,
-  chainId: number
 ): Promise<boolean> {
   try {
     const rpcUrl = process.env[`ENVIO_RPC_URL_${chainId}`] || process.env.RPC_URL;

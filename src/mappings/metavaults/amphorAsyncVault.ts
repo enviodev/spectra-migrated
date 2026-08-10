@@ -27,7 +27,6 @@ indexer.onEvent(
   // Fetch AmphorAsyncVault data via RPC
   const vaultDataResult = await context.effect(getAmphorAsyncVaultData, {
     vaultAddress: event.srcAddress,
-    chainId: event.chainId,
     blockNumber: event.block.number,
   });
 

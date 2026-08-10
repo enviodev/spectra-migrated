@@ -21,7 +21,6 @@ export const getERC4626Balance = createEffect(
     input: {
       tokenAddress: S.string,
       accountAddress: S.string,
-      chainId: S.number,
       blockNumber: S.number,
     },
     output: S.schema({

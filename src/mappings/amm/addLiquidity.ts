@@ -126,7 +126,6 @@ async function addLiquidity(
   const lpTokenAddressResult = await context.effect(getPoolLPToken, {
     poolAddress: event.srcAddress,
     poolType: pool.poolType,
-    chainId: event.chainId,
     blockNumber: event.block.number,
   });
 
@@ -330,7 +329,6 @@ async function addLiquidity(
   if (poolIBTAssetAmount.amount === ZERO_BI && poolPTAssetAmount.amount === ZERO_BI) {
     const poolFeeResult = await context.effect(getPoolFee, {
       poolAddress: event.srcAddress,
-      chainId: event.chainId,
       blockNumber: event.block.number,
     });
     // getPoolFee returns a string, not an object

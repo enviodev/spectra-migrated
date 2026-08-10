@@ -19,7 +19,6 @@ export const getPoolType = createEffect(
     name: "getPoolType",
     input: {
       poolAddress: S.string,
-      chainId: S.number,
       blockNumber: S.number,
     },
     output: S.nullable(S.string),

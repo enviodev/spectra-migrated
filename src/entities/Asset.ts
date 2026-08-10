@@ -18,7 +18,6 @@ export async function getAsset(
   timestamp: bigint,
   assetType: string,
   assetId: string | null = null,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<Asset> {
@@ -42,7 +41,6 @@ export async function getAsset(
     // Create Asset entity
     asset = {
       id: assetIdWithChain,
-      chainId: chainId,
       address: address,
       createdAtTimestamp: timestamp,
       name: name,

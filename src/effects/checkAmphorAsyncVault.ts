@@ -21,7 +21,6 @@ export const checkAmphorAsyncVault = createEffect(
     name: "checkAmphorAsyncVault",
     input: {
       infravaultAddress: S.string,
-      chainId: S.number,
       blockNumber: S.number,
     },
     output: S.schema({

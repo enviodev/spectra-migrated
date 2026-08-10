@@ -11,7 +11,6 @@ import { getDayIdFromTimestamp, getPastDayId } from "../utils/dayId";
 export async function createFutureDailyStats(
   futureAddress: string,
   dayId: number,
-  chainId: number,
   context: any
 ): Promise<FutureDailyStats> {
   const futureDailyStatsId = `${chainId}-${generateFutureDailyStatsId(futureAddress, dayId.toString())}`;
@@ -46,7 +45,6 @@ export async function createFutureDailyStats(
 export async function updateFutureDailyStats(
   event: any,
   futureAddress: string,
-  chainId: number,
   context: any
 ): Promise<FutureDailyStats> {
   const dayId = getDayIdFromTimestamp(BigInt(event.block.timestamp));

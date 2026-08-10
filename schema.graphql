@@ -127,7 +127,6 @@ type Factory {
 "Asset entity to index all kind of details of an asset stored in the subgraph"
 type Asset {
   id: ID!
-  chainId: Int!
   address: String!
   createdAtTimestamp: BigInt!
   name: String!
@@ -212,7 +211,6 @@ type ChainlinkAggregatorProxy {
 "Future entity to index all the future's stats as well as its transactions, managers and other relations"
 type Future {
   id: ID!
-  chainId: Int!
   address: String!
   createdAtTimestamp: BigInt!
   createdAtBlock: BigInt!
@@ -632,7 +630,6 @@ type RoleLabel {
 
 type RemoteMetavault {
   id: ID!
-  chainId: Int!
   remoteMetavaultAddress: String!
   metavault: Metavault
 }

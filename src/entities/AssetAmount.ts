@@ -17,7 +17,6 @@ export async function getAssetAmount(
   logIndex: string,
   timestamp: bigint,
   blockNumber: number,
-  chainId: number,
   context: any
 ): Promise<AssetAmount> {
   // Generate AssetAmount ID

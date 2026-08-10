@@ -20,7 +20,6 @@ export const getPoolVirtualPrice = createEffect(
     name: "getPoolVirtualPrice",
     input: {
       poolAddress: S.string,
-      chainId: S.number,
       blockNumber: S.number,
     },
     output: S.schema({

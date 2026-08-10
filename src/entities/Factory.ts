@@ -11,7 +11,6 @@ export async function createFactory(
   registry: string,
   factoryAddress: string,
   timestamp: bigint,
-  chainId: number,
   blockNumber: number,
   context: any
 ): Promise<any> {
@@ -23,7 +22,6 @@ export async function createFactory(
     // Fetch curveFactory via RPC call using Effect API
     const curveFactory = await context.effect(getCurveFactory, {
       factoryAddress: factoryAddress,
-      chainId: chainId,
       blockNumber: blockNumber,
     }) || ZERO_ADDRESS;
 
