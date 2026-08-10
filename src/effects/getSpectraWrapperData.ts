@@ -19,6 +19,7 @@ const SPECTRA_WRAPPER_ABI = parseAbi([
  */
 export const getSpectraWrapperData = createEffect(
   {
+    rateLimit: false,
     name: "getSpectraWrapperData",
     input: {
       wrapperAddress: S.string,

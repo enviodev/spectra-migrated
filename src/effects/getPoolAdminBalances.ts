@@ -17,6 +17,7 @@ const CURVE_POOL_SNG_ABI = parseAbi([
  */
 export const getPoolAdminBalances = createEffect(
   {
+    rateLimit: false,
     name: "getPoolAdminBalances",
     input: {
       poolAddress: S.string,

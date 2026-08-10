@@ -17,6 +17,7 @@ const ERC4626_ABI = parseAbi([
  */
 export const getIBTRate = createEffect(
   {
+    rateLimit: false,
     name: "getIBTRate",
     input: {
       ibtAddress: S.string,

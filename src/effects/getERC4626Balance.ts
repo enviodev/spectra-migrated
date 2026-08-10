@@ -16,6 +16,7 @@ const ERC4626_ABI = parseAbi([
  */
 export const getERC4626Balance = createEffect(
   {
+    rateLimit: false,
     name: "getERC4626Balance",
     input: {
       tokenAddress: S.string,

@@ -17,6 +17,7 @@ const ERC20_ABI = parseAbi([
  */
 export const getERC20Data = createEffect(
   {
+    rateLimit: false,
     name: "getERC20Data",
     input: {
       tokenAddress: S.string,

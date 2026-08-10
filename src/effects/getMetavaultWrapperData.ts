@@ -20,6 +20,7 @@ const METAVAULT_WRAPPER_ABI = parseAbi([
  */
 export const getMetavaultWrapperData = createEffect(
   {
+    rateLimit: false,
     name: "getMetavaultWrapperData",
     input: {
       wrapperAddress: S.string,

@@ -16,6 +16,7 @@ const AMPHOR_ASYNC_VAULT_ABI = parseAbi([
  */
 export const getAmphorAsyncVaultData = createEffect(
   {
+    rateLimit: false,
     name: "getAmphorAsyncVaultData",
     input: {
       vaultAddress: S.string,

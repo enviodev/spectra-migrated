@@ -23,7 +23,7 @@
     "typescript": "5.2.2"
   },
   "dependencies": {
-    "envio": "3.2.1",
+    "envio": "3.6.1",
     "viem": "^2.38.6"
   },
   "engines": {

@@ -16,6 +16,7 @@ const CURVE_POOL_ABI = parseAbi([
  */
 export const getPoolFee = createEffect(
   {
+    rateLimit: false,
     name: "getPoolFee",
     input: {
       poolAddress: S.string,

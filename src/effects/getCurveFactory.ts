@@ -16,6 +16,7 @@ const FACTORY_ABI = parseAbi([
  */
 export const getCurveFactory = createEffect(
   {
+    rateLimit: false,
     name: "getCurveFactory",
     input: {
       factoryAddress: S.string,

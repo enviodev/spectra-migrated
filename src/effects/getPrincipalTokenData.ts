@@ -24,6 +24,7 @@ const PRINCIPAL_TOKEN_ABI = parseAbi([
  */
 export const getPrincipalTokenData = createEffect(
   {
+    rateLimit: false,
     name: "getPrincipalTokenData",
     input: {
       ptAddress: S.string,

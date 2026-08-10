@@ -23,6 +23,7 @@ const CURVE_POOL_SNG_ABI = parseAbi([
  */
 export const getPoolLastPrices = createEffect(
   {
+    rateLimit: false,
     name: "getPoolLastPrices",
     input: {
       poolAddress: S.string,

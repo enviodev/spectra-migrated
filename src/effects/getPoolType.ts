@@ -15,6 +15,7 @@ const CURVE_POOL_ABI = parseAbi(["function ma_half_time() view returns (uint256)
  */
 export const getPoolType = createEffect(
   {
+    rateLimit: false,
     name: "getPoolType",
     input: {
       poolAddress: S.string,

@@ -14,6 +14,7 @@ const CURVE_POOL_ABI = parseAbi(["function token() view returns (address)"]);
  */
 export const getPoolLPToken = createEffect(
   {
+    rateLimit: false,
     name: "getPoolLPToken",
     input: {
       poolAddress: S.string,
